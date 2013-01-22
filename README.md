@@ -103,6 +103,16 @@ Example:
 
 * Always use a $ variable for colors to allow for reuse and consistentcy
 
+### Pixels vs. Ems
+* Use 'px' for 'font-size'.
+* Use unit-less 'line-height' because it does not inherit a percentage value of
+  its parent element - it's based on a mulitiplier of the 'font-size'.
+* For all other measures try to use 'em''s, to best create a responsive system
+  that scales to it's screen size.
+
+
+
+
 # Archetecture
 
 ## Object Oriented CSS (OOCSS)
@@ -111,7 +121,7 @@ Example:
 >can then be reused throughout a site." - [Nichole
 >Sullivan](https://github.com/stubbornella/oocss/wiki)
 
-#### Two Main Principles of OOCSS
+### Two Main Principles of OOCSS
 * Seperation of Structure from Skin - distinquish between structure styles
   (boxy-model) and skin styles (color, font, gradients) and abstract these
   styles inot class-based modules to allow re-use[6].
@@ -119,7 +129,7 @@ Example:
   relationship within style declarations so that a module's style is not
   dependant upon its container which allows the module to be reused. 
 
-#### Additional Object Oriented Principles
+### Additional Object Oriented Principles
 * Single Responsibility Principle - an object should have only a single
   responsibility, and that responsibility should be entirely encapsulated by
   the object[7][8].
@@ -144,6 +154,10 @@ Example:
   in the actual code, but rather modularity in the actual design[10].
 * DRY - (don't repeat yourself)
 
+
+## Naming Conventions and Structure
+An effective naming convention explicitly communicates the context and function of the
+entity being named. BEM[2] and BEM interpratations[4] are excellent examples.
 
 ### Module
 
@@ -178,7 +192,7 @@ relocated on the page without breaking[1].
 Example:
     .m-current-events {...}
 
-#### Element
+### Element
 
 Module Element
 : a component of a module that performs a specific function
@@ -197,7 +211,7 @@ Example:
     .m-current-events--header {...}
     .m-current-events--body {...}
 
-#### Submodule
+### Submodule
 
 Submodule
 : a variant of a module that inherits all the styles of its parent, but differs
@@ -221,7 +235,7 @@ Example:
     .m-current-events__featured-story--header {...}
     .m-current-events__featured-story--body {...}
 
-#### Modifier
+### Modifier
 
 Modifier
 : a trivial variant of a module or submodule applied as an additional class on
@@ -253,7 +267,7 @@ Can be added to an element with the class
     .btn
 Which triggers both a change in style and a change in behavior.
 
-#### State
+### State
 
 State
 : a state is a type of module modifier that is triggered by an action
@@ -261,7 +275,7 @@ State
 * State based styles are indicated with the 'is-' prefix. These style
   declarations can be shared by C]S and JS files[1]
 
-#### Components
+### Components
 
 Module Component
 : a general term that refers to a module's children - can be an element,
@@ -283,7 +297,7 @@ rather than attaching a state-suffix to an existing module class.
 **this needs refining...integration of archetype methodology...archetype is
 more similar to the "single-class" pattern[3].**
 
-# Layout
+### Layout
 * All modules are fluid by their nature. They should never be given explicit
   width or height restraints.
 * Heights should only be explicitly defined for elements which had dimensions
@@ -301,7 +315,7 @@ more similar to the "single-class" pattern[3].**
   header, or footer. Major page components are refered to as Layout styles
 
 
-## Icons
+### Icons
 
 * Icons do not belong in modules - By styling icons independently of the module
   where it was first used you are making an icon that can be used in future
@@ -323,11 +337,26 @@ more similar to the "single-class" pattern[3].**
   a good approach.  Source: [SMACSS on
   Icons](http://smacss.com/book/icon-module) )
 
+## Selector Construct and Specificity
+ Minimize "depth of applicability"[1] in order to avoid over-reliance on
+ a predefined HTML structure and hindering modularity and flexibility of
+ modules. This also helps to prevent introducing potential specificity issues
+ which are notoriously difficult to debug. When selectors are kept succinct, it
+ also becomes easier to convert modules into templates for dynamic content.
 
-## Naming Conventions
-An effective naming convention explicitly communicates the context and function of the
-entity being named. BEM[2] and BEM interpratations[4] are excellent examples.
+Elements that occure **exactly once** may use ID's. In all other cases use
+a class name.  When in doubt use a class name.  [sin and
+syntax](http://kwaledesign.com/articles/sin-and-syntax). 
+* Good candidates for ID's: header, footer, modal popups
+* Bad candidates for ID's: navigation, section and article tag, node view The
+  goal is to keep specificity as low as possible. Any selectors deeper than
+  4 levels should be re-evaluated.
 
+* Never qualify a selector with an element selector e.g. `ul.nav`, as this
+  decreases selector performance, creates a context dependency, and increases
+  the selector's specificity. These are all things to be avoided.[1][12]
+
+### Naming Pattern
 * Classes used as JavaScript hooks are indicated with the 'js-' prefix.
   A 'js-' prefixed class should never be referenced in a stylesheet. They used
   exclusively from JS files[3]
@@ -338,9 +367,6 @@ entity being named. BEM[2] and BEM interpratations[4] are excellent examples.
   javascript.  CSS3 transitions can then handle any animations and if CSS3
   transitions are not supported the state will still be updated.  Source:
   [SMACSS on state](http://smacss.com/book/type-state)
-
-
-### Naming Pattern
 
 **Pattern**
     prefix-module-name
@@ -367,55 +393,7 @@ Examples:
 
 theme or template prefix??
 
-
-## Selector Construct and Specificity
- Minimize "depth of applicability"[1] in order to avoid over-reliance on
- a predefined HTML structure and hindering modularity and flexibility of
- modules. This also helps to prevent introducing potential specificity issues
- which are notoriously difficult to debug. When selectors are kept succinct, it
- also becomes easier to convert modules into templates for dynamic content.
-
-Elements that occure **exactly once** may use ID's. In all other cases use
-a class name.  When in doubt use a class name.  [sin and
-syntax](http://kwaledesign.com/articles/sin-and-syntax). 
-* Good candidates for ID's: header, footer, modal popups
-* Bad candidates for ID's: navigation, section and article tag, node view
-The goal is to keep specificity as low as possible. Any selectors deeper than
-4 levels should be re-evaluated.
-
-* Never qualify a selector with an element selector e.g. `ul.nav`, as this
-  decreases selector performance, creates a context dependency, and increases
-  the selector's specificity. These are all things to be avoided.[1][12]
-
-#### Specificity Guidlines
-* If using an ID selector make sure that you never have more than one per rule
-  declaration. A rule like: `#header .search #advanced-search {...}` is
-  considered harmful[5].
-* Always namespace state class names e.g. `.disabled`, `.mousedown`, `.hover`,
-  `.selected`, and `.collapsed`. ex: `.button.is-disabled`, never explicitly
-  style `.is-disabled`.
-
-### Minimise the use of element selectors 
-Selectors that contain elements tightly coupled the CSS to specific markup. It
-is not a safe assumption that the semantics of the content will never change so
-authors should prefer classes which exist independent of markup and create more
-flexible CSS.
-Source: [SMACSS on modules](http://smacss.com/book/type-module)
-### Only State classes may use !important 
-!important should be avoided as much as possibleas such state classes are the
-only acceptable use of important.  Even so !important should not be the go to
-solution as its akin to using a grenade when careful diplomacy would suffice.
-Source: [SMACSS on state](http://smacss.com/book/type-state)
-### Do not use location based selectors
-A location based selector is a selector that changes a modules appearance based
-on its location (content areaside barheader etc).  Where a module has different
-appearances it is better to use a module subclass.  If the appearance and/or
-content is very different it would be better to use a different module
-Source: [OOCSSslide
-20](http://www.slideshare.net/stubbornella/object-oriented-css)
-
-
-### Class Naming and Semantics
+### CSS Class Semantics
 Class names should remain content-independant[3]. By avoiding tightly coupled
 class names and content semantics, code is more easily reused and modularized
 to allow for increased scalability of your archetecture.  Because the most
@@ -440,51 +418,35 @@ semantic value from its markup (HTML tags and ARIA attributes).
 The goal, of course is to maximize modularity of code, creating scalable CSS
 archetyecture.
 
+#### Specificity Guidlines
+* If using an ID selector make sure that you never have more than one per rule
+  declaration. A rule like: `#header .search #advanced-search {...}` is
+  considered harmful[5].
+* Always namespace state class names e.g. `.disabled`, `.mousedown`, `.hover`,
+  `.selected`, and `.collapsed`. ex: `.button.is-disabled`, never explicitly
+  style `.is-disabled`.
 
+* Minimise the use of element selectors - Selectors that contain elements
+  tightly coupled the CSS to specific markup. It is not a safe assumption that
+  the semantics of the content will never change so authors should prefer
+  classes which exist independent of markup and create more flexible CSS.
+  Source: [SMACSS on modules](http://smacss.com/book/type-module)
+* Only State classes may use !important - !important should be avoided as much
+  as possibleas such state classes are the only acceptable use of important.
+  Even so !important should not be the go to solution as its akin to using
+  a grenade when careful diplomacy would suffice.  Source: [SMACSS on
+  state](http://smacss.com/book/type-state)
+* Do not use location based selectors - A location based selector is a selector
+  that changes a modules appearance based on its location (content areaside
+  barheader etc).  Where a module has different appearances it is better to use
+  a module subclass.  If the appearance and/or content is very different it
+  would be better to use a different module Source: [OOCSSslide
+  20](http://www.slideshare.net/stubbornella/object-oriented-css)
 
 
 ### Declaration Order
-* The only _correct_ way of ordering properties is a consistent way[1].
-* Seperate property declarations into **object**, **structure**, and **skin**
-mixins and then include them within the components base mixin.
-
-Example:
-```css
-.block-name-object {
-  /* oject styles are those that don't change */    
-}
-
-.block-name-structure {
-  /* structure styles are anything related to the box-model */  
-}
-
-@mixin block-name-skin {
-  /* skin styles are anything related to visual look and feel */  
-}
-
-@mixin block-name {
-  @include block-name-object;
-  @include block-name-structure;
-  @include block-name-skin;
-}
-
-```
-This allows for us to reuse our objects 
-
-Example:
-```css
-@mixin block-name-modifier-skin {
-  /* skin styles are anything related to visual look and feel */  
-}
-
-@mixin block-name-modifier {
-  @include block-name-object;
-  @include block-name-structure;
-  @include block-name-skin;
-}
-```
-
-silent selectors!!!!!!!!
+* CSS rulesets should be grouped by function - positioning rules, box-model
+  rules, skin rules. 
 
 
 #### Exceptions and slight deviations
@@ -627,61 +589,32 @@ An example of various conventions.
 }
 ```
 
-### Pixels vs. Ems
-* Use 'px' for 'font-size'.
-* Use unit-less 'line-height' because it does not inherit a percentage value of
-  its parent element - it's based on a mulitiplier of the 'font-size'.
-* For all other measures try to use 'em''s, to best create a responsive system
-  that scales to it's screen size.
-
-### Performance: 
-The actual file size consequences of liberal class use and preprocessing CSS
-with Sass are inconsequential after HTTP compression and gzip.  The conveniance
-benifits during development, and continual maintenance are worth the slightly
-larger file size. Furthermore, far greater performance benifits can be gained
-by focussing on responsive image strategy and image compression.[3][1]
-### Minimise HTTP requests
-HTTP Requests are expensive and slow the rendering of a pageso minimise them.
-Ideally a HTML page should contain just one CSS file with extra CSS being
-loaded as the page changes.
-### Always Minimise CSS
-Minifying code can save up to 60% on a files size.  Use a tool like
-[CodeKit](http://incident57.com/codekit/) to manage this and its easy-peasy.
-Source: [Google Page Speed on Minifying
-CSS](https://developers.google.com/speed/docs/best-practices/payload#MinifyCSS)
-
-BEM looks a little uglierand is a lot more verbosebut it grants us a lot of
-power in that we can glean the functions and relationships of elements from
-their classes alone. AlsoBEM syntax will typically compress (gzip) very well as
-compression favours/works well with repetition.
-
 ## Cross Browser
-
-### Use browser prefixes correctly & Painlessly
-When using prefixed properties ensure that MicrosoftOperaWebkit and Mozilla
-prefixes are supported and that the non prefixed version is too.  Make this
-less painful by abstracting it away into a preprocessor mixin.
-### Use Conditional classes for Internet Explorer
-Aim to avoid separate styles for internet explorerbut where unavoidable do not
-use conditional stylesheets or CSS hacks to target specific versions of IE.
-Instead use conditional classes as explained by Paul Irish.
-Source: [Conditional stylesheets vs CSS
-hacks…](http://paulirish.com/2008/conditional-stylesheets-vs-css-hacks-answer-neither/)
-### Group IE Conditional styling with the code they alter
-Aim to avoid separate styles for internet explorerbut where unavoidable place
-the "fixes" next to the style it effects.  Not doing so makes it easy to miss
-when updating to changing the original styles
-### Normalise Don't Reset
-A global reset is a convenient way of ensuring consistent styling cross browser
-but it is often overkill and it makes CSS harder to debug in developer tools.
-Source: [Normalise.css](http://necolas.github.com/normalize.css/)
-### Don't be over-zealous when normalising
-When normalising it is important to not add styles to elements that then need
-to be overridden in future modules.  Tables and form elements are great
-examples of this.
-Source: [SMACSS on drop the base](http://smacss.com/book/drop-the-base)
+* Use browser prefixes correctly & Painlessly - When using prefixed properties
+  ensure that MicrosoftOperaWebkit and Mozilla prefixes are supported and that
+  the non prefixed version is too.  Make this less painful by abstracting it
+  away into a preprocessor mixin.
+* Use Conditional classes for Internet Explorer - Aim to avoid separate styles
+  for internet explorerbut where unavoidable do not use conditional stylesheets
+  or CSS hacks to target specific versions of IE.  Instead use conditional
+  classes as explained by Paul Irish.  
+  Source: [Conditional stylesheets vs CSS
+    hacks…](http://paulirish.com/2008/conditional-stylesheets-vs-css-hacks-answer-neither/)
+* Group IE Conditional styling with the code they alter - Aim to avoid separate
+  styles for internet explorerbut where unavoidable place the "fixes" next to
+  the style it effects.  Not doing so makes it easy to miss when updating to
+  changing the original styles
+* Normalise Don't Reset - A global reset is a convenient way of ensuring
+  consistent styling cross browser but it is often overkill and it makes CSS
+  harder to debug in developer tools.  Source:
+  [Normalise.css](http://necolas.github.com/normalize.css/)
+* Don't be over-zealous when normalising - When normalising it is important to
+  not add styles to elements that then need to be overridden in future modules.
+  Tables and form elements are great examples of this.  Source: [SMACSS on drop
+  the base](http://smacss.com/book/drop-the-base)
 
 ## Object-Extension Pointer [13] ???
+
 
 
 <a name="acknowledgements"></a>
@@ -705,6 +638,7 @@ Source: [SMACSS on drop the base](http://smacss.com/book/drop-the-base)
 12. [Quasi-qualified CSS
     Selectors](http://csswizardry.com/2012/07/quasi-qualified-css-selectors/)
 13. [CSSWizardry CSS Guidelines](https://github.com/csswizardry/CSS-Guidelines)
+
 
 <a name="license"></a>
 ### License:
