@@ -72,7 +72,7 @@ Example:
 /* Basic comment */
 `````
 
-* Object-Extension Pointer - when extending a module within a sepperate
+* Object-Extension Pointer - when extending a module within a separate
   stylesheet, leave a comment pointing to the original base object in order to
   establish a concrete link between the object and its extension.[13] 
 
@@ -124,7 +124,7 @@ Example:
     help define your proportional rhythms within your designs. The [Sassy
     Modular Scale](https://github.com/scottkellum/modular-scale) Ruby Gem makes
     working with Modular Scales easy. 
->"By using culturally relevanthistorically pleasing ratios to create modular
+>"By using culturally relevant historically pleasing ratios to create modular
 >scales and basing the measurements in our compositions on values from those
 >scaleswe can achieve a visual harmony not found in layouts that use
 >arbitraryconventionalor easily divisible numbers." - [Tim
@@ -188,8 +188,8 @@ Example:
 }
 ```
 
-<a name="Archetecture"></a>
-# Archetecture
+<a name="Architecture"></a>
+# Architecture
 
 <a name="Object Oriented CSS"></a>
 ## Object Oriented CSS (OOCSS)
