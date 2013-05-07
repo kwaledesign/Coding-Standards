@@ -71,7 +71,7 @@ Example:
 
 * Object-Extension Pointer - when extending a module within a separate
   stylesheet, leave a comment pointing to the original base object in order to
-  establish a concrete link between the object and its extension [13](#works-cited).
+  establish a concrete link between the object and its extension [[13]](#works-cited).
 
 Example:
 ```
@@ -123,8 +123,7 @@ Example:
 >"By using culturally relevant historically pleasing ratios to create modular
 >scales and basing the measurements in our compositions on values from those
 >scaleswe can achieve a visual harmony not found in layouts that use
->arbitraryconventionalor easily divisible numbers." - [Tim
->Brown](http://www.alistapart.com/articles/more-meaningful-typography/)
+>arbitraryconventionalor easily divisible numbers." - [Tim Brown](http://www.alistapart.com/articles/more-meaningful-typography/)
 
 ### Exceptions
 Large blocks of single declarations can use a slightly different single-line
@@ -203,7 +202,7 @@ Example:
 
 ## Working with Partials
 Partials in Sass begin with an underscore and are not compiled into final
-output unless they are included within a Sass file. Using Sass @import includes
+output unless they are included within a Sass file. Using Sass `@import` includes
 all partials after compiling and does not incure an additional http request as
 they do in regular CSS. For this reason, partials should be used for all base,
 component, and layout styles. These partials should then be included into
@@ -248,8 +247,7 @@ syntaxes if you ever need to do so [17](#works-cited).
   sometimes better to have multiple base modules oppossed to a single generic
   module with multiple sub-components. Never make sacrifices in functionality
   in the name of utility  Taken too far, code abstaction becomes
-  [7](#works-cited).
-  detrimental. When writing modular CSS, it's not about maintaining modularity
+  [7](#works-cited) detrimental. When writing modular CSS, it's not about maintaining modularity
   in the actual code, but rather modularity in the actual design
   [10](#works-cited).
 * **DRY** - (don't repeat yourself) - aimed at reducing repetition of information of all kinds. Every piece of knowledge must have a single, unambiguous, authoritative representation within the system.
