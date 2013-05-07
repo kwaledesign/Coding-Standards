@@ -6,19 +6,26 @@ best-practices and methodologies for building object-oriented CSS archetectures
 for Drupal builds that are highly scalable and easily maintained. 
 
 ## Table of Contents
+<ol>
+  <li>[General principles](#General Principles)</li>
+    <ul>
+      <li>[Whitespace](#Whitespac and Comments)</li>
+      <li>[Format](#Format)</li>
+      <li>[Exceptions](#Exceptions)</li>
+    </ul>
+  <li>[Archetecture](#Archetecture)</li>
+    <ul>  
+      <li>[Object Oriented CSS (OOCSS)](#Object Oriented CSS)</li>
+      <li>[Naming Conventions and Structure](#Naming Conventions and
+      Structure)</li>.
+      <li>[Selector Construct and Specificity](#Selector Construct and Specificity)</li>
+    </ul>
+  <li>[Progressive Enhancement](#Progressive Enhancement)</li>
+  <li>[Practical example](#Practical Example)</li>
+  <li>[Works Cited](#Works Cited)</li>
+  <li>[License](#license)</li>
+</ol>
 
-1. [General principles](#General Principles)
-  a. [Whitespace](#Whitespac and Comments) 
-  b. [Format](#Format)
-  c. [Exceptions](#Exceptions)
-2. [Archetecture](#Archetecture)
-  a. [Object Oriented CSS (OOCSS)](#Object Oriented CSS)
-  b. [Naming Conventions and Structure](#Naming Conventions and Structure)
-  c. [Selector Construct and Specificity](#Selector Construct and Specificity)
-3. [Progressive Enhancement](#Progressive Enhancement)
-4. [Practical example](#Practical Example)
-5. [Works Cited](#Works Cited)
-6. [License](#license)
 
 
 <a name="General Principles"></a>
