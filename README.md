@@ -211,6 +211,7 @@ a single core Sass file which provides the opportunity to easily turn styles on
 and off as needed. When including partials within your base stylesheet, leave
 off the file extension to allow for easier conversion between Sass and SCSS
 syntaxes if you ever need to do so.<a name="works-cited">[17]</a>
+[17](#works-cited)
 
 ## Object Oriented CSS (OOCSS)
 >"[A] CSS “object” is a repeating visual patternwhich can be abstracted into an
