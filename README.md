@@ -611,7 +611,7 @@ An example of various conventions.
    Archetecture](http://nicolasgallagher.com/about-html-semantics-front-end-architecture/)
 4. [Principles of Writing Consistent, Idiomatic
    CSS](https://github.com/necolas/idiomatic-css)
-5. [Github - CSS Styleguide](https://github.com/styleguide/css)a
+5. [Github - CSS Styleguide](https://github.com/styleguide/css)
 6. [Object Oriented CSS](https://github.com/stubbornella/oocss/wiki)
 7. [SOLID CSS](http://blog.millermedeiros.com/solid-css/)
 8. [The Single Responsibilty Principle Applied to
