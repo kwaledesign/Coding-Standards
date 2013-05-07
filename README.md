@@ -6,15 +6,15 @@ best-practices and methodologies for building object-oriented CSS archetectures
 for Drupal builds that are highly scalable and easily maintained. 
 
 ## Table of Contents
-
 1. [General principles](#General Principles)
-  a. [Whitespace](#Whitespac and Comments) 
-  b. [Format](#Format)
-  c. [Exceptions](#Exceptions)
+  * [Whitespace](#Whitespac and Comments)
+  * [Format](#Format)
+  * [Exceptions](#Exceptions)
 2. [Archetecture](#Archetecture)
-  a. [Object Oriented CSS (OOCSS)](#Object Oriented CSS)
-  b. [Naming Conventions and Structure](#Naming Conventions and Structure)
-  c. [Selector Construct and Specificity](#Selector Construct and Specificity)
+  * [Object Oriented CSS (OOCSS)](#Object Oriented CSS)
+  * [Naming Conventions and Structure](#Naming Conventions and
+      Structure)
+  * [Selector Construct and Specificity](#Selector Construct and Specificity)
 3. [Progressive Enhancement](#Progressive Enhancement)
 4. [Practical example](#Practical Example)
 5. [Works Cited](#Works Cited)
