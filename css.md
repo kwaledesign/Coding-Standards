@@ -175,32 +175,6 @@ syntaxes if you ever need to do so [[17]](README.md#works-cited).
    relationship within style declarations so that a module's style is not
    dependant upon its container which allows the module to be reused. 
 
-### Additional Object Oriented Principles
-* **Single Responsibility Principle** - an object should have only a single
-  responsibility, and that responsibility should be entirely encapsulated by
-  the object [[7]](README.md#works-cited) [8](README.md#works-cited).
-* **Open/Closed Principle** - entities (classes, modules, functions, etc.) are open
-  for extension, but closed for modification. Base rules may be extended, but
-  not directly modifiablei. This is why directly styling HTML tags is not
-  advisable - reduce the amount of gobal element styles in order to reduce the
-  chances of breaking the open/closed principle [[7]](README.md#works-cited)
-  [9](README.md#works-cited)
-* **Liskov Substitution Principle** - objects should be replaceable with instances
-  or their sub-components without breaking. Sub-components that `@extend`
-  a module should be interchangable with the base module itself. To keep true
-  to this principle, a module's subcomponent(s) should never affect layout. For
-  example: `.m-btn__primary--sign-up` should be interchangable with `.m-btn`
-   [[7]](README.md#works-cited).
-* **Entity Segregation Principle** - If ever it becomes awkward to interchange
-  a subcomponent with its base module, or if it becomes necessary to redefine
-  too many properties, move the subcomponent into its own custom module. It is
-  sometimes better to have multiple base modules oppossed to a single generic
-  module with multiple sub-components. Never make sacrifices in functionality
-  in the name of utility  Taken too far, code abstaction becomes
-  [[7]](README.md#works-cited) detrimental. When writing modular CSS, it's not about maintaining modularity
-  in the actual code, but rather modularity in the actual design
-  [[10]](README.md#works-cited).
-* **DRY** - (don't repeat yourself) - aimed at reducing repetition of information of all kinds. Every piece of knowledge must have a single, unambiguous, authoritative representation within the system.
 
 ## Naming Conventions and Structure
 An effective naming convention explicitly communicates the context and function of the

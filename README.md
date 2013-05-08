@@ -19,6 +19,69 @@ methodologies to write consistient, scalable, and modular front-ends.
 * Strictly adhear to consistent use of naming conventions to facilitate easy use of
   `grep` and more meaningful diffs.
 
+# Front-end Design Principles
+By articulating front-end design principles, the focus can be applied towards
+acheiving the project goals within the context of these guiding principles
+[22](#works-cited).
+
+## User Centric Goals
+* Performance
+* Accessibility
+* Device Agnostic
+
+### User Centric Objective
+* Use standards
+* Apply [progressive enhancement](/pe.md) by serving core site content and
+  functionality to all user agents and serving an enhanced experience built
+  ontop of the basic experience. Apply JavaScript to enhance the site with
+  a richer experience when it is supported and enabled, but do not requeir it in
+  order to complete any core task on the site.
+* Polyfill missing or broken features only as a last result.
+
+## Developer Centric Goals
+* Maintainability
+* Readability
+* Modularity
+
+### Development Objectives
+* Minimize coupling between components by following [Object Oriented
+  methodologies](#object-oriented-principles)
+* Design systems not pages by building a colletion of components and layouts, which
+  can be assembled together to create a specific experience. Avoid page-specific
+  styling in favor of component modifiers and class extensions.
+* Easily maintain the project's design system by following styleguide driven
+  development [20](#works-cited) that is made with HTML and CSS, uses production
+  CSS, and uses git for version control [21](#works-cited). A project's
+  styleguide should also be automaticly updated to reflect changes in the code
+  base and facilitate browser testing throughout the project development cycle.
+
+### Object Oriented Principles
+* **Single Responsibility Principle** - an object should have only a single
+  responsibility, and that responsibility should be entirely encapsulated by
+  the object [[7]](README.md#works-cited) [8](README.md#works-cited).
+* **Open/Closed Principle** - entities (classes, modules, functions, etc.) are open
+  for extension, but closed for modification. Base rules may be extended, but
+  not directly modifiablei. This is why directly styling HTML tags is not
+  advisable - reduce the amount of gobal element styles in order to reduce the
+  chances of breaking the open/closed principle [[7]](README.md#works-cited)
+  [9](README.md#works-cited)
+* **Liskov Substitution Principle** - objects should be replaceable with instances
+  or their sub-components without breaking. Sub-components that `@extend`
+  a module should be interchangable with the base module itself. To keep true
+  to this principle, a module's subcomponent(s) should never affect layout. For
+  example: `.m-btn__primary--sign-up` should be interchangable with `.m-btn`
+   [[7]](README.md#works-cited).
+* **Entity Segregation Principle** - If ever it becomes awkward to interchange
+  a subcomponent with its base module, or if it becomes necessary to redefine
+  too many properties, move the subcomponent into its own custom module. It is
+  sometimes better to have multiple base modules oppossed to a single generic
+  module with multiple sub-components. Never make sacrifices in functionality
+  in the name of utility  Taken too far, code abstaction becomes
+  [[7]](README.md#works-cited) detrimental. When writing modular CSS, it's not about maintaining modularity
+  in the actual code, but rather modularity in the actual design
+  [[10]](README.md#works-cited).
+* **DRY** - (don't repeat yourself) - aimed at reducing repetition of information of all kinds. Every piece of knowledge must have a single, unambiguous, authoritative representation within the system.
+
 ## Whitespace and Comments
 * Remain consistent with your use of whitespce for greater legability of your
   code. Never mix spaces and tabs to adjust indentation.
@@ -33,8 +96,7 @@ methodologies to write consistient, scalable, and modular front-ends.
 * Avoid adding end-of-line whitespace. Again, configure your IDE to make this
   easy.
 
-
-
+<hr>
 
 ## Works Cited:
 1. [SMACSS](http://smacss.com/)
@@ -64,6 +126,11 @@ methodologies to write consistient, scalable, and modular front-ends.
 17. [Sass-Guidelines](https://github.com/blackfalcon/SASS-Guidlines/blob/master/SASS-Guidlines.md)
 18. [Stylesheet organization with Sass](https://speakerdeck.com/chriseppstein/fowd-stylesheet-organization-with-sass)
 19. [Idiomatic HTML](https://github.com/necolas/idiomatic-html)
+20. [Style Guide Driven UI Design with Sass](https://speakerdeck.com/jina/style-guide-driven-ui-design-with-sass)
+21. [Style Guide Driven
+    Development](https://speakerdeck.com/hagenburger/style-guide-driven-development)
+22. [Front-End Design Principles](http://clearleft.com/thinks/front-enddesignprinciples/)
+
 
 ### License:
 
