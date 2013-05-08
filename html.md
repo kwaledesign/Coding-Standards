@@ -21,7 +21,9 @@ Coding Standards
 * Omit the `type` attributes from `link` stylesheet, `style` and `script` elements.
 * Always use closing tags
 * Use the HTML doctype to enforce standards mode in every browser with `<!doctype HTML>`
+
 Example:
+
 ```
 <!DOCTYPE html>
 <html>
