@@ -41,6 +41,34 @@ Coding Standards
   the base](http://smacss.com/book/drop-the-base)
 
 
+The abscence of media queries is the first media query.
+
+Scope images wihin media queries to avoid redundant downloads
+
+Display: none on parkent means no chldren get downloaded (hack)
+
+Match Media
+Conditional CSS
+Ajax Include
+
+Opt-in retina and hirez img assets (picturefill opt-in feature branch)
+forsight.js
+focalpoint.js (for art direction use-case)
+southstreet
+
+
+## Guidelines for Handling Media
+**The Golden Rule** - Which ever solution you implement to handle images and media within responsive builds, it WILL be depriciated so be sure that is easy to change.
+
+1. Use vector based images and icon fonts whenever possible and impliment fallbacks when appropriate
+2. Encourage content creators to upload highest quality source possible to facilitate appropriate adjustments server-side without significant degragation.
+3. Impliment automatic image resize and compresion to provide necessary image assets, i.e. [Drupal Image Cache Module](http://drupal.org/project/imagecache) or equivalent.
+4. Whenever possible allow for images to be resized to any size with URL paramiters, i.e. [CDN Connect](http://www.cdnconnect.com/).
+
+5. Responsive images markup funciton (b/c it will change!)
+6. Plan for the art direction use-case.
+
+[Mobile First Responsive Design - Jason Grisby](http://bdconf.com/video/view/)
 
 
 
