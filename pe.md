@@ -1,5 +1,16 @@
-Progressive Enhancement Guidelines
-==================================
+Coding Standards
+================
+
+* [General Guiding Principles](/README.md)
+* [HTML](/html.md)
+* [CSS](/css.md)
+* [Sass](/sass.md)
+* [Progressive](/pe.md)
+* [git](/git.md)
+
+<hr>
+
+# Progressive Enhancement Guidelines
 
 ## Progressive Enhancement
 * Develope for _Mobile First_ [[14]](#works-cited) as a baseline level of support for small screens and slow connections, emphasize content over navigation, and to maintain
