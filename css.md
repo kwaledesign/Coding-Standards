@@ -27,7 +27,7 @@ for Drupal builds that are highly scalable and easily maintained.
   * [Naming Conventions and Structure](#naming-conventions-and-structure)
   * [Selector Construct and Specificity](#selector-construct-and-specificity)
 4. [Practical example](#practical-example)
-5. [Works Cited](#works-cited)
+5. [Works Cited](README.md#works-cited)
 6. [License](#license)
 
 # General Principles
@@ -81,7 +81,7 @@ Example:
 
 * Object-Extension Pointer - when extending a module within a separate
   stylesheet, leave a comment pointing to the original base object in order to
-  establish a concrete link between the object and its extension [[13]](#works-cited).
+  establish a concrete link between the object and its extension [[13]](README.md#works-cited).
 
 Example:
 ```
@@ -124,7 +124,7 @@ Example:
   * Avoid absolute measurements.  For example, by using `.dropdown-nav li:hover
     { top: 37px; }` you are coding a single point of failure into your
     interface. Instead, build with flexibility in mind by using `.dropdown-nav
-    li:hover { top: 100%; }` [[13]](#works-cited).
+    li:hover { top: 100%; }` [[13]](README.md#works-cited).
   * Use [Modular
     Scales](http://www.alistapart.com/articles/more-meaningful-typography/) to
     help define your proportional rhythms within your designs. The [Sassy
@@ -168,7 +168,7 @@ Example:
 * Only use nesting when you intend for nested CSS selectors.
 * Never mimick HTML structure of a module with SCSS nesting.
 * Nested parent selectors should be listed directly under the class selector
-  and then indent child selectors [[17]](#works-cited).
+  and then indent child selectors [[17]](README.md#works-cited).
   
 ```
 .fieldset {
@@ -219,7 +219,7 @@ component, and layout styles. These partials should then be included into
 a single core Sass file which provides the opportunity to easily turn styles on
 and off as needed. When including partials within your base stylesheet, leave
 off the file extension to allow for easier conversion between Sass and SCSS
-syntaxes if you ever need to do so [[17]](#works-cited).
+syntaxes if you ever need to do so [[17]](README.md#works-cited).
 
 ## Object Oriented CSS (OOCSS)
 >"[A] CSS “object” is a repeating visual patternwhich can be abstracted into an
@@ -230,7 +230,7 @@ syntaxes if you ever need to do so [[17]](#works-cited).
 ### Two Main Principles of OOCSS
 1. Seperation of Structure from Skin - distinquish between structure styles
    (box-model) and skin styles (color, font, gradients) and abstract these
-   styles inot class-based modules to allow re-use [[6]](#works-cited).
+   styles inot class-based modules to allow re-use [[6]](README.md#works-cited).
 2. Seperation of Container and Conent - avoid all explicit parent-child
    relationship within style declarations so that a module's style is not
    dependant upon its container which allows the module to be reused. 
@@ -238,28 +238,28 @@ syntaxes if you ever need to do so [[17]](#works-cited).
 ### Additional Object Oriented Principles
 * **Single Responsibility Principle** - an object should have only a single
   responsibility, and that responsibility should be entirely encapsulated by
-  the object [[7]](#works-cited) [8](#works-cited).
+  the object [[7]](README.md#works-cited) [8](README.md#works-cited).
 * **Open/Closed Principle** - entities (classes, modules, functions, etc.) are open
   for extension, but closed for modification. Base rules may be extended, but
   not directly modifiablei. This is why directly styling HTML tags is not
   advisable - reduce the amount of gobal element styles in order to reduce the
-  chances of breaking the open/closed principle [[7]](#works-cited)
-  [9](#works-cited)
+  chances of breaking the open/closed principle [[7]](README.md#works-cited)
+  [9](README.md#works-cited)
 * **Liskov Substitution Principle** - objects should be replaceable with instances
   or their sub-components without breaking. Sub-components that `@extend`
   a module should be interchangable with the base module itself. To keep true
   to this principle, a module's subcomponent(s) should never affect layout. For
   example: `.m-btn__primary--sign-up` should be interchangable with `.m-btn`
-   [[7]](#works-cited).
+   [[7]](README.md#works-cited).
 * **Entity Segregation Principle** - If ever it becomes awkward to interchange
   a subcomponent with its base module, or if it becomes necessary to redefine
   too many properties, move the subcomponent into its own custom module. It is
   sometimes better to have multiple base modules oppossed to a single generic
   module with multiple sub-components. Never make sacrifices in functionality
   in the name of utility  Taken too far, code abstaction becomes
-  [[7]](#works-cited) detrimental. When writing modular CSS, it's not about maintaining modularity
+  [[7]](README.md#works-cited) detrimental. When writing modular CSS, it's not about maintaining modularity
   in the actual code, but rather modularity in the actual design
-  [[10]](#works-cited).
+  [[10]](README.md#works-cited).
 * **DRY** - (don't repeat yourself) - aimed at reducing repetition of information of all kinds. Every piece of knowledge must have a single, unambiguous, authoritative representation within the system.
 
 ## Naming Conventions and Structure
@@ -273,7 +273,7 @@ Module
 widget, etc. that sits inside of a layout component, or within another module.
 each module should be designed to exist as a stand-alone compoenent, it should
 not have any dependancies to its container, and it should be able to be
-relocated on the page without breaking [[1]](#works-cited).
+relocated on the page without breaking [[1]](README.md#works-cited).
 * An independant entity that can be simple or compound (containing another
   block or multiple blocks)
 * Must remain independant from siblings, children, and parents allowing for
@@ -289,7 +289,7 @@ relocated on the page without breaking [[1]](#works-cited).
 * Avoid CSS ID seletors - blocks must remain-nonunique, able to appear multiple
   times on the page.
 * JS - use data-attributes - blocks with similar behavior can be unequivically
-  detected to apply the requiered dynamic behavior [[2]](#works-cited).
+  detected to apply the requiered dynamic behavior [[2]](README.md#works-cited).
 * Module styles are indicated with the 'm-' prefix. Module styles should not
   declare any explicit size constraints, allowing the module to scale to it's
   parent container. When needed, explicit constraints may be applied to
@@ -306,7 +306,7 @@ Module Element
 * Must have a unique name to be used within a css rule
 * An element's class name includes its block-name and element-name to maintain
   the elements context, maintain control of the cascade, and avoid
-  location-dependant selectors [[2]](#works-cited).
+  location-dependant selectors [[2]](README.md#works-cited).
 
 #### Submodule
 
@@ -314,7 +314,7 @@ Submodule
 : a variant of a module that inherits all the styles of its parent, but differs
 in skin, layout, positioning, etc. By creating a subcomponent within an
 existing module, modularity is maintained by avoiding location dependant
-styles [[1]](#works-cited).
+styles [[1]](README.md#works-cited).
 
 * A module's submodules are child elements of the module and are prefixed
   with the full name of the module followed by `__` (double underscores). This
@@ -352,7 +352,7 @@ State
 : a state is a type of module modifier that is triggered by an action
 
 * State based styles are indicated with the 'is-' prefix. These style
-  declarations can be shared by CSS and JS files [[1]](#works-cited).
+  declarations can be shared by CSS and JS files [[1]](README.md#works-cited).
 
 #### Components
 
@@ -366,7 +366,7 @@ Submodule Component
 another submodule or module. Submodule components makeup a module.
 
 #### Component Modifiers
-Use a multi-class pattern [[3]](#works-cited) for compoenent modifiers in order to reduce the number of classes for a component when variations are scaled, to allow for easier
+Use a multi-class pattern [[3]](README.md#works-cited) for compoenent modifiers in order to reduce the number of classes for a component when variations are scaled, to allow for easier
 contectual based adjustments when necessary, and to help simplify class and
 variable names. For example, state styles are extended via their own class,
 rather than attaching a state-suffix to an existing module class.
@@ -377,13 +377,13 @@ rather than attaching a state-suffix to an existing module class.
   width or height restraints.
 * Heights should only be explicitly defined for elements which had dimensions
   before they entered the site; e.g. image, video. In all other cases use
-  line-height instead which is far more flexible [[13]](#works-cited).
+  line-height instead which is far more flexible [[13]](README.md#works-cited).
 * A module's width is determined by its parent container in the case of
   compound modules, or the grid system.
 * The grid system should never have styles or box-model properties directly
   applied - grid items contain content, but are not content in themselves.
 * Layout based styles are indicated with the 'l-' prefix in order to
-  distinguish them from module or state styles [[1]](#works-cited)
+  distinguish them from module or state styles [[1]](README.md#works-cited)
 * Minor page components (modules) sit within majar components such as the
   header, or footer. Major page components are refered to as Layout styles
 
@@ -393,7 +393,7 @@ rather than attaching a state-suffix to an existing module class.
   modules without the need for duplication of code.
 * Split icon styles into ico-size & ico-img classes - Specifying icon size and
   image separately allows for maximum flexibility and minimal code
-  repetition [[1]](#works-cited).
+  repetition [[1]](README.md#works-cited).
 * Use Compass to manage sprits easily.
 * Sprited Icons should be added to empty elements, to elements that have their
   text hidden off canvus
@@ -407,12 +407,12 @@ rather than attaching a state-suffix to an existing module class.
  a predefined HTML structure and hindering modularity and flexibility of
  modules. This also helps to prevent introducing potential specificity issues
  which are notoriously difficult to debug. When selectors are kept succinct, it
- also becomes easier to convert modules into templates for dynamic content [[1]](#works-cited).
+ also becomes easier to convert modules into templates for dynamic content [[1]](README.md#works-cited).
 
 ### Naming Pattern
 * Classes used as JavaScript hooks are indicated with the 'js-' prefix.
   A 'js-' prefixed class should never be referenced in a stylesheet. They used
-  exclusively from JS files [[3]](#works-cited).
+  exclusively from JS files [[3]](README.md#works-cited).
 
 (or...use html5 custom data-attributes for js hooks!!??!!)
 * Animate an interface using classes not inline styles Inline styles added by
@@ -445,7 +445,7 @@ Example:
 .m-current-events__featured-story--pull-quote {...}
 .m-current-events__featured-story--pull-quote.no-border {...}
 ``` 
-**Note:** _while this BEM [[2]](#works-cited) like syntax is fairly complex, it explicitly communicates the function and conetext of the entity, as well as its
+**Note:** _while this BEM [[2]](README.md#works-cited) like syntax is fairly complex, it explicitly communicates the function and conetext of the entity, as well as its
 relationship to both child and parent components while avoiding deeply nested
 selectors that tie content to container and make assumptions about markup.
 This of course would make our code less modular. Here, we sacrifice simple
@@ -455,7 +455,7 @@ Snippets](https://github.com/kwaledesign/SCSS-Snippets) and the fact that GZIP
 handles repetition very well._
 
 ### CSS Class Semantics
-Class names should remain content-independant[[3]](#works-cited). By avoiding tightly coupled
+Class names should remain content-independant[[3]](README.md#works-cited). By avoiding tightly coupled
 class names and content semantics, code is more easily reused and modularized
 to allow for increased scalability of your archetecture.  Because the most
 reusable code components are those with content-independant class names, class
@@ -488,19 +488,19 @@ archetyecture.
   that changes a modules appearance based on its location or region
   (main-content, side-bar, footer, etc).  Where a module has different
   appearances use a module subclass.  If the appearance and/or content is very
-  different it would be better to use a different module [[17]](#works-cited).
+  different it would be better to use a different module [[17]](README.md#works-cited).
 * Always namespace state class names e.g. `.disabled`, `.mousedown`, `.hover`,
   `.selected`, and `.collapsed`. ex: `.button.is-disabled`, never explicitly
   style `.is-disabled`.
 * Minimise the use of element selectors - Selectors that contain elements
   tightly coupled the CSS to specific markup. It is not a safe assumption that
   the semantics of the content will never change so authors should prefer
-  classes which exist independent of markup and create more flexible CSS [[1]](#works-cited).
+  classes which exist independent of markup and create more flexible CSS [[1]](README.md#works-cited).
 * !important should be avoided as much as possible. State classes are the only
-  acceptable use of important [[1]](#works-cited).
+  acceptable use of important [[1]](README.md#works-cited).
 * Never qualify a selector with an element selector e.g. `ul.nav`, as this
   decreases selector performance, creates a context dependency, and increases
-  the selector's specificity. These are all things to be avoided [[1]](#works-cited) [12](#works-cited).
+  the selector's specificity. These are all things to be avoided [[1]](README.md#works-cited) [12](README.md#works-cited).
 
 
 ## Practical example
