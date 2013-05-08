@@ -14,9 +14,27 @@ methodologies to write consistient, scalable, and modular front-ends.
 <hr>
 
 # General Guiding Principles
-
 * All code in any code-base should appear as if the same person wrote it.
 * Remain consistient in the application of coding standards
+* Strictly adhear to consistent use of naming conventions to facilitate easy use of
+  `grep` and more meaningful diffs.
+
+## Whitespace and Comments
+* Remain consistent with your use of whitespce for greater legability of your
+  code. Never mix spaces and tabs to adjust indentation.
+* Use soft-tabs with a two space indent. This is in accordence with Drupal's
+  coding standard [DrupalCC](http://drupal.org/coding-standards#indenting). To
+  make this easy, this is set within your [Vim
+  config](https://github.com/kwaledesign/dotfiles) (or equivelant).
+* Place comments on their own line directly above the code they document.
+* Limit line length the 80 characters (again via
+  [DrupalCC](http://drupal.org/coding-standards#linelength))
+* When ever necessary, breakup long code blocks into discrete sections
+* Avoid adding end-of-line whitespace. Again, configure your IDE to make this
+  easy.
+
+
+
 
 ## Works Cited:
 1. [SMACSS](http://smacss.com/)
@@ -45,6 +63,7 @@ methodologies to write consistient, scalable, and modular front-ends.
 16. [OOCSS](http://www.slideshare.net/stubbornella/object-oriented-css)
 17. [Sass-Guidelines](https://github.com/blackfalcon/SASS-Guidlines/blob/master/SASS-Guidlines.md)
 18. [Stylesheet organization with Sass](https://speakerdeck.com/chriseppstein/fowd-stylesheet-organization-with-sass)
+19. [Idiomatic HTML](https://github.com/necolas/idiomatic-html)
 
 ### License:
 

@@ -66,7 +66,4 @@ Elements with multiple attributes can be split into multiple lines to improve re
 
 
 
-# Resources
-1. [Idiomatic HTML](https://github.com/necolas/idiomatic-html)
-2. [@mdo's Code Guide](https://github.com/mdo/code-guide/tree/gh-pages#html)
 

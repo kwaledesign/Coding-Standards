@@ -33,20 +33,8 @@ for Drupal builds that are highly scalable and easily maintained.
 # General Principles
 
 ## Whitespace and Comments
-* Remain consistent with your use of whitespce for greater legability of your
-  code. Never mix spaces and tabs to adjust indentation.
-* Use soft-tabs with a two space indent. This is in accordence with Drupal's
-  coding standard [DrupalCC](http://drupal.org/coding-standards#indenting). To
-  make this easy, this is set within your [Vim
-  config](https://github.com/kwaledesign/dotfiles) (or equivelant).
-* The key to portable code is in carefully documenting each components purpose,
+The key to portable code is in carefully documenting each components purpose,
   how it works, and if necessary its intended markup pattern. 
-* Place comments on their own line directly above the code they document.
-* Limit line length the 80 characters (again via
-  [DrupalCC](http://drupal.org/coding-standards#linelength))
-* When ever necessary, breakup long code blocks into discrete sections
-* Avoid adding end-of-line whitespace. Again, configure your IDE to make this
-  easy.
 
 Example:
 
@@ -108,8 +96,6 @@ Example:
 * Place the closing brace of a rulset in the same column as the first charater
   of the ruleset.
 * Seperate each ruleset with a blank line.
-* Strictly adhear to consistent use of naming conventions to facilitate easy use of
-  `ack` and/or `grep`.
 * Declaration Order - CSS rulesets should be grouped by function - positioning
   rules, box-model rules, skin rules. 
 * Units
@@ -159,52 +145,6 @@ Example:
   box-shadow:
     1px 1px 1px #000,
     2px 2px 1px 1px #ccc inset;
-}
-```
-
-## Preprocessors
-* Use Sass. 
-* Use Compass CSS3 vendor prefixes, vertical rhythm, and sprites.
-* Only use nesting when you intend for nested CSS selectors.
-* Never mimick HTML structure of a module with SCSS nesting.
-* Nested parent selectors should be listed directly under the class selector
-  and then indent child selectors [[17]](README.md#works-cited).
-  
-```
-.fieldset {
-    margin-bottom: 2em;
-    p {
-        margin-bottom: 0;
-        line-height: 1.5em;     
-    }
-    legend {
-        float: left;
-        width: 100%;
-    }
-}
-```
-* Leave your generated CSS file uncompressed until production and monitor it
-  closely to ensure you aren't introducing bloated code or unintinsional
-  nesting issues.
-* Limit nesting to two or three levels deep. Reassess any nesting more than two
-  levels deep. This prevents overly-specific CSS selectors.
-* Avoid large numbers of nested rules. Break them up when readability starts to
-  be affected.
-* Always place `@extend` statements on the first lines of a declaration block.
-* Group `@include` statements at the top of a declaration blockafter any
-  `@extend` statements.
-* Prefix custom functions to avoid collisions with Sass or Compass.
-* Use a variable for all color values to allow for reuse and consistentcy.
-* Consider using a variable for other common vaules.
-
-Example:
-```scss
-.selector-1 {
-  @extend .other-rule;
-  @include clearfix();
-  @include box-sizing(border-box);
-  width: x-grid-unit(1);
-  // other declarations
 }
 ```
 
@@ -585,5 +525,4 @@ An example of various conventions.
   border-width: 4px;
 }
 ```
-
 
