@@ -24,7 +24,7 @@ Coding Standards
 
 Example:
 
-```
+```html
 <!DOCTYPE html>
 <html>
   <head>
@@ -36,6 +36,7 @@ Example:
   </body>
 </html>
 ```
+
 * Use the simplest markup pattern possible for a component while still maintaining HTML standards and proper sementics. 
 * Do not write markup in javascript files to avoid detrimental effects on performance and editability.
 
@@ -46,15 +47,19 @@ Apply HTML Attributes to an element in the following order:
 * ID
 * data-*
 * everything else
+
 Example:
-```
+
+```html
 <a class="[value]" id="[value]" data-name="[value]" href="[url]">[text]</a>
 ```
 
 ### Exceptions
 Elements with multiple attributes can be split into multiple lines to improve readability and produce more meaningful diffs.
 
-```
+Example: 
+
+```html
 <a class="[value]"
  data-action="[value]"
  data-id="[value]"
@@ -62,10 +67,6 @@ Elements with multiple attributes can be split into multiple lines to improve re
     <span>[text]</span>
 </a>
 ```
-
-
-
-
 
 
 
