@@ -8,87 +8,85 @@ Coding Standards
 * [Progressive](/pe.md)
 * [git](/git.md)
 
-The following coding standards outline a collection of best practices and
-methodologies to write consistient, scalable, and modular front-ends.
-
 <hr>
 
-# General Guiding Principles
-* All code in any code-base should appear as if the same person wrote it.
-* Remain consistient in the application of coding standards
-* Strictly adhear to consistent use of naming conventions to facilitate easy use of
-  `grep` and more meaningful diffs.
+The following coding standards outline a collection of best practices and
+methodologies to write consistent, scalable, and modular front-ends.
 
-# Front-end Design Principles
-By articulating front-end design principles, the focus can be applied towards
-acheiving the project goals within the context of these guiding principles
-[22](#works-cited).
+# General Guiding Principles for Front-end Design
+* Front-end design principles must be clearly articulated so that the focus can be applied towards achieving project goals within the context of these. These principles should also be defined as user versus developer driven so that if they ever come into conflict, the user centric goals can persevere [[22]](#works-cited).
+* All code in any code-base should appear as if the same person wrote it by remaining consistent in the application of coding standards.
+* Naming conventions are extremely important and must be clearly defined and strictly adhered to. This facilitates easy use of grep and more meaningful diffs.
 
 ## User Centric Goals
-* Performance
-* Accessibility
-* Device Agnostic
+Above all else, a site must be highly performant, widely accessibly, and device
+agnostic. The achievement of these goals necessitates the understanding that
+a site must not appear exactly the same on all browsers and devices.
 
 ### User Centric Objective
-* Use standards
-* Apply [progressive enhancement](/pe.md) by serving core site content and
+1. Adhear to standards as they are defined by the language specification
+* [W3C](http://www.w3.org/standards/)
+* [W3C CSS Modules](http://www.w3.org/Style/CSS/Overview.en.html)
+* [Web Platform](http://docs.webplatform.org/wiki/Main_Page)
+* [Standard ECMA-262](http://www.ecma-international.org/ecma-262/5.1/)
+
+2. Apply [progressive enhancement](/pe.md) by serving core site content and
   functionality to all user agents and serving an enhanced experience built
-  ontop of the basic experience. Apply JavaScript to enhance the site with
-  a richer experience when it is supported and enabled, but do not requeir it in
-  order to complete any core task on the site.
-* Polyfill missing or broken features only as a last result.
+  on top of the basic experience. Apply JavaScript to enhance the site with
+  a richer experience when it is supported and enabled, but do not require it in
+  order to complete any core tasks on the site.
+3. Polyfill missing or broken features only as a last result.
 
 ## Developer Centric Goals
-* Maintainability
-* Readability
-* Modularity
+A code base must be maintainable, it must be readable, and it must be design
+for modularity.
 
 ### Development Objectives
-* Minimize coupling between components by following [Object Oriented
+1. Minimize coupling between components by following [Object Oriented
   methodologies](#object-oriented-principles)
-* Design systems not pages by building a colletion of components and layouts, which
+2. Design systems not pages by building a collection of components and layouts, which
   can be assembled together to create a specific experience. Avoid page-specific
   styling in favor of component modifiers and class extensions.
-* Easily maintain the project's design system by following styleguide driven
-  development [20](#works-cited) that is made with HTML and CSS, uses production
-  CSS, and uses git for version control [21](#works-cited). A project's
-  styleguide should also be automaticly updated to reflect changes in the code
+3. Easily maintain the project's design system by following style guide driven
+  development [[20]](#works-cited) that is made with HTML and CSS, uses production
+  CSS, and uses git for version control [[21]](#works-cited). A project's
+  style guide should also be automatically updated to reflect changes in the code
   base and facilitate browser testing throughout the project development cycle.
 
 ### Object Oriented Principles
 * **Single Responsibility Principle** - an object should have only a single
   responsibility, and that responsibility should be entirely encapsulated by
-  the object [[7]](README.md#works-cited) [8](README.md#works-cited).
+  the object [[7]](README.md#works-cited) [[8]](README.md#works-cited).
 * **Open/Closed Principle** - entities (classes, modules, functions, etc.) are open
   for extension, but closed for modification. Base rules may be extended, but
-  not directly modifiablei. This is why directly styling HTML tags is not
-  advisable - reduce the amount of gobal element styles in order to reduce the
+  not directly modifiable. This is why directly styling HTML tags is not
+  advisable - reduce the amount of global element styles in order to reduce the
   chances of breaking the open/closed principle [[7]](README.md#works-cited)
-  [9](README.md#works-cited)
+  [[9]](README.md#works-cited)
 * **Liskov Substitution Principle** - objects should be replaceable with instances
   or their sub-components without breaking. Sub-components that `@extend`
-  a module should be interchangable with the base module itself. To keep true
+  a module should be interchangeable with the base module itself. To keep true
   to this principle, a module's subcomponent(s) should never affect layout. For
-  example: `.m-btn__primary--sign-up` should be interchangable with `.m-btn`
+  example: `.m-btn__primary--sign-up` should be interchangeable with `.m-btn`
    [[7]](README.md#works-cited).
 * **Entity Segregation Principle** - If ever it becomes awkward to interchange
   a subcomponent with its base module, or if it becomes necessary to redefine
   too many properties, move the subcomponent into its own custom module. It is
-  sometimes better to have multiple base modules oppossed to a single generic
+  sometimes better to have multiple base modules opposed to a single generic
   module with multiple sub-components. Never make sacrifices in functionality
-  in the name of utility  Taken too far, code abstaction becomes
+  in the name of utility  Taken too far, code abstraction becomes
   [[7]](README.md#works-cited) detrimental. When writing modular CSS, it's not about maintaining modularity
   in the actual code, but rather modularity in the actual design
   [[10]](README.md#works-cited).
-* **DRY** - (don't repeat yourself) - aimed at reducing repetition of information of all kinds. Every piece of knowledge must have a single, unambiguous, authoritative representation within the system.
+* **DRY** - (don't repeat yourself) - aimed at reducing repetition of information of all kinds. Every piece of knowledge must have a single, unambiguous, and authoritative representation within the system.
 
 ## Whitespace and Comments
-* Remain consistent with your use of whitespce for greater legability of your
+* Remain consistent with your use of whitespace for greater legibility of your
   code. Never mix spaces and tabs to adjust indentation.
-* Use soft-tabs with a two space indent. This is in accordence with Drupal's
+* Use soft-tabs with a two space indent. This is in accordance with Drupal's
   coding standard [DrupalCC](http://drupal.org/coding-standards#indenting). To
   make this easy, this is set within your [Vim
-  config](https://github.com/kwaledesign/dotfiles) (or equivelant).
+  config](https://github.com/kwaledesign/dotfiles) (or equivalent).
 * Place comments on their own line directly above the code they document.
 * Limit line length the 80 characters (again via
   [DrupalCC](http://drupal.org/coding-standards#linelength))
@@ -105,7 +103,7 @@ acheiving the project goals within the context of these guiding principles
    Archetecture](http://nicolasgallagher.com/about-html-semantics-front-end-architecture/)
 4. [Principles of Writing Consistent, Idiomatic
    CSS](https://github.com/necolas/idiomatic-css)
-5. [Github - CSS Styleguide](https://github.com/styleguide/css)
+5. [Github - CSS style guide](https://github.com/style guide/css)
 6. [Object Oriented CSS](https://github.com/stubbornella/oocss/wiki)
 7. [SOLID CSS](http://blog.millermedeiros.com/solid-css/)
 8. [The Single Responsibilty Principle Applied to
@@ -134,5 +132,5 @@ acheiving the project goals within the context of these guiding principles
 
 ### License:
 
-CSS-Styleguide is licensed under the terms of the MIT
-[license](https://github.com/kwaledesign/CSS-Styleguide/blob/master/LICENSE).
+CSS-style guide is licensed under the terms of the MIT
+[license](https://github.com/kwaledesign/CSS-style guide/blob/master/LICENSE).
