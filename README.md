@@ -127,7 +127,7 @@ for modularity.
 21. [Style Guide Driven
     Development](https://speakerdeck.com/hagenburger/style-guide-driven-development)
 22. [Front-End Design Principles](http://clearleft.com/thinks/front-enddesignprinciples/)
-
+23. [8 Guidelines and 1 Rule for Responsive Images](http://blog.cloudfour.com/8-guidelines-and-1-rule-for-responsive-images/)
 
 ### License:
 
