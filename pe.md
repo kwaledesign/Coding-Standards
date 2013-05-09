@@ -16,16 +16,9 @@ Coding Standards
   * Develope for _Mobile First_ [[14]](#works-cited) as a baseline level of support for small screens and slow connections
   * emphasize content over navigation, and to maintain clear and focused User Experience goals. 
   * Use modernizr, media queries, and conditional loading to provide an enhanced experience for more capable devices.
-* Use browser prefixes correctly & Painlessly - When using prefixed properties
-  ensure that Microsoft, Opera, Webkit, and Mozilla prefixes are supported and that
-  the non prefixed version is too.  Make this less painful by abstracting it
-  away into a preprocessor mixin.
-* Use Conditional classes for Internet Explorer - Aim to avoid separate styles
-  for internet explorerbut where unavoidable do not use conditional stylesheets
-  or CSS hacks to target specific versions of IE.  Instead use conditional
-  classes as explained by Paul Irish.  
-  Source: [Conditional stylesheets vs CSS
-    hacks…](http://paulirish.com/2008/conditional-stylesheets-vs-css-hacks-answer-neither/)
+* Use browser prefixes correctly and painlessly by abstracting into a preprocessor mixin.
+* Avoid separate styles for IE except where unavoidable. In those cases use Conditional classes [[24]](README.md/#works-cited) and not conditional stylesheets or CSS hacks. 
+
 * Group IE Conditional styling with the code they alter - Aim to avoid separate
   styles for internet explorer but where unavoidable place the "fixes" next to
   the style it effects.  Not doing so makes it easy to miss when updating to

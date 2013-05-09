@@ -128,6 +128,7 @@ for modularity.
     Development](https://speakerdeck.com/hagenburger/style-guide-driven-development)
 22. [Front-End Design Principles](http://clearleft.com/thinks/front-enddesignprinciples/)
 23. [8 Guidelines and 1 Rule for Responsive Images](http://blog.cloudfour.com/8-guidelines-and-1-rule-for-responsive-images/)
+24. [Conditional Classes for IE](http://paulirish.com/2008/conditional-stylesheets-vs-css-hacks-answer-neither/)
 
 ### License:
 
