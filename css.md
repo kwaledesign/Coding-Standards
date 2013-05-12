@@ -67,46 +67,19 @@ Example:
 ```
 
 ## Formating
-* Use one selector per line in multi-selector rulesets.
-* Use one space before the opening brace of a ruleset.
+* Use one selector per line in multi-selector rulesets and separate each ruleset with a blank line.
+* Use one space before the opening brace of a ruleset and place the closing brace of a ruleset in the same column as the first character of the ruleset.
 * Include one declaration per line in a declaration block.
 * Use one level of indentation for each declaration.
 * Use one space after the colon of a declaration.
-* Use lower-case, shorthand hex color codes (ex: #000), or rgba().
+* Use upper-case, hex color codes (ex: #FFFFFF).
 * Use double quotes for quoted attribute values in selectors; ex:
-  'input[type="checkbox"]'
+  `input[type="checkbox"]`
 * _Where allowed_, avoid specifying units for zero-values ex: 'margin: 0;'.
 * Follow every comma with a space for comma-separated property or function
-  values.
-* Include a semi-colon at the end of the last declaration in a declaration
+  values and include a semi-colon at the end of the last declaration in a declaration
   block.
-* Place the closing brace of a ruleset in the same column as the first character
-  of the ruleset.
-* Separate each ruleset with a blank line.
-* Declaration Order - CSS rulesets should be grouped by function - positioning
-  rules, box-model rules, skin rules. 
-* Units
-  * Either `em's`, or `px's` may be used for `font-size`. Both allow the user
-    to change the default font size within their browser, which is what we
-    want. Also effective is to use a Sass mixin to define `font-size` in `rems`
-    with a fall-back to `px's` for browsers lacking support.
-  * Use unit-less 'line-height' because it does not inherit a percentage value
-    of its parent element - it's based on a multiplier of the 'font-size'.
-  * For all other measures try to use 'em''s, to best create a responsive
-    system that scales to it's screen size.
-  * Avoid absolute measurements.  For example, by using `.dropdown-nav li:hover
-    { top: 37px; }` you are coding a single point of failure into your
-    interface. Instead, build with flexibility in mind by using `.dropdown-nav
-    li:hover { top: 100%; }` [[13]](README.md#works-cited).
-  * Use [Modular
-    Scales](http://www.alistapart.com/articles/more-meaningful-typography/) to
-    help define your proportional rhythms within your designs. The [Sassy
-    Modular Scale](https://github.com/scottkellum/modular-scale) Ruby Gem makes
-    working with Modular Scales easy. 
->"By using culturally relevant historically pleasing ratios to create modular
->scales and basing the measurements in our compositions on values from those
->scaleswe can achieve a visual harmony not found in layouts that use
->arbitraryconventionalor easily divisible numbers." - [Tim Brown](http://www.alistapart.com/articles/more-meaningful-typography/)
+* Declarations should be grouped by function - positioning rules, box-model rules, skin rules.
 
 ### Exceptions
 Large blocks of single declarations can use a slightly different single-line
@@ -135,6 +108,30 @@ Example:
 }
 ```
 
+### Units
+* Either `em's`, or `px's` may be used for `font-size`. Both allow the user
+  to change the default font size within their browser, which is what we
+  want. Also effective is to use a Sass mixin to define `font-size` in `rems`
+  with a fall-back to `px's` for browsers lacking support.
+* Use unit-less 'line-height' because it does not inherit a percentage value
+  of its parent element - it's based on a multiplier of the 'font-size'.
+* For all other measures try to use 'em''s, to best create a responsive
+  system that scales to it's screen size.
+* Avoid absolute measurements.  For example, by using `.dropdown-nav li:hover
+  { top: 37px; }` you are coding a single point of failure into your
+  interface. Instead, build with flexibility in mind by using `.dropdown-nav
+  li:hover { top: 100%; }` [[13]](README.md#works-cited).
+* Consider using [Modular
+  Scales](http://www.alistapart.com/articles/more-meaningful-typography/) to
+  help define your proportional rhythms within your designs. The [Sassy
+  Modular Scale](https://github.com/scottkellum/modular-scale) Ruby Gem makes
+  working with Modular Scales easy. 
+
+>"By using culturally relevant historically pleasing ratios to create modular
+>scales and basing the measurements in our compositions on values from those
+>scaleswe can achieve a visual harmony not found in layouts that use
+>arbitraryconventionalor easily divisible numbers." - [Tim Brown](http://www.alistapart.com/articles/more-meaningful-typography/)
+
 # Architecture
 
 ## Working with Partials
@@ -153,6 +150,8 @@ Base
 Component
 Layout
 Object
+App
+shame.css
 
 ## Object Oriented CSS (OOCSS)
 >"[A] CSS “object” is a repeating visual pattern which can be abstracted into an
@@ -202,12 +201,6 @@ In order to maintain modularity a component must adhere to the following:
   differing behavior requires a component-modifier or a sub-component.
 * Selectors must remain context free and un-coupled to HTML. Never use HTML elements within css selectors or cascading selectors for multiple components.
 * Avoid CSS ID selectors - blocks must remain non-unique, able to appear multiple times on the page.
-
-
-* Block names must be consistent across all programming languages necessary
-  to implement its view and functionality (same block name for CSS and JS)
-* JS - use data-attributes - blocks with similar behavior can be unequivically
-  detected to apply the required dynamic behavior [[2]](README.md#works-cited).
 
 #### Element
 An entity of a component that extends an object by applying either skin or structure styles. Elements extend objects and to build a component.
@@ -289,16 +282,7 @@ a state is a type of component modifier that is triggered by an action
 ## Selector Construct
 
 ### Naming Pattern
-* Classes used as JavaScript hooks are indicated with the 'js-' prefix.
-  A 'js-' prefixed class should never be referenced in a stylesheet. They used
-  exclusively from JS files [[3]](README.md#works-cited).
 
-(or...use html5 custom data-attributes for js hooks!!??!!)
-* Animate an interface using classes not inline styles Inline styles added by
-  javascript are harder to update and maintain prefer to add classes using
-  javascript.  CSS3 transitions can then handle any animations and if CSS3
-  transitions are not supported the state will still be updated.  Source:
-  [SMACSS on state](http://smacss.com/book/type-state)
 
 **Pattern**
 ```
@@ -323,6 +307,12 @@ $btn__large--call-to-action
 
 .is-state-name
 .js-behavior-name
+
+// variable syntax:
+
+$btn__large--default:
+$partition__primary--dark: 
+
 
 ```
 Example:
