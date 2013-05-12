@@ -13,22 +13,7 @@ Coding Standards
 # CSS Guidelines
 
 The purpose of this document is to outline a collection of opinionated
-best-practices and methodologies for building object-oriented CSS archetectures
-for Drupal builds that are highly scalable and easily maintained. 
-
-## Table of Contents
-1. [General principles](#general-principles)
-  * [Whitespace](#whitespace-and-comments)
-  * [Formating](#formating)
-  * [Exceptions](#exceptions)
-2. [Preprocessors](#preprocessors)
-3. [Archetecture](#archetecture)
-  * [Object Oriented CSS (OOCSS)](#object-oriented-css)
-  * [Naming Conventions and Structure](#naming-conventions-and-structure)
-  * [Selector Construct and Specificity](#selector-construct-and-specificity)
-4. [Practical example](#practical-example)
-5. [Works Cited](README.md#works-cited)
-6. [License](#license)
+best-practices and methodologies for building object-oriented CSS architectures that are highly scalable and easily maintained. 
 
 # General Principles
 
@@ -74,28 +59,30 @@ Example:
 Example:
 ```
 /**
- * Extension of the .foo object in _bar.scss
+ * Foo-Bar
+ *
+ * Extends the .foo object within _foo-object.scss
  */
- .foo__bar {...}
+ .foo--bar {...}
 ```
 
 ## Formating
-* Use one seletor per line in multi-selector rulesets.
+* Use one selector per line in multi-selector rulesets.
 * Use one space before the opening brace of a ruleset.
 * Include one declaration per line in a declaration block.
-* Use one level of indentation for each delaration.
+* Use one level of indentation for each declaration.
 * Use one space after the colon of a declaration.
 * Use lower-case, shorthand hex color codes (ex: #000), or rgba().
-* Use double quotes for quoted attribute vaules in selectors; ex:
+* Use double quotes for quoted attribute values in selectors; ex:
   'input[type="checkbox"]'
 * _Where allowed_, avoid specifying units for zero-values ex: 'margin: 0;'.
-* Follow every comma with a space for comma-seperated property or function
+* Follow every comma with a space for comma-separated property or function
   values.
 * Include a semi-colon at the end of the last declaration in a declaration
   block.
-* Place the closing brace of a rulset in the same column as the first charater
+* Place the closing brace of a ruleset in the same column as the first character
   of the ruleset.
-* Seperate each ruleset with a blank line.
+* Separate each ruleset with a blank line.
 * Declaration Order - CSS rulesets should be grouped by function - positioning
   rules, box-model rules, skin rules. 
 * Units
@@ -104,7 +91,7 @@ Example:
     want. Also effective is to use a Sass mixin to define `font-size` in `rems`
     with a fall-back to `px's` for browsers lacking support.
   * Use unit-less 'line-height' because it does not inherit a percentage value
-    of its parent element - it's based on a mulitiplier of the 'font-size'.
+    of its parent element - it's based on a multiplier of the 'font-size'.
   * For all other measures try to use 'em''s, to best create a responsive
     system that scales to it's screen size.
   * Avoid absolute measurements.  For example, by using `.dropdown-nav li:hover
@@ -123,7 +110,7 @@ Example:
 
 ### Exceptions
 Large blocks of single declarations can use a slightly different single-line
-format. In this casea space should be included after the opening brace and
+format. In this case space should be included after the opening brace and
 before the closing brace.
 
 Example:
@@ -153,7 +140,7 @@ Example:
 ## Working with Partials
 Partials in Sass begin with an underscore and are not compiled into final
 output unless they are included within a Sass file. Using Sass `@import` includes
-all partials after compiling and does not incure an additional http request as
+all partials after compiling and does not incur an additional http request as
 they do in regular CSS. For this reason, partials should be used for all base,
 component, and layout styles. These partials should then be included into
 a single core Sass file which provides the opportunity to easily turn styles on
@@ -161,59 +148,69 @@ and off as needed. When including partials within your base stylesheet, leave
 off the file extension to allow for easier conversion between Sass and SCSS
 syntaxes if you ever need to do so [[17]](README.md#works-cited).
 
+## Directory Structure
+Base
+Component
+Layout
+Object
+
 ## Object Oriented CSS (OOCSS)
->"[A] CSS “object” is a repeating visual patternwhich can be abstracted into an
+>"[A] CSS “object” is a repeating visual pattern which can be abstracted into an
 >independent snippet of HTML CSS and possibly JavaScript. Once created an object
 >can then be reused throughout a site." - [Nichole
 >Sullivan](https://github.com/stubbornella/oocss/wiki)
 
 ### Two Main Principles of OOCSS
-1. Seperation of Structure from Skin - distinquish between structure styles
+1. Separation of Structure from Skin - distinguish between structure styles
    (box-model) and skin styles (color, font, gradients) and abstract these
    styles inot class-based modules to allow re-use [[6]](README.md#works-cited).
-2. Seperation of Container and Conent - avoid all explicit parent-child
+2. Separation of Container and Content - avoid all explicit parent-child
    relationship within style declarations so that a module's style is not
    dependant upon its container which allows the module to be reused. 
 
+### Object Oriented Classes
+
+Building complex components with smaller, more discrete code blocks leads to more reusable code, easier debugging, and a DRYer code base by cutting down on repetition. A component is comprised of object, structure, and skin. Class naming and syntax is very important and is described [Selector Construct and Specificity](#selector-construct-and-specificity). This syntax and naming convention illustrates the intention of a class and its relationship to others.
+
+**Object Styles** :styles which remain consistent and unchanged within a component regardless of skin or structure.  These styles are abstracted and may be used as a foundation for building additional components. [Example Objects](https://github.com/kwaledesign/Archetype/tree/master/sass/objects). This is the base class that gets extended with a structure and skin.
+
+**Structure Styles** :styles which control a component's physical structure. Structure styles include any properties involving spacing which could potentially effect surrounding elements on the page, i.e. box-model properties. Structure classes extend an object or component class.
+
+**Skin Styles** :styles which control a component's physical appearance.  Skin styles include any properties involving color, typography, gradients, shadows, etc. Skin classes extend an object or component class.
+
+__Note:__ the arrival of border-box has greatly simplified the box-model, but makes the border property a bit more difficult to define in this context because it no longer contributes to an element's width (structure). The best way to handle this is to split up border property defining border width and style as structure and border-color as skin.
+
+**Layout Styles** :styles that define how a component sits on the page. A component's layout class is prefixed with `.l-` and uses the entire component's name. Layout styles include width and grid layout. For example, a component named: `object__structure--skin` would be given its layout styles with the coresponding layout class named: `.l-object__structure--skin`.
 
 ## Naming Conventions and Structure
+
 An effective naming convention explicitly communicates the context and function of the
 entity being named. 
 
-### Module
+### Component
+A discrete, independent entity designed to exist as a stand alone module without any depenedencies to its container. A component can be simple or compound (contain one or more components) and it should be able to be relocated on the page without breaking [[1]](README.md#works-cited). Example components include buttons, navigation bars, carousels, etc. 
 
-Module
-: a discrete component of the page, i.e. navigation bar, carousel, dialog,
-widget, etc. that sits inside of a layout component, or within another module.
-each module should be designed to exist as a stand-alone compoenent, it should
-not have any dependancies to its container, and it should be able to be
-relocated on the page without breaking [[1]](README.md#works-cited).
-* An independant entity that can be simple or compound (containing another
-  block or multiple blocks)
-* Must remain independant from siblings, children, and parents allowing for
-  arbitrarily placement on the page. 
-* Block name must be unique to project - only instances of same block can have
+In order to maintain modularity a component must adhere to the following:
+
+* Component styles must not declare any explicit size constraints, allowing the module to scale to it's parent container. When needed, explicit constraints may be applied to a component via layout style.
+* A component can be placed into a layout component, i.e. a grid; or extended with a layout class, but it must never be given an explicit width.
+* A component must remain independent from siblings, children, and parents allowing for
+  arbitrarily placement within a design system.
+* A component's name must be unique to project - only instances of same block can have
   same name.
-* Re-using a block also means re-using its behavior. To use the same block with
-  differing behavior requiers a modifier or a submodule.
-* Never use HTML elements within css selectors or cascading selectors for
-  multiple blocks - selectors must be context free.
-* Block names must be consistient accross all programming languages necessary
-  to impliment its view and functionality (same block name for CSS and JS)
-* Avoid CSS ID seletors - blocks must remain-nonunique, able to appear multiple
-  times on the page.
+* Re-using a component also means re-using its behavior. To use the same component with
+  differing behavior requires a component-modifier or a sub-component.
+* Selectors must remain context free and un-coupled to HTML. Never use HTML elements within css selectors or cascading selectors for multiple components.
+* Avoid CSS ID selectors - blocks must remain non-unique, able to appear multiple times on the page.
+
+
+* Block names must be consistent across all programming languages necessary
+  to implement its view and functionality (same block name for CSS and JS)
 * JS - use data-attributes - blocks with similar behavior can be unequivically
-  detected to apply the requiered dynamic behavior [[2]](README.md#works-cited).
-* Module styles are indicated with the 'm-' prefix. Module styles should not
-  declare any explicit size constraints, allowing the module to scale to it's
-  parent container. When needed, explicit constraints may be applied to
-  a module via layout style.
+  detected to apply the required dynamic behavior [[2]](README.md#works-cited).
 
 #### Element
-
-Module Element
-: a component of a module that performs a specific function
-
+An entity of a component that extends an object by applying either skin or structure styles. Elements extend objects and to build a component.
 * Elements are context-dependant (only make sense within their parent block)
 * Element name must be unique within the scope of its block
 * Elements can be repeated within a block e.g. tabs or navigation elements
@@ -222,10 +219,8 @@ Module Element
   the elements context, maintain control of the cascade, and avoid
   location-dependant selectors [[2]](README.md#works-cited).
 
-#### Submodule
-
-Submodule
-: a variant of a module that inherits all the styles of its parent, but differs
+#### Sub-Component
+a variant of a component that inherits all the styles of its parent, but differs
 in skin, layout, positioning, etc. By creating a subcomponent within an
 existing module, modularity is maintained by avoiding location dependant
 styles [[1]](README.md#works-cited).
@@ -236,24 +231,22 @@ styles [[1]](README.md#works-cited).
   prevents the submodule's styles from applying outside of the module's
   scope.
 
-Submodule Component
-: an element of a submodule
-
-#### Modifier
-
-Modifier
-: a trivial variant of a module or submodule applied as an additional class on
+#### Component Modifier
+a trivial variant of a module or submodule applied as an additional class on
 the root module, e.ge `&.modifier`. Useful for when the module or submodule
 modification is insignificant enough not to warrant an entirely new module or
 submodule.
 
+Component modifiers use a multi-class pattern [[3]](README.md#works-cited) for component modifiers in order to reduce the number of classes for a component when variations are scaled, to allow for easier contextual based adjustments when necessary, and to help simplify class and variable names. For example, state styles are extended via their own class,
+rather than attaching a state-suffix to an existing module class.
+
 * Distinguishes an alteration in style or application without creating an
-  entier new block
+  entire new block
 * A property of a block or an element that alters its look or behavior.
 * Multiple modifiers may be used at once.
 * Most common example of a modifier is the Module state e.g. .is-active,
   .is-collapsed, .is-disabled.
-* A modifier is an aditional css class for a block or element. This clearly
+* A modifier is an additional css class for a block or element. This clearly
   indicates a modifiers relationship to its module or subcomponent and also
   prevents the modifiers styles from applying outside of its scope.
 * Element and block modifiers are applied in the same way.
@@ -261,29 +254,10 @@ submodule.
   necessity for moving those styles into their own module or submodule.
 
 #### State
-
-State
-: a state is a type of module modifier that is triggered by an action
+a state is a type of component modifier that is triggered by an action
 
 * State based styles are indicated with the 'is-' prefix. These style
   declarations can be shared by CSS and JS files [[1]](README.md#works-cited).
-
-#### Components
-
-Module Component
-: a general term that refers to a module's children - can be an element,
-a submodule, a submodule's element, or another module. Module components make
-up a module. 
-
-Submodule Component
-: a general term that refers to a submodule's children - can be an element,
-another submodule or module. Submodule components makeup a module.
-
-#### Component Modifiers
-Use a multi-class pattern [[3]](README.md#works-cited) for compoenent modifiers in order to reduce the number of classes for a component when variations are scaled, to allow for easier
-contectual based adjustments when necessary, and to help simplify class and
-variable names. For example, state styles are extended via their own class,
-rather than attaching a state-suffix to an existing module class.
 
 
 ### Layout
@@ -298,8 +272,8 @@ rather than attaching a state-suffix to an existing module class.
   applied - grid items contain content, but are not content in themselves.
 * Layout based styles are indicated with the 'l-' prefix in order to
   distinguish them from module or state styles [[1]](README.md#works-cited)
-* Minor page components (modules) sit within majar components such as the
-  header, or footer. Major page components are refered to as Layout styles
+* Minor page components (modules) sit within major components such as the
+  header, or footer. Major page components are referred to as Layout styles
 
 ### Icons
 * Icons do not belong in modules - By styling icons independently of the module
@@ -310,18 +284,9 @@ rather than attaching a state-suffix to an existing module class.
   repetition [[1]](README.md#works-cited).
 * Use Compass to manage sprits easily.
 * Sprited Icons should be added to empty elements, to elements that have their
-  text hidden off canvus
+  text hidden off canvas
   
-## Selector Construct and Specificity
->"The problem with such a depth is that it enforces a much greater dependency
->on a particular HTML structure. Components on the page can’t be easily moved
->around" - [Jonathan Snook](http://smacss.com/book/applicability)
-
- Minimize "depth of applicability" in order to avoid over-reliance on
- a predefined HTML structure and hindering modularity and flexibility of
- modules. This also helps to prevent introducing potential specificity issues
- which are notoriously difficult to debug. When selectors are kept succinct, it
- also becomes easier to convert modules into templates for dynamic content [[1]](README.md#works-cited).
+## Selector Construct
 
 ### Naming Pattern
 * Classes used as JavaScript hooks are indicated with the 'js-' prefix.
@@ -330,7 +295,7 @@ rather than attaching a state-suffix to an existing module class.
 
 (or...use html5 custom data-attributes for js hooks!!??!!)
 * Animate an interface using classes not inline styles Inline styles added by
-  javascript are harder to update and maintainprefer to add classes using
+  javascript are harder to update and maintain prefer to add classes using
   javascript.  CSS3 transitions can then handle any animations and if CSS3
   transitions are not supported the state will still be updated.  Source:
   [SMACSS on state](http://smacss.com/book/type-state)
@@ -338,12 +303,23 @@ rather than attaching a state-suffix to an existing module class.
 **Pattern**
 ```
 prefix-module-name
-prefix-module-name.modifer-name
+prefix-module-name--modifier-name
 prefix-module-name--element-name
-prefix-module-name--element-name.modifier-name
+prefix-module-name--element-name--modifier-name
 prefix-module-name__submodule-name
-prefix-module-name__submodule-name.modifier-name
+prefix-module-name__submodule-name--modifier-name
 prefix-module-name__submodule-name--element-name
+
+object__sub-component--modifier
+component__sub-component--modifier
+component__sub-component--element
+
+object__structure--skin
+
+nav__primary-nav
+btn__medium--primary
+
+$btn__large--call-to-action
 
 .is-state-name
 .js-behavior-name
@@ -359,7 +335,7 @@ Example:
 .m-current-events__featured-story--pull-quote {...}
 .m-current-events__featured-story--pull-quote.no-border {...}
 ``` 
-**Note:** _while this BEM [[2]](README.md#works-cited) like syntax is fairly complex, it explicitly communicates the function and conetext of the entity, as well as its
+**Note:** _while this BEM [[2]](README.md#works-cited) like syntax is fairly complex, it explicitly communicates the function and context of the entity, as well as its
 relationship to both child and parent components while avoiding deeply nested
 selectors that tie content to container and make assumptions about markup.
 This of course would make our code less modular. Here, we sacrifice simple
@@ -369,10 +345,10 @@ Snippets](https://github.com/kwaledesign/SCSS-Snippets) and the fact that GZIP
 handles repetition very well._
 
 ### CSS Class Semantics
-Class names should remain content-independant[[3]](README.md#works-cited). By avoiding tightly coupled
+Class names should remain content-independent[[3]](README.md#works-cited). By avoiding tightly coupled
 class names and content semantics, code is more easily reused and modularized
-to allow for increased scalability of your archetecture.  Because the most
-reusable code components are those with content-independant class names, class
+to allow for increased scalability of your architecture.  Because the most
+reusable code components are those with content-independent class names, class
 names should be derived from repeating structural or functional patterns. 
 
 >"We shouldn't be afraid of making the connections between layers clear and
@@ -392,9 +368,21 @@ semantic value from its markup (HTML tags and ARIA attributes). Code receives
 its semantic value from its classes.
 
 The goal, of course is to maximize modularity of code, creating scalable CSS
-archetyecture.
+architecture.
 
-#### Specificity Guidelines
+### Specificity
+
+>"The problem with such a depth is that it enforces a much greater dependency
+>on a particular HTML structure. Components on the page can’t be easily moved
+>around" - [Jonathan Snook](http://smacss.com/book/applicability)
+
+ Minimize "depth of applicability" in order to avoid over-reliance on
+ a predefined HTML structure and hindering modularity and flexibility of
+ modules. This also helps to prevent introducing potential specificity issues
+ which are notoriously difficult to debug. When selectors are kept succinct, it
+ also becomes easier to convert modules into templates for dynamic content [[1]](README.md#works-cited).
+
+#### Guidelines for Minimal Specificity
 
 * Avoid using ID selectors within CSS selectors. [Sin and
   Syntax](http://www.kwaledesign.com/articles/sin-and-syntax)
@@ -416,7 +404,6 @@ archetyecture.
   decreases selector performance, creates a context dependency, and increases
   the selector's specificity. These are all things to be avoided [[1]](README.md#works-cited) [12](README.md#works-cited).
 
-
 ## Practical example
 
 An example of various conventions.
@@ -429,7 +416,7 @@ An example of various conventions.
 /**
 * Column layout with horizontal scroll.
 *
-* This creates a single row of full-heightnon-wrapping columns that can
+* This creates a single row of full-height non-wrapping columns that can
 * be browsed horizontally within their parent.
 *
 * Example HTML:
