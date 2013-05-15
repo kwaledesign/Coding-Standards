@@ -104,16 +104,16 @@ Example:
 
 ### Units
 * When building a responsive design system always try to use relative units to allow your system to scale to the user's screen size.
-  * Either `em's`, or `px's` may be used for `font-size`. Both allow the user
+* Either `em's`, or `px's` may be used for `font-size`. Both allow the user
   to change the default font size within their browser, which is what we
   want. [rems](http://www.w3.org/TR/css3-values/#rem-unit), which have wide [browser support](http://caniuse.com/#search=rem), can be used within a Sass mixin to provide an em based falback for IE8 and Opera Mini.
-  * Use unit-less 'line-height' because it does not inherit a percentage value
-  of its parent element - it's based on a multiplier of the 'font-size'.
-  * Avoid absolute measurements.  For example, by using `.dropdown-nav li:hover
+* Use unit-less 'line-height' because it does not inherit a percentage value
+  of its parent element - it's based on a multiplier of the 'font-size'. 
+* Avoid absolute measurements.  For example, by using `.dropdown-nav li:hover
   { top: 37px; }` you are coding a single point of failure into your
   interface. Instead, build with flexibility in mind by using `.dropdown-nav
   li:hover { top: 100%; }` [[13]](README.md#works-cited).
-  * Consider using [Modular
+* Consider using [Modular
   Scales](http://www.alistapart.com/articles/more-meaningful-typography/) to
   help define your proportional rhythms within your designs. The [Sassy
   Modular Scale](https://github.com/scottkellum/modular-scale) Ruby Gem makes
