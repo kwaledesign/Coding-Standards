@@ -50,14 +50,14 @@ Example:
 */
 
 /* Basic comment */
-`````
+````
 
 * Object-Extension Pointer - when extending a module within a separate
   stylesheet, leave a comment pointing to the original base object in order to
   establish a concrete link between the object and its extension [[13]](README.md#works-cited).
 
 Example:
-```
+```scss
 /**
  * Foo-Bar
  *
@@ -340,13 +340,13 @@ BEM Syntax:
 
 #### Example Use Case
 
-```
+```scss
 // large primary button (call to action button)
-.btn {}             // button object
-.btn--full {}       // full width button (object modifier)
-.btn--large {}      // large button structure (object extension structure)
-.btn--primary {}    // primary button skin (object extension skin)
-&.is-disabled {}    // object state
+.btn {}                           /* button object */
+.btn--full {}                     /* full width button (object modifier) */
+.btn--large {}                    /* large button structure (object extension structure) */
+.btn--primary {}                  /* primary button skin (object extension skin) */
+&.is-disabled {}                  /* object state */
 
 ```
 
@@ -424,20 +424,21 @@ BEM Syntax:
 
 ### BEM Style Sass Variable Syntax for Component Variables
 
-```
-$object__element--property: css-value;
-$nav--pager__item--color-bg: pink;
-$btn--negative--color1: pink;
-$btn--positive--color1: pink;
+```scss
+$object__element--property:                   css-value;
+$nav--pager__item--color-bg:                  pink;
+$btn--negative--color1:                       pink;
+$btn--positive--color1:                       pink;
 
-$btn--large--border-radius: 6px;
-$btn--danger--color1: red;
-$btn--disabled--danger--color1: lighten(red, 15%);
+$btn--large--border-radius:                   6px;
+$btn--danger--color1:                         red;
+$btn--disabled--danger--color1:               lighten(red, 15%);
 
-.btn--danger.is-disabled { background: lighten($btn--danger--color1, 15%); }
 
 .btn--danger {
-  &.is-disabled { background: lighten($btn--danger--color1, 15%); }  
+  &.is-disabled { 
+    background: lighten($btn--danger--color1, 15%);
+  }  
 }
 
 ```
@@ -453,7 +454,8 @@ handles repetition very well._
 
 ## Simplified Class Constructs
 The simplification of class construct would be ideal and of course a developer centered goal. Sass does have `@extend` which can address this issue, but not without risk of heavy code bloat. Bloated CSS file size would of course violate a user centered goal, which is why the above OOCSS multi-class component construct is preferred. What we need is a native browser implimentation of `@extend`.
-```
+
+```scss
 .btn-signup {
   @extend btn;
   @extend btn--full;
@@ -461,19 +463,10 @@ The simplification of class construct would be ideal and of course a developer c
   @extend btn--primary;
 }
 ```
+
 **multi-class vs single-class [[3]](README.md#works-cited)**
 .btn .btn--full .btn--large .btn--primary (multi)
 .btn--full--large--primary
-
-**OOCSS**
-.object .component-name__structure .component-name--skin
-**example:**
-.btn .btn-signup__large .btn-signup--positive
-**BEM**
-.object .component-name__structure--skin
-**example:**
-.btn .btn-signup__large--positive
-
 
 
 ### CSS Class Semantics
