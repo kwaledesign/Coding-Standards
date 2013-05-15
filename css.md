@@ -52,9 +52,7 @@ Example:
 /* Basic comment */
 ````
 
-* Object-Extension Pointer - when extending a module within a separate
-  stylesheet, leave a comment pointing to the original base object in order to
-  establish a concrete link between the object and its extension [[13]](README.md#works-cited).
+Object-Extension Pointer - when extending a module within a separate stylesheet, leave a comment pointing to the original base object in order to establish a concrete link between the object and its extension [[13]](README.md#works-cited).
 
 Example:
 ```scss
@@ -106,18 +104,16 @@ Example:
 
 ### Units
 * When building a responsive design system always try to use relative units to allow your system to scale to the user's screen size.
-
-
-* Either `em's`, or `px's` may be used for `font-size`. Both allow the user
+  * Either `em's`, or `px's` may be used for `font-size`. Both allow the user
   to change the default font size within their browser, which is what we
   want. [rems](http://www.w3.org/TR/css3-values/#rem-unit), which have wide [browser support](http://caniuse.com/#search=rem), can be used within a Sass mixin to provide an em based falback for IE8 and Opera Mini.
-* Use unit-less 'line-height' because it does not inherit a percentage value
+  * Use unit-less 'line-height' because it does not inherit a percentage value
   of its parent element - it's based on a multiplier of the 'font-size'.
-* Avoid absolute measurements.  For example, by using `.dropdown-nav li:hover
+  * Avoid absolute measurements.  For example, by using `.dropdown-nav li:hover
   { top: 37px; }` you are coding a single point of failure into your
   interface. Instead, build with flexibility in mind by using `.dropdown-nav
   li:hover { top: 100%; }` [[13]](README.md#works-cited).
-* Consider using [Modular
+  * Consider using [Modular
   Scales](http://www.alistapart.com/articles/more-meaningful-typography/) to
   help define your proportional rhythms within your designs. The [Sassy
   Modular Scale](https://github.com/scottkellum/modular-scale) Ruby Gem makes
@@ -184,7 +180,7 @@ The temporary directory contains any styles that haven't yet been properly defin
 Building complex components with smaller, more discrete code blocks leads to more reusable code, easier debugging, and a DRYer code base by cutting down on repetition. A component is comprised of object, structure, and skin. Class naming and [selector construct](#selector-construct) is very important. This syntax and naming convention illustrates the intention of a class and its relationship to others.
 
 #### Object Styles
-Styles which remain consistent and unchanged within a component regardless of skin or structure.  These styles are abstracted and may be used as a foundation for building additional components. [Example Objects](https://github.com/kwaledesign/Archetype/tree/master/sass/objects). This is the base class that gets extended with a structure and skin.
+Styles which remain consistent and unchanged within a component regardless of skin or structure.  These styles are abstracted and may be used as a foundation for building additional components. [Example Objects](https://github.com/kwaledesign/Archetype/tree/master/sass/objects). This is the base class that can be modified or extended with a structure and skin.
 
 #### Structure Styles
 Styles which control a component's physical structure. Structure styles include any properties involving spacing which could potentially effect surrounding elements on the page, i.e. box-model properties. Structure classes extend an object or component class.
@@ -210,19 +206,20 @@ In order to maintain modularity a component must adhere to the following:
 * Component styles must not declare any explicit size constraints, allowing the module to scale to it's parent container. A component can be placed into a layout component, i.e. a grid; or extended with a layout class, but it must never be given an explicit width.
 * A component must remain independent from siblings, children, and parents allowing for
   arbitrarily placement within a design system.
-* A component's name must be unique to project - only instances of same block can have
+* A component's name must be unique to project - only instances of same component can have
   same name.
 * Re-using a component also means re-using its behavior. To use the same component with
   differing behavior requires a sub-component.
 * Selectors must remain context free and un-coupled to HTML. Never use HTML elements within css selectors or cascading selectors for multiple components.
-* Avoid CSS ID selectors - blocks must remain non-unique, able to appear multiple times on the page.
+* Avoid CSS ID selectors - components must remain non-unique, able to appear multiple times on the page.
 
 #### Element
+
 An entity of a component that extends an object to perform a certain function, namely to applying either skin or structure styles. 
 
 Elements extend objects to build a component.
-* Elements are context-dependant (only make sense within their parent block)
-* Element name must be unique within the scope of its block
+* Elements are context-dependant (only make sense within their parent)
+* Element name must be unique within the scope of its component
 * Elements can be repeated within a block e.g. tabs or navigation elements
 * Must have a unique name to be used within a css rule
 * An element's class name includes its component-name and element-name to maintain
@@ -233,10 +230,12 @@ Elements extend objects to build a component.
 ******An object__element is an additional class for a component (__)
 // element = An element is a part of a component that performs a certain function. Elements are context-dependent: they only make sense in the context of the component that they belong to.  
 // ex element (menu__item is an element of menu)
-<ul class="menu">
-  <li class="menu__item">home</li>
-</ul>
 
+```html
+<ul class="object">
+  <li class="object__element">home</li>
+</ul>
+```
 
 #### Sub-Component
 a variant of a component that inherits all the styles of its parent, but differs
@@ -319,10 +318,10 @@ BEM Syntax:
 // component name
 .object {}                        /* represents the higher-level abstraction of a component */
 .object__element {}               /* represents a descendent of .object */
-.object--modifier                 /* represents a modification of an object */
+.object--modifier {}              /* represents a modification of an object */
 .object--extension {}             /* extends an object with a skin or structure */
 &.is-active {}                    /* represents a change in the component's state (state-modifier) */
-.prefix-component-name            /* targets all component entities i.e. for layout */
+.prefix-component-name {}         /* targets all component entities i.e. for layout */
 
 ```
 
@@ -378,22 +377,6 @@ a solid trade off when you take into account [IDE
 Snippets](https://github.com/kwaledesign/SCSS-Snippets) and the fact that GZIP
 handles repetition very well._
 
-## Simplified Class Constructs
-The simplification of class construct would be ideal and of course a developer centered goal. Sass does have `@extend` which can address this issue, but not without risk of heavy code bloat. Bloated CSS file size would of course violate a user centered goal, which is why the above OOCSS multi-class component construct is preferred. What we need is a native browser implimentation of `@extend`.
-
-```scss
-.btn-signup {
-  @extend btn;
-  @extend btn--full;
-  @extend btn--large;
-  @extend btn--primary;
-}
-```
-
-**multi-class vs single-class [[3]](README.md#works-cited)**
-.btn .btn--full .btn--large .btn--primary (multi)
-.btn--full--large--primary
-
 
 ### CSS Class Semantics
 
@@ -435,8 +418,7 @@ architecture.
 
 #### Guidelines for Minimal Specificity
 
-* Avoid using ID selectors within CSS selectors. [Sin and
-  Syntax](http://www.kwaledesign.com/articles/sin-and-syntax)
+* Avoid using ID selectors within CSS selectors.
 * Do not use location based selectors. A location based selector is a selector
   that changes a modules appearance based on its location or region
   (main-content, side-bar, footer, etc).  Where a module has different
@@ -458,6 +440,7 @@ architecture.
 
 ## Practical Example
 
+#### Object
 ```scss
 /**
  * Nav Object
@@ -520,7 +503,7 @@ architecture.
 #### HTML
 
 ```html
-<ul class="nav nav--pager nav__pager--large nav__pager--subtle l-articles-pager">
+<ul class="nav nav--pager nav--pager--large nav--pager--subtle l-articles-pager">
   <li class="nav--pager__item is-active">1</li>
   <li class="nav--pager__item">2</li>
 </ul>

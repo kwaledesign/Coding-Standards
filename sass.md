@@ -56,4 +56,23 @@ Example:
 }
 ```
 
+## Simplified Class Constructs
+
+(re: muliti-class pattern aka OOCSS)
+
+The simplification of class construct would be ideal and of course a developer centered goal. Sass does have `@extend` which can address this issue, but not without risk of heavy code bloat. Bloated CSS file size would of course violate a user centered goal, which is why the above OOCSS multi-class component construct is preferred. What we need is a native browser implimentation of `@extend`.
+
+```scss
+.btn-signup {
+  @extend btn;
+  @extend btn--full;
+  @extend btn--large;
+  @extend btn--primary;
+}
+```
+
+**multi-class vs single-class [[3]](README.md#works-cited)**
+.btn .btn--full .btn--large .btn--primary (multi)
+.btn--full--large--primary
+
 
