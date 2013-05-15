@@ -317,15 +317,12 @@ BEM Syntax:
 
 ```scss
 // component name
-.object {}           // represents the higher-level abstraction of a component
-.object__element {}  // represents a descendent of .object
-.object--modifier    // represents a modification of an object
-.object--extension {} // extends an object with a skin or structure
-&.is-active {}     // represents a change in the component's state (state-modifier)
-
-.prefix-component-name
-// ex:
-.l-nav__pager // refers to all nav__pager's regardless of structure or skin
+.object {}                        /* represents the higher-level abstraction of a component */
+.object__element {}               /* represents a descendent of .object */
+.object--modifier                 /* represents a modification of an object */
+.object--extension {}             /* extends an object with a skin or structure */
+&.is-active {}                    /* represents a change in the component's state (state-modifier) */
+.prefix-component-name            /* targets all component entities i.e. for layout */
 
 ```
 
@@ -347,80 +344,9 @@ BEM Syntax:
 .btn--large {}                    /* large button structure (object extension structure) */
 .btn--primary {}                  /* primary button skin (object extension skin) */
 &.is-disabled {}                  /* object state */
+.l-btn--call-to-action            /* layout styles for call-to-action */
 
 ```
-
-# Example Component:
-
-##### Example Object
-```scss
-/**
- * Nav Object
- *
- */
-.nav {
-  &.nav__element {}  
-}
-```
-
-#### Example Component
-```scss
-/**
- * Articles Pager
- *
- * Pager component modifies the nav object in _nav-object.scss partial
- */
-.nav__pager {}
-
-```
-
-#### Example Object Extenders
-```scss
-
-/**
- * Pager Structure
- *
- * Extends the nav object defined in _nav-object.scss partial
- */
-.nav__pager--large {}
-
-```
-
-#### Object Skin Extension
-
-```
-/**
- * Pager Skin
- *
- * Extends the nav object defined in _nav-object.scss partial
- */
-.nav__pager--secondary {}
-
-&.is-active {}
-
-```
-
-#### Example Layout
-```scss
-/**
- * Pager Layout
- *
- * 
- */
-.l-articles-pager {}
-
-```
-
-#### Example HTML
-
-```html
-<ul class="nav nav--pager nav__pager--large nav__pager--subtle l-articles-pager">
-  <li class="nav--pager__item is-active">1</li>
-  <li class="nav--pager__item">2</li>
-</ul>
-
-```
-
 
 ### BEM Style Sass Variable Syntax for Component Variables
 
@@ -529,86 +455,75 @@ architecture.
   decreases selector performance, creates a context dependency, and increases
   the selector's specificity. These are all things to be avoided [[1]](README.md#works-cited) [12](README.md#works-cited).
 
-## Practical example
 
-An example of various conventions.
+## Practical Example
 
-```css
-/* ==========================================================================
-   Grid layout
-   ========================================================================== */
+```scss
+/**
+ * Nav Object
+ *
+ */
+.nav {
+  &.nav__item {...}  
+}
+```
+
+#### Component
+```scss
+/**
+ * Articles Pager
+ *
+ * Pager component modifies the nav object in _nav-object.scss partial
+ *
+ * Markup Pattern:
+ * <ul class="nav nav--pager nav--pager--large nav--pager--subtle">
+ *   <li class="nav--pager--item is-active">1</li>
+ *   <li class="nav--pager--item">2</li>
+ * </ul>
+ *
+ */
+.nav--pager {...}
+
 
 /**
-* Column layout with horizontal scroll.
-*
-* This creates a single row of full-height non-wrapping columns that can
-* be browsed horizontally within their parent.
-*
-* Example HTML:
-*
-* <div class="grid">
-*   <div class="cell cell-3"></div>
-*   <div class="cell cell-3"></div>
-*   <div class="cell cell-3"></div>
-* </div>
-*/
+ * Pager Structure
+ *
+ * Extends the nav object defined in _nav-object.scss partial
+ */
+.nav--pager--large {...}
+
 
 /**
-* Grid container
-* Must only contain `.cell` children.
-*/
-
-.grid {
-  height: 100%;
-  /* Remove inter-cell whitespace */
-  font-size: 0;
-  /* Prevent inline-block cells wrapping */
-  white-space: nowrap;
+ * Pager Skin
+ *
+ * Extends the nav object defined in _nav-object.scss partial
+ */
+.nav--pager--secondary {
+  &.is-active {...}
 }
 
+
+```
+
+#### Layout
+
+```scss
 /**
-* Grid cells
-* No explicit width by default. Extend with `.cell-n` classes.
-*/
+ * Pager Layout
+ *
+ * Extends the articles pager component in /components/_pager.scss partial
+ */
+.l-articles-pager {...}
 
-.cell {
-  position: relative;
-  display: inline-block;
-  overflow: hidden;
-  box-sizing: border-box;
-  height: 100%;
-  /* Set the inter-cell spacing */
-  padding: 0 10px;
-  border: 2px solid #333; 
-  vertical-align: top;
-  /* Reset white-space */
-  white-space: normal;
-  /* Reset font-size */
-  font-size: 16px;
-}
+```
 
-/* Cell states */
+#### HTML
 
-.cell.is-animating {
-  background-color: #fffdec;
-}
+```html
+<ul class="nav nav--pager nav__pager--large nav__pager--subtle l-articles-pager">
+  <li class="nav--pager__item is-active">1</li>
+  <li class="nav--pager__item">2</li>
+</ul>
 
-/* Cell dimensions
-   ==========================================================================
-*/
-
-.cell-1 { width: 10%; }
-.cell-2 { width: 20%; }
-.cell-3 { width: 30%; }
-.cell-4 { width: 40%; }
-.cell-5 { width: 50%; }
-
-/* Cell modifiers
-   ========================================================================== */
-
-.cell--detail,
-.cell--important {
-  border-width: 4px;
-}
 ```
 
