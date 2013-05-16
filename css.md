@@ -172,26 +172,28 @@ The temporary directory contains any styles that haven't yet been properly defin
    (box-model) and skin styles (color, font, gradients) and abstract these
    styles in class-based modules to allow re-use [[6]](README.md#works-cited).
 2. Separation of Container and Content - avoid all explicit parent-child
-   relationship within style declarations so that a module's style is not
-   dependant upon its container which allows the module to be reused. 
+   relationship within style declarations so that a component's style is not
+   dependant upon its container which allows the module to be reused [[6]](README.md#works-cited). 
+
+### Guiding Principles
+Encapsulation is the key to creating scalable, maintainable applications. All resources are components, even ones that are non-visual.
 
 ### Object Oriented Classes
-
 Building complex components with smaller, more discrete code blocks leads to more reusable code, easier debugging, and a DRYer code base by cutting down on repetition. A component is comprised of object, structure, and skin. Class naming and [selector construct](#selector-construct) is very important. This syntax and naming convention illustrates the intention of a class and its relationship to others.
 
 #### Object Styles
 Styles which remain consistent and unchanged within a component regardless of skin or structure.  These styles are abstracted and may be used as a foundation for building additional components. [Example Objects](https://github.com/kwaledesign/Archetype/tree/master/sass/objects). This is the base class that can be modified or extended with a structure and skin.
 
 #### Structure Styles
-Styles which control a component's physical structure. Structure styles include any properties involving spacing which could potentially effect surrounding elements on the page, i.e. box-model properties. Structure classes extend an object or component class.
+Styles which control a component's physical structure. Structure styles include any properties involving spacing which could potentially effect surrounding elements on the page, i.e. box-model properties. Structure classes extend an object class.
 
 #### Skin Styles
-Styles which control a component's physical appearance.  Skin styles include any properties involving color, typography, gradients, shadows, etc. Skin classes extend an object or component class.
+Styles which control a component's physical appearance.  Skin styles include any properties involving color, typography, gradients, shadows, etc. Skin classes extend an object class.
 
-_Note: Sometimes the distinction between structure and skin is none-trivial. For example, the arrival of border-box has greatly simplified the box-model, but makes the border property a bit more difficult to define in this context because it no longer contributes to an element's width (structure). The best way to handle this is to split up border property defining border width and style as structure and border-color as skin._
+_Note: Sometimes the distinction between structure and skin is none-trivial. For example, the arrival of border-box has greatly simplified the box-model, but makes the border property a bit more difficult to define in this context because it no longer contributes to an element's width (structure). The best way to handle this is to split up border property defining border width and style as structure and border-color as skin. An example that makes this more clear is when building a tab component where the structure of the tab requires a transparent bottom border for the active tab and the skin of the tab requires a light gray border._
 
 #### Layout Styles
-Styles that define how a component sits on the page. A component's layout class is prefixed with `.l-` and uses the entire component's name. Layout styles include width and grid layout. For example, a component named: `object__structure--skin` would be given its layout styles with the corresponding layout class named: `.l-object__structure--skin`.
+Styles that define how a component sits on the page. A component's layout class uses the `.l-` prefix followed by the component's name. Layout styles include width and grid layout. For example, a component named: `object--modifier--structure--skin` would be given its layout styles with the corresponding layout class named: `.l-object--modifier`. The skin and structure classes are omitted here because they have no effect on the component's layout.
 
 ## Naming Conventions and Structure
 
@@ -206,37 +208,28 @@ In order to maintain modularity a component must adhere to the following:
 * Component styles must not declare any explicit size constraints, allowing the module to scale to it's parent container. A component can be placed into a layout component, i.e. a grid; or extended with a layout class, but it must never be given an explicit width.
 * A component must remain independent from siblings, children, and parents allowing for
   arbitrarily placement within a design system.
-* A component's name must be unique to project - only instances of same component can have
-  same name.
+* Avoid CSS ID selectors - components must remain non-unique, able to appear multiple times on the page. A component's name must be unique to project - only instances of same component can have same name.
 * Re-using a component also means re-using its behavior. To use the same component with
   differing behavior requires a sub-component.
 * Selectors must remain context free and un-coupled to HTML. Never use HTML elements within css selectors or cascading selectors for multiple components.
-* Avoid CSS ID selectors - components must remain non-unique, able to appear multiple times on the page.
-
+ 
 #### Element
+An element is a content-dependant descendent of a component that performs a certain function and is represented by an additional class for a component. Elements are denoted by the use of `__` (double underscores) i.e. `.component-name__element-name`.
 
-An entity of a component that extends an object to perform a certain function, namely to applying either skin or structure styles. 
-
-Elements extend objects to build a component.
-* Elements are context-dependant (only make sense within their parent)
-* Element name must be unique within the scope of its component
-* Elements can be repeated within a block e.g. tabs or navigation elements
-* Must have a unique name to be used within a css rule
+* Elements are context-dependant - they are only used within the context of their parent component.
+* Element name must be unique within the scope of its component and must have a unique name to be used within a css rule
+* Elements can be repeated within a component, i.e. tabs or navigation elements
 * An element's class name includes its component-name and element-name to maintain
   the elements context, maintain control of the cascade, and avoid
   location-dependant selectors [[2]](README.md#works-cited).
 
-
-******An object__element is an additional class for a component (__)
-// element = An element is a part of a component that performs a certain function. Elements are context-dependent: they only make sense in the context of the component that they belong to.  
-// ex element (menu__item is an element of menu)
-
+Example:
 ```html
 <ul class="object">
   <li class="object__element">home</li>
 </ul>
 ```
-
+# ?????????????????????
 #### Sub-Component
 a variant of a component that inherits all the styles of its parent, but differs
 in skin, layout, positioning, or behavior. By creating a sub-component within an
@@ -249,10 +242,15 @@ styles [[1]](README.md#works-cited).
   prevents the sub-component's styles from applying outside of the component's
   scope.
 
+Example:
+```scss
+.nav--articles-pager--large--subtle {...}         /* Component */
+.nav--articles-pager--small--subtle {...}         /* Sub-Component */
+```
+
 #### Component Modifier
 A trivial variant of a component or sub-component applied as an additional class on
-the root component, i.e. `&.modifier`. Useful for when the component or sub-component
-modification is insignificant enough not to warrant an entirely new component or
+the root component, i.e. `.object--modifier` or `&.modifier`. Useful for when the component or sub-component modification is insignificant enough not to warrant an entirely new component or
 sub-component.
 
 Component modifiers use a multi-class pattern [[3]](README.md#works-cited) for component modifiers in order to reduce the number of classes for a component when variations are scaled, to allow for easier contextual based adjustments when necessary, and to help simplify class and variable names. For example, state styles are extended via their own class,
@@ -277,6 +275,16 @@ A state is a component modifier that is triggered by an action or behavior.
 * State based styles are indicated with the 'is-' prefix. These style
   declarations can be shared by CSS and JS files [[1]](README.md#works-cited).
 * A comonent's state styles should be grouped with the component in the same partial.
+
+### Component Extension
+A significant variant of a component applied as an additional class on the component. Component extensions extend an object by applying additional styles related to either structure or skin. Extension classes are prefixed with the object's name followed by `--` (double dashes) and the extension name i.e. `.object--skin` or `.object--structure`.
+
+Example:
+```scss
+.btn--primary {...}
+.btn--large {..}
+
+```
 
 ### Layout
 * All components are fluid by nature and should never be given explicit width or height restraints. A component's width is determined by its parent container or grid system.
