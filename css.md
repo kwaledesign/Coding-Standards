@@ -214,7 +214,7 @@ In order to maintain modularity a component must adhere to the following:
 * Selectors must remain context free and un-coupled to HTML. Never use HTML elements within css selectors or cascading selectors for multiple components.
  
 #### Element
-An element is a content-dependant descendent of a component that performs a certain function and is represented by an additional class for a component. Elements are denoted by the use of `__` (double underscores) i.e. `.component-name__element-name`.
+An element is a context-dependant descendent of an object that performs a certain function and is represented by an additional class for a component. Elements are denoted by the use of `__` (double underscores) i.e. `.component-name__element-name`.
 
 * Elements are context-dependant - they are only used within the context of their parent component.
 * Element name must be unique within the scope of its component and must have a unique name to be used within a css rule
@@ -224,28 +224,39 @@ An element is a content-dependant descendent of a component that performs a cert
   location-dependant selectors [[2]](README.md#works-cited).
 
 Example:
+```scss
+.object__element {...}
+
+```
+
 ```html
 <ul class="object">
   <li class="object__element">home</li>
 </ul>
-```
-# ?????????????????????
-#### Sub-Component
-a variant of a component that inherits all the styles of its parent, but differs
-in skin, layout, positioning, or behavior. By creating a sub-component within an
-existing module, modularity is maintained by avoiding location dependant
-styles [[1]](README.md#works-cited).
 
-* A component's sub-component are children of the component and are prefixed
+```
+
+#### Sub-Object
+A sub-object is a context-dependant sibling of an object that performs a certain function and is represented by an additional class for a component. Sub-objects are similar to elements in syntax and in relation to an object, but they differ significantly in the way that a sub-object extends or provides minor overrides to the object and is applied to the same HTML element. Sub-objects are denoted by the use of `__` (double underscores) i.e. `.component-name__sub-component-name`. 
+
+* A variant of a component that inherits all the styles of its object, but differs by adding additional object styles, or providing minor overrides of its object.  When object overrides become significant, the creation of an additional object should be considered.
+* A component's sub-component are siblings of the component and are prefixed
   with the full name of the parent component followed by `__` (double underscores). This
-  clearly indicates a sub-component's relationship to its component and also
-  prevents the sub-component's styles from applying outside of the component's
+  clearly indicates a sub-object's relationship to its object and also
+  prevents the sub-object's styles from applying outside of the object's
   scope.
 
 Example:
 ```scss
-.nav--articles-pager--large--subtle {...}         /* Component */
-.nav--articles-pager--small--subtle {...}         /* Sub-Component */
+.nav__pager {...}         /* Sub-Component */
+
+```
+
+```html
+<ul class="nav nav__pager">
+  ...
+</ul>
+
 ```
 
 #### Component Modifier
