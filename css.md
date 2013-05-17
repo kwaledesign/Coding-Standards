@@ -214,7 +214,7 @@ In order to maintain modularity a component must adhere to the following:
 * Selectors must remain context free and un-coupled to HTML. Never use HTML elements within css selectors or cascading selectors for multiple components.
  
 #### Element
-An element is a context-dependant descendent of an object that performs a certain function and is represented by an additional class for a component. Elements are denoted by the use of `__` (double underscores) i.e. `.component-name__element-name`.
+An element is a context-dependant descendent of an object that performs a certain function and is represented by an additional class for a component or a descendent css selector. Elements are denoted by the use of `__` (double underscores) i.e. `.component-name__element-name`.
 
 * Elements are context-dependant - they are only used within the context of their parent component.
 * Element name must be unique within the scope of its component and must have a unique name to be used within a css rule
@@ -225,7 +225,11 @@ An element is a context-dependant descendent of an object that performs a certai
 
 Example:
 ```scss
-.object__element {...}
+.object__element {...}                          /* element class */
+
+.object {
+  & > li {...}                                  /* descendent selector */
+  }
 
 ```
 
