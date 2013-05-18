@@ -12,8 +12,7 @@ Coding Standards
 
 # CSS Guidelines
 
-The purpose of this document is to outline a collection of opinionated
-best-practices and methodologies for building object-oriented CSS architectures that are both highly scalable and easily maintained. 
+The purpose of this document is to outline a collection of opinionated best-practices and methodologies for building object-oriented CSS architectures that are both highly scalable and easily maintained. Encapsulation is the key to achieving these objectives of modularity which is why all resources are defined as components, even ones that are non-visual.
 
 # General Principles
 
@@ -128,7 +127,7 @@ Example:
 
 ## Working with Partials
 Partials in Sass begin with an underscore and are not compiled into final
-output unless they are included within a Sass file. Using Sass `@import` includes
+output unless they are explicitly included within a Sass file. Using Sass `@import` includes
 all partials after compiling and does not incur an additional http request as
 they do in regular CSS. For this reason, partials should be used for all base,
 component, and layout styles. These partials should then be included into
@@ -175,8 +174,6 @@ The temporary directory contains any styles that haven't yet been properly defin
    relationship within style declarations so that a component's style is not
    dependant upon its container which allows the module to be reused [[6]](README.md#works-cited). 
 
-### Guiding Principles
-Encapsulation is the key to creating scalable, maintainable applications. All resources are components, even ones that are non-visual.
 
 ### Object Oriented Classes
 Building complex components with smaller, more discrete code blocks leads to more reusable code, easier debugging, and a DRYer code base by cutting down on repetition. A component is comprised of object, structure, and skin. Class naming and [selector construct](#selector-construct) is very important. This syntax and naming convention illustrates the intention of a class and its relationship to others.
@@ -185,13 +182,14 @@ Building complex components with smaller, more discrete code blocks leads to mor
 Styles which remain consistent and unchanged within a component regardless of skin or structure.  These styles are abstracted and may be used as a foundation for building additional components. [Example Objects](https://github.com/kwaledesign/Archetype/tree/master/sass/objects). This is the base class that can be modified or extended with a structure and skin.
 
 #### Structure Styles
-Styles which control a component's physical structure. Structure styles include any properties involving spacing which could potentially effect surrounding elements on the page, i.e. box-model properties. Structure classes extend an object class.
+Styles which control a component's physical structure. Structure styles include any properties involving spacing which could potentially effect surrounding elements on the page, i.e. box-model properties. Structure classes extend an object class. There must be no dependencies between structure and skin.
 
 #### Skin Styles
-Styles which control a component's physical appearance.  Skin styles include any properties involving color, typography, gradients, shadows, etc. Skin classes extend an object class.
+Styles which control a component's visual appearance.  Skin styles include any properties involving color, typography, gradients, shadows, etc. Skin classes extend an object class. There must be no dependencies between skin and structure.
 
 _Note: Sometimes the distinction between structure and skin is none-trivial. For example, the arrival of border-box has greatly simplified the box-model, but makes the border property a bit more difficult to define in this context because it no longer contributes to an element's width (structure). The best way to handle this is to split up border property defining border width and style as structure and border-color as skin. An example that makes this more clear is when building a tab component where the structure of the tab requires a transparent bottom border for the active tab and the skin of the tab requires a light gray border._
 
+#?
 #### Layout Styles
 Styles that define how a component sits on the page. A component's layout class uses the `.l-` prefix followed by the component's name. Layout styles include width and grid layout. For example, a component named: `object--modifier--structure--skin` would be given its layout styles with the corresponding layout class named: `.l-object--modifier`. The skin and structure classes are omitted here because they have no effect on the component's layout.
 
@@ -265,15 +263,13 @@ Example:
 
 #### Component Modifier
 A trivial variant of a component or sub-component applied as an additional class on
-the root component, i.e. `.object--modifier` or `&.modifier`. Useful for when the component or sub-component modification is insignificant enough not to warrant an entirely new component or
-sub-component.
+the root component, i.e. `.object--modifier` or `&.modifier`. Useful for when the component or sub-component modification is insignificant enough not to warrant an entirely new component.
 
-Component modifiers use a multi-class pattern [[3]](README.md#works-cited) for component modifiers in order to reduce the number of classes for a component when variations are scaled, to allow for easier contextual based adjustments when necessary, and to help simplify class and variable names. For example, state styles are extended via their own class,
-rather than attaching a state-suffix to an existing component class.
+Component modifiers use a multi-class pattern [[3]](README.md#works-cited) in order to allow for easier contextual based adjustments when necessary, and to help simplify class and variable names. For example, state styles are extended via their own class, rather than attaching a state-suffix to an existing component class.
 
 * Distinguishes an alteration in style or application without creating an
   entire new component
-* A property of a component that alters its look or behavior in a way insignificant enough to warrant a separate component or sub-component.
+* A property of a component that alters its look or behavior in a way insignificant enough to warrant a separate component.
 * Multiple modifiers may be used at once.
 * Most common example of a modifier is the component state e.g. .is-active,
   .is-collapsed, .is-disabled.
@@ -291,8 +287,8 @@ A state is a component modifier that is triggered by an action or behavior.
   declarations can be shared by CSS and JS files [[1]](README.md#works-cited).
 * A comonent's state styles should be grouped with the component in the same partial.
 
-### Component Extension
-A significant variant of a component applied as an additional class on the component. Component extensions extend an object by applying additional styles related to either structure or skin. Extension classes are prefixed with the object's name followed by `--` (double dashes) and the extension name i.e. `.object--skin` or `.object--structure`.
+### Object Extension
+A significant variant of a component applied as an additional class on the component. Object extensions extend an object by applying additional styles related to either structure or skin. Extension classes are prefixed with the object's name followed by `--` (double dashes) and the extension name i.e. `.object--skin` or `.object--structure`.
 
 Example:
 ```scss
@@ -316,6 +312,7 @@ Example:
 * Icon styles should be split into structure and skin (`.ico-small` & `.ico-profile classes`) in order to allow for maximum flexibility and minimal code repetition [[1]](README.md#works-cited).
 * Use Compass to manage sprits easily.
 * Sprited Icons should be added to empty elements that have their text hidden off canvas.
+* Use Compass to manage image directories easily
   
 ## Selector Construct
 
@@ -341,7 +338,7 @@ BEM Syntax:
 // component name
 .object {}                        /* represents the higher-level abstraction of a component */
 .object__element {}               /* represents a descendent of .object */
-.object--modifier {}              /* represents a modification of an object */
+.object__modifier {}              /* represents a modification of an object */
 .object--extension {}             /* extends an object with a skin or structure */
 &.is-active {}                    /* represents a change in the component's state (state-modifier) */
 .prefix-component-name {}         /* targets all component entities i.e. for layout */
@@ -351,7 +348,7 @@ BEM Syntax:
 #### Example HTML
 
 ```html
-<ul class="object object--modifier object--extension object-state">
+<ul class="object object__modifier object--extension is-object-state">
   <li class="object__element is-active">...</li>
 </ul>
 
@@ -362,7 +359,7 @@ BEM Syntax:
 ```scss
 // large primary button (call to action button)
 .btn {}                           /* button object */
-.btn--full {}                     /* full width button (object modifier) */
+.btn__full {}                     /* full width button (object modifier) */
 .btn--large {}                    /* large button structure (object extension structure) */
 .btn--primary {}                  /* primary button skin (object extension skin) */
 &.is-disabled {}                  /* object state */
@@ -374,7 +371,7 @@ BEM Syntax:
 
 ```scss
 $object__element--property:                   css-value;
-$nav--pager__item--color-bg:                  pink;
+$nav__pager__item--color-bg:                  pink;
 $btn--negative--color1:                       pink;
 $btn--positive--color1:                       pink;
 
@@ -406,7 +403,7 @@ handles repetition very well._
 Class names should remain content-independent[[3]](README.md#works-cited). By avoiding tightly coupled class names and content semantics, code is more easily reused and modularized
 to allow for increased scalability of your architecture.  Because the most
 reusable code components are those with content-independent class names, class
-names should be derived from repeating structural or functional patterns. 
+names should be derived from repeating structural or functional patterns and never from the content. 
 
 >"We shouldn't be afraid of making the connections between layers clear and
 >explicit rather than having class names rigidly reflect specific content.
@@ -482,13 +479,13 @@ architecture.
  * Pager component modifies the nav object in _nav-object.scss partial
  *
  * Markup Pattern:
- * <ul class="nav nav--pager nav--pager--large nav--pager--subtle">
- *   <li class="nav--pager--item is-active">1</li>
- *   <li class="nav--pager--item">2</li>
+ * <ul class="nav nav__pager nav__pager--large nav__pager--subtle">
+ *   <li class="nav__pager--item is-active">1</li>
+ *   <li class="nav__pager--item">2</li>
  * </ul>
  *
  */
-.nav--pager {...}
+.nav__pager {...}
 
 
 /**
@@ -496,7 +493,7 @@ architecture.
  *
  * Extends the nav object defined in _nav-object.scss partial
  */
-.nav--pager--large {...}
+.nav__pager--large {...}
 
 
 /**
@@ -504,7 +501,7 @@ architecture.
  *
  * Extends the nav object defined in _nav-object.scss partial
  */
-.nav--pager--secondary {
+.nav__pager--secondary {
   &.is-active {...}
 }
 
@@ -526,9 +523,9 @@ architecture.
 #### HTML
 
 ```html
-<ul class="nav nav--pager nav--pager--large nav--pager--subtle l-articles-pager">
-  <li class="nav--pager__item is-active">1</li>
-  <li class="nav--pager__item">2</li>
+<ul class="nav nav__pager nav__pager--large nav__pager--subtle l-articles-pager">
+  <li class="nav__pager__item is-active">1</li>
+  <li class="nav__pager__item">2</li>
 </ul>
 
 ```
