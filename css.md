@@ -271,25 +271,21 @@ Example:
 #### State
 A state is a variant of a component that is triggered by an action or behavior.  State styles are applied dynamically as an additional class on the component's root or child HTML element.
 
-* State based styles are indicated with the 'is-' prefix. These style
-  declarations can be shared by CSS and JS files [[1]](README.md#works-cited).
-* A comonent's state styles should be grouped with the component in the same partial.
-
-* Distinguishes an alteration in style or application without creating an
-  entire new component
-* A property of a component that alters its look or behavior in a way insignificant enough to warrant a separate component.
+* State based styles are indicated with the 'is-' prefix, i.e. `.is-active`, `.is-disabled`. These style declarations are be shared by CSS and JS files [[1]](README.md#works-cited).
+* A component's state styles should be grouped with the component in the same partial.
 * Multiple modifiers may be used at once.
-* Most common example of a modifier is the component state e.g. .is-active,
-  .is-collapsed, .is-disabled.
-* A modifier is an additional CSS class for a component. This clearly
-  indicates a modifiers relationship to its component or sub-component and also
-  prevents the modifiers styles from applying outside of its scope.
-* Element and block modifiers are applied in the same way.
-* Modifiers are chainable, but doing so is good indicator of re-evaluating the
-  necessity for moving those styles into their own component or sub-component.
 
 Example:
 ```html
+<button type="submit" class="btn btn--large btn--primary is-disabled">Submit</button>
+
+```
+
+Example:
+```
+<ul class="nav nav__vertical nav--large nav--primary">
+  <li class="nav__element is-active">...</li>
+</ul>
 
 ```
 
@@ -309,19 +305,10 @@ Example:
 * Use Compass to manage sprits easily.
 * Sprited Icons should be added to empty elements that have their text hidden off canvas.
 * Use Compass to manage image directories easily
-  
+
+
 ## Selector Construct
-
 Selector construct must explicitly communicate the context and function of the entity being named. 
-
-
-// object--modifier = extends an object modifying it in a trivial way to provide significant different functionality - ex: .nav .nav--vertical
-// object modifier = full / vertical / block
-
-// object extension = extends an object in a visually significant way to provide trivial different functionality -ex: .btn .btn--primary (skin and structure do not effect function)
-// component modifier = structure / skin
-// element modifier = state (current/active/disabled...)
-
 
 ### Naming Pattern
 
