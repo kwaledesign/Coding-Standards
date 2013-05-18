@@ -146,6 +146,9 @@ Base styles are project defaults for major HTML element styles. These include fi
 ### Component
 Components are the equivallent to Modules within the [SMACSS](smacss.com) methodology renamed here to avoid confusion with Drupal's terminology. Components are modular and reusable entities of a design system. Example components include buttons, call to actions, navigation elements, etc. Components often are built on an object and extended with element styles. Each component is defined within its own partial inside the component directory. [Example Component Styles](https://github.com/kwaledesign/Archetype/tree/master/sass/components).
 
+Components use a multi-class pattern [[3]](README.md#works-cited) in order to allow for easier contextual based adjustments when necessary, and to help simplify class and variable names. For example, structure, skin, and state styles are extended via their own class, rather than attaching a state-suffix to an existing component class.
+
+// COMPONENT === collection of classes - usually an object, possibly an object__modifier, and in most cases structure and skin classes.  The component is the specific combination of particular classes..if even one of these classes differs, this would constitute an entierly different component. (for example - the same button with two different skins is two different components even though the rest of their styles are common.)
 
 // component = at least one object (or base class) extended by at least one modifier or extension. A collection of classes that define a particular instance of a module or widget.
 
@@ -178,23 +181,22 @@ The temporary directory contains any styles that haven't yet been properly defin
 ### Object Oriented Classes
 Building complex components with smaller, more discrete code blocks leads to more reusable code, easier debugging, and a DRYer code base by cutting down on repetition. A component is comprised of object, structure, and skin. Class naming and [selector construct](#selector-construct) is very important. This syntax and naming convention illustrates the intention of a class and its relationship to others.
 
-#### Object Styles
+### Object Styles
 Styles which remain consistent and unchanged within a component regardless of skin or structure.  These styles are abstracted and may be used as a foundation for building additional components. [Example Objects](https://github.com/kwaledesign/Archetype/tree/master/sass/objects). This is the base class that can be modified or extended with a structure and skin.
 
-#### Structure Styles
+### Structure Styles
 Styles which control a component's physical structure. Structure styles include any properties involving spacing which could potentially effect surrounding elements on the page, i.e. box-model properties. Structure classes extend an object class. There must be no dependencies between structure and skin.
 
-#### Skin Styles
+### Skin Styles
 Styles which control a component's visual appearance.  Skin styles include any properties involving color, typography, gradients, shadows, etc. Skin classes extend an object class. There must be no dependencies between skin and structure.
 
 _Note: Sometimes the distinction between structure and skin is none-trivial. For example, the arrival of border-box has greatly simplified the box-model, but makes the border property a bit more difficult to define in this context because it no longer contributes to an element's width (structure). The best way to handle this is to split up border property defining border width and style as structure and border-color as skin. An example that makes this more clear is when building a tab component where the structure of the tab requires a transparent bottom border for the active tab and the skin of the tab requires a light gray border._
 
-#?
 #### Layout Styles
-Styles that define how a component sits on the page. A component's layout class uses the `.l-` prefix followed by the component's name. Layout styles include width and grid layout. For example, a component named: `object--modifier--structure--skin` would be given its layout styles with the corresponding layout class named: `.l-object--modifier`. The skin and structure classes are omitted here because they have no effect on the component's layout.
+Styles that define how a component sits on the page. A component's layout class uses the `.l-` prefix followed by the component's name. Layout styles include width and grid layout.
+
 
 ## Naming Conventions and Structure
-
 An effective naming convention explicitly communicates the context and function of the
 entity being named. 
 
@@ -203,23 +205,18 @@ A discrete, independent entity designed to exist as a stand alone module without
 
 In order to maintain modularity a component must adhere to the following:
 
-* Component styles must not declare any explicit size constraints, allowing the module to scale to it's parent container. A component can be placed into a layout component, i.e. a grid; or extended with a layout class, but it must never be given an explicit width.
+* Component styles must not declare any explicit size constraints, allowing the module to scale to it's parent container. A component can be placed inside a layout component, i.e. a grid; or extended with a layout class, but it must never be given an explicit width.
 * A component must remain independent from siblings, children, and parents allowing for
-  arbitrarily placement within a design system.
-* Avoid CSS ID selectors - components must remain non-unique, able to appear multiple times on the page. A component's name must be unique to project - only instances of same component can have same name.
-* Re-using a component also means re-using its behavior. To use the same component with
-  differing behavior requires a sub-component.
+  arbitrarily placement within a design system. This means that CSS ID Selectors must be avoided to allow components to remain non-unique (able to appear on the same page more than once). 
+* A component's name must be unique to the project to ensure that only instances of the same component can have the same  name. Re-using a component also means re-using its behavior. To use the same component with differing behavior requires a new component.
 * Selectors must remain context free and un-coupled to HTML. Never use HTML elements within css selectors or cascading selectors for multiple components.
  
 #### Element
-An element is a context-dependant descendent of an object that performs a certain function and is represented by an additional class for a component or a descendent css selector. Elements are denoted by the use of `__` (double underscores) i.e. `.component-name__element-name`.
+An element is a context-dependant descendent of an object that performs a certain function and is represented by an additional class for a component or a descendent css selector. Elements are denoted by the use of `__` (double underscores) i.e. `.component-name__element-name` in order to maintain the elements context, maintain control of the cascade, and avoid location-dependant selectors [[2]](README.md#works-cited).
 
-* Elements are context-dependant - they are only used within the context of their parent component.
-* Element name must be unique within the scope of its component and must have a unique name to be used within a css rule
+* Elements are context-dependant - they are only used within the context of their parent object.
+* Element name must be unique within the scope of its object and must have a unique name to be used within a css rule
 * Elements can be repeated within a component, i.e. tabs or navigation elements
-* An element's class name includes its component-name and element-name to maintain
-  the elements context, maintain control of the cascade, and avoid
-  location-dependant selectors [[2]](README.md#works-cited).
 
 Example:
 ```scss
@@ -261,11 +258,22 @@ Example:
 
 ```
 
-#### Component Modifier
-A trivial variant of a component or sub-component applied as an additional class on
-the root component, i.e. `.object--modifier` or `&.modifier`. Useful for when the component or sub-component modification is insignificant enough not to warrant an entirely new component.
+### Object Extension
+A significant variant of a component applied as an additional class on the component. Object extensions extend an object by applying additional styles related to either structure or skin. Extension classes are prefixed with the object's name followed by `--` (double dashes) and the extension name i.e. `.object--skin` or `.object--structure`.
 
-Component modifiers use a multi-class pattern [[3]](README.md#works-cited) in order to allow for easier contextual based adjustments when necessary, and to help simplify class and variable names. For example, state styles are extended via their own class, rather than attaching a state-suffix to an existing component class.
+Example:
+```scss
+.btn--primary {...}
+.btn--large {..}
+
+```
+
+#### State
+A state is a variant of a component that is triggered by an action or behavior.  State styles are applied dynamically as an additional class on the component's root or child HTML element.
+
+* State based styles are indicated with the 'is-' prefix. These style
+  declarations can be shared by CSS and JS files [[1]](README.md#works-cited).
+* A comonent's state styles should be grouped with the component in the same partial.
 
 * Distinguishes an alteration in style or application without creating an
   entire new component
@@ -280,20 +288,8 @@ Component modifiers use a multi-class pattern [[3]](README.md#works-cited) in or
 * Modifiers are chainable, but doing so is good indicator of re-evaluating the
   necessity for moving those styles into their own component or sub-component.
 
-#### State
-A state is a component modifier that is triggered by an action or behavior.
-
-* State based styles are indicated with the 'is-' prefix. These style
-  declarations can be shared by CSS and JS files [[1]](README.md#works-cited).
-* A comonent's state styles should be grouped with the component in the same partial.
-
-### Object Extension
-A significant variant of a component applied as an additional class on the component. Object extensions extend an object by applying additional styles related to either structure or skin. Extension classes are prefixed with the object's name followed by `--` (double dashes) and the extension name i.e. `.object--skin` or `.object--structure`.
-
 Example:
-```scss
-.btn--primary {...}
-.btn--large {..}
+```html
 
 ```
 
