@@ -148,7 +148,9 @@ Components are the equivallent to Modules within the [SMACSS](smacss.com) method
 
 Components use a multi-class pattern [[3]](README.md#works-cited) in order to allow for easier contextual based adjustments when necessary, and to help simplify class and variable names. For example, structure, skin, and state styles are extended via their own class, rather than attaching a state-suffix to an existing component class.
 
-// COMPONENT === collection of classes - usually an object, possibly an object__modifier, and in most cases structure and skin classes.  The component is the specific combination of particular classes..if even one of these classes differs, this would constitute an entierly different component. (for example - the same button with two different skins is two different components even though the rest of their styles are common.)
+In this way a component can be thought of as a collection of classes applied to an HTML element
+
+The component is the specific combination of particular classes..if even one of these classes differs, this would constitute an entierly different component. (for example - the same button with two different skins is two different components even though the rest of their styles are common.)
 
 // component = at least one object (or base class) extended by at least one modifier or extension. A collection of classes that define a particular instance of a module or widget.
 
