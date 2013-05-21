@@ -18,7 +18,7 @@ The purpose of this document is to outline a collection of opinionated best-prac
 
 ## Whitespace and Comments
 The key to portable code is in carefully documenting each components purpose,
-  how it works, and if necessary its intended markup pattern. 
+  how it works, and if necessary its intended markup pattern. Comment sections and subsections are optional, but often not needed when code is segregating into dedication Sass partials. In that case, it is perfectly acceptable to exclusively use the major and minor comment blocks.
 
 Example:
 
@@ -30,9 +30,12 @@ Example:
 
 /* Sub-section comment block
    ========================================================================== */
+```
 
+
+```css
 /**
-* Short description using Doxygen-style comment format
+* Major Comment Block
 *
 * The first sentence of the long description starts here and continues on this
 * line for a while finally concluding here at the end of this paragraph.
@@ -41,15 +44,18 @@ Example:
 * documentation. It can include example HTML, URLs, or any other information
 * that is deemed necessary or useful.
 *
-* @tag This is a tag named 'tag'
-*
-* @todo This is a todo statement that describes an atomic task to be completed
-*  at a later date. It wraps after 80 characters and following lines are
-*  indented by 2 spaces.
 */
 
+
+/**
+ * Minor Section Header
+ */
+
+
 /* Basic comment */
+
 ````
+
 ### Object-Extension Pointer
 When extending a module within a separate partial, leave a comment pointing to the original base object in order to establish a concrete link between the object and its extension [[13]](README.md#works-cited).
 
@@ -210,13 +216,7 @@ In order to maintain modularity a component must adhere to the following:
 * A component must remain independent from siblings, children, and parents allowing for
   arbitrarily placement within a design system. This means that CSS ID Selectors must be avoided to allow components to remain non-unique (able to appear on the same page more than once). 
 * A component's name must be unique to the project to ensure that only instances of the same component can have the same  name. Re-using a component also means re-using its behavior. To use the same component with differing behavior requires a new component.
-* Selectors must remain context free and un-coupled to HTML. Never use HTML elements within css selectors or cascading selectors for multiple components.
-
-
-
-Base styles are project defaults for major HTML element styles. These include figures, forms, links, lists, media, blockquotes, tables, and typography. For small projects, it's perfectly acceptable to style these elements directly, however, for increased flexibility and especially for larger projects it is wise to scope base styles with a class. For example, typography styles are scoped by placing a class on a main section so that the only 'default' type values are those provided by the normalize reset in order to avoid repeatedly over-ridding. Another example is the table element, which is scoped with the `.scope` class. Again, the idea is to prevent redundant overrides of base element styles. This is explained in greater detail in [Opt-In-Typography](http://css-tricks.com/opt-in-typography/) and [Global Typographic Styles Suck](http://anthonyshort.me/2012/05/global-typographic-styles-suck). 
-
-
+* Selectors must remain context free and un-coupled to HTML by avoiding the use of elements within CSS selectors. HTML element styles are scoped by placing a class on either the element itself or on a parent container. This means all HTML element styles are opt-in (opposed to opt-out) making the only "default" HTML element styles are those applied by normalize, thus avoiding redundant overrides. This is explained in greater detail in [Opt-In-Typography](http://css-tricks.com/opt-in-typography/) and [Global Typographic Styles Suck](http://anthonyshort.me/2012/05/global-typographic-styles-suck). 
 
 
 #### Element
