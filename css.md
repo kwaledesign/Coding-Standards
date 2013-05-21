@@ -144,16 +144,7 @@ By categorizing CSS rules we begin to see patterns and can define better practic
 Base styles are project defaults for major HTML element styles. These include figures, forms, links, lists, media, blockquotes, tables, and typography. For small projects, it's perfectly acceptable to style these elements directly, however, for increased flexibility and especially for larger projects it is wise to scope base styles with a class. For example, typography styles are scoped by placing a class on a main section so that the only 'default' type values are those provided by the normalize reset in order to avoid repeatedly over-ridding. Another example is the table element, which is scoped with the `.scope` class. Again, the idea is to prevent redundant overrides of base element styles. This is explained in greater detail in [Opt-In-Typography](http://css-tricks.com/opt-in-typography/) and [Global Typographic Styles Suck](http://anthonyshort.me/2012/05/global-typographic-styles-suck). [Example Base Styles](https://github.com/kwaledesign/Archetype/tree/master/sass/base).
 
 ### Component
-Components are the equivallent to Modules within the [SMACSS](smacss.com) methodology renamed here to avoid confusion with Drupal's terminology. Components are modular and reusable entities of a design system. Example components include buttons, call to actions, navigation elements, etc. Components often are built on an object and extended with element styles. Each component is defined within its own partial inside the component directory. [Example Component Styles](https://github.com/kwaledesign/Archetype/tree/master/sass/components).
-
-Components use a multi-class pattern [[3]](README.md#works-cited) in order to allow for easier contextual based adjustments when necessary, and to help simplify class and variable names. For example, structure, skin, and state styles are extended via their own class, rather than attaching a state-suffix to an existing component class.
-
-In this way a component can be thought of as a collection of classes applied to an HTML element
-
-The component is the specific combination of particular classes..if even one of these classes differs, this would constitute an entierly different component. (for example - the same button with two different skins is two different components even though the rest of their styles are common.)
-
-// component = at least one object (or base class) extended by at least one modifier or extension. A collection of classes that define a particular instance of a module or widget.
-
+Components are the equivallent to Modules within the [SMACSS](smacss.com) methodology renamed here to avoid confusion with Drupal's terminology. Components are modular and reusable entities of a design system. Example components include buttons, call to actions, navigation elements, etc. Each component is defined within its own partial inside the component directory. [Example Component Styles](https://github.com/kwaledesign/Archetype/tree/master/sass/components).
 
 
 ### Layout
@@ -180,8 +171,12 @@ The temporary directory contains any styles that haven't yet been properly defin
    dependant upon its container which allows the module to be reused [[6]](README.md#works-cited). 
 
 
-### Object Oriented Classes
-Building complex components with smaller, more discrete code blocks leads to more reusable code, easier debugging, and a DRYer code base by cutting down on repetition. A component is comprised of object, structure, and skin. Class naming and [selector construct](#selector-construct) is very important. This syntax and naming convention illustrates the intention of a class and its relationship to others.
+#### Object Oriented Classes
+Building complex components with smaller, more discrete code blocks leads to more reusable code, easier debugging, and a DRYer code base by cutting down on repetition. A component is comprised of object, structure, and skin. Class naming and [selector construct](#selector-construct) is very important. This syntax and naming convention illustrates the intention of a class and its relationship to others. 
+
+Components use a multi-class pattern in order to allow for easier contextual based adjustments when necessary, and to help simplify class and variable names [[3]](README.md#works-cited). For example, structure, skin, and state styles are extended via their own class, rather than attaching a suffix to an existing component class.
+
+In this way a component can be thought of as a specific combination of classes. Changing even one of these classes constitutes an entierly different component. For example, the same button component with two different skin classes is two different components. Additionally, an object could be represented as a single class or even a Sass `@extend` such as a clearfix. A component does not have to be a visual entity.
 
 ### Object Styles
 Styles which remain consistent and unchanged within a component regardless of skin or structure.  These styles are abstracted and may be used as a foundation for building additional components. [Example Objects](https://github.com/kwaledesign/Archetype/tree/master/sass/objects). This is the base class that can be modified or extended with a structure and skin.
@@ -194,7 +189,7 @@ Styles which control a component's visual appearance.  Skin styles include any p
 
 _Note: Sometimes the distinction between structure and skin is none-trivial. For example, the arrival of border-box has greatly simplified the box-model, but makes the border property a bit more difficult to define in this context because it no longer contributes to an element's width (structure). The best way to handle this is to split up border property defining border width and style as structure and border-color as skin. An example that makes this more clear is when building a tab component where the structure of the tab requires a transparent bottom border for the active tab and the skin of the tab requires a light gray border._
 
-#### Layout Styles
+### Layout Styles
 Styles that define how a component sits on the page. A component's layout class uses the `.l-` prefix followed by the component's name. Layout styles include width and grid layout.
 
 
@@ -212,7 +207,8 @@ In order to maintain modularity a component must adhere to the following:
   arbitrarily placement within a design system. This means that CSS ID Selectors must be avoided to allow components to remain non-unique (able to appear on the same page more than once). 
 * A component's name must be unique to the project to ensure that only instances of the same component can have the same  name. Re-using a component also means re-using its behavior. To use the same component with differing behavior requires a new component.
 * Selectors must remain context free and un-coupled to HTML. Never use HTML elements within css selectors or cascading selectors for multiple components.
- 
+
+
 #### Element
 An element is a context-dependant descendent of an object that performs a certain function and is represented by an additional class for a component or a descendent css selector. Elements are denoted by the use of `__` (double underscores) i.e. `.component-name__element-name` in order to maintain the elements context, maintain control of the cascade, and avoid location-dependant selectors [[2]](README.md#works-cited).
 
