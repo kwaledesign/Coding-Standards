@@ -213,10 +213,8 @@ In order to maintain modularity a component must adhere to the following:
 * Selectors must remain context free and un-coupled to HTML. Never use HTML elements within css selectors or cascading selectors for multiple components.
 
 
-----
 
 Base styles are project defaults for major HTML element styles. These include figures, forms, links, lists, media, blockquotes, tables, and typography. For small projects, it's perfectly acceptable to style these elements directly, however, for increased flexibility and especially for larger projects it is wise to scope base styles with a class. For example, typography styles are scoped by placing a class on a main section so that the only 'default' type values are those provided by the normalize reset in order to avoid repeatedly over-ridding. Another example is the table element, which is scoped with the `.scope` class. Again, the idea is to prevent redundant overrides of base element styles. This is explained in greater detail in [Opt-In-Typography](http://css-tricks.com/opt-in-typography/) and [Global Typographic Styles Suck](http://anthonyshort.me/2012/05/global-typographic-styles-suck). 
-----
 
 
 
