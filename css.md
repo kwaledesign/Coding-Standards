@@ -12,7 +12,7 @@ Coding Standards
 
 # CSS Guidelines
 
-The purpose of this document is to outline a collection of opinionated best-practices and methodologies for building object-oriented CSS architectures that are both highly scalable and easily maintained. Encapsulation is the key to achieving these objectives of modularity which is why all resources are defined as components, even ones that are non-visual.
+The purpose of this document is to outline a collection of opinionated best-practices and methodologies for building object-oriented CSS architectures that are both highly scalable and easily maintained. Encapsulation is the key to achieving these objectives of modularity which is why all entities within a design system are defined as components, even ones that are non-visual.
 
 # General Principles
 
@@ -50,8 +50,8 @@ Example:
 
 /* Basic comment */
 ````
-
-Object-Extension Pointer - when extending a module within a separate stylesheet, leave a comment pointing to the original base object in order to establish a concrete link between the object and its extension [[13]](README.md#works-cited).
+### Object-Extension Pointer
+When extending a module within a separate partial, leave a comment pointing to the original base object in order to establish a concrete link between the object and its extension [[13]](README.md#works-cited).
 
 Example:
 ```scss
@@ -67,7 +67,7 @@ Example:
 * Use one selector per line in multi-selector rulesets and separate each ruleset with a blank line.
 * Use one space before the opening brace of a ruleset and place the closing brace of a ruleset in the same column as the first character of the ruleset and use one space after the colon of a declaration.
 * Include one declaration per line and one level of indentation for each declaration.
-* Use upper-case, hex color codes (ex: #FFFFFF).
+* Use upper-case, hex color codes, i.e. `#FFFFFF`.
 * Use double quotes for quoted attribute values in selectors; ex:
   `input[type="checkbox"]`
 * _Where allowed_, avoid specifying units for zero-values ex: `margin: 0;`.
@@ -87,7 +87,7 @@ Example:
 ```
 Long comma-separated property values - such as collections of gradients or
 shadows - can be arranged across multiple lines in an effort to improve
-readability and produce more useful diffs.
+readability and produce more useful diffs [[3]](README.md#works-cited).
 
 Example:
 ```css
@@ -141,10 +141,11 @@ syntaxes if you ever need to do so [[17]](README.md#works-cited).
 By categorizing CSS rules we begin to see patterns and can define better practices around each of these patterns [[1]](README.md#works-cited).
 
 ### Base
-Base styles are project defaults for major HTML element styles. These include figures, forms, links, lists, media, blockquotes, tables, and typography. For small projects, it's perfectly acceptable to style these elements directly, however, for increased flexibility and especially for larger projects it is wise to scope base styles with a class. For example, typography styles are scoped by placing a class on a main section so that the only 'default' type values are those provided by the normalize reset in order to avoid repeatedly over-ridding. Another example is the table element, which is scoped with the `.scope` class. Again, the idea is to prevent redundant overrides of base element styles. This is explained in greater detail in [Opt-In-Typography](http://css-tricks.com/opt-in-typography/) and [Global Typographic Styles Suck](http://anthonyshort.me/2012/05/global-typographic-styles-suck). [Example Base Styles](https://github.com/kwaledesign/Archetype/tree/master/sass/base).
+The base directory contains styles and settings that apply to the entire project. These include the `_color-pallet.scss` and `_typography-pallet.scss` partials as well as settings for compass and compass plugins. [Example Base Styles](https://github.com/kwaledesign/Archetype/tree/master/sass/base).
+
 
 ### Component
-Components are the equivallent to Modules within the [SMACSS](smacss.com) methodology renamed here to avoid confusion with Drupal's terminology. Components are modular and reusable entities of a design system. Example components include buttons, call to actions, navigation elements, etc. Each component is defined within its own partial inside the component directory. [Example Component Styles](https://github.com/kwaledesign/Archetype/tree/master/sass/components).
+Components are the equivalent to Modules within the [SMACSS](smacss.com) methodology renamed here to avoid confusion with Drupal's terminology. Components are modular and reusable entities of a design system. Example components include buttons, call to actions, navigation elements, etc. Each component is defined within its own partial inside the component directory. [Example Component Styles](https://github.com/kwaledesign/Archetype/tree/master/sass/components). 
 
 
 ### Layout
@@ -152,6 +153,9 @@ Layout styles provide structure to (mobile-first) linear content. These styles a
 
 ### Object
 Object styles are generic abstractions that can be extended to build a component. The classic OOCSS example is the media-object. Each object is defined within its own partial inside the object directory. [Example Object Styles](https://github.com/kwaledesign/Archetype/tree/master/sass/objects).
+
+### Utilities
+Utilities are code snippets abstracted into classes, functions, and mixins that provide specific functionality. Utilities include normalize, clearfix, css-triangles, etc. Utilities can be given their own directory within the project's root, or they can be abstracted into a Compass plugin or Bower component. Example: [Archetype-Utilities](https://github.com/kwaledesign/Archetype-Utilities).
 
 ### Temp
 The temporary directory contains any styles that haven't yet been properly defined and organized within the project's architecture. This where any hacks or quick fixes belong.  Each 'fix' placed within this directory should be given its own partial and should be accompanied by a corresponding issue properly tagged and filed in the project's repository so that it can be properly incorporated into the code base at a later date. Preventing sub-standard code from being committed into the code base helps to prevent un-necessary depreciation as well as unintentionally introducing bugs by keeping these 'fixes' quarantined within the temp directory. [[25]](README.md#works-cited)
@@ -207,6 +211,14 @@ In order to maintain modularity a component must adhere to the following:
   arbitrarily placement within a design system. This means that CSS ID Selectors must be avoided to allow components to remain non-unique (able to appear on the same page more than once). 
 * A component's name must be unique to the project to ensure that only instances of the same component can have the same  name. Re-using a component also means re-using its behavior. To use the same component with differing behavior requires a new component.
 * Selectors must remain context free and un-coupled to HTML. Never use HTML elements within css selectors or cascading selectors for multiple components.
+
+
+----
+
+Base styles are project defaults for major HTML element styles. These include figures, forms, links, lists, media, blockquotes, tables, and typography. For small projects, it's perfectly acceptable to style these elements directly, however, for increased flexibility and especially for larger projects it is wise to scope base styles with a class. For example, typography styles are scoped by placing a class on a main section so that the only 'default' type values are those provided by the normalize reset in order to avoid repeatedly over-ridding. Another example is the table element, which is scoped with the `.scope` class. Again, the idea is to prevent redundant overrides of base element styles. This is explained in greater detail in [Opt-In-Typography](http://css-tricks.com/opt-in-typography/) and [Global Typographic Styles Suck](http://anthonyshort.me/2012/05/global-typographic-styles-suck). 
+----
+
+
 
 
 #### Element
