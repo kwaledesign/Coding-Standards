@@ -17,8 +17,8 @@ The purpose of this document is to outline a collection of opinionated best-prac
 # General Principles
 
 ## Whitespace and Comments
-The key to portable code is in carefully documenting each components purpose,
-  how it works, and if necessary its intended markup pattern. Comment sections and subsections are optional, but often not needed when code is segregating into dedication Sass partials. In that case, it is perfectly acceptable to exclusively use the major and minor comment blocks. Major comment blocks should always have a trailing empty line and minor comment blocks should not.
+The key to portable code is in carefully documenting each component's purpose,
+  how it works, and if necessary its intended markup pattern. Comment sections and subsections are optional, but often not needed when code is segregated into dedication Sass partials. In that case, it is perfectly acceptable to exclusively use the major and minor comment blocks. Major comment blocks should always have a trailing empty line and minor comment blocks should not.
 
 Example:
 
@@ -30,10 +30,8 @@ Example:
 
 /* Sub-section comment block
    ========================================================================== */
-```
 
 
-```css
 /**
 * Major Comment Block
 *
@@ -57,7 +55,7 @@ Example:
 ````
 
 ### Object-Extension Pointer
-When extending a module within a separate partial, leave a comment pointing to the original base object in order to establish a concrete link between the object and its extension [[13]](README.md#works-cited).
+When extending an object within a separate partial, leave a comment pointing to the original base object in order to establish a concrete link between the object and its extension [[13]](README.md#works-cited).
 
 Example:
 ```scss
@@ -91,26 +89,26 @@ Example:
 .selector-2 { width: 20%; }
 .selector-3 { width: 30%; }
 ```
-Long comma-separated property values - such as collections of gradients or
-shadows - can be arranged across multiple lines in an effort to improve
+Long comma-separated property values, such as collections of gradients or
+shadows, can be arranged across multiple lines in an effort to improve
 readability and produce more useful diffs [[3]](README.md#works-cited).
 
 Example:
 ```css
 .selector {
   background-image:
-    linear-gradient(#fff#ccc),
-    linear-gradient(#f3c#4ec);
+    linear-gradient(#FFFCCC),
+    linear-gradient(#F3C4EC);
   box-shadow:
     1px 1px 1px #000,
-    2px 2px 1px 1px #ccc inset;
+    2px 2px 1px 1px #CCCCCC inset;
 }
 ```
 
 ### Units
-* When building a responsive design system always try to use relative units to allow your system components and font-size to scale to the user's viewport. Use pixels only when you have a really good reason NOT to use `em`'s or `rem`s.
+* When building a responsive design system always try to use relative units to allow system components and font-size to scale to the user's viewport. Use pixels only when you have a really good reason NOT to use `em`'s or `rem`s.
 * When using `rem`'s ([see browser support](http://caniuse.com/#search=rem)), provide a fall-back for IE8 and Opera Mini and abstract this into a Sass mixin for ease of use.
-* Use unit-less `line-height` because it does not inherit a percentage value
+* Use unit-less `line-height`. It does not inherit a percentage value
   of its parent element - it's based on a multiplier of the `font-size`. 
 * Avoid absolute measurements.  For example, by using `.dropdown-nav li:hover
   { top: 37px; }` you are coding a single point of failure into your
@@ -214,8 +212,7 @@ In order to maintain modularity a component must adhere to the following:
 * A component must remain independent from siblings, children, and parents allowing for
   arbitrarily placement within a design system. This means that CSS ID Selectors must be avoided to allow components to remain non-unique (able to appear on the same page more than once). 
 * A component's name must be unique to the project to ensure that only instances of the same component can have the same  name. Re-using a component also means re-using its behavior. To use the same component with differing behavior requires a new component.
-* Selectors must remain context free and un-coupled to HTML by avoiding the use of elements within CSS selectors. HTML element styles are scoped by placing a class on either the element itself or on a parent container. This means all HTML element styles are opt-in (opposed to opt-out) making the only "default" HTML element styles are those applied by normalize, thus avoiding redundant overrides. This is explained in greater detail in [Opt-In-Typography](http://css-tricks.com/opt-in-typography/) and [Global Typographic Styles Suck](http://anthonyshort.me/2012/05/global-typographic-styles-suck). 
-
+* Selectors must remain context free and un-coupled to HTML by avoiding the use of elements within CSS selectors. HTML element styles are scoped by placing a class on either the element itself or on a parent container. This means all HTML element styles are opt-in (opposed to opt-out) making the only "default" HTML element styles are those applied by normalize, thus avoiding redundant overrides. [[27]](README.md#works-cited) [[28]](README.md#works-cited)
 
 #### Element
 An element is a context-dependant descendent of an object that performs a certain function and is represented by an additional class for a component or a descendent css selector. Elements are denoted by the use of `__` (double underscores) i.e. `.component-name__element-name` in order to maintain the elements context, maintain control of the cascade, and avoid location-dependant selectors [[2]](README.md#works-cited).
@@ -398,8 +395,8 @@ names should be derived from repeating structural or functional patterns and nev
 >Gallager](http://nicolasgallagher.com/about-html-semantics-front-end-architecture/)
 
 This notion supports the goals of the SMACSS methodology of:
-1. Increasing semantic value of a section of html and content
-2. Decrease the expectation of a specific HTML structure.
+  1. Increasing semantic value of a section of html and content
+  2. Decrease the expectation of a specific HTML structure.
 
 The important distinction is that the HTML class attributes are semantic in the way they
 convey meaning to the developer, rather than the content. Content receives it's
@@ -421,13 +418,20 @@ its semantic value from its classes.
 
 #### Guidelines for Minimal Specificity
 
-* Do not use ID selectors within CSS selectors.
-* Do not use location based selectors to change a component's appearance based on its location or region - i.e. (main-content, side-bar, footer, etc) [[17]](README.md#works-cited).  When a component has different appearances create a new component by changing out its structure or skin class.
-* Always name-space state class names e.g. `.disabled`, `.mousedown`, `.hover`, `.selected`, and `.collapsed`. ex: `.button.is-disabled`, never explicitly
-  style `.is-disabled`.
-* Avoid the use of element selectors - Selectors that contain elements
-  tightly coupled the CSS to specific markup. It is not a safe assumption that
-  the semantics of the content will never change. Use classes which exist independent of markup and create more flexible CSS [[1]](README.md#works-cited).
+* Do not use CSS ID selectors.
+* Do not use location based selectors to change a component's appearance based on its page position or region - i.e. (main-content, side-bar, footer, etc) [[17]](README.md#works-cited).  When a component has different appearances create a new component by changing out its structure or skin class.
+* Always name-space state class names e.g. `.is-disabled`, `.is-collapsed` - never explicitly style a state.
+
+Example: 
+```css
+.btn--skin {
+  // skin styles here...
+  &.is-disabled {
+    // disabled styles here...   
+  }
+}
+```
+* Avoid the use of element selectors in order to keep them free from context and un-coupled to the HTML. Scope HTML element selectors with a class on the root element or a parent element so that these styles are opt-in rather than opt-out. This will avoid redundant overrides of un-needed styles and keep specificity minimal. [[1]](README.md#works-cited) [[27]](README.md#works-cited) [[28]](README.md#works-cited)
 * !important should be avoided as much as possible. State classes are an example of an acceptable use of important [[1]](README.md#works-cited).
 * Never qualify a selector with an element selector e.g. `ul.nav`, as this decreases selector performance, creates a context dependency, and increases the selector's specificity. These are all things to be avoided [[1]](README.md#works-cited) [12](README.md#works-cited).
 

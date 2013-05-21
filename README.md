@@ -131,8 +131,9 @@ for modularity.
 23. [8 Guidelines and 1 Rule for Responsive Images](http://blog.cloudfour.com/8-guidelines-and-1-rule-for-responsive-images/)
 24. [Conditional Classes for IE](http://paulirish.com/2008/conditional-stylesheets-vs-css-hacks-answer-neither/)
 25. [Shame.css](http://csswizardry.com/2013/04/shame-css/)
-26.
-[Mindbembing - getting your head around BEM syntax](http://csswizardry.com/2013/01/mindbemding-getting-your-head-round-bem-syntax/)
+26. [Mindbembing - getting your head around BEM syntax](http://csswizardry.com/2013/01/mindbemding-getting-your-head-round-bem-syntax/)
+27. [Opt-In-Typography](http://css-tricks.com/opt-in-typography/) 
+28. [Global Typographic Styles Suck](http://anthonyshort.me/2012/05/global-typographic-styles-suck)
 
 
 ### License:
