@@ -423,7 +423,7 @@ its semantic value from its classes.
 * Always name-space state class names e.g. `.is-disabled`, `.is-collapsed` - never explicitly style a state.
 
 Example: 
-```css
+```scss
 .btn--skin {
   // skin styles here...
   &.is-disabled {
