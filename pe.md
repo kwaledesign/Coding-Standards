@@ -5,7 +5,7 @@ Coding Standards
 * [HTML](/html.md)
 * [CSS](/css.md)
 * [Sass](/sass.md)
-* [Progressive](/pe.md)
+* [Progressive Enhancement](/pe.md)
 * [git](/git.md)
 
 <hr>

@@ -5,7 +5,7 @@ Coding Standards
 * [HTML](/html.md)
 * [CSS](/css.md)
 * [Sass](/sass.md)
-* [Progressive](/pe.md)
+* [Progressive Enhancement](/pe.md)
 * [git](/git.md)
 
 <hr>
@@ -134,7 +134,7 @@ for modularity.
 26. [Mindbembing - getting your head around BEM syntax](http://csswizardry.com/2013/01/mindbemding-getting-your-head-round-bem-syntax/)
 27. [Opt-In-Typography](http://css-tricks.com/opt-in-typography/) 
 28. [Global Typographic Styles Suck](http://anthonyshort.me/2012/05/global-typographic-styles-suck)
-
+29. [Help My Stylesheets are a Mess!](https://speakerdeck.com/chriseppstein/help-my-stylesheets-are-a-mess)
 
 ### License:
 
