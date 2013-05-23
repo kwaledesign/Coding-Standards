@@ -55,9 +55,9 @@ SCSS supports both invisible and visible comments.
 
 * Use a variable for all color values to allow for reuse and consistentcy.
 * Consider using a variable for other common vaules.
-* A best practice is to prefix color variables rather than using the specific color name, i.e. `$brad-blue` opposed to `$blue`.
-* When defining a color tone, the modifier should follow the initial variable name, i.e. `$brand-blue-light` opposed to `$light-brand-blue`.
-* Avoid explicitly assign a property to a color variable name. Instead, create two levels of abstraction - the lower level abstraction defines the color name; and the higher level abstraction defines the component property
+* Prefix color variables rather than using the specific color name, i.e. `$brand-blue` opposed to `$blue`.
+* When defining a color tone, the modifier should follow the initial variable name and use `--` (double dashes to represent the modifier), i.e. `$brand-blue--light` opposed to `$light-brand-blue`.
+* Avoid explicitly assigning a property to a color variable name. Instead, create two levels of abstraction - the lower level abstraction defines the color name; and the higher level abstraction defines the component property
 
 Example:
 ```scss
@@ -69,6 +69,27 @@ $brand-gray-light: #E5E5E5;
 
 $nav-color-primary: $brand-gray;
 $nav-color-secondary: $brand-gray-light;
+
+```
+
+### BEM Style Sass Variable Syntax
+
+```scss
+$object__element--property:                   css-value;
+$nav__pager__item--color-bg:                  pink;
+$btn--negative--color1:                       pink;
+$btn--positive--color1:                       pink;
+
+$btn--large--border-radius:                   6px;
+$btn--danger--color1:                         red;
+$btn--disabled--danger--color1:               lighten(red, 15%);
+
+
+.btn--danger {
+  &.is-disabled { 
+    background: lighten($btn--danger--color1, 15%);
+  }  
+}
 
 ```
 

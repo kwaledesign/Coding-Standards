@@ -313,6 +313,16 @@ Example:
 ## Selector Construct
 Selector construct must explicitly communicate the context and function of the entity being named. 
 
+**Note:** _while this BEM [[2]](README.md#works-cited) like syntax is fairly complex, it explicitly communicates the function and context of the entity, as well as its
+relationship to both child and parent components while avoiding deeply nested
+selectors that tie content to container and make assumptions about markup.
+This of course would make our code less modular. Here, we sacrifice simple
+selectors in order to preserve our objected oriented principles. This is
+a solid trade off when you take into account [IDE
+Snippets](https://github.com/kwaledesign/SCSS-Snippets) and the fact that GZIP
+handles repetition very well._
+
+
 ### Naming Pattern
 
 This naming pattern is inspired by the BEM Methodology [[2]](README.md#works-cited) as well as several interpretations by other developers [[3]](README.md#works-cited), [[26]](README.md#works-cited).
@@ -350,37 +360,6 @@ This naming pattern is inspired by the BEM Methodology [[2]](README.md#works-cit
 
 ```
 
-### BEM Style Sass Variable Syntax for Component Variables
-
-```scss
-$object__element--property:                   css-value;
-$nav__pager__item--color-bg:                  pink;
-$btn--negative--color1:                       pink;
-$btn--positive--color1:                       pink;
-
-$btn--large--border-radius:                   6px;
-$btn--danger--color1:                         red;
-$btn--disabled--danger--color1:               lighten(red, 15%);
-
-
-.btn--danger {
-  &.is-disabled { 
-    background: lighten($btn--danger--color1, 15%);
-  }  
-}
-
-```
-
-**Note:** _while this BEM [[2]](README.md#works-cited) like syntax is fairly complex, it explicitly communicates the function and context of the entity, as well as its
-relationship to both child and parent components while avoiding deeply nested
-selectors that tie content to container and make assumptions about markup.
-This of course would make our code less modular. Here, we sacrifice simple
-selectors in order to preserve our objected oriented principles. This is
-a solid trade off when you take into account [IDE
-Snippets](https://github.com/kwaledesign/SCSS-Snippets) and the fact that GZIP
-handles repetition very well._
-
-
 ### CSS Class Semantics
 
 Class names should remain content-independent[[3]](README.md#works-cited). By avoiding tightly coupled class names and content semantics, code is more easily reused and modularized
@@ -394,9 +373,10 @@ names should be derived from repeating structural or functional patterns and nev
 >semantics are not derived from the content." - [Nicolas
 >Gallager](http://nicolasgallagher.com/about-html-semantics-front-end-architecture/)
 
-This notion supports the goals of the SMACSS methodology of:
-  1. Increasing semantic value of a section of html and content
-  2. Decrease the expectation of a specific HTML structure.
+  1. Increasing semantic value of a section of html and content [[1]](README.md#works-cited)
+    * Content-layer semantics are served by html elements and attributes [[3]](README.md#works-cited)
+    * Class names communicate useful information to developers and serve hooks for CSS or JavaScript [[3]](README.md#works-cited).
+  2. Decrease the expectation of a specific HTML structure [[1]](README.md#works-cited).
 
 The important distinction is that the HTML class attributes are semantic in the way they
 convey meaning to the developer, rather than the content. Content receives it's
