@@ -304,11 +304,14 @@ Example:
 
 ### Icons
 * Icons should be styled as independent entities to allow their use in _any_ component without the need for duplication of code.
+* Icon components are prefixed with `ico-`.
 * Icon styles should be split into structure and skin (`.ico-small` & `.ico-profile classes`) in order to allow for maximum flexibility and minimal code repetition [[1]](README.md#works-cited).
 * Use Compass to manage sprits easily.
 * Sprited Icons should be added to empty elements that have their text hidden off canvas.
 * Use Compass to manage image directories easily
 
+### JavaScript
+* Classes added dynamically via JavaScript are prefixed with `.js-` to indicate their dependency.
 
 ## Selector Construct
 Selector construct must explicitly communicate the context and function of the entity being named. Also, selector construct must be consistently applied to allow for efficient use of grep and more meaningful diffs. The BEM Methodology [[2]](README.md#works-cited) and interpretations of BEM [[3]](README.md#works-cited) [[13]](README.md#works-cited) [[26]](README.md#works-cited) make use of an efficient system to accomplish these goals by explicitly communicating the function and context of the entity being named, as well as its relationship to both child and parent components while avoiding deeply nested selectors that tie content to container and make assumptions about markup. In this way, a BEM-like system helps to reinforce our primary objective of modularity.
