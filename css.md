@@ -311,17 +311,9 @@ Example:
 
 
 ## Selector Construct
-Selector construct must explicitly communicate the context and function of the entity being named. 
+Selector construct must explicitly communicate the context and function of the entity being named. Also, selector construct must be consistently applied to allow for efficient use of grep and more meaningful diffs. The BEM Methodology [[2]](README.md#works-cited) and interpretations of BEM [[3]](README.md#works-cited) [[13]](README.md#works-cited) [[26]](README.md#works-cited) make use of an efficient system to accomplish these goals by explicitly communicating the function and context of the entity being named, as well as its relationship to both child and parent components while avoiding deeply nested selectors that tie content to container and make assumptions about markup. In this way, a BEM-like system helps to reinforce our primary objective of modularity.
 
-**Note:** _while this BEM [[2]](README.md#works-cited) like syntax is fairly complex, it explicitly communicates the function and context of the entity, as well as its
-relationship to both child and parent components while avoiding deeply nested
-selectors that tie content to container and make assumptions about markup.
-This of course would make our code less modular. Here, we sacrifice simple
-selectors in order to preserve our objected oriented principles. This is
-a solid trade off when you take into account [IDE
-Snippets](https://github.com/kwaledesign/SCSS-Snippets) and the fact that GZIP
-handles repetition very well._
-
+Admittedly, there is an element of added complexity, but the sacrifice of simple selectors in order to preserve objected oriented principles is well worth it especially considering the fact that GZIP handles repetition extremely well.
 
 ### Naming Pattern
 
