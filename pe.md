@@ -12,8 +12,8 @@ Coding Standards
 
 # Progressive Enhancement Guidelines
 
-* The abscence of media queries is the first media query.
-  * Develope for _Mobile First_ [[14]](#works-cited) as a baseline level of support for small screens and slow connections
+* The absence of media queries is the first media query.
+  * Develop for _Mobile First_ [[14]](#works-cited) as a baseline level of support for small screens and slow connections
   * emphasize content over navigation, and to maintain clear and focused User Experience goals. 
   * Use modernizr, media queries, and conditional loading to provide an enhanced experience for more capable devices.
 * Use browser prefixes correctly and painlessly by abstracting into a preprocessor mixin.
@@ -31,17 +31,14 @@ Coding Standards
 
 ## Guidelines for Handling Media [[23]](/README.md/#works-cited)
 
-**The Golden Rule** - Which ever solution you implement to handle images and media within responsive builds, it WILL be depriciated so be sure that is easy to change.
+**The Golden Rule** - Which ever solution you implement to handle images and media within responsive builds, it WILL be depreciated so be sure that is easy to change.
 
-1. Use vector based images and icon fonts whenever possible and impliment fallbacks when appropriate
+1. Use SVG and icon fonts whenever possible and implement fallbacks when appropriate
 2. Encourage content creators to upload highest quality source possible to facilitate appropriate adjustments server-side without significant degradation.
 3. Implement automatic image resize and compression to provide necessary image assets, i.e. [Drupal Image Cache Module](http://drupal.org/project/imagecache) or equivalent.
 4. Whenever possible allow for images to be resized to any size with URL parameters, i.e. [CDN Connect](http://www.cdnconnect.com/).
 5. Responsive images markup function (b/c it will change!)
 6. Plan for the art direction use-case.
-
-
-* Scope images within media queries to avoid redundant downloads
-
-
+7. [Picturefill](https://github.com/scottjehl/picturefill) raster graphics.
+8. Scope images within media queries to avoid redundant downloads
 
