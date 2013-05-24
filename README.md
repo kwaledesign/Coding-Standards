@@ -51,11 +51,8 @@ for modularity.
   chances of breaking the open/closed principle [[7]](README.md#works-cited)
   [[9]](README.md#works-cited)
 * **Liskov Substitution Principle** - objects should be replaceable with instances
-  or their sub-components without breaking. Sub-components that `@extend`
-  a module should be interchangeable with the base module itself. To keep true
-  to this principle, a module's subcomponent(s) should never affect layout. For
-  example: `.m-btn__primary--sign-up` should be interchangeable with `.m-btn`
-   [[7]](README.md#works-cited).
+  or their sub-components without breaking. Sub-components that extend a module should be interchangeable with the base module itself. To keep true
+  to this principle, a module's subcomponent(s) should never affect layout [[7]](README.md#works-cited).
 * **Entity Segregation Principle** - If ever it becomes awkward to interchange
   a subcomponent with its base module, or if it becomes necessary to redefine
   too many properties, move the subcomponent into its own custom module. It is
