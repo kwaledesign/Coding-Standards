@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <title>Pe</title>
+    
+    <link rel="stylesheet" href="css/screen.css" media="screen">
+</head>
+<body>
+  <nav>
+    <ul>
+      <li><a href="index.html">Home</a></li>
+      <li><a href="html.html">HTML</a></li>
+      <li><a href="css.html">CSS</a></li>
+      <li><a href="sass.html">Sass</a></li>
+      <li><a href="js.html">JavaScript</a></li>
+      <li><a href="pe.html">Progressive Enhancement</a></li>
+      <li><a href="git.html">Git</a></li>
+    </ul>
+  </nav>   
+  <div id="page">
+  <h1 id="progressive-enhancement-guidelines">Progressive Enhancement Guidelines</h1>
+<ul>
+<li>The absence of media queries is the first media query.</li>
+<li>Develop for <em>Mobile First</em> <a href="#works-cited">[14]</a> as a baseline level of support for small screens and slow connections</li>
+<li>emphasize content over navigation, and to maintain clear and focused User Experience goals.</li>
+<li>Use modernizr, media queries, and conditional loading to provide an enhanced experience for more capable devices.</li>
+<li>Use browser prefixes correctly and painlessly by abstracting into a preprocessor mixin.</li>
+<li>Avoid separate styles for IE except where unavoidable.</li>
+<li>Use Conditional classes <a href="README.md/#works-cited">[24]</a> and not conditional stylesheets or CSS hacks.</li>
+<li>Group IE Conditional styling with the code they alter to increase both readability and maintainability.</li>
+<li>Normalize Don't Reset - A global reset is a convenient way of ensuring consistent styling cross browser but it is often overkill and it makes CSS harder to debug in developer tools. Source: <a href="http://necolas.github.com/normalize.css/">Normalize.css</a></li>
+<li>Don't be over-zealous when normalising - When normalising it is important to not add styles to elements that then need to be overridden in future modules. Tables and form elements are great examples of this. Source: <a href="http://smacss.com/book/drop-the-base">SMACSS on drop the base</a></li>
+</ul>
+<h2 id="guidelines-for-handling-media-23">Guidelines for Handling Media <a href="/README.md/#works-cited">[23]</a></h2>
+<p><strong>The Golden Rule</strong> - Which ever solution you implement to handle images and media within responsive builds, it WILL be depreciated so be sure that is easy to change.</p>
+<ol type="1">
+<li>Use SVG and icon fonts whenever possible and implement fallbacks when appropriate</li>
+<li>Encourage content creators to upload highest quality source possible to facilitate appropriate adjustments server-side without significant degradation.</li>
+<li>Implement automatic image resize and compression to provide necessary image assets, i.e. <a href="http://drupal.org/project/imagecache">Drupal Image Cache Module</a> or equivalent.</li>
+<li>Whenever possible allow for images to be resized to any size with URL parameters, i.e. <a href="http://www.cdnconnect.com/">CDN Connect</a>.</li>
+<li>Responsive images markup function (b/c it will change!)</li>
+<li>Plan for the art direction use-case.</li>
+<li><a href="https://github.com/scottjehl/picturefill">Picturefill</a> raster graphics.</li>
+<li>Scope images within media queries to avoid redundant downloads</li>
+</ol>
+
+  </div>
+  
+  <footer>
+    <p>Footer goes here</p>
+</footer>
+</body>
+</html>
