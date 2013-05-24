@@ -1,17 +1,5 @@
-Coding Standards
-================
-
-* [General Guiding Principles](/README.md)
-* [HTML](/html.md)
-* [CSS](/css.md)
-* [Sass](/sass.md)
-* [JavaScript](/js.md)
-* [Progressive Enhancement](/pe.md)
-* [git](/git.md)
-
-<hr>
-
 # Sass Guidelines
+
 The guidelines here should be taken in context with the [CSS Guidelines](css.md) as each of these are inter-related. This document will focus primarily on the usage of Sass to implement OOCSS/SMACSS principles. Without those underlying fundamentals, Sass will only complicate and compound the issues involved in a poorly constructed CSS architecture. Additionally, improper Sass implementation can easily lead to bloated output and lengthy selectors which not only inflates file size, but also causes JavaScript to work less efficiently causing performance issues for end users. The following guidelines are intended to help ensure user centered goals and performance always take precedence over developer convenience when building with Sass. 
 
 ## Comments

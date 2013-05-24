@@ -1,16 +1,6 @@
 Coding Standards
 ================
 
-* [General Guiding Principles](/README.md)
-* [HTML](/html.md)
-* [CSS](/css.md)
-* [Sass](/sass.md)
-* [JavaScript](/js.md)
-* [Progressive Enhancement](/pe.md)
-* [git](/git.md)
-
-<hr>
-
 The following coding standards outline a collection of best practices and
 methodologies for writing predictable, reusable, maintainable, and scalable
 front-ends.
@@ -27,10 +17,6 @@ a site must not appear exactly the same on all browsers and devices.
 
 ### User Centric Objective
 1. Adhear to standards as they are defined by the language specification
-  * [W3C](http://www.w3.org/standards/)
-  * [W3C CSS Modules](http://www.w3.org/Style/CSS/Overview.en.html)
-  * [Web Platform](http://docs.webplatform.org/wiki/Main_Page)
-  * [Standard ECMA-262](http://www.ecma-international.org/ecma-262/5.1/)
 2. Apply [progressive enhancement](/pe.md) by serving core site content and
   functionality to all user agents and serving an enhanced experience built
   on top of the basic experience. Apply JavaScript to enhance the site with
