@@ -5,6 +5,7 @@ Coding Standards
 * [HTML](/html.md)
 * [CSS](/css.md)
 * [Sass](/sass.md)
+* [JavaScript](/js.md)
 * [Progressive Enhancement](/pe.md)
 * [git](/git.md)
 
@@ -312,6 +313,8 @@ Example:
 
 ### JavaScript
 * Classes added dynamically via JavaScript are prefixed with `.js-` to indicate their dependency.
+* A '.js-' prefixed class should never be referenced in a stylesheet. They used exclusively from JavaScript files [[3]](README.md#works-cited).
+
 
 ## Selector Construct
 Selector construct must explicitly communicate the context and function of the entity being named. Also, selector construct must be consistently applied to allow for efficient use of grep and more meaningful diffs. The BEM Methodology [[2]](README.md#works-cited) and interpretations of BEM [[3]](README.md#works-cited) [[13]](README.md#works-cited) [[26]](README.md#works-cited) make use of an efficient system to accomplish these goals by explicitly communicating the function and context of the entity being named, as well as its relationship to both child and parent components while avoiding deeply nested selectors that tie content to container and make assumptions about markup. In this way, a BEM-like system helps to reinforce our primary objective of modularity.
