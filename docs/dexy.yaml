@@ -1,0 +1,10 @@
+site:
+    - .md|jinja|pandoc:
+        - pandoc: { args: '-t html5' }
+
+assets:
+    - .css
+    - .js
+    - .png
+    - .jpg
+
