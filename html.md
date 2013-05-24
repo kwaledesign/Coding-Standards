@@ -1,17 +1,6 @@
-Coding Standards
-================
+# HTML Guidelines
 
-* [General Guiding Principles](/README.md)
-* [HTML](/html.md)
-* [CSS](/css.md)
-* [Sass](/sass.md)
-* [JavaScript](/js.md)
-* [Progressive Enhancement](/pe.md)
-* [git](/git.md)
-
-<hr>
-
-# HTML Syntax and General Guidelines
+## Syntax and General Guidelines
 
 * Use lowercase tag and attribute names and write only one element per line
 * Use only one level of indentation for each nested element and eliminate end of line whitespace and unintended blank lines

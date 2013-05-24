@@ -1,16 +1,6 @@
 Coding Standards
 ================
 
-* [General Guiding Principles](/README.md)
-* [HTML](/html.md)
-* [CSS](/css.md)
-* [Sass](/sass.md)
-* [JavaScript](/js.md)
-* [Progressive Enhancement](/pe.md)
-* [git](/git.md)
-
-<hr>
-
 The following coding standards outline a collection of best practices and
 methodologies for writing predictable, reusable, maintainable, and scalable
 front-ends.
