@@ -1,0 +1,163 @@
+
+/*** @export "comments" css */
+/* ==========================================================================
+   Section comment block
+   ==========================================================================
+*/
+
+/* Sub-section comment block
+   ========================================================================== */
+
+
+/**
+* Major Comment Block
+*
+* The first sentence of the long description starts here and continues on this
+* line for a while finally concluding here at the end of this paragraph.
+*
+* The long description is ideal for more detailed explanations and
+* documentation. It can include example HTML, URLs, or any other information
+* that is deemed necessary or useful.
+*
+*/
+
+
+/**
+ * Minor Comment Block
+ */
+
+
+/* Basic comment */
+
+
+/*** @export "object-pointer" css */
+/**
+ * Foo-Bar
+ *
+ * Extends the .foo object within _foo-object.scss
+ */
+ .foo--bar {...}
+
+
+
+/*** @export "single-line-declaration" css */
+.selector-1 { width: 10%; }
+.selector-2 { width: 20%; }
+.selector-3 { width: 30%; }
+
+
+/*** @export "multi-line-declaration" css */
+.selector {
+  background-image:
+    linear-gradient(#FFFCCC),
+    linear-gradient(#F3C4EC);
+  box-shadow:
+    1px 1px 1px #000,
+    2px 2px 1px 1px #CCCCCC inset;
+}
+
+
+
+/*** @export "element-syntax" css */
+.object__element {...}                          /* element class */
+
+.object {
+  & > li {...}                                  /* descendent selector */
+  }
+
+
+/*** @export "sub-component" css */
+.nav__pager {...}         /* Sub-Component */
+
+
+/*** @export "object-extension" css */
+.btn--primary {...}
+.btn--large {..}
+
+/*** @export "naming-pattern" css */
+// component name
+.object {}                        /* represents the higher-level abstraction of a component */
+.object__element {}               /* represents a descendent of .object */
+.object__modifier {}              /* represents a modification of an object */
+.object--extension {}             /* extends an object with a skin or structure */
+&.is-active {}                    /* represents a change in the component's state (state-modifier) */
+.prefix-component-name {}         /* targets all component entities i.e. for layout */
+
+
+/*** @export "naming-pattern-usecase" css */
+// large primary button (call to action button)
+.btn {}                           /* button object */
+.btn__full {}                     /* full width button (object modifier) */
+.btn--large {}                    /* large button structure (object extension structure) */
+.btn--primary {}                  /* primary button skin (object extension skin) */
+&.is-disabled {}                  /* object state */
+.l-btn--call-to-action            /* layout styles for call-to-action */
+
+
+
+/*** @export "specificity" css */
+.btn--skin {
+  // skin styles here...
+  &.is-disabled {
+    // disabled styles here...   
+  }
+}
+
+
+/*** @export "practical-example-object" css */
+/**
+ * Nav Object
+ *
+ */
+.nav {
+  &.nav__item {...}  
+}
+
+
+
+/*** @export "practical-example-component" css */
+/**
+ * Articles Pager
+ *
+ * Pager component modifies the nav object in _nav-object.scss partial
+ *
+ * Markup Pattern:
+ * <ul class="nav nav__pager nav__pager--large nav__pager--subtle">
+ *   <li class="nav__pager--item is-active">1</li>
+ *   <li class="nav__pager--item">2</li>
+ * </ul>
+ *
+ */
+.nav__pager {...}
+
+
+/**
+ * Pager Structure
+ *
+ * Extends the nav object defined in _nav-object.scss partial
+ */
+.nav__pager--large {...}
+
+
+/**
+ * Pager Skin
+ *
+ * Extends the nav object defined in _nav-object.scss partial
+ */
+.nav__pager--secondary {
+  &.is-active {...}
+}
+
+
+
+/*** @export "practical-example-layout" css */
+/**
+ * Pager Layout
+ *
+ * Extends the articles pager component in /components/_pager.scss partial
+ */
+.l-articles-pager {...}
+
+```
+
+
