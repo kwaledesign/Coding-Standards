@@ -9,51 +9,13 @@ The key to portable code is in carefully documenting each component's purpose,
   how it works, and if necessary its intended markup pattern. Comment sections and subsections are optional, but often not needed when code is segregated into dedication Sass partials. In that case, it is perfectly acceptable to exclusively use the major and minor comment blocks. Major comment blocks should always have a trailing empty line and minor comment blocks should not.
 
 Example:
-
-```css
-/* ==========================================================================
-   Section comment block
-   ==========================================================================
-*/
-
-/* Sub-section comment block
-   ========================================================================== */
-
-
-/**
-* Major Comment Block
-*
-* The first sentence of the long description starts here and continues on this
-* line for a while finally concluding here at the end of this paragraph.
-*
-* The long description is ideal for more detailed explanations and
-* documentation. It can include example HTML, URLs, or any other information
-* that is deemed necessary or useful.
-*
-*/
-
-
-/**
- * Minor Comment Block
- */
-
-
-/* Basic comment */
-
-````
+{{ d['examples/sass.scss|idio']['comments'] }}
 
 ### Object-Extension Pointer
 When extending an object within a separate partial, leave a comment pointing to the original base object in order to establish a concrete link between the object and its extension [[13]](README.md#works-cited).
 
 Example:
-```scss
-/**
- * Foo-Bar
- *
- * Extends the .foo object within _foo-object.scss
- */
- .foo--bar {...}
-```
+{{ d['examples/sass.scss|idio']['object-pointer'] }}
 
 ## Formating
 * Use one selector per line in multi-selector rulesets and separate each ruleset with a blank line.
@@ -72,26 +34,14 @@ format. In this case space should be included after the opening brace and
 before the closing brace.
 
 Example:
-```css
-.selector-1 { width: 10%; }
-.selector-2 { width: 20%; }
-.selector-3 { width: 30%; }
-```
+{{ d['examples/sass.scss|idio']['single-line-declaration'] }}
+
 Long comma-separated property values, such as collections of gradients or
 shadows, can be arranged across multiple lines in an effort to improve
 readability and produce more useful diffs [[3]](README.md#works-cited).
 
 Example:
-```css
-.selector {
-  background-image:
-    linear-gradient(#FFFCCC),
-    linear-gradient(#F3C4EC);
-  box-shadow:
-    1px 1px 1px #000,
-    2px 2px 1px 1px #CCCCCC inset;
-}
-```
+{{ d['examples/sass.scss|idio']['multi-line-declaration'] }}
 
 ### Units
 * When building a responsive design system always try to use relative units to allow system components and font-size to scale to the user's viewport. Use pixels only when you have a really good reason NOT to use `em`'s or `rem`s.
@@ -210,21 +160,8 @@ An element is a context-dependant descendent of an object that performs a certai
 * Elements can be repeated within a component, i.e. tabs or navigation elements
 
 Example:
-```scss
-.object__element {...}                          /* element class */
-
-.object {
-  & > li {...}                                  /* descendent selector */
-  }
-
-```
-
-```html
-<ul class="object">
-  <li class="object__element">home</li>
-</ul>
-
-```
+{{ d['examples/sass.scss|idio']['element-syntax'] }}
+{{ (d['examples/markup.html|htmlsections']['element-syntax']) }}
 
 #### Sub-Object
 A sub-object is a context-dependant sibling of an object that performs a certain function and is represented by an additional class for a component. Sub-objects are similar to elements in syntax and in relation to an object, but they differ significantly in the way that a sub-object extends or provides minor overrides to the object and is applied to the _same_ HTML element. Sub-objects are denoted by the use of `__` (double underscores) i.e. `.component-name__sub-component-name`. 
@@ -237,27 +174,14 @@ A sub-object is a context-dependant sibling of an object that performs a certain
   scope.
 
 Example:
-```scss
-.nav__pager {...}         /* Sub-Component */
-
-```
-
-```html
-<ul class="nav nav__pager">
-  ...
-</ul>
-
-```
+{{ d['examples/sass.scss|idio']['sub-component'] }}
+{{ (d['examples/markup.html|htmlsections']['sub-component']) }}
 
 ### Object Extension
 A significant variant of a component applied as an additional class on the component. Object extensions extend an object by applying additional styles related to either structure or skin. Extension classes are prefixed with the object's name followed by `--` (double dashes) and the extension name i.e. `.object--skin` or `.object--structure`.
 
 Example:
-```scss
-.btn--primary {...}
-.btn--large {..}
-
-```
+{{ d['examples/sass.scss|idio']['object-extension'] }}
 
 #### State
 A state is a variant of a component that is triggered by an action or behavior.  State styles are applied dynamically as an additional class on the component's root or child HTML element.
@@ -267,18 +191,10 @@ A state is a variant of a component that is triggered by an action or behavior. 
 * Multiple states may be used at once.
 
 Example:
-```html
-<button type="submit" class="btn btn--large btn--primary is-disabled">Submit</button>
-
-```
+{{ (d['examples/markup.html|htmlsections']['state']) }}
 
 Example:
-```html
-<ul class="nav nav__vertical nav--large nav--primary">
-  <li class="nav__element is-active">...</li>
-</ul>
-
-```
+{{ (d['examples/markup.html|htmlsections']['state2']) }}
 
 ### Layout
 * All components are fluid by nature and should never be given explicit width or height restraints. A component's width is determined by its parent container or grid system.
@@ -312,38 +228,13 @@ Admittedly, there is an element of added complexity, but the sacrifice of simple
 
 This naming pattern is inspired by the BEM Methodology [[2]](README.md#works-cited) as well as several interpretations by other developers [[3]](README.md#works-cited), [[26]](README.md#works-cited).
 
-```scss
-// component name
-.object {}                        /* represents the higher-level abstraction of a component */
-.object__element {}               /* represents a descendent of .object */
-.object__modifier {}              /* represents a modification of an object */
-.object--extension {}             /* extends an object with a skin or structure */
-&.is-active {}                    /* represents a change in the component's state (state-modifier) */
-.prefix-component-name {}         /* targets all component entities i.e. for layout */
-
-```
+{{ d['examples/sass.scss|idio']['naming-pattern'] }}
 
 #### Example HTML
-
-```html
-<ul class="object object__modifier object--extension is-object-state">
-  <li class="object__element is-active">...</li>
-</ul>
-
-```
+{{ (d['examples/markup.html|htmlsections']['naming-pattern']) }}
 
 #### Example Use Case
-
-```scss
-// large primary button (call to action button)
-.btn {}                           /* button object */
-.btn__full {}                     /* full width button (object modifier) */
-.btn--large {}                    /* large button structure (object extension structure) */
-.btn--primary {}                  /* primary button skin (object extension skin) */
-&.is-disabled {}                  /* object state */
-.l-btn--call-to-action            /* layout styles for call-to-action */
-
-```
+{{ d['examples/sass.scss|idio']['naming-pattern-usecase'] }}
 
 ### CSS Class Semantics
 
@@ -388,14 +279,8 @@ its semantic value from its classes.
 * Always name-space state class names e.g. `.is-disabled`, `.is-collapsed` - never explicitly style a state.
 
 Example: 
-```scss
-.btn--skin {
-  // skin styles here...
-  &.is-disabled {
-    // disabled styles here...   
-  }
-}
-```
+{{ d['examples/sass.scss|idio']['specificity'] }}
+
 * Avoid the use of element selectors in order to keep them free from context and un-coupled to the HTML. Scope HTML element selectors with a class on the root element or a parent element so that these styles are opt-in rather than opt-out. This will avoid redundant overrides of un-needed styles and keep specificity minimal. [[1]](README.md#works-cited) [[27]](README.md#works-cited) [[28]](README.md#works-cited)
 * !important should be avoided as much as possible. State classes are an example of an acceptable use of important [[1]](README.md#works-cited).
 * Never qualify a selector with an element selector e.g. `ul.nav`, as this decreases selector performance, creates a context dependency, and increases the selector's specificity. These are all things to be avoided [[1]](README.md#works-cited) [12](README.md#works-cited).
@@ -404,72 +289,14 @@ Example:
 ## Practical Example
 
 #### Object
-```scss
-/**
- * Nav Object
- *
- */
-.nav {
-  &.nav__item {...}  
-}
-```
+{{ d['examples/sass.scss|idio']['practical-example-object'] }}
 
 #### Component
-```scss
-/**
- * Articles Pager
- *
- * Pager component modifies the nav object in _nav-object.scss partial
- *
- * Markup Pattern:
- * <ul class="nav nav__pager nav__pager--large nav__pager--subtle">
- *   <li class="nav__pager--item is-active">1</li>
- *   <li class="nav__pager--item">2</li>
- * </ul>
- *
- */
-.nav__pager {...}
-
-
-/**
- * Pager Structure
- *
- * Extends the nav object defined in _nav-object.scss partial
- */
-.nav__pager--large {...}
-
-
-/**
- * Pager Skin
- *
- * Extends the nav object defined in _nav-object.scss partial
- */
-.nav__pager--secondary {
-  &.is-active {...}
-}
-
-
-```
+{{ d['examples/sass.scss|idio']['practical-example-component'] }}
 
 #### Layout
-
-```scss
-/**
- * Pager Layout
- *
- * Extends the articles pager component in /components/_pager.scss partial
- */
-.l-articles-pager {...}
-
-```
+{{ d['examples/sass.scss|idio']['practical-example-layout'] }}
 
 #### HTML
-
-```html
-<ul class="nav nav__pager nav__pager--large nav__pager--subtle l-articles-pager">
-  <li class="nav__pager__item is-active">1</li>
-  <li class="nav__pager__item">2</li>
-</ul>
-
-```
+{{ (d['examples/markup.html|htmlsections']['practical-example-html']) }}
 
