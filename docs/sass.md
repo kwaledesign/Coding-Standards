@@ -26,15 +26,9 @@ SCSS supports both invisible and visible comments.
 * Never emulate HTML structure of a module with SCSS nesting. Mapping Sass selectors directly to your DOM structure creates a brittle architecture that is tightly coupled to the current HTML markup.
 * Nested parent selectors should be listed directly under the class selector and then indent child selectors [[17]](README.md#works-cited).
   
-```
-.module {
-    background: $module--color-bg; 
-    p {
-        margin-bottom: 0;
-        line-height: 1.5em;     
-    }
-}
-```
+
+{{ d['examples/sass.scss|idio']['nesting-selectors'] }}
+
 
 ## Variables
 
@@ -44,18 +38,8 @@ SCSS supports both invisible and visible comments.
 * Avoid explicitly assigning a property to a color variable name. Create two levels of abstraction - the lower level abstraction defines the color name; and the higher level abstraction defines the component property.
 
 Example:
-```scss
-/**
- * Variables
- */
+{{ d['examples/sass.scss|idio']['variables'] }}
 
-$brand-gray: #999999;
-$brand-gray-light: #E5E5E5;
-
-$nav-color-primary: $brand-gray;
-$nav-color-secondary: $brand-gray-light;
-
-```
 * When defining variables, they should appear first at the top of their component's partial file and be grouped by skin and structure.
 * 'Global' variables, those used by many components within multiple different partial files, should be given their own partial file inside the `base/` directory [for example](https://github.com/kwaledesign/Archetype/tree/master/sass/base): `_color-pallet.scss`, `_typography-pallet.scss`.
 
@@ -64,16 +48,8 @@ $nav-color-secondary: $brand-gray-light;
 Use the [same BEM-style](css.md#selector-construct) syntax used for CSS selectors, i.e. `$object__element--property: css-value;`. Variable names should list there common properties first followed by unique properties.
 
 Example:
-```scss
-/**
- * Button Skin Variables
- */
-$btn--color-bg:                               pink;
-$btn--color-txt:                              pink;
-/* State Variables */
-$btn--color-bg-hover:                         darken($btn--color-bg, 10%);
-$btn--color-bg-disabled:                      lighten($btn--color-bg, 25%);
-```
+{{ d['examples/sass.scss|idio']['variables-syntax'] }}
+
 
 ## @mixin
 * Use a `@mixin` when you wish to apply arguments to its code block, when you want that chunk of styles to apply to the selector, or when you don't want an additional class in the HTML.
@@ -83,19 +59,8 @@ $btn--color-bg-disabled:                      lighten($btn--color-bg, 25%);
 * As always, monitor the CSS output to ensure it matches the intention of your Sass code.
 
 Example:
-```scss
-@mixin mixin-name(
-$mixin-arg1,
-$mixin-arg2,
-$mixin-arg3,
-$mixin-arg4) {
-  property: $mixin-arg1;
-  property: $mixin-arg2;
-  property: $mixin-arg3;
-  property: $mixin-arg4;
-}
+{{ d['examples/sass.scss|idio']['variables-syntax'] }}
 
-```
 
 ## @extend
 * @extend when you want to extend
@@ -107,15 +72,8 @@ $mixin-arg4) {
 * Never use `@extend` for the simplification of (OOCSS) multi-class constructs to build single-class objects. This is dangerous because it can easily produce very bloated output and complicated selector strings. This technique should be avoided until a native browser implementation of `@extend` is available [[29]](README.md#works-cited).
 
 Example misuse of `@extend`:
+{{ d['examples/sass.scss|idio']['extend'] }}
 
-```scss
-.btn-signup {
-  @extend btn;
-  @extend btn--full;
-  @extend btn--large;
-  @extend btn--primary;
-}
-```
 
 ## %Place-holder Selectors
 * Use `%` (the silent selector) when defining a utility class that may not be used - this will keep its code block out of the output until it is extended.
@@ -130,21 +88,7 @@ Consistent ordering of `@`-rules and properties leads to increased readability a
   5. Object Elements, i.e. `nav__item`
 
 Example:
-```scss
-.selector {
-  @extend %utility-class;
-  @include mixin-name(mixin-arguments);
-  property: value; 
-  &.is-disabled {
-    @include disabled-mixin(mixin-arguments);
-    property: value;   
-  }
-  & > object__element {
-    @extend %utility-class;
-    property: value;
-  }
-}
-```
+{{ d['examples/sass.scss|idio']['ordering'] }}
 
 ## Sass Packages and Modules
 

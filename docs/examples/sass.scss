@@ -1,3 +1,8 @@
+/**
+ * css.md code examples
+ *
+ * 
+ */
 
 /*** @export "comments" css */
 /* ==========================================================================
@@ -158,6 +163,85 @@
  */
 .l-articles-pager {...}
 
-```
+
+
+/*** @export "end" css */
+/**
+ * sass.md code Examples
+ * 
+ */
+
+
+/*** @export "nesting-selectors" css */
+.module {
+    background: $module--color-bg; 
+    p {
+        margin-bottom: 0;
+        line-height: 1.5em;     
+    }
+}
+
+
+/*** @export "variables" css */
+/**
+ * Variables
+ */
+
+$brand-gray:                                  #999999;
+$brand-gray-light:                            #E5E5E5;
+
+$nav-color-primary:                           $brand-gray;
+$nav-color-secondary:                         $brand-gray-light;
+
+
+/*** @export "variables-syntax" css */
+/**
+ * Button Skin Variables
+ */
+$btn--color-bg:                               pink;
+$btn--color-txt:                              pink;
+/* State Variables */
+$btn--color-bg-hover:                         darken($btn--color-bg, 10%);
+$btn--color-bg-disabled:                      lighten($btn--color-bg, 25%);
+
+
+
+/*** @export "mixin" css */
+@mixin mixin-name(
+$mixin-arg1,
+$mixin-arg2,
+$mixin-arg3,
+$mixin-arg4) {
+  property: $mixin-arg1;
+  property: $mixin-arg2;
+  property: $mixin-arg3;
+  property: $mixin-arg4;
+}
+
+
+
+/*** @export "extend" css */
+.btn-signup {
+  @extend btn;
+  @extend btn--full;
+  @extend btn--large;
+  @extend btn--primary;
+}
+
+
+/*** @export "ordering" css */
+.selector {
+  @extend %utility-class;
+  @include mixin-name(mixin-arguments);
+  property: value; 
+  &.is-disabled {
+    @include disabled-mixin(mixin-arguments);
+    property: value;   
+  }
+  & > object__element {
+    @extend %utility-class;
+    property: value;
+  }
+}
 
 
