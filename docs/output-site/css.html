@@ -25,38 +25,50 @@
 <h1 id="general-principles">General Principles</h1>
 <h2 id="whitespace-and-comments">Whitespace and Comments</h2>
 <p>The key to portable code is in carefully documenting each component's purpose, how it works, and if necessary its intended markup pattern. Comment sections and subsections are optional, but often not needed when code is segregated into dedication Sass partials. In that case, it is perfectly acceptable to exclusively use the major and minor comment blocks. Major comment blocks should always have a trailing empty line and minor comment blocks should not.</p>
-<p>Example:</p>
-<pre class="sourceCode css"><code class="sourceCode css"><span class="co">/* ==========================================================================</span>
-<span class="co">   Section comment block</span>
-<span class="co">   ==========================================================================</span>
-<span class="co">*/</span>
+Example:
+<div class="highlight"><pre><a name="examples--sass.scss-idio.html-3"></a><span class="cm">/* ==========================================================================</span>
+<a name="examples--sass.scss-idio.html-4"></a><span class="cm">   Section comment block</span>
+<a name="examples--sass.scss-idio.html-5"></a><span class="cm">   ==========================================================================</span>
+<a name="examples--sass.scss-idio.html-6"></a><span class="cm">*/</span>
+<a name="examples--sass.scss-idio.html-7"></a>
+<a name="examples--sass.scss-idio.html-8"></a><span class="cm">/* Sub-section comment block</span>
+<a name="examples--sass.scss-idio.html-9"></a><span class="cm">   ========================================================================== */</span>
+<a name="examples--sass.scss-idio.html-10"></a>
+<a name="examples--sass.scss-idio.html-11"></a>
+<a name="examples--sass.scss-idio.html-12"></a><span class="cm">/**</span>
+<a name="examples--sass.scss-idio.html-13"></a><span class="cm">* Major Comment Block</span>
+<a name="examples--sass.scss-idio.html-14"></a><span class="cm">*</span>
+<a name="examples--sass.scss-idio.html-15"></a><span class="cm">* The first sentence of the long description starts here and continues on this</span>
+<a name="examples--sass.scss-idio.html-16"></a><span class="cm">* line for a while finally concluding here at the end of this paragraph.</span>
+<a name="examples--sass.scss-idio.html-17"></a><span class="cm">*</span>
+<a name="examples--sass.scss-idio.html-18"></a><span class="cm">* The long description is ideal for more detailed explanations and</span>
+<a name="examples--sass.scss-idio.html-19"></a><span class="cm">* documentation. It can include example HTML, URLs, or any other information</span>
+<a name="examples--sass.scss-idio.html-20"></a><span class="cm">* that is deemed necessary or useful.</span>
+<a name="examples--sass.scss-idio.html-21"></a><span class="cm">*</span>
+<a name="examples--sass.scss-idio.html-22"></a><span class="cm">*/</span>
+<a name="examples--sass.scss-idio.html-23"></a>
+<a name="examples--sass.scss-idio.html-24"></a>
+<a name="examples--sass.scss-idio.html-25"></a><span class="cm">/**</span>
+<a name="examples--sass.scss-idio.html-26"></a><span class="cm"> * Minor Comment Block</span>
+<a name="examples--sass.scss-idio.html-27"></a><span class="cm"> */</span>
+<a name="examples--sass.scss-idio.html-28"></a>
+<a name="examples--sass.scss-idio.html-29"></a>
+<a name="examples--sass.scss-idio.html-30"></a><span class="cm">/* Basic comment */</span>
+</pre></div>
 
-<span class="co">/* Sub-section comment block</span>
-<span class="co">   ========================================================================== */</span>
 
-
-<span class="co">/**</span>
-<span class="co">* Major Comment Block</span>
-<span class="co">*</span>
-<span class="co">* The first sentence of the long description starts here and continues on this</span>
-<span class="co">* line for a while finally concluding here at the end of this paragraph.</span>
-<span class="co">*</span>
-<span class="co">* The long description is ideal for more detailed explanations and</span>
-<span class="co">* documentation. It can include example HTML, URLs, or any other information</span>
-<span class="co">* that is deemed necessary or useful.</span>
-<span class="co">*</span>
-<span class="co">*/</span>
-
-
-<span class="co">/**</span>
-<span class="co"> * Minor Comment Block</span>
-<span class="co"> */</span>
-
-
-<span class="co">/* Basic comment */</span></code></pre>
 <h3 id="object-extension-pointer">Object-Extension Pointer</h3>
 <p>When extending an object within a separate partial, leave a comment pointing to the original base object in order to establish a concrete link between the object and its extension <a href="README.md#works-cited">[13]</a>.</p>
-<p>Example: <code>scss /**  * Foo-Bar  *  * Extends the .foo object within _foo-object.scss  */  .foo--bar {...}</code></p>
+Example:
+<div class="highlight"><pre><a name="examples--sass.scss-idio.html-34"></a><span class="cm">/**</span>
+<a name="examples--sass.scss-idio.html-35"></a><span class="cm"> * Foo-Bar</span>
+<a name="examples--sass.scss-idio.html-36"></a><span class="cm"> *</span>
+<a name="examples--sass.scss-idio.html-37"></a><span class="cm"> * Extends the .foo object within _foo-object.scss</span>
+<a name="examples--sass.scss-idio.html-38"></a><span class="cm"> */</span>
+<a name="examples--sass.scss-idio.html-39"></a> <span class="nc">.foo--bar</span> <span class="p">{</span><span class="nc">...</span><span class="p">}</span>
+</pre></div>
+
+
 <h2 id="formating">Formating</h2>
 <ul>
 <li>Use one selector per line in multi-selector rulesets and separate each ruleset with a blank line.</li>
@@ -70,8 +82,26 @@
 </ul>
 <h3 id="exceptions">Exceptions</h3>
 <p>Large blocks of single declarations can use a slightly different single-line format. In this case space should be included after the opening brace and before the closing brace.</p>
-<p>Example: <code>css .selector-1 { width: 10%; } .selector-2 { width: 20%; } .selector-3 { width: 30%; }</code> Long comma-separated property values, such as collections of gradients or shadows, can be arranged across multiple lines in an effort to improve readability and produce more useful diffs <a href="README.md#works-cited">[3]</a>.</p>
-<p>Example: <code>css .selector {   background-image:     linear-gradient(#FFFCCC),     linear-gradient(#F3C4EC);   box-shadow:     1px 1px 1px #000,     2px 2px 1px 1px #CCCCCC inset; }</code></p>
+Example:
+<div class="highlight"><pre><a name="examples--sass.scss-idio.html-44"></a><span class="nc">.selector-1</span> <span class="p">{</span> <span class="na">width</span><span class="o">:</span> <span class="mi">10</span><span class="kt">%</span><span class="p">;</span> <span class="p">}</span>
+<a name="examples--sass.scss-idio.html-45"></a><span class="nc">.selector-2</span> <span class="p">{</span> <span class="na">width</span><span class="o">:</span> <span class="mi">20</span><span class="kt">%</span><span class="p">;</span> <span class="p">}</span>
+<a name="examples--sass.scss-idio.html-46"></a><span class="nc">.selector-3</span> <span class="p">{</span> <span class="na">width</span><span class="o">:</span> <span class="mi">30</span><span class="kt">%</span><span class="p">;</span> <span class="p">}</span>
+</pre></div>
+
+
+<p>Long comma-separated property values, such as collections of gradients or shadows, can be arranged across multiple lines in an effort to improve readability and produce more useful diffs <a href="README.md#works-cited">[3]</a>.</p>
+Example:
+<div class="highlight"><pre><a name="examples--sass.scss-idio.html-50"></a><span class="nc">.selector</span> <span class="p">{</span>
+<a name="examples--sass.scss-idio.html-51"></a>  <span class="na">background-image</span><span class="o">:</span>
+<a name="examples--sass.scss-idio.html-52"></a>    <span class="nf">linear-gradient</span><span class="p">(</span><span class="mh">#FFFCCC</span><span class="p">)</span><span class="o">,</span>
+<a name="examples--sass.scss-idio.html-53"></a>    <span class="nf">linear-gradient</span><span class="p">(</span><span class="mh">#F3C4EC</span><span class="p">);</span>
+<a name="examples--sass.scss-idio.html-54"></a>  <span class="na">box-shadow</span><span class="o">:</span>
+<a name="examples--sass.scss-idio.html-55"></a>    <span class="mi">1</span><span class="kt">px</span> <span class="mi">1</span><span class="kt">px</span> <span class="mi">1</span><span class="kt">px</span> <span class="mh">#000</span><span class="o">,</span>
+<a name="examples--sass.scss-idio.html-56"></a>    <span class="mi">2</span><span class="kt">px</span> <span class="mi">2</span><span class="kt">px</span> <span class="mi">1</span><span class="kt">px</span> <span class="mi">1</span><span class="kt">px</span> <span class="mh">#CCCCCC</span> <span class="no">inset</span><span class="p">;</span>
+<a name="examples--sass.scss-idio.html-57"></a><span class="p">}</span>
+</pre></div>
+
+
 <h3 id="units">Units</h3>
 <ul>
 <li>When building a responsive design system always try to use relative units to allow system components and font-size to scale to the user's viewport. Use pixels only when you have a really good reason NOT to use <code>em</code>'s or <code>rem</code>s.</li>
@@ -140,27 +170,45 @@
 <li>Element name must be unique within the scope of its object and must have a unique name to be used within a css rule</li>
 <li>Elements can be repeated within a component, i.e. tabs or navigation elements</li>
 </ul>
-<p>Example: ```scss .object__element {...} /* element class */</p>
-<p>.object { &amp; &gt; li {...} /* descendent selector */ }</p>
-<p>```</p>
-<pre class="sourceCode html"><code class="sourceCode html"><span class="kw">&lt;ul</span><span class="ot"> class=</span><span class="st">&quot;object&quot;</span><span class="kw">&gt;</span>
-  <span class="kw">&lt;li</span><span class="ot"> class=</span><span class="st">&quot;object__element&quot;</span><span class="kw">&gt;</span>home<span class="kw">&lt;/li&gt;</span>
-<span class="kw">&lt;/ul&gt;</span></code></pre>
+Example:
+<div class="highlight"><pre><a name="examples--sass.scss-idio.html-62"></a><span class="nc">.object__element</span> <span class="p">{</span><span class="nc">...</span><span class="p">}</span>                          <span class="cm">/* element class */</span>
+<a name="examples--sass.scss-idio.html-63"></a>
+<a name="examples--sass.scss-idio.html-64"></a><span class="nc">.object</span> <span class="p">{</span>
+<a name="examples--sass.scss-idio.html-65"></a>  <span class="k">&amp;</span> <span class="o">&gt;</span> <span class="nt">li</span> <span class="p">{</span><span class="nc">...</span><span class="p">}</span>                                  <span class="cm">/* descendent selector */</span>
+<a name="examples--sass.scss-idio.html-66"></a>  <span class="p">}</span>
+</pre></div>
+
+<ul class="object">
+  <li class="object__element">
+home
+</li>
+</ul>
+
+
 <h4 id="sub-object">Sub-Object</h4>
 <p>A sub-object is a context-dependant sibling of an object that performs a certain function and is represented by an additional class for a component. Sub-objects are similar to elements in syntax and in relation to an object, but they differ significantly in the way that a sub-object extends or provides minor overrides to the object and is applied to the <em>same</em> HTML element. Sub-objects are denoted by the use of <code>__</code> (double underscores) i.e. <code>.component-name__sub-component-name</code>.</p>
 <ul>
 <li>A variant of a component that inherits all the styles of its object, but differs by adding additional object styles, or providing minor overrides of its object. When object overrides become significant, the creation of an additional object should be considered.</li>
 <li>A component's sub-component are siblings of the component and are prefixed with the full name of the parent component followed by <code>__</code> (double underscores). This clearly indicates a sub-object's relationship to its object and also prevents the sub-object's styles from applying outside of the object's scope.</li>
 </ul>
-<p>Example: ```scss .nav__pager {...} /* Sub-Component */</p>
-<p>```</p>
-<pre class="sourceCode html"><code class="sourceCode html"><span class="kw">&lt;ul</span><span class="ot"> class=</span><span class="st">&quot;nav nav__pager&quot;</span><span class="kw">&gt;</span>
-  ...
-<span class="kw">&lt;/ul&gt;</span></code></pre>
+Example:
+<div class="highlight"><pre><a name="examples--sass.scss-idio.html-70"></a><span class="nc">.nav__pager</span> <span class="p">{</span><span class="nc">...</span><span class="p">}</span>         <span class="cm">/* Sub-Component */</span>
+</pre></div>
+
+<ul class="nav nav__pager">
+  
+...
+</ul>
+
+
 <h3 id="object-extension">Object Extension</h3>
 <p>A significant variant of a component applied as an additional class on the component. Object extensions extend an object by applying additional styles related to either structure or skin. Extension classes are prefixed with the object's name followed by <code>--</code> (double dashes) and the extension name i.e. <code>.object--skin</code> or <code>.object--structure</code>.</p>
-<p>Example: ```scss .btn--primary {...} .btn--large {..}</p>
-<p>```</p>
+Example:
+<div class="highlight"><pre><a name="examples--sass.scss-idio.html-74"></a><span class="nc">.btn--primary</span> <span class="p">{</span><span class="nc">...</span><span class="p">}</span>
+<a name="examples--sass.scss-idio.html-75"></a><span class="nc">.btn--large</span> <span class="p">{</span><span class="nc">..</span><span class="p">}</span>
+</pre></div>
+
+
 <h4 id="state">State</h4>
 <p>A state is a variant of a component that is triggered by an action or behavior. State styles are applied dynamically as an additional class on the component's root or child HTML element.</p>
 <ul>
@@ -168,20 +216,20 @@
 <li>A component's state styles should be grouped with the component in the same partial.</li>
 <li>Multiple states may be used at once.</li>
 </ul>
-Example: ```html
+Example:
 <button type="submit" class="btn btn--large btn--primary is-disabled">
 Submit
 </button>
 
-<p>```</p>
-Example: ```html
+
+Example:
 <ul class="nav nav__vertical nav--large nav--primary">
   <li class="nav__element is-active">
 ...
 </li>
 </ul>
 
-<p>```</p>
+
 <h3 id="layout-1">Layout</h3>
 <ul>
 <li>All components are fluid by nature and should never be given explicit width or height restraints. A component's width is determined by its parent container or grid system.</li>
@@ -208,27 +256,35 @@ Example: ```html
 <p>Admittedly, there is an element of added complexity, but the sacrifice of simple selectors in order to preserve objected oriented principles is well worth it especially considering the fact that GZIP handles repetition extremely well.</p>
 <h3 id="naming-pattern">Naming Pattern</h3>
 <p>This naming pattern is inspired by the BEM Methodology <a href="README.md#works-cited">[2]</a> as well as several interpretations by other developers <a href="README.md#works-cited">[3]</a>, <a href="README.md#works-cited">[26]</a>.</p>
-<pre class="scss"><code>// component name
-.object {}                        /* represents the higher-level abstraction of a component */
-.object__element {}               /* represents a descendent of .object */
-.object__modifier {}              /* represents a modification of an object */
-.object--extension {}             /* extends an object with a skin or structure */
-&amp;.is-active {}                    /* represents a change in the component&#39;s state (state-modifier) */
-.prefix-component-name {}         /* targets all component entities i.e. for layout */
-</code></pre>
+<div class="highlight"><pre><a name="examples--sass.scss-idio.html-78"></a><span class="c1">// component name</span>
+<a name="examples--sass.scss-idio.html-79"></a><span class="nc">.object</span> <span class="p">{}</span>                        <span class="cm">/* represents the higher-level abstraction of a component */</span>
+<a name="examples--sass.scss-idio.html-80"></a><span class="nc">.object__element</span> <span class="p">{}</span>               <span class="cm">/* represents a descendent of .object */</span>
+<a name="examples--sass.scss-idio.html-81"></a><span class="nc">.object__modifier</span> <span class="p">{}</span>              <span class="cm">/* represents a modification of an object */</span>
+<a name="examples--sass.scss-idio.html-82"></a><span class="nc">.object--extension</span> <span class="p">{}</span>             <span class="cm">/* extends an object with a skin or structure */</span>
+<a name="examples--sass.scss-idio.html-83"></a><span class="k">&amp;</span><span class="nc">.is-active</span> <span class="p">{}</span>                    <span class="cm">/* represents a change in the component&#39;s state (state-modifier) */</span>
+<a name="examples--sass.scss-idio.html-84"></a><span class="nc">.prefix-component-name</span> <span class="p">{}</span>         <span class="cm">/* targets all component entities i.e. for layout */</span>
+</pre></div>
+
+
 <h4 id="example-html">Example HTML</h4>
-<pre class="sourceCode html"><code class="sourceCode html"><span class="kw">&lt;ul</span><span class="ot"> class=</span><span class="st">&quot;object object__modifier object--extension is-object-state&quot;</span><span class="kw">&gt;</span>
-  <span class="kw">&lt;li</span><span class="ot"> class=</span><span class="st">&quot;object__element is-active&quot;</span><span class="kw">&gt;</span>...<span class="kw">&lt;/li&gt;</span>
-<span class="kw">&lt;/ul&gt;</span></code></pre>
+<ul class="object object__modifier object--extension is-object-state">
+  <li class="object__element is-active">
+...
+</li>
+</ul>
+
+
 <h4 id="example-use-case">Example Use Case</h4>
-<pre class="scss"><code>// large primary button (call to action button)
-.btn {}                           /* button object */
-.btn__full {}                     /* full width button (object modifier) */
-.btn--large {}                    /* large button structure (object extension structure) */
-.btn--primary {}                  /* primary button skin (object extension skin) */
-&amp;.is-disabled {}                  /* object state */
-.l-btn--call-to-action            /* layout styles for call-to-action */
-</code></pre>
+<div class="highlight"><pre><a name="examples--sass.scss-idio.html-88"></a><span class="c1">// large primary button (call to action button)</span>
+<a name="examples--sass.scss-idio.html-89"></a><span class="nc">.btn</span> <span class="p">{}</span>                           <span class="cm">/* button object */</span>
+<a name="examples--sass.scss-idio.html-90"></a><span class="nc">.btn__full</span> <span class="p">{}</span>                     <span class="cm">/* full width button (object modifier) */</span>
+<a name="examples--sass.scss-idio.html-91"></a><span class="nc">.btn--large</span> <span class="p">{}</span>                    <span class="cm">/* large button structure (object extension structure) */</span>
+<a name="examples--sass.scss-idio.html-92"></a><span class="nc">.btn--primary</span> <span class="p">{}</span>                  <span class="cm">/* primary button skin (object extension skin) */</span>
+<a name="examples--sass.scss-idio.html-93"></a><span class="k">&amp;</span><span class="nc">.is-disabled</span> <span class="p">{}</span>                  <span class="cm">/* object state */</span>
+<a name="examples--sass.scss-idio.html-94"></a><span class="nc">.l-btn--call-to-action</span>            <span class="o">/*</span> <span class="nt">layout</span> <span class="nt">styles</span> <span class="nt">for</span> <span class="nt">call-to-action</span> <span class="o">*/</span>
+</pre></div>
+
+
 <h3 id="css-class-semantics">CSS Class Semantics</h3>
 <p>Class names should remain content-independent<a href="README.md#works-cited">[3]</a>. By avoiding tightly coupled class names and content semantics, code is more easily reused and modularized to allow for increased scalability of your architecture. Because the most reusable code components are those with content-independent class names, class names should be derived from repeating structural or functional patterns and never from the content.</p>
 <blockquote>
@@ -254,63 +310,92 @@ Example: ```html
 <li>Do not use location based selectors to change a component's appearance based on its page position or region - i.e. (main-content, side-bar, footer, etc) <a href="README.md#works-cited">[17]</a>. When a component has different appearances create a new component by changing out its structure or skin class.</li>
 <li>Always name-space state class names e.g. <code>.is-disabled</code>, <code>.is-collapsed</code> - never explicitly style a state.</li>
 </ul>
-<p>Example: <code>scss .btn--skin {   // skin styles here...   &amp;.is-disabled {     // disabled styles here...      } }</code> * Avoid the use of element selectors in order to keep them free from context and un-coupled to the HTML. Scope HTML element selectors with a class on the root element or a parent element so that these styles are opt-in rather than opt-out. This will avoid redundant overrides of un-needed styles and keep specificity minimal. <a href="README.md#works-cited">[1]</a> <a href="README.md#works-cited">[27]</a> <a href="README.md#works-cited">[28]</a> * !important should be avoided as much as possible. State classes are an example of an acceptable use of important <a href="README.md#works-cited">[1]</a>. * Never qualify a selector with an element selector e.g. <code>ul.nav</code>, as this decreases selector performance, creates a context dependency, and increases the selector's specificity. These are all things to be avoided <a href="README.md#works-cited">[1]</a> <a href="README.md#works-cited">12</a>.</p>
+Example:
+<div class="highlight"><pre><a name="examples--sass.scss-idio.html-99"></a><span class="nc">.btn--skin</span> <span class="p">{</span>
+<a name="examples--sass.scss-idio.html-100"></a>  <span class="c1">// skin styles here...</span>
+<a name="examples--sass.scss-idio.html-101"></a>  <span class="k">&amp;</span><span class="nc">.is-disabled</span> <span class="p">{</span>
+<a name="examples--sass.scss-idio.html-102"></a>    <span class="c1">// disabled styles here...   </span>
+<a name="examples--sass.scss-idio.html-103"></a>  <span class="p">}</span>
+<a name="examples--sass.scss-idio.html-104"></a><span class="p">}</span>
+</pre></div>
+
+
+<ul>
+<li>Avoid the use of element selectors in order to keep them free from context and un-coupled to the HTML. Scope HTML element selectors with a class on the root element or a parent element so that these styles are opt-in rather than opt-out. This will avoid redundant overrides of un-needed styles and keep specificity minimal. <a href="README.md#works-cited">[1]</a> <a href="README.md#works-cited">[27]</a> <a href="README.md#works-cited">[28]</a></li>
+<li>!important should be avoided as much as possible. State classes are an example of an acceptable use of important <a href="README.md#works-cited">[1]</a>.</li>
+<li>Never qualify a selector with an element selector e.g. <code>ul.nav</code>, as this decreases selector performance, creates a context dependency, and increases the selector's specificity. These are all things to be avoided <a href="README.md#works-cited">[1]</a> <a href="README.md#works-cited">12</a>.</li>
+</ul>
 <h2 id="practical-example">Practical Example</h2>
 <h4 id="object-1">Object</h4>
-<pre class="scss"><code>/**
- * Nav Object
- *
- */
-.nav {
-  &amp;.nav__item {...}  
-}</code></pre>
+<div class="highlight"><pre><a name="examples--sass.scss-idio.html-108"></a><span class="cm">/**</span>
+<a name="examples--sass.scss-idio.html-109"></a><span class="cm"> * Nav Object</span>
+<a name="examples--sass.scss-idio.html-110"></a><span class="cm"> *</span>
+<a name="examples--sass.scss-idio.html-111"></a><span class="cm"> */</span>
+<a name="examples--sass.scss-idio.html-112"></a><span class="nc">.nav</span> <span class="p">{</span>
+<a name="examples--sass.scss-idio.html-113"></a>  <span class="k">&amp;</span><span class="nc">.nav__item</span> <span class="p">{</span><span class="nc">...</span><span class="p">}</span>  
+<a name="examples--sass.scss-idio.html-114"></a><span class="p">}</span>
+</pre></div>
+
+
 <h4 id="component-2">Component</h4>
-<pre class="scss"><code>/**
- * Articles Pager
- *
- * Pager component modifies the nav object in _nav-object.scss partial
- *
- * Markup Pattern:
- * &lt;ul class=&quot;nav nav__pager nav__pager--large nav__pager--subtle&quot;&gt;
- *   &lt;li class=&quot;nav__pager--item is-active&quot;&gt;1&lt;/li&gt;
- *   &lt;li class=&quot;nav__pager--item&quot;&gt;2&lt;/li&gt;
- * &lt;/ul&gt;
- *
- */
-.nav__pager {...}
+<div class="highlight"><pre><a name="examples--sass.scss-idio.html-119"></a><span class="cm">/**</span>
+<a name="examples--sass.scss-idio.html-120"></a><span class="cm"> * Articles Pager</span>
+<a name="examples--sass.scss-idio.html-121"></a><span class="cm"> *</span>
+<a name="examples--sass.scss-idio.html-122"></a><span class="cm"> * Pager component modifies the nav object in _nav-object.scss partial</span>
+<a name="examples--sass.scss-idio.html-123"></a><span class="cm"> *</span>
+<a name="examples--sass.scss-idio.html-124"></a><span class="cm"> * Markup Pattern:</span>
+<a name="examples--sass.scss-idio.html-125"></a><span class="cm"> * &lt;ul class=&quot;nav nav__pager nav__pager--large nav__pager--subtle&quot;&gt;</span>
+<a name="examples--sass.scss-idio.html-126"></a><span class="cm"> *   &lt;li class=&quot;nav__pager--item is-active&quot;&gt;1&lt;/li&gt;</span>
+<a name="examples--sass.scss-idio.html-127"></a><span class="cm"> *   &lt;li class=&quot;nav__pager--item&quot;&gt;2&lt;/li&gt;</span>
+<a name="examples--sass.scss-idio.html-128"></a><span class="cm"> * &lt;/ul&gt;</span>
+<a name="examples--sass.scss-idio.html-129"></a><span class="cm"> *</span>
+<a name="examples--sass.scss-idio.html-130"></a><span class="cm"> */</span>
+<a name="examples--sass.scss-idio.html-131"></a><span class="nc">.nav__pager</span> <span class="p">{</span><span class="nc">...</span><span class="p">}</span>
+<a name="examples--sass.scss-idio.html-132"></a>
+<a name="examples--sass.scss-idio.html-133"></a>
+<a name="examples--sass.scss-idio.html-134"></a><span class="cm">/**</span>
+<a name="examples--sass.scss-idio.html-135"></a><span class="cm"> * Pager Structure</span>
+<a name="examples--sass.scss-idio.html-136"></a><span class="cm"> *</span>
+<a name="examples--sass.scss-idio.html-137"></a><span class="cm"> * Extends the nav object defined in _nav-object.scss partial</span>
+<a name="examples--sass.scss-idio.html-138"></a><span class="cm"> */</span>
+<a name="examples--sass.scss-idio.html-139"></a><span class="nc">.nav__pager--large</span> <span class="p">{</span><span class="nc">...</span><span class="p">}</span>
+<a name="examples--sass.scss-idio.html-140"></a>
+<a name="examples--sass.scss-idio.html-141"></a>
+<a name="examples--sass.scss-idio.html-142"></a><span class="cm">/**</span>
+<a name="examples--sass.scss-idio.html-143"></a><span class="cm"> * Pager Skin</span>
+<a name="examples--sass.scss-idio.html-144"></a><span class="cm"> *</span>
+<a name="examples--sass.scss-idio.html-145"></a><span class="cm"> * Extends the nav object defined in _nav-object.scss partial</span>
+<a name="examples--sass.scss-idio.html-146"></a><span class="cm"> */</span>
+<a name="examples--sass.scss-idio.html-147"></a><span class="nc">.nav__pager--secondary</span> <span class="p">{</span>
+<a name="examples--sass.scss-idio.html-148"></a>  <span class="k">&amp;</span><span class="nc">.is-active</span> <span class="p">{</span><span class="nc">...</span><span class="p">}</span>
+<a name="examples--sass.scss-idio.html-149"></a><span class="p">}</span>
+</pre></div>
 
 
-/**
- * Pager Structure
- *
- * Extends the nav object defined in _nav-object.scss partial
- */
-.nav__pager--large {...}
-
-
-/**
- * Pager Skin
- *
- * Extends the nav object defined in _nav-object.scss partial
- */
-.nav__pager--secondary {
-  &amp;.is-active {...}
-}
-
-</code></pre>
 <h4 id="layout-2">Layout</h4>
-<pre class="scss"><code>/**
- * Pager Layout
- *
- * Extends the articles pager component in /components/_pager.scss partial
- */
-.l-articles-pager {...}
-</code></pre>
+<div class="highlight"><pre><a name="examples--sass.scss-idio.html-154"></a><span class="cm">/**</span>
+<a name="examples--sass.scss-idio.html-155"></a><span class="cm"> * Pager Layout</span>
+<a name="examples--sass.scss-idio.html-156"></a><span class="cm"> *</span>
+<a name="examples--sass.scss-idio.html-157"></a><span class="cm"> * Extends the articles pager component in /components/_pager.scss partial</span>
+<a name="examples--sass.scss-idio.html-158"></a><span class="cm"> */</span>
+<a name="examples--sass.scss-idio.html-159"></a><span class="nc">.l-articles-pager</span> <span class="p">{</span><span class="nc">...</span><span class="p">}</span>
+<a name="examples--sass.scss-idio.html-160"></a>
+<a name="examples--sass.scss-idio.html-161"></a><span class="err">```</span>
+</pre></div>
+
+
 <h4 id="html">HTML</h4>
-<pre class="sourceCode html"><code class="sourceCode html"><span class="kw">&lt;ul</span><span class="ot"> class=</span><span class="st">&quot;nav nav__pager nav__pager--large nav__pager--subtle l-articles-pager&quot;</span><span class="kw">&gt;</span>
-  <span class="kw">&lt;li</span><span class="ot"> class=</span><span class="st">&quot;nav__pager__item is-active&quot;</span><span class="kw">&gt;</span>1<span class="kw">&lt;/li&gt;</span>
-  <span class="kw">&lt;li</span><span class="ot"> class=</span><span class="st">&quot;nav__pager__item&quot;</span><span class="kw">&gt;</span>2<span class="kw">&lt;/li&gt;</span>
-<span class="kw">&lt;/ul&gt;</span></code></pre>
+<ul class="nav nav__pager nav__pager--large nav__pager--subtle l-articles-pager">
+  <li class="nav__pager__item is-active">
+1
+</li>
+  <li class="nav__pager__item">
+2
+</li>
+</ul>
+
+
+
 
   </div>
   
