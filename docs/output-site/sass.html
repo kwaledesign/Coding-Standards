@@ -46,13 +46,17 @@
 <li>Never emulate HTML structure of a module with SCSS nesting. Mapping Sass selectors directly to your DOM structure creates a brittle architecture that is tightly coupled to the current HTML markup.</li>
 <li>Nested parent selectors should be listed directly under the class selector and then indent child selectors <a href="README.md#works-cited">[17]</a>.</li>
 </ul>
-<pre><code>.module {
-    background: $module--color-bg; 
-    p {
-        margin-bottom: 0;
-        line-height: 1.5em;     
-    }
-}</code></pre>
+<div class="highlight"><pre><a name="examples--sass.scss-idio.html-176"></a><span class="nc">.module</span> <span class="p">{</span>
+<a name="examples--sass.scss-idio.html-177"></a>    <span class="na">background</span><span class="o">:</span> <span class="nv">$module--color-bg</span><span class="p">;</span> 
+<a name="examples--sass.scss-idio.html-178"></a>    <span class="nt">p</span> <span class="p">{</span>
+<a name="examples--sass.scss-idio.html-179"></a>        <span class="na">margin-bottom</span><span class="o">:</span> <span class="mi">0</span><span class="p">;</span>
+<a name="examples--sass.scss-idio.html-180"></a>        <span class="na">line-height</span><span class="o">:</span> <span class="mi">1</span><span class="mf">.5</span><span class="kt">em</span><span class="p">;</span>     
+<a name="examples--sass.scss-idio.html-181"></a>    <span class="p">}</span>
+<a name="examples--sass.scss-idio.html-182"></a><span class="p">}</span>
+</pre></div>
+
+
+
 <h2 id="variables">Variables</h2>
 <ul>
 <li>Use a variable for any repeated CSS value and look for patterns to abstract in order to reinforce maintainability, as well as consistency.</li>
@@ -60,13 +64,38 @@
 <li>When defining a color tone, tint, or shade of a previously defined color variable the modifier should follow the initial variable name and use <code>--</code> (double dashes) to represent the modifier, i.e. <code>$brand-blue--light</code> opposed to <code>$light-brand-blue</code>.</li>
 <li>Avoid explicitly assigning a property to a color variable name. Create two levels of abstraction - the lower level abstraction defines the color name; and the higher level abstraction defines the component property.</li>
 </ul>
-<p>Example: ```scss /** * Variables */</p>
-<p><span class="math">$brand-gray: #999999; $</span>brand-gray-light: #E5E5E5;</p>
-<p><span class="math"><em>n</em><em>a</em><em>v</em> − <em>c</em><em>o</em><em>l</em><em>o</em><em>r</em> − <em>p</em><em>r</em><em>i</em><em>m</em><em>a</em><em>r</em><em>y</em>: </span>brand-gray; <span class="math"><em>n</em><em>a</em><em>v</em> − <em>c</em><em>o</em><em>l</em><em>o</em><em>r</em> − <em>s</em><em>e</em><em>c</em><em>o</em><em>n</em><em>d</em><em>a</em><em>r</em><em>y</em>: </span>brand-gray-light;</p>
-<p>``<code>* When defining variables, they should appear first at the top of their component's partial file and be grouped by skin and structure. * 'Global' variables, those used by many components within multiple different partial files, should be given their own partial file inside the</code>base/<code>directory [for example](https://github.com/kwaledesign/Archetype/tree/master/sass/base):</code><em>color-pallet.scss<code>,</code></em>typography-pallet.scss`.</p>
+Example:
+<div class="highlight"><pre><a name="examples--sass.scss-idio.html-186"></a><span class="cm">/**</span>
+<a name="examples--sass.scss-idio.html-187"></a><span class="cm"> * Variables</span>
+<a name="examples--sass.scss-idio.html-188"></a><span class="cm"> */</span>
+<a name="examples--sass.scss-idio.html-189"></a>
+<a name="examples--sass.scss-idio.html-190"></a><span class="nv">$brand-gray</span><span class="o">:</span>                                  <span class="mh">#999999</span><span class="p">;</span>
+<a name="examples--sass.scss-idio.html-191"></a><span class="nv">$brand-gray-light</span><span class="o">:</span>                            <span class="mh">#E5E5E5</span><span class="p">;</span>
+<a name="examples--sass.scss-idio.html-192"></a>
+<a name="examples--sass.scss-idio.html-193"></a><span class="nv">$nav-color-primary</span><span class="o">:</span>                           <span class="nv">$brand-gray</span><span class="p">;</span>
+<a name="examples--sass.scss-idio.html-194"></a><span class="nv">$nav-color-secondary</span><span class="o">:</span>                         <span class="nv">$brand-gray-light</span><span class="p">;</span>
+</pre></div>
+
+
+<ul>
+<li>When defining variables, they should appear first at the top of their component's partial file and be grouped by skin and structure.</li>
+<li>'Global' variables, those used by many components within multiple different partial files, should be given their own partial file inside the <code>base/</code> directory <a href="https://github.com/kwaledesign/Archetype/tree/master/sass/base">for example</a>: <code>_color-pallet.scss</code>, <code>_typography-pallet.scss</code>.</li>
+</ul>
 <h3 id="variable-syntax">Variable Syntax</h3>
 <p>Use the <a href="css.md#selector-construct">same BEM-style</a> syntax used for CSS selectors, i.e. <code>$object__element--property: css-value;</code>. Variable names should list there common properties first followed by unique properties.</p>
-<p>Example: <code>scss /**  * Button Skin Variables  */ $btn--color-bg:                               pink; $btn--color-txt:                              pink; /* State Variables */ $btn--color-bg-hover:                         darken($btn--color-bg, 10%); $btn--color-bg-disabled:                      lighten($btn--color-bg, 25%);</code></p>
+Example:
+<div class="highlight"><pre><a name="examples--sass.scss-idio.html-198"></a><span class="cm">/**</span>
+<a name="examples--sass.scss-idio.html-199"></a><span class="cm"> * Button Skin Variables</span>
+<a name="examples--sass.scss-idio.html-200"></a><span class="cm"> */</span>
+<a name="examples--sass.scss-idio.html-201"></a><span class="nv">$btn--color-bg</span><span class="o">:</span>                               <span class="ni">pink</span><span class="p">;</span>
+<a name="examples--sass.scss-idio.html-202"></a><span class="nv">$btn--color-txt</span><span class="o">:</span>                              <span class="ni">pink</span><span class="p">;</span>
+<a name="examples--sass.scss-idio.html-203"></a><span class="cm">/* State Variables */</span>
+<a name="examples--sass.scss-idio.html-204"></a><span class="nv">$btn--color-bg-hover</span><span class="o">:</span>                         <span class="nf">darken</span><span class="p">(</span><span class="nv">$btn--color-bg</span><span class="o">,</span> <span class="mi">10</span><span class="kt">%</span><span class="p">);</span>
+<a name="examples--sass.scss-idio.html-205"></a><span class="nv">$btn--color-bg-disabled</span><span class="o">:</span>                      <span class="nf">lighten</span><span class="p">(</span><span class="nv">$btn--color-bg</span><span class="o">,</span> <span class="mi">25</span><span class="kt">%</span><span class="p">);</span>
+</pre></div>
+
+
+
 <h2 id="mixin">@mixin</h2>
 <ul>
 <li>Use a <code>@mixin</code> when you wish to apply arguments to its code block, when you want that chunk of styles to apply to the selector, or when you don't want an additional class in the HTML.</li>
@@ -75,8 +104,19 @@
 <li>Mixins with multiple arguments can be placed on their own line for greater readability.</li>
 <li>As always, monitor the CSS output to ensure it matches the intention of your Sass code.</li>
 </ul>
-<p>Example: ```scss @mixin mixin-name( <span class="math"><em>m</em><em>i</em><em>x</em><em>i</em><em>n</em> − <em>a</em><em>r</em><em>g</em>1, </span>mixin-arg2, <span class="math"><em>m</em><em>i</em><em>x</em><em>i</em><em>n</em> − <em>a</em><em>r</em><em>g</em>3, </span>mixin-arg4) { property: <span class="math"><em>m</em><em>i</em><em>x</em><em>i</em><em>n</em> − <em>a</em><em>r</em><em>g</em>1; <em>p</em><em>r</em><em>o</em><em>p</em><em>e</em><em>r</em><em>t</em><em>y</em>: </span>mixin-arg2; property: <span class="math"><em>m</em><em>i</em><em>x</em><em>i</em><em>n</em> − <em>a</em><em>r</em><em>g</em>3; <em>p</em><em>r</em><em>o</em><em>p</em><em>e</em><em>r</em><em>t</em><em>y</em>: </span>mixin-arg4; }</p>
-<p>```</p>
+Example:
+<div class="highlight"><pre><a name="examples--sass.scss-idio.html-198"></a><span class="cm">/**</span>
+<a name="examples--sass.scss-idio.html-199"></a><span class="cm"> * Button Skin Variables</span>
+<a name="examples--sass.scss-idio.html-200"></a><span class="cm"> */</span>
+<a name="examples--sass.scss-idio.html-201"></a><span class="nv">$btn--color-bg</span><span class="o">:</span>                               <span class="ni">pink</span><span class="p">;</span>
+<a name="examples--sass.scss-idio.html-202"></a><span class="nv">$btn--color-txt</span><span class="o">:</span>                              <span class="ni">pink</span><span class="p">;</span>
+<a name="examples--sass.scss-idio.html-203"></a><span class="cm">/* State Variables */</span>
+<a name="examples--sass.scss-idio.html-204"></a><span class="nv">$btn--color-bg-hover</span><span class="o">:</span>                         <span class="nf">darken</span><span class="p">(</span><span class="nv">$btn--color-bg</span><span class="o">,</span> <span class="mi">10</span><span class="kt">%</span><span class="p">);</span>
+<a name="examples--sass.scss-idio.html-205"></a><span class="nv">$btn--color-bg-disabled</span><span class="o">:</span>                      <span class="nf">lighten</span><span class="p">(</span><span class="nv">$btn--color-bg</span><span class="o">,</span> <span class="mi">25</span><span class="kt">%</span><span class="p">);</span>
+</pre></div>
+
+
+
 <h2 id="extend">@extend</h2>
 <ul>
 <li>@extend when you want to extend</li>
@@ -86,13 +126,17 @@
 <li>Avoid using <code>@extend</code> within a mixin - this can easily lead to nested <code>@extend</code>'s</li>
 <li><p>Never use <code>@extend</code> for the simplification of (OOCSS) multi-class constructs to build single-class objects. This is dangerous because it can easily produce very bloated output and complicated selector strings. This technique should be avoided until a native browser implementation of <code>@extend</code> is available <a href="README.md#works-cited">[29]</a>.</p></li>
 </ul>
-<p>Example misuse of <code>@extend</code>:</p>
-<pre class="scss"><code>.btn-signup {
-  @extend btn;
-  @extend btn--full;
-  @extend btn--large;
-  @extend btn--primary;
-}</code></pre>
+Example misuse of <code>@extend</code>:
+<div class="highlight"><pre><a name="examples--sass.scss-idio.html-224"></a><span class="nc">.btn-signup</span> <span class="p">{</span>
+<a name="examples--sass.scss-idio.html-225"></a>  <span class="k">@extend</span> <span class="nt">btn</span><span class="o">;</span>
+<a name="examples--sass.scss-idio.html-226"></a>  <span class="o">@</span><span class="nt">extend</span> <span class="nt">btn--full</span><span class="o">;</span>
+<a name="examples--sass.scss-idio.html-227"></a>  <span class="o">@</span><span class="nt">extend</span> <span class="nt">btn--large</span><span class="o">;</span>
+<a name="examples--sass.scss-idio.html-228"></a>  <span class="o">@</span><span class="nt">extend</span> <span class="nt">btn--primary</span><span class="o">;</span>
+<a name="examples--sass.scss-idio.html-229"></a><span class="p">}</span>
+</pre></div>
+
+
+
 <h2 id="place-holder-selectors">%Place-holder Selectors</h2>
 <ul>
 <li>Use <code>%</code> (the silent selector) when defining a utility class that may not be used - this will keep its code block out of the output until it is extended.</li>
@@ -106,7 +150,23 @@
 <li>State Styles, i.e. <code>&amp;.is-active</code></li>
 <li>Object Elements, i.e. <code>nav__item</code></li>
 </ol>
-<p>Example: <code>scss .selector {   @extend %utility-class;   @include mixin-name(mixin-arguments);   property: value;    &amp;.is-disabled {     @include disabled-mixin(mixin-arguments);     property: value;      }   &amp; &gt; object__element {     @extend %utility-class;     property: value;   } }</code></p>
+Example:
+<div class="highlight"><pre><a name="examples--sass.scss-idio.html-233"></a><span class="nc">.selector</span> <span class="p">{</span>
+<a name="examples--sass.scss-idio.html-234"></a>  <span class="k">@extend</span> <span class="err">%</span><span class="nt">utility-class</span><span class="o">;</span>
+<a name="examples--sass.scss-idio.html-235"></a>  <span class="o">@</span><span class="nt">include</span> <span class="nt">mixin-name</span><span class="o">(</span><span class="nt">mixin-arguments</span><span class="o">);</span>
+<a name="examples--sass.scss-idio.html-236"></a>  <span class="nt">property</span><span class="nd">:</span> <span class="nt">value</span><span class="o">;</span> 
+<a name="examples--sass.scss-idio.html-237"></a>  <span class="k">&amp;</span><span class="nc">.is-disabled</span> <span class="p">{</span>
+<a name="examples--sass.scss-idio.html-238"></a>    <span class="k">@include</span><span class="nd"> disabled-mixin</span><span class="p">(</span><span class="n">mixin-arguments</span><span class="p">);</span>
+<a name="examples--sass.scss-idio.html-239"></a>    <span class="na">property</span><span class="o">:</span> <span class="n">value</span><span class="p">;</span>   
+<a name="examples--sass.scss-idio.html-240"></a>  <span class="p">}</span>
+<a name="examples--sass.scss-idio.html-241"></a>  <span class="k">&amp;</span> <span class="o">&gt;</span> <span class="nt">object__element</span> <span class="p">{</span>
+<a name="examples--sass.scss-idio.html-242"></a>    <span class="k">@extend</span> <span class="err">%</span><span class="nt">utility-class</span><span class="o">;</span>
+<a name="examples--sass.scss-idio.html-243"></a>    <span class="nt">property</span><span class="nd">:</span> <span class="nt">value</span><span class="o">;</span>
+<a name="examples--sass.scss-idio.html-244"></a>  <span class="p">}</span>
+<a name="examples--sass.scss-idio.html-245"></a><span class="p">}</span>
+</pre></div>
+
+
 <h2 id="sass-packages-and-modules">Sass Packages and Modules</h2>
 <ul>
 <li>Every Sass module must have a name-space consistently applied as a prefix to avoid collisions with other modules. Prefix should be short, yet descriptive.</li>
