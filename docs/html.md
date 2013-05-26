@@ -10,7 +10,7 @@
 * Use the HTML5 doctype to enforce standards mode in every browser with `<!doctype HTML>`
 
 Example:
-{{ (d['examples/markup.html|htmlsections']['syntax']) }}
+{{ highlight(d['examples/markup.html|htmlsections']['syntax'], "html") }}
 
 * Use the simplest markup pattern possible for a component while still maintaining HTML standards and proper semantics. 
 * Do not write markup in javascript files to avoid detrimental effects on performance and maintainability.
@@ -24,12 +24,11 @@ Apply HTML Attributes to an element in the following order:
 * everything else
 
 Example:
-{{ (d['examples/markup.html|htmlsections']['attributes']) }}
+{{ highlight(d['examples/markup.html|htmlsections']['attributes'], "html") }}
 
 ### Exceptions
 Elements with multiple attributes can be split into multiple lines to improve readability and produce more meaningful diffs.
 
 Example: 
-{{ (d['examples/markup.html|htmlsections']['multi-line-attributes']) }}
-
+{{ highlight(d['examples/markup.html|htmlsections']['multi-line-attributes'], "html") }}
 
