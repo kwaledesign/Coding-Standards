@@ -161,7 +161,7 @@ An element is a context-dependant descendent of an object that performs a certai
 
 Example:
 {{ d['examples/sass.scss|idio']['element-syntax'] }}
-{{ (d['examples/markup.html|htmlsections']['element-syntax']) }}
+{{ highlight(d['examples/markup.html|htmlsections']['element-syntax'], "html") }}
 
 #### Sub-Object
 A sub-object is a context-dependant sibling of an object that performs a certain function and is represented by an additional class for a component. Sub-objects are similar to elements in syntax and in relation to an object, but they differ significantly in the way that a sub-object extends or provides minor overrides to the object and is applied to the _same_ HTML element. Sub-objects are denoted by the use of `__` (double underscores) i.e. `.component-name__sub-component-name`. 
@@ -175,7 +175,7 @@ A sub-object is a context-dependant sibling of an object that performs a certain
 
 Example:
 {{ d['examples/sass.scss|idio']['sub-component'] }}
-{{ (d['examples/markup.html|htmlsections']['sub-component']) }}
+{{ highlight(d['examples/markup.html|htmlsections']['sub-component'], "html") }}
 
 ### Object Extension
 A significant variant of a component applied as an additional class on the component. Object extensions extend an object by applying additional styles related to either structure or skin. Extension classes are prefixed with the object's name followed by `--` (double dashes) and the extension name i.e. `.object--skin` or `.object--structure`.
@@ -191,10 +191,10 @@ A state is a variant of a component that is triggered by an action or behavior. 
 * Multiple states may be used at once.
 
 Example:
-{{ (d['examples/markup.html|htmlsections']['state']) }}
+{{ highlight(d['examples/markup.html|htmlsections']['state'], "html") }}
 
 Example:
-{{ (d['examples/markup.html|htmlsections']['state2']) }}
+{{ highlight(d['examples/markup.html|htmlsections']['state2'], "html") }}
 
 ### Layout
 * All components are fluid by nature and should never be given explicit width or height restraints. A component's width is determined by its parent container or grid system.
@@ -231,7 +231,7 @@ This naming pattern is inspired by the BEM Methodology [[2]](README.md#works-cit
 {{ d['examples/sass.scss|idio']['naming-pattern'] }}
 
 #### Example HTML
-{{ (d['examples/markup.html|htmlsections']['naming-pattern']) }}
+{{ highlight(d['examples/markup.html|htmlsections']['naming-pattern'], "html") }}
 
 #### Example Use Case
 {{ d['examples/sass.scss|idio']['naming-pattern-usecase'] }}
@@ -298,5 +298,5 @@ Example:
 {{ d['examples/sass.scss|idio']['practical-example-layout'] }}
 
 #### HTML
-{{ (d['examples/markup.html|htmlsections']['practical-example-html']) }}
+{{ highlight(d['examples/markup.html|htmlsections']['practical-example-html'], "html") }}
 
