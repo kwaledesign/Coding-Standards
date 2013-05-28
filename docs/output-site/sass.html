@@ -44,7 +44,7 @@
 <li>When nesting, list your parent specific declarations directly under the class selector and then list the indented child selectors</li>
 <li>Only use nesting when you intend for nested CSS selectors.</li>
 <li>Never emulate HTML structure of a module with SCSS nesting. Mapping Sass selectors directly to your DOM structure creates a brittle architecture that is tightly coupled to the current HTML markup.</li>
-<li>Nested parent selectors should be listed directly under the class selector and then indent child selectors <a href="README.md#works-cited">[17]</a>.</li>
+<li>Nested parent selectors should be listed directly under the class selector and then indent child selectors <a href="index.html#works-cited">[17]</a>.</li>
 </ul>
 <div class="highlight"><pre><a name="examples--sass.scss-idio.html-176"></a><span class="nc">.module</span> <span class="p">{</span>
 <a name="examples--sass.scss-idio.html-177"></a>    <span class="na">background</span><span class="o">:</span> <span class="nv">$module--color-bg</span><span class="p">;</span> 
@@ -124,7 +124,7 @@ Example:
 <li>Be cautious using <code>@extend</code>. Improper usage can easily cause bloated output and/or extremely lengthy selector strings.</li>
 <li>Never nest an <code>@extend</code> within another <code>@extend</code></li>
 <li>Avoid using <code>@extend</code> within a mixin - this can easily lead to nested <code>@extend</code>'s</li>
-<li><p>Never use <code>@extend</code> for the simplification of (OOCSS) multi-class constructs to build single-class objects. This is dangerous because it can easily produce very bloated output and complicated selector strings. This technique should be avoided until a native browser implementation of <code>@extend</code> is available <a href="README.md#works-cited">[29]</a>.</p></li>
+<li><p>Never use <code>@extend</code> for the simplification of (OOCSS) multi-class constructs to build single-class objects. This is dangerous because it can easily produce very bloated output and complicated selector strings. This technique should be avoided until a native browser implementation of <code>@extend</code> is available <a href="index.html#works-cited">[29]</a>.</p></li>
 </ul>
 Example misuse of <code>@extend</code>:
 <div class="highlight"><pre><a name="examples--sass.scss-idio.html-224"></a><span class="nc">.btn-signup</span> <span class="p">{</span>

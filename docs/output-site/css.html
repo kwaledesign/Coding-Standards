@@ -58,7 +58,7 @@ Example:
 
 
 <h3 id="object-extension-pointer">Object-Extension Pointer</h3>
-<p>When extending an object within a separate partial, leave a comment pointing to the original base object in order to establish a concrete link between the object and its extension <a href="README.md#works-cited">[13]</a>.</p>
+<p>When extending an object within a separate partial, leave a comment pointing to the original base object in order to establish a concrete link between the object and its extension <a href="index.html#works-cited">[13]</a>.</p>
 Example:
 <div class="highlight"><pre><a name="examples--sass.scss-idio.html-39"></a><span class="cm">/**</span>
 <a name="examples--sass.scss-idio.html-40"></a><span class="cm"> * Foo-Bar</span>
@@ -89,7 +89,7 @@ Example:
 </pre></div>
 
 
-<p>Long comma-separated property values, such as collections of gradients or shadows, can be arranged across multiple lines in an effort to improve readability and produce more useful diffs <a href="README.md#works-cited">[3]</a>.</p>
+<p>Long comma-separated property values, such as collections of gradients or shadows, can be arranged across multiple lines in an effort to improve readability and produce more useful diffs <a href="index.html#works-cited">[3]</a>.</p>
 Example:
 <div class="highlight"><pre><a name="examples--sass.scss-idio.html-55"></a><span class="nc">.selector</span> <span class="p">{</span>
 <a name="examples--sass.scss-idio.html-56"></a>  <span class="na">background-image</span><span class="o">:</span>
@@ -107,7 +107,7 @@ Example:
 <li>When building a responsive design system always try to use relative units to allow system components and font-size to scale to the user's viewport. Use pixels only when you have a really good reason NOT to use <code>em</code>'s or <code>rem</code>s.</li>
 <li>When using <code>rem</code>'s (<a href="http://caniuse.com/#search=rem">see browser support</a>), provide a fall-back for IE8 and Opera Mini and abstract this into a Sass mixin for ease of use.</li>
 <li>Use unit-less <code>line-height</code>. It does not inherit a percentage value of its parent element - it's based on a multiplier of the <code>font-size</code>.</li>
-<li>Avoid absolute measurements. For example, by using <code>.dropdown-nav li:hover   { top: 37px; }</code> you are coding a single point of failure into your interface. Instead, build with flexibility in mind by using <code>.dropdown-nav   li:hover { top: 100%; }</code> <a href="README.md#works-cited">[13]</a>.</li>
+<li>Avoid absolute measurements. For example, by using <code>.dropdown-nav li:hover   { top: 37px; }</code> you are coding a single point of failure into your interface. Instead, build with flexibility in mind by using <code>.dropdown-nav   li:hover { top: 100%; }</code> <a href="index.html#works-cited">[13]</a>.</li>
 <li>Consider using <a href="http://www.alistapart.com/articles/more-meaningful-typography/">Modular Scales</a> to help define your proportional rhythms within your designs. The <a href="https://github.com/scottkellum/modular-scale">Sassy Modular Scale</a> Ruby Gem makes working with Modular Scales easy.</li>
 </ul>
 <blockquote>
@@ -115,9 +115,9 @@ Example:
 </blockquote>
 <h1 id="architecture">Architecture</h1>
 <h2 id="working-with-partials">Working with Partials</h2>
-<p>Partials in Sass begin with an underscore and are not compiled into final output unless they are explicitly included within a Sass file. Using Sass <code>@import</code> includes all partials after compiling and does not incur an additional http request as they do in regular CSS. For this reason, partials should be used for all base, component, and layout styles. These partials should then be included into a single core Sass file which provides the opportunity to easily turn styles on and off as needed. When including partials within your base stylesheet, leave off the file extension to allow for easier conversion between Sass and SCSS syntaxes if you ever need to do so <a href="README.md#works-cited">[17]</a>. <a href="https://github.com/kwaledesign/Archetype/blob/master/sass/screen.scss">Example screen.scss</a></p>
+<p>Partials in Sass begin with an underscore and are not compiled into final output unless they are explicitly included within a Sass file. Using Sass <code>@import</code> includes all partials after compiling and does not incur an additional http request as they do in regular CSS. For this reason, partials should be used for all base, component, and layout styles. These partials should then be included into a single core Sass file which provides the opportunity to easily turn styles on and off as needed. When including partials within your base stylesheet, leave off the file extension to allow for easier conversion between Sass and SCSS syntaxes if you ever need to do so <a href="index.html#works-cited">[17]</a>. <a href="https://github.com/kwaledesign/Archetype/blob/master/sass/screen.scss">Example screen.scss</a></p>
 <h2 id="directory-structure">Directory Structure</h2>
-<p>By categorizing CSS rules we begin to see patterns and can define best practices around each of these patterns <a href="README.md#works-cited">[1]</a>.</p>
+<p>By categorizing CSS rules we begin to see patterns and can define best practices around each of these patterns <a href="index.html#works-cited">[1]</a>.</p>
 <h3 id="base">Base</h3>
 <p>The base directory contains styles and settings that apply to the entire project. These include the <code>_color-pallet.scss</code> and <code>_typography-pallet.scss</code> partials as well as settings for compass and compass plugins. <a href="https://github.com/kwaledesign/Archetype/tree/master/sass/base">Example Base Styles</a>.</p>
 <h3 id="component">Component</h3>
@@ -125,23 +125,23 @@ Example:
 <h3 id="layout">Layout</h3>
 <p>Layout styles provide structure to (mobile-first) linear content. These styles are used to progressively enhance the basic layout when device capability, viewport and/or connection speed allow. Because layout is treated as an enhancement, these styles are kept separate from the components they enhance and are applied with their own class. Each component's layout is defined in its own partial inside the layout directory. Layout stylesheets are named by prefixing the component's name with <code>l-</code> in order to explicitly define the relationship between layout and component. <a href="https://github.com/kwaledesign/Archetype/tree/master/sass/layout">Example Layout Styles</a>.</p>
 <h3 id="object">Object</h3>
-<p>Object styles are generic abstractions that can be extended to build a component. The classic OOCSS example is the media-object <a href="README.md#works-cited">[16]</a>. Each object is defined within its own partial inside the object directory. <a href="https://github.com/kwaledesign/Archetype/tree/master/sass/objects">Example Object Styles</a>.</p>
+<p>Object styles are generic abstractions that can be extended to build a component. The classic OOCSS example is the media-object <a href="index.html#works-cited">[16]</a>. Each object is defined within its own partial inside the object directory. <a href="https://github.com/kwaledesign/Archetype/tree/master/sass/objects">Example Object Styles</a>.</p>
 <h3 id="utilities">Utilities</h3>
 <p>Utilities are code snippets abstracted into classes, functions, and mixins that provide specific functionality. Utilities include normalize, clearfix, css-triangles, etc. Utilities can be given their own directory within the project's root, or they can be abstracted into a Compass plugin or Bower component. Example: <a href="https://github.com/kwaledesign/Archetype-Utilities">Archetype-Utilities</a>.</p>
 <h3 id="temp">Temp</h3>
-<p>The temporary directory contains any styles that haven't yet been properly defined and organized within the project's architecture. This where any hacks or quick fixes belong. Each 'fix' placed within this directory should be given its own partial and should be accompanied by a corresponding issue properly tagged and filed in the project's repository so that it can be properly incorporated into the code base at a later date. Preventing sub-standard code from being committed into the code base helps to prevent un-necessary depreciation as well as unintentionally introducing bugs by keeping these 'fixes' quarantined within the temp directory. <a href="README.md#works-cited">[25]</a></p>
+<p>The temporary directory contains any styles that haven't yet been properly defined and organized within the project's architecture. This where any hacks or quick fixes belong. Each 'fix' placed within this directory should be given its own partial and should be accompanied by a corresponding issue properly tagged and filed in the project's repository so that it can be properly incorporated into the code base at a later date. Preventing sub-standard code from being committed into the code base helps to prevent un-necessary depreciation as well as unintentionally introducing bugs by keeping these 'fixes' quarantined within the temp directory. <a href="index.html#works-cited">[25]</a></p>
 <h2 id="object-oriented-css-oocss">Object Oriented CSS (OOCSS)</h2>
 <blockquote>
 <p>&quot;[A] CSS “object” is a repeating visual pattern which can be abstracted into an independent snippet of HTML CSS and possibly JavaScript. Once created an object can then be reused throughout a site.&quot; - <a href="https://github.com/stubbornella/oocss/wiki">Nichole Sullivan</a></p>
 </blockquote>
 <h3 id="two-main-principles-of-oocss">Two Main Principles of OOCSS</h3>
 <ol type="1">
-<li>Separation of Structure from Skin - distinguish between structure styles (box-model) and skin styles (color, font, gradients) and abstract these styles in class-based modules to allow re-use <a href="README.md#works-cited">[6]</a>.</li>
-<li>Separation of Container and Content - avoid all explicit parent-child relationship within style declarations so that a component's style is not dependant upon its container which allows the module to be reused <a href="README.md#works-cited">[6]</a>.</li>
+<li>Separation of Structure from Skin - distinguish between structure styles (box-model) and skin styles (color, font, gradients) and abstract these styles in class-based modules to allow re-use <a href="index.html#works-cited">[6]</a>.</li>
+<li>Separation of Container and Content - avoid all explicit parent-child relationship within style declarations so that a component's style is not dependant upon its container which allows the module to be reused <a href="index.html#works-cited">[6]</a>.</li>
 </ol>
 <h4 id="object-oriented-classes">Object Oriented Classes</h4>
 <p>Building complex components with smaller, more discrete code blocks leads to more reusable code, easier debugging, and a DRYer code base by cutting down on repetition. A component is comprised of object, structure, and skin. Class naming and <a href="#selector-construct">selector construct</a> is very important. This syntax and naming convention illustrates the intention of a class and its relationship to others.</p>
-<p>Components use a multi-class pattern in order to allow for easier contextual based adjustments when necessary, and to help simplify class and variable names <a href="README.md#works-cited">[3]</a>. For example, structure, skin, and state styles are extended via their own class, rather than attaching a suffix to an existing component class.</p>
+<p>Components use a multi-class pattern in order to allow for easier contextual based adjustments when necessary, and to help simplify class and variable names <a href="index.html#works-cited">[3]</a>. For example, structure, skin, and state styles are extended via their own class, rather than attaching a suffix to an existing component class.</p>
 <p>In this way a component can be thought of as a specific combination of classes. Changing even one of these classes constitutes an entierly different component. For example, the same button component with two different skin classes is two different components. Additionally, an object could be represented as a single class or even a Sass <code>@extend</code> such as a clearfix. A component does not have to be a visual entity.</p>
 <h3 id="object-styles">Object Styles</h3>
 <p>Styles which remain consistent and unchanged within a component regardless of skin or structure. These styles are abstracted and may be used as a foundation for building additional components. This is the base class that can be modified or extended with a structure and skin. <a href="https://github.com/kwaledesign/Archetype/tree/master/sass/objects">Example Objects</a>.</p>
@@ -155,16 +155,16 @@ Example:
 <h2 id="naming-conventions-and-structure">Naming Conventions and Structure</h2>
 <p>An effective naming convention explicitly communicates the context and function of the entity being named.</p>
 <h3 id="component-1">Component</h3>
-<p>A discrete, independent entity designed to exist as a stand alone module without any depenedencies to its container. A component can be simple or compound (contain one or more components) and it should be able to be relocated on the page without breaking <a href="README.md#works-cited">[1]</a>. Example components include buttons, navigation bars, carousels, etc. An example of a compound component would be a search block composed of an input and a submit button <a href="README.md#works-cited">[2]</a>.</p>
+<p>A discrete, independent entity designed to exist as a stand alone module without any depenedencies to its container. A component can be simple or compound (contain one or more components) and it should be able to be relocated on the page without breaking <a href="index.html#works-cited">[1]</a>. Example components include buttons, navigation bars, carousels, etc. An example of a compound component would be a search block composed of an input and a submit button <a href="index.html#works-cited">[2]</a>.</p>
 <p>In order to maintain modularity a component must adhere to the following:</p>
 <ul>
 <li>Component styles must not declare any explicit size constraints, allowing the module to scale to it's parent container. A component can be placed inside a layout component, i.e. a grid; or extended with a layout class, but it must never be given an explicit width.</li>
 <li>A component must remain independent from siblings, children, and parents allowing for arbitrarily placement within a design system. This means that CSS ID Selectors must be avoided to allow components to remain non-unique (able to appear on the same page more than once).</li>
 <li>A component's name must be unique to the project to ensure that only instances of the same component can have the same name. Re-using a component also means re-using its behavior. To use the same component with differing behavior requires a new component.</li>
-<li>Selectors must remain context free and un-coupled to HTML by avoiding the use of elements within CSS selectors. HTML element styles are scoped by placing a class on either the element itself or on a parent container. This means all HTML element styles are opt-in (opposed to opt-out) making the only &quot;default&quot; HTML element styles are those applied by normalize, thus avoiding redundant overrides. <a href="README.md#works-cited">[27]</a> <a href="README.md#works-cited">[28]</a></li>
+<li>Selectors must remain context free and un-coupled to HTML by avoiding the use of elements within CSS selectors. HTML element styles are scoped by placing a class on either the element itself or on a parent container. This means all HTML element styles are opt-in (opposed to opt-out) making the only &quot;default&quot; HTML element styles are those applied by normalize, thus avoiding redundant overrides. <a href="index.html#works-cited">[27]</a> <a href="index.html#works-cited">[28]</a></li>
 </ul>
 <h4 id="element">Element</h4>
-<p>An element is a context-dependant descendent of an object that performs a certain function and is represented by an additional class for a component or a descendent css selector. Elements are denoted by the use of <code>__</code> (double underscores) i.e. <code>.component-name__element-name</code> in order to maintain the elements context, maintain control of the cascade, and avoid location-dependant selectors <a href="README.md#works-cited">[2]</a>.</p>
+<p>An element is a context-dependant descendent of an object that performs a certain function and is represented by an additional class for a component or a descendent css selector. Elements are denoted by the use of <code>__</code> (double underscores) i.e. <code>.component-name__element-name</code> in order to maintain the elements context, maintain control of the cascade, and avoid location-dependant selectors <a href="index.html#works-cited">[2]</a>.</p>
 <ul>
 <li>Elements are context-dependant - they are only used within the context of their parent object.</li>
 <li>Element name must be unique within the scope of its object and must have a unique name to be used within a css rule</li>
@@ -211,7 +211,7 @@ Example:
 <h4 id="state">State</h4>
 <p>A state is a variant of a component that is triggered by an action or behavior. State styles are applied dynamically as an additional class on the component's root or child HTML element.</p>
 <ul>
-<li>State based styles are indicated with the <code>is-</code> prefix, i.e. <code>.is-active</code>, <code>.is-disabled</code>. These style declarations are shared by CSS and JS files <a href="README.md#works-cited">[1]</a>.</li>
+<li>State based styles are indicated with the <code>is-</code> prefix, i.e. <code>.is-active</code>, <code>.is-disabled</code>. These style declarations are shared by CSS and JS files <a href="index.html#works-cited">[1]</a>.</li>
 <li>A component's state styles should be grouped with the component in the same partial.</li>
 <li>Multiple states may be used at once.</li>
 </ul>
@@ -230,15 +230,15 @@ Example:
 <h3 id="layout-1">Layout</h3>
 <ul>
 <li>All components are fluid by nature and should never be given explicit width or height restraints. A component's width is determined by its parent container or grid system.</li>
-<li>Heights should only be explicitly defined for elements which had dimensions before they entered the system; e.g. image, video. In all other cases use line-height instead which is far more flexible <a href="README.md#works-cited">[13]</a>.</li>
+<li>Heights should only be explicitly defined for elements which had dimensions before they entered the system; e.g. image, video. In all other cases use line-height instead which is far more flexible <a href="index.html#works-cited">[13]</a>.</li>
 <li>The grid system should never have styles or box-model properties directly applied - grid items contain content, but are not content in themselves.</li>
-<li>Layout based styles are indicated with the <code>l-</code> prefix in order to distinguish them from module or state styles <a href="README.md#works-cited">[1]</a></li>
+<li>Layout based styles are indicated with the <code>l-</code> prefix in order to distinguish them from module or state styles <a href="index.html#works-cited">[1]</a></li>
 </ul>
 <h3 id="icons">Icons</h3>
 <ul>
 <li>Icons should be styled as independent entities to allow their use in <em>any</em> component without the need for duplication of code.</li>
 <li>Icon components are prefixed with <code>ico-</code>.</li>
-<li>Icon styles should be split into structure and skin (<code>.ico-small</code> &amp; <code>.ico-profile classes</code>) in order to allow for maximum flexibility and minimal code repetition <a href="README.md#works-cited">[1]</a>.</li>
+<li>Icon styles should be split into structure and skin (<code>.ico-small</code> &amp; <code>.ico-profile classes</code>) in order to allow for maximum flexibility and minimal code repetition <a href="index.html#works-cited">[1]</a>.</li>
 <li>Use Compass to manage sprits easily.</li>
 <li>Sprited Icons should be added to empty elements that have their text hidden off canvas.</li>
 <li>Use Compass to manage image directories easily</li>
@@ -246,13 +246,13 @@ Example:
 <h3 id="javascript">JavaScript</h3>
 <ul>
 <li>Classes added dynamically via JavaScript are prefixed with <code>.js-</code> to indicate their dependency.</li>
-<li>A '.js-' prefixed class should never be referenced in a stylesheet. They used exclusively from JavaScript files <a href="README.md#works-cited">[3]</a>.</li>
+<li>A '.js-' prefixed class should never be referenced in a stylesheet. They used exclusively from JavaScript files <a href="index.html#works-cited">[3]</a>.</li>
 </ul>
 <h2 id="selector-construct">Selector Construct</h2>
-<p>Selector construct must explicitly communicate the context and function of the entity being named. Also, selector construct must be consistently applied to allow for efficient use of grep and more meaningful diffs. The BEM Methodology <a href="README.md#works-cited">[2]</a> and interpretations of BEM <a href="README.md#works-cited">[3]</a> <a href="README.md#works-cited">[13]</a> <a href="README.md#works-cited">[26]</a> make use of an efficient system to accomplish these goals by explicitly communicating the function and context of the entity being named, as well as its relationship to both child and parent components while avoiding deeply nested selectors that tie content to container and make assumptions about markup. In this way, a BEM-like system helps to reinforce our primary objective of modularity.</p>
+<p>Selector construct must explicitly communicate the context and function of the entity being named. Also, selector construct must be consistently applied to allow for efficient use of grep and more meaningful diffs. The BEM Methodology <a href="index.html#works-cited">[2]</a> and interpretations of BEM <a href="index.html#works-cited">[3]</a> <a href="index.html#works-cited">[13]</a> <a href="index.html#works-cited">[26]</a> make use of an efficient system to accomplish these goals by explicitly communicating the function and context of the entity being named, as well as its relationship to both child and parent components while avoiding deeply nested selectors that tie content to container and make assumptions about markup. In this way, a BEM-like system helps to reinforce our primary objective of modularity.</p>
 <p>Admittedly, there is an element of added complexity, but the sacrifice of simple selectors in order to preserve objected oriented principles is well worth it especially considering the fact that GZIP handles repetition extremely well.</p>
 <h3 id="naming-pattern">Naming Pattern</h3>
-<p>This naming pattern is inspired by the BEM Methodology <a href="README.md#works-cited">[2]</a> as well as several interpretations by other developers <a href="README.md#works-cited">[3]</a>, <a href="README.md#works-cited">[26]</a>.</p>
+<p>This naming pattern is inspired by the BEM Methodology <a href="index.html#works-cited">[2]</a> as well as several interpretations by other developers <a href="index.html#works-cited">[3]</a>, <a href="index.html#works-cited">[26]</a>.</p>
 <div class="highlight"><pre><a name="examples--sass.scss-idio.html-83"></a><span class="c1">// component name</span>
 <a name="examples--sass.scss-idio.html-84"></a><span class="nc">.object</span> <span class="p">{}</span>                        <span class="cm">/* represents the higher-level abstraction of a component */</span>
 <a name="examples--sass.scss-idio.html-85"></a><span class="nc">.object__element</span> <span class="p">{}</span>               <span class="cm">/* represents a descendent of .object */</span>
@@ -282,28 +282,28 @@ Example:
 
 
 <h3 id="css-class-semantics">CSS Class Semantics</h3>
-<p>Class names should remain content-independent<a href="README.md#works-cited">[3]</a>. By avoiding tightly coupled class names and content semantics, code is more easily reused and modularized to allow for increased scalability of your architecture. Because the most reusable code components are those with content-independent class names, class names should be derived from repeating structural or functional patterns and never from the content.</p>
+<p>Class names should remain content-independent<a href="index.html#works-cited">[3]</a>. By avoiding tightly coupled class names and content semantics, code is more easily reused and modularized to allow for increased scalability of your architecture. Because the most reusable code components are those with content-independent class names, class names should be derived from repeating structural or functional patterns and never from the content.</p>
 <blockquote>
 <p>&quot;We shouldn't be afraid of making the connections between layers clear and explicit rather than having class names rigidly reflect specific content. Doing this doesn't make classes &quot;unsemantic&quot;, it just means that their semantics are not derived from the content.&quot; - <a href="http://nicolasgallagher.com/about-html-semantics-front-end-architecture/">Nicolas Gallager</a></p>
 </blockquote>
 <ol type="1">
-<li>Increasing semantic value of a section of html and content <a href="README.md#works-cited">[1]</a>
+<li>Increasing semantic value of a section of html and content <a href="index.html#works-cited">[1]</a>
 <ul>
-<li>Content-layer semantics are served by html elements and attributes <a href="README.md#works-cited">[3]</a></li>
-<li>Class names communicate useful information to developers and serve hooks for CSS or JavaScript <a href="README.md#works-cited">[3]</a>.</li>
+<li>Content-layer semantics are served by html elements and attributes <a href="index.html#works-cited">[3]</a></li>
+<li>Class names communicate useful information to developers and serve hooks for CSS or JavaScript <a href="index.html#works-cited">[3]</a>.</li>
 </ul></li>
-<li>Decrease the expectation of a specific HTML structure <a href="README.md#works-cited">[1]</a>.</li>
+<li>Decrease the expectation of a specific HTML structure <a href="index.html#works-cited">[1]</a>.</li>
 </ol>
 <p>The important distinction is that the HTML class attributes are semantic in the way they convey meaning to the developer, rather than the content. Content receives it's semantic value from its markup (HTML tags and ARIA attributes). Code receives its semantic value from its classes.</p>
 <h3 id="specificity">Specificity</h3>
 <blockquote>
 <p>&quot;The problem with such a depth is that it enforces a much greater dependency on a particular HTML structure. Components on the page can’t be easily moved around&quot; - <a href="http://smacss.com/book/applicability">Jonathan Snook</a></p>
 </blockquote>
-<p>Minimize &quot;depth of applicability&quot; in order to avoid over-reliance on a predefined HTML structure and hindering modularity and flexibility of components. This also helps to prevent introducing potential specificity issues which are notoriously difficult to debug. When selectors are kept succinct, it also becomes easier to convert components into templates for dynamic content <a href="README.md#works-cited">[1]</a>.</p>
+<p>Minimize &quot;depth of applicability&quot; in order to avoid over-reliance on a predefined HTML structure and hindering modularity and flexibility of components. This also helps to prevent introducing potential specificity issues which are notoriously difficult to debug. When selectors are kept succinct, it also becomes easier to convert components into templates for dynamic content <a href="index.html#works-cited">[1]</a>.</p>
 <h4 id="guidelines-for-minimal-specificity">Guidelines for Minimal Specificity</h4>
 <ul>
 <li>Do not use CSS ID selectors.</li>
-<li>Do not use location based selectors to change a component's appearance based on its page position or region - i.e. (main-content, side-bar, footer, etc) <a href="README.md#works-cited">[17]</a>. When a component has different appearances create a new component by changing out its structure or skin class.</li>
+<li>Do not use location based selectors to change a component's appearance based on its page position or region - i.e. (main-content, side-bar, footer, etc) <a href="index.html#works-cited">[17]</a>. When a component has different appearances create a new component by changing out its structure or skin class.</li>
 <li>Always name-space state class names e.g. <code>.is-disabled</code>, <code>.is-collapsed</code> - never explicitly style a state.</li>
 </ul>
 Example:
@@ -317,9 +317,9 @@ Example:
 
 
 <ul>
-<li>Avoid the use of element selectors in order to keep them free from context and un-coupled to the HTML. Scope HTML element selectors with a class on the root element or a parent element so that these styles are opt-in rather than opt-out. This will avoid redundant overrides of un-needed styles and keep specificity minimal. <a href="README.md#works-cited">[1]</a> <a href="README.md#works-cited">[27]</a> <a href="README.md#works-cited">[28]</a></li>
-<li>!important should be avoided as much as possible. State classes are an example of an acceptable use of important <a href="README.md#works-cited">[1]</a>.</li>
-<li>Never qualify a selector with an element selector e.g. <code>ul.nav</code>, as this decreases selector performance, creates a context dependency, and increases the selector's specificity. These are all things to be avoided <a href="README.md#works-cited">[1]</a> <a href="README.md#works-cited">12</a>.</li>
+<li>Avoid the use of element selectors in order to keep them free from context and un-coupled to the HTML. Scope HTML element selectors with a class on the root element or a parent element so that these styles are opt-in rather than opt-out. This will avoid redundant overrides of un-needed styles and keep specificity minimal. <a href="index.html#works-cited">[1]</a> <a href="index.html#works-cited">[27]</a> <a href="index.html#works-cited">[28]</a></li>
+<li>!important should be avoided as much as possible. State classes are an example of an acceptable use of important <a href="index.html#works-cited">[1]</a>.</li>
+<li>Never qualify a selector with an element selector e.g. <code>ul.nav</code>, as this decreases selector performance, creates a context dependency, and increases the selector's specificity. These are all things to be avoided <a href="index.html#works-cited">[1]</a> <a href="index.html#works-cited">12</a>.</li>
 </ul>
 <h2 id="practical-example">Practical Example</h2>
 <h4 id="object-1">Object</h4>
