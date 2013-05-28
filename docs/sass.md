@@ -24,7 +24,7 @@ SCSS supports both invisible and visible comments.
 * When nesting, list your parent specific declarations directly under the class selector and then list the indented child selectors 
 * Only use nesting when you intend for nested CSS selectors.
 * Never emulate HTML structure of a module with SCSS nesting. Mapping Sass selectors directly to your DOM structure creates a brittle architecture that is tightly coupled to the current HTML markup.
-* Nested parent selectors should be listed directly under the class selector and then indent child selectors [[17]](README.md#works-cited).
+* Nested parent selectors should be listed directly under the class selector and then indent child selectors [[17]](index.html#works-cited).
   
 
 {{ d['examples/sass.scss|idio']['nesting-selectors'] }}
@@ -69,7 +69,7 @@ Example:
 * Be cautious using `@extend`. Improper usage can easily cause bloated output and/or extremely lengthy selector strings. 
 * Never nest an `@extend` within another `@extend`
 * Avoid using `@extend` within a mixin - this can easily lead to nested `@extend`'s
-* Never use `@extend` for the simplification of (OOCSS) multi-class constructs to build single-class objects. This is dangerous because it can easily produce very bloated output and complicated selector strings. This technique should be avoided until a native browser implementation of `@extend` is available [[29]](README.md#works-cited).
+* Never use `@extend` for the simplification of (OOCSS) multi-class constructs to build single-class objects. This is dangerous because it can easily produce very bloated output and complicated selector strings. This technique should be avoided until a native browser implementation of `@extend` is available [[29]](index.html#works-cited).
 
 Example misuse of `@extend`:
 {{ d['examples/sass.scss|idio']['extend'] }}
