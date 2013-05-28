@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <title>Home</title>
+    
+    <link rel="stylesheet" href="css/screen.css" media="screen">
+</head>
+<body>
+  <nav>
+    <ul>
+      <li><a href="index.html">Home</a></li>
+      <li><a href="html.html">HTML</a></li>
+      <li><a href="css.html">CSS</a></li>
+      <li><a href="sass.html">Sass</a></li>
+      <li><a href="js.html">JavaScript</a></li>
+      <li><a href="pe.html">Progressive Enhancement</a></li>
+      <li><a href="git.html">Git</a></li>
+    </ul>
+  </nav>   
+  <div id="page">
+  <h1 id="coding-standards">Coding Standards</h1>
+<p>The following coding standards outline a collection of best practices and methodologies for writing predictable, reusable, maintainable, and scalable front-ends.</p>
+<h1 id="general-guiding-principles-for-front-end-design">General Guiding Principles for Front-end Design</h1>
+<ul>
+<li>Front-end design principles must be clearly articulated so that the focus can be applied towards achieving project goals within the context of these. These principles should also be defined as user versus developer driven so that if they ever come into conflict, the user centric goals can persevere <a href="#works-cited">[22]</a>.</li>
+<li>All code in any code-base should appear as if the same person wrote it by remaining consistent in the application of coding standards.</li>
+<li>Naming conventions are extremely important and must be clearly defined and strictly adhered to. This facilitates easy use of grep and more meaningful diffs.</li>
+</ul>
+<h2 id="user-centric-goals">User Centric Goals</h2>
+<p>Above all else, a site must be highly performant, widely accessibly, and device agnostic. The achievement of these goals necessitates the understanding that a site must not appear exactly the same on all browsers and devices.</p>
+<h3 id="user-centric-objective">User Centric Objective</h3>
+<ol type="1">
+<li>Adhear to standards as they are defined by the language specification</li>
+<li>Apply <a href="/pe.md">progressive enhancement</a> by serving core site content and functionality to all user agents and serving an enhanced experience built on top of the basic experience. Apply JavaScript to enhance the site with a richer experience when it is supported and enabled, but do not require it in order to complete any core tasks on the site.</li>
+<li>Polyfill missing or broken features only as a last result.</li>
+</ol>
+<h2 id="developer-centric-goals">Developer Centric Goals</h2>
+<p>A code base must be maintainable, it must be readable, and it must be design for modularity.</p>
+<h3 id="development-objectives">Development Objectives</h3>
+<ol type="1">
+<li>Minimize coupling between components by following <a href="#object-oriented-principles">Object Oriented methodologies</a></li>
+<li>Design systems not pages by building a collection of components and layouts, which can be assembled together to create a specific experience. Avoid page-specific styling in favor of component modifiers and class extensions.</li>
+<li>Easily maintain the project's design system by following style guide driven development <a href="#works-cited">[20]</a> that is made with HTML and CSS, uses production CSS, and uses git for version control <a href="#works-cited">[21]</a>. A project's style guide should also be automatically updated to reflect changes in the code base and facilitate browser testing throughout the project development cycle.</li>
+</ol>
+<h3 id="object-oriented-principles">Object Oriented Principles</h3>
+<ul>
+<li><strong>Single Responsibility Principle</strong> - an object should have only a single responsibility, and that responsibility should be entirely encapsulated by the object <a href="index.html#works-cited">[7]</a> <a href="index.html#works-cited">[8]</a>.</li>
+<li><strong>Open/Closed Principle</strong> - entities (classes, modules, functions, etc.) are open for extension, but closed for modification. Base rules may be extended, but not directly modifiable. This is why directly styling HTML tags is not advisable - reduce the amount of global element styles in order to reduce the chances of breaking the open/closed principle <a href="index.html#works-cited">[7]</a> <a href="index.html#works-cited">[9]</a></li>
+<li><strong>Liskov Substitution Principle</strong> - objects should be replaceable with instances or their sub-components without breaking. Sub-components that extend a module should be interchangeable with the base module itself. To keep true to this principle, a module's subcomponent(s) should never affect layout <a href="index.html#works-cited">[7]</a>.</li>
+<li><strong>Entity Segregation Principle</strong> - If ever it becomes awkward to interchange a subcomponent with its base module, or if it becomes necessary to redefine too many properties, move the subcomponent into its own custom module. It is sometimes better to have multiple base modules opposed to a single generic module with multiple sub-components. Never make sacrifices in functionality in the name of utility Taken too far, code abstraction becomes <a href="index.html#works-cited">[7]</a> detrimental. When writing modular CSS, it's not about maintaining modularity in the actual code, but rather modularity in the actual design <a href="index.html#works-cited">[10]</a>.</li>
+<li><strong>DRY</strong> - (don't repeat yourself) - aimed at reducing repetition of information of all kinds. Every piece of knowledge must have a single, unambiguous, and authoritative representation within the system.</li>
+</ul>
+<h2 id="whitespace-and-comments">Whitespace and Comments</h2>
+<ul>
+<li>Remain consistent with your use of whitespace for greater legibility of your code. Never mix spaces and tabs to adjust indentation.</li>
+<li>Use soft-tabs with a two space indent. This is in accordance with Drupal's coding standard <a href="http://drupal.org/coding-standards#indenting">DrupalCC</a>. To make this easy, this is set within your <a href="https://github.com/kwaledesign/dotfiles">Vim config</a> (or equivalent).</li>
+<li>Place comments on their own line directly above the code they document.</li>
+<li>Limit line length the 80 characters (again via <a href="http://drupal.org/coding-standards#linelength">DrupalCC</a>)</li>
+<li>When ever necessary, breakup long code blocks into discrete sections</li>
+<li>Avoid adding end-of-line whitespace. Again, configure your IDE to make this easy.</li>
+</ul>
+<hr>
+
+<h2 id="works-cited">Works Cited:</h2>
+<ol type="1">
+<li><a href="http://smacss.com/">SMACSS</a></li>
+<li><a href="http://bem.info/">BEM</a></li>
+<li><a href="http://nicolasgallagher.com/about-html-semantics-front-end-architecture/">About HTML Semantics and Front-End Archetecture</a></li>
+<li><a href="https://github.com/necolas/idiomatic-css">Principles of Writing Consistent, Idiomatic CSS</a></li>
+<li><a href="https://github.com/style%20guide/css">Github - CSS style guide</a></li>
+<li><a href="https://github.com/stubbornella/oocss/wiki">Object Oriented CSS</a></li>
+<li><a href="http://blog.millermedeiros.com/solid-css/">SOLID CSS</a></li>
+<li><a href="http://csswizardry.com/2012/04/the-single-responsibility-principle-applied-to-css/">The Single Responsibilty Principle Applied to CSS</a></li>
+<li><a href="http://csswizardry.com/2012/06/the-open-closed-principle-applied-to-css/">The Open/Closed Principle Applied to CSS</a></li>
+<li><a href="http://snook.ca/archives/html_and_css/one-module-or-two">One Module or Two</a></li>
+<li><a href="http://www.stubbornella.org/content/2011/04/28/our-best-practices-are-killing-us/">Our CSS Best Practices are Killing Us</a></li>
+<li><a href="http://csswizardry.com/2012/07/quasi-qualified-css-selectors/">Quasi-qualified CSS Selectors</a></li>
+<li><a href="https://github.com/csswizardry/CSS-Guidelines">CSSWizardry CSS Guidelines</a></li>
+<li><a href="http://www.alistapart.com/articles/organizing-mobile/">Organizing Mobile - Luke Wroblewski</a></li>
+<li><a href="https://gist.github.com/1309546">Component-Based HTML/CSS Naming Patterns</a></li>
+<li><a href="http://www.slideshare.net/stubbornella/object-oriented-css">OOCSS</a></li>
+<li><a href="https://github.com/blackfalcon/SASS-Guidlines/blob/master/SASS-Guidlines.md">Sass-Guidelines</a></li>
+<li><a href="https://speakerdeck.com/chriseppstein/fowd-stylesheet-organization-with-sass">Stylesheet organization with Sass</a></li>
+<li><a href="https://github.com/necolas/idiomatic-html">Idiomatic HTML</a></li>
+<li><a href="https://speakerdeck.com/jina/style-guide-driven-ui-design-with-sass">Style Guide Driven UI Design with Sass</a></li>
+<li><a href="https://speakerdeck.com/hagenburger/style-guide-driven-development">Style Guide Driven Development</a></li>
+<li><a href="http://clearleft.com/thinks/front-enddesignprinciples/">Front-End Design Principles</a></li>
+<li><a href="http://blog.cloudfour.com/8-guidelines-and-1-rule-for-responsive-images/">8 Guidelines and 1 Rule for Responsive Images</a></li>
+<li><a href="http://paulirish.com/2008/conditional-stylesheets-vs-css-hacks-answer-neither/">Conditional Classes for IE</a></li>
+<li><a href="http://csswizardry.com/2013/04/shame-css/">Shame.css</a></li>
+<li><a href="http://csswizardry.com/2013/01/mindbemding-getting-your-head-round-bem-syntax/">Mindbembing - getting your head around BEM syntax</a></li>
+<li><a href="http://css-tricks.com/opt-in-typography/">Opt-In-Typography</a></li>
+<li><a href="http://anthonyshort.me/2012/05/global-typographic-styles-suck">Global Typographic Styles Suck</a></li>
+<li><a href="https://speakerdeck.com/chriseppstein/help-my-stylesheets-are-a-mess">Help My Stylesheets are a Mess!</a></li>
+</ol>
+<h3 id="license">License:</h3>
+<p>CSS-style guide is licensed under the terms of the MIT <a href="https://github.com/kwaledesign/CSS-style%20guide/blob/master/LICENSE">license</a>.</p>
+
+  </div>
+  
+  <footer>
+    <p>Footer goes here</p>
+</footer>
+</body>
+</html>
