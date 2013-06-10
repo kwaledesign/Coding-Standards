@@ -1,3 +1,14 @@
+Coding Standards
+================
+
+* [General Guiding Principles](/README.md)
+* [HTML](/html.md)
+* [CSS](/css.md)
+* [Sass](/sass.md)
+* [JavaScript](/js.md)
+* [Progressive Enhancement](/pe.md)
+* [git](/git.md)
+
 # Progressive Enhancement Guidelines
 
 * The absence of media queries is the first media query.

@@ -5,6 +5,14 @@ The following coding standards outline a collection of best practices and
 methodologies for writing predictable, reusable, maintainable, and scalable
 front-ends.
 
+* [General Guiding Principles](/README.md)
+* [HTML](/html.md)
+* [CSS](/css.md)
+* [Sass](/sass.md)
+* [JavaScript](/js.md)
+* [Progressive Enhancement](/pe.md)
+* [git](/git.md)
+
 # General Guiding Principles for Front-end Design
 * Front-end design principles must be clearly articulated so that the focus can be applied towards achieving project goals within the context of these. These principles should also be defined as user versus developer driven so that if they ever come into conflict, the user centric goals can persevere [[22]](#works-cited).
 * All code in any code-base should appear as if the same person wrote it by remaining consistent in the application of coding standards.
