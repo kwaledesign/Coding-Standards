@@ -1,10 +1,13 @@
-[General Guiding Principles](/README.md)
-[HTML](/html.md)
-[CSS](/css.md)
-[Sass](/sass.md)
-[JavaScript](/js.md)
-[Progressive Enhancement](/pe.md)
-[git](/git.md)
+Coding Standards
+================
+
+* [General Guiding Principles](/README.md)
+* [HTML](/html.md)
+* [CSS](/css.md)
+* [Sass](/sass.md)
+* [JavaScript](/js.md)
+* [Progressive Enhancement](/pe.md)
+* [git](/git.md)
 
 # CSS Guidelines
 

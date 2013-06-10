@@ -1,3 +1,6 @@
+Coding Standards
+================
+
 [General Guiding Principles](/README.md)
 [HTML](/html.md)
 [CSS](/css.md)
