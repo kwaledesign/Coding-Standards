@@ -230,11 +230,12 @@ Example:
 A sub-object is a context-dependant sibling of an object that performs a certain function and is represented by an additional class for a component. Sub-objects are similar to elements in syntax and in relation to an object, but they differ significantly in the way that a sub-object extends or provides minor overrides to the object and is applied to the _same_ HTML element. Sub-objects are denoted by the use of `__` (double underscores) i.e. `.component-name__sub-component-name`. 
 
 * A variant of a component that inherits all the styles of its object, but differs by adding additional object styles, or providing minor overrides of its object.  When object overrides become significant, the creation of an additional object should be considered.
-* A component's sub-component are siblings of the component and are prefixed
-  with the full name of the parent component followed by `__` (double underscores). This
+* A component's sub-object are siblings of the object and are prefixed
+  with the full name of the parent object followed by `__` (double underscores). This
   clearly indicates a sub-object's relationship to its object and also
   prevents the sub-object's styles from applying outside of the object's
   scope.
+* Sub-Objects are defined within their base object's partial file.
 
 Example:
 ```scss
