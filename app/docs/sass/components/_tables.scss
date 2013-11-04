@@ -1,0 +1,153 @@
+/**
+ * Tables
+ *
+ */
+ 
+ 
+/**
+ * Table Variables
+ */
+$table--color-bg:                                                       $muted-color--bg;
+
+$table--border-radius:                                                  4px;         //$global__border-radius;
+$table--border:                                                         1px solid #333;
+$table--color-bg-hover:                                                 darken(#D5D5E5, 5%);
+$table--stripe-color:                                                   darken($table--color-bg, 10%);
+ 
+$table--color-bg-success:                                               lighten(green, 60%);
+$table--color-bg-error:                                                 lighten(red, 30%);
+$table--color-bg-warning:                                               lighten(yellow, 30%);
+
+$table--color-border:                                                   $strong-color--bg;
+$table--border:                                                         1px solid $table--color-border;
+$table--head-color-bg:                                                  $subtle-color--bg;
+
+/* zebra striping (even rows) */
+$table--zebra-color-bg:                                                  $muted-color--bg;
+$table--footer-color-bg:                                                 $subtle-color--bg;
+ 
+$table--header-text:                                                     $strong-color--txt;
+ 
+
+/*** @export "base-table-styles" css */
+/**
+ * Base Table Styles
+ *
+ * 1. Allows for rounded corners
+ * 2. Align column headings
+ * 3. Prevent double border
+ * 4. Round corner for first th or td in the first row in the first thead or tbody
+ * 5. Round corner for first th or td in the last row in the last thead or tbody
+ * 6. Remove border-radius for first and last td in the last row in the last tbody for table with tfoot
+ * 7. Round the left border on the first td/th
+ * 8. Round the left border on the last td/th
+ */
+
+table { 
+  max-width: 100%;
+ }
+ 
+.table {
+  width: 100%;
+  margin-bottom: $base-line-height;
+  background-color: $table--color-bg;
+  border: $table--border;
+  border-collapse: separate;                                              /* 1 */
+  border-left: 0;
+  @include border-radius($table--border-radius);
+  th,
+  td {
+    border-left: $table--border;
+    padding: .5em;
+    line-height: $base-line-height;
+    text-align: left;
+    vertical-align: top;  
+  }
+  th {
+    font-weight: bold;
+  }
+  thead th {
+    vertical-align: bottom;                                                /* 2 */
+  }
+  caption + thead tr:first-child th,
+  caption + tbody tr:first-child th,
+  caption + tbody tr:first-child td,
+  colgroup + thead tr:first-child th,
+  colgroup + tbody tr:first-child th,
+  colgroup + tbody tr:first-child td,
+  thead:first-child tr:first-child th,
+  tbody:first-child tr:first-child th,
+  tbody:first-child tr:first-child td {                                     /* 3 */
+    border-top: 0;
+  }
+  thead:first-child tr:first-child > th:first-child,
+  tbody:first-child tr:first-child > td:first-child {                       /* 4 */
+    @include border-top-left-radius($table--border-radius);
+  }
+  thead:first-child tr:first-child > th:last-child,
+  tbody:first-child tr:first-child > td:last-child {
+    @include border-top-right-radius($table--border-radius);
+  }
+  thead:last-child tr:last-child > th:first-child,
+  tbody:last-child tr:last-child > td:first-child,
+  tfoot:last-child tr:last-child > td:first-child {                         /* 5 */
+    @include border-bottom-left-radius($table--border-radius);    
+  }
+  thead:last-child tr:last-child > th:last-child,
+  tbody:last-child tr:last-child > td:last-child,
+  tfoot:last-child tr:last-child > td:last-child {
+    @include border-bottom-right-radius($table--border-radius);
+  }
+  tfoot + tbody:last-child tr:last-child td:first-child {
+    @include border-bottom-left-radius(0);                                  /* 6 */
+  }
+  tfoot + tbody:last-child tr:last-child td:last-child {
+    @include border-bottom-right-radius(0);
+  }
+  caption + thead tr:first-child th:first-child,
+  caption + tbody tr:first-child td:first-child,
+  colgroup + thead tr:first-child th:first-child,
+  colgroup + tbody tr:first-child td:first-child {
+    @include border-top-left-radius($table--border-radius);                 /* 7 */
+  }
+  caption + thead tr:first-child th:last-child,
+  caption + tbody tr:first-child td:last-child,
+  colgroup + thead tr:first-child th:last-child,
+  colgroup + tbody tr:first-child td:last-child {
+    @include border-top-right-radius($table--border-radius);                /* 8 */
+  }
+}
+ 
+ 
+/*** @export "table-zebra-stripes" css */
+/**
+ * Table Zebra Stripes
+ */
+.table--srtriped  tbody {
+  > tr:nth-child(odd) > td,
+  > tr:nth-child(odd) > th {
+    background-color: $table--stripe-color;
+  }
+}   
+ 
+ 
+/*** @export "table-hover-highlight" css */
+/**
+ * Table Hover Highlight
+ */
+.table--hover tbody {
+  tr:hover td,
+  tr:hover th {
+    background-color: $table--color-bg-hover;
+  }
+}
+
+
+/*** @export "table-states" css */
+/**
+ * Table States
+ */
+.is-table--error { background-color: $table--color-bg-error; }
+.is-table--warning { background-color: $table--color-bg-warning; }
+.is-table--success { background-color: $table--color-bg-success; }
+

@@ -1,0 +1,377 @@
+/**
+ * Forms
+ *
+ */
+
+/**
+ * Form Variables
+ */
+$form--input-color-bg:                  white;
+$form--input-color-border:              #ccc;
+$form--input-border-radius:             3px;
+$form--placeholder-color-txt:           #ccc;
+$form--legend-color-txt:                #666;
+$form--vertical-spacer:                 $base-line-height;
+$form--horizontal-spacer:               160px;
+/** 
+ * form feild state variables 
+ */
+$form--field-color-txt:                 #555;
+$form--field-color-border:              #ccc;
+$form--field-color-bg:                  #f5f5f5;
+
+/**
+ * Primary Form Scope 
+ */
+$primary-form-scope:                   "form";
+
+/** 
+ * Input sizes 
+ */
+
+/**
+ * Form Utilities
+ *
+ */
+
+/**
+ * Form placeholder mixin 
+ */
+@mixin placeholder($color: $form--placeholder-color-txt) {
+  &:-moz-placeholder { color: $color; }
+  &:-ms-input-placeholder { color: $color; }
+  &::-webkit-input-placeholder { color: $color; }
+}
+
+/**
+ * Form field states 
+ */
+@mixin field-state($form--field-color-txt, $form--field-color-border, $form--field-color-bg) {
+  /* text color */
+  .control-label,
+  .form-help-block,
+  .form-help-inline {
+    color: $form--field-color-txt;
+  }
+  /* input text color */
+  .checkbox,
+  .radio,
+  input,
+  select,
+  textarea {
+    color: $form--field-color-txt;
+  }
+  /* input border color */
+  input,
+  select,
+  textarea {
+    border-color: $form--field-color-bg;
+    @include box-shadow(inset 0 1px 1px rgba(0,0,0,.075)); // Redeclare so transitions work
+    &:focus {
+      border-color: darken($form--field-color-bg, 10%);
+      @include box-shadow(inset 0 1px 1px rgba(0,0,0,.075), 0 0 6px lighten($form--field-color-bg, 20%));
+    }
+  }
+}
+
+
+/**
+ * Input Variables
+ * 
+ */
+$inputs-list: 'input[type="email"]', 'input[type="number"]', 'input[type="password"]', 'input[type="search"]', 'input[type="tel"]', 'input[type="text"]', 'input[type="url"]';
+
+$unquoted-inputs-list: ();
+@each $input-type in $inputs-list {
+  $unquoted-inputs-list: append($unquoted-inputs-list, unquote($input-type), comma);
+}
+/* inputs */ 
+$all-text-inputs: $unquoted-inputs-list;
+/* hover */
+$all-text-inputs-hover: ();
+@each $input-type in $unquoted-inputs-list {
+  $input-type-hover: $input-type + ":hover";
+  $all-text-inputs-hover: append($all-text-inputs-hover, $input-type-hover, comma);
+}
+/* focus */
+$all-text-inputs-focus: ();
+@each $input-type in $unquoted-inputs-list {
+  $input-type-focus: $input-type + ":focus";
+  $all-text-inputs-focus: append($all-text-inputs-focus, $input-type-focus, comma);
+}
+
+/**
+ * Primary Form Scope
+ *
+ * applied to the form element to avoid global form styles, other than what is normalized
+ */
+.#{$primary-form-scope} {
+  margin-bottom: $base-line-height;
+
+/* spacing between groups */
+  .control-group {
+    margin-bottom: $form--vertical-spacer;
+  }  
+  
+/**
+ * Fieldset
+ */
+  fieldset {
+    padding: 1em;
+    border: 1px solid #CCC;
+    margin: 0 1em 1em;
+  }
+
+/**
+ * Form Legend
+ */
+  legend {
+    display: block;
+    width: auto;
+    padding: 0 5px;
+    margin-bottom: $base-line-height;
+    font-size: $base-font-size;
+    line-height: $base-line-height;
+    color: $form--legend-color-txt;
+    border: 0;
+  }
+  
+/**
+ * Labels
+ */
+  label {
+    display: block;
+    color: #666;
+  } 
+  
+/**
+ * Form inputs
+ */
+
+  #{$all-text-inputs},
+  select,
+  textarea {
+    display: inline-block;
+    height: $base-line-height;
+    padding: 4px;
+    font-size: $base-font-size;
+    line-height: $base-line-height;
+    color: #999;
+    background-color: $form--input-color-bg;
+    border: 1px solid $form--input-color-border;
+    @include border-radius($form--input-border-radius);
+    @include box-shadow(inset 0 1px 1px rgba(0,0,0,.075));
+    @include transition(border linear .2s, box-shadow linear .2s);
+  }
+  
+
+/**
+ * Hover Pseudo-class
+ */
+  #{$all-text-inputs-hover},
+  textarea:hover {
+  }
+
+/**
+ *Focus Pseudo-class
+ */
+  #{$all-text-inputs-focus},
+  textarea:focus {
+    border-color: rgba(82,168,236,.8);
+    outline: 0;
+    outline: thin dotted \9; /* IE6-9 */
+    @include box-shadow(inset 0 1px 1px rgba(0,0,0,.075), 0 0 8px rgba(82,168,236,.6));
+  }
+  
+/* respect textareas row height */
+  textarea {
+    height: auto;
+    resize: vertical;
+  }
+
+/* better positioning of radios and checkboxes */
+  input[type="radio"],
+  input[type="checkbox"] {
+    margin: 3px 0;
+    line-height: normal;
+    cursor: pointer;
+  }
+    
+/* Reset width of input images, buttons, radios, checkboxes */
+  input[type="file"],
+  input[type="image"],
+  input[type="submit"],
+  input[type="reset"],
+  input[type="button"],
+  input[type="radio"],
+  input[type="checkbox"] {
+    width: auto; /* Override of generic input selector */
+  }
+
+/* Set the height of select and file.inputs to match text inputs */
+  select,
+  input[type="file"] {
+    line-height: $base-line-height;
+  }
+    
+/* Focus for select, file, radio, and checkbox */
+  select:focus,
+  input[type="file"]:focus,
+  input[type="radio"]:focus,
+  input[type="checkbox"]:focus {
+    //@include tab-focus();
+  }
+    
+/* Placeholder text needs prefixes */
+  input,
+  textarea {
+    @include placeholder();
+  }
+
+/**
+ * Input Sizes
+ */
+  .input-xs { width: 50px; }
+  .input-sm { width: 100px; }
+  .input-md { width: 150px; }
+  .input-lg { width: 200px; }
+  .input-xl { width: 250px; }
+  .input-full { width: 100%; }
+  
+       
+/**
+ * Checkboxes and Radios
+ */
+ 
+/* indent radio and checkbox labels */
+  .radio,
+  .checkbox {
+    min-height: $base-line-height; // clear the floating input if there is no label text
+  }
+  
+/* inline radios and checkboxes */
+  .radio.inline-controls,
+  .checkbox.inline-controls {
+    display: inline-block;
+    padding-top: 5px;
+    margin-bottom: 0;
+    vertical-align: middle;
+  }
+  .radio.inline-controls + .radio.inline-controls,
+  .checkbox.inline-controls + .checkbox.inline-controls {
+    margin-left: 10px; /* space consecutive inline controls */
+  }
+
+    
+/**
+ * Form States
+ */
+
+/* Disabled and read-only input states */
+  input[disabled],
+  select[disabled],
+  textarea[disabled],
+  input[readonly],
+  select[readonly],
+  textarea[readonly] {
+    cursor: not-allowed;
+    opacity: .7;
+  }
+/* Explicitly reset the colors here */
+  input[type="radio"][disabled],
+  input[type="checkbox"][disabled],
+  input[type="radio"][readonly],
+  input[type="checkbox"][readonly] {
+    background-color: transparent;
+  }    
+
+/* Form Warning State */
+  .is-field-warning {
+    @include field-state(#D1911C, #D1911C, #D1911C);
+  }
+/* Form Error State */
+  .is-field-error {
+    @include field-state(#C00000, #C00000, #C00000);
+  }
+/* Form Info State */
+  .is-field-info {
+    @include field-state($form--field-color-txt, $form--field-color-border, $form--field-color-bg);
+  }
+
+/**
+ * Help Text
+ */
+  .form-help-block,
+  .form-help-inline {
+    //color: lighten($body-color-txt, 15%);
+    color: #999;
+    display: inline-block;
+    visibility: hidden;
+    @include transition(visibility linear .2s); /* sync this transition to that of border */
+  } 
+  input:active + .form-help-block,
+  input:focus + .form-help-block,
+  input:active + .form-help-inline,
+  input:focus + .form-help-inline {
+    visibility: visible;
+    @include transition(visibility linear .2s); /* sync this transition to that of border */
+  }
+
+  .form-help-block {
+    display: block; // account for any element using help-block
+    //margin-bottom: $base-line-height / 2;   /* is this necessary?..accounted for on .control-group?? */
+  }
+
+  .form-help-inline {
+    display: inline-block;
+    vertical-align: middle;
+    padding-left: 5px;
+  }
+   
+    
+/**
+ * Search Form
+ */
+  .search-input {
+    //search input specific styles
+  }
+
+/** 
+ * Inline Form 
+ */
+  &.inline-form {
+    .control-group {
+      display: inline-block;
+    }
+    .controls {
+      display: inline-block;
+    }
+  }    
+    
+} /* end primary form scope */
+
+
+/**
+ * Horizontal-specific styles
+ *
+ * extends #{$primary-form-scope} class
+ *
+ * 1. cannot @extend an outer selector from within @media, so we declare this outside of @media
+ */
+.form-horizontal {
+  .control-group { @extend %cf; }       /* 1 */
+}
+@media screen and (min-width: 600px) {
+  .form-horizontal {
+    .control-label {
+      float: left;
+      width: $form--horizontal-spacer - 20;
+      padding-top: 5px;
+      text-align: right;
+    }
+    /* align input controls */
+    .controls {
+      margin-left: $form--horizontal-spacer;
+    }
+  }
+}

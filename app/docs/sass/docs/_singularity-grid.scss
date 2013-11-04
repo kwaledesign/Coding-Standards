@@ -1,0 +1,151 @@
+/**
+ * Singularity Grid
+ * 
+ * https://github.com/Team-Sass/Singularity
+ * http://singularity.gs
+ */
+
+@import "singularitygs";
+
+// breakpoint settings:
+$breakpoint-no-query-fallbacks:             true;
+$breakpoint-to-ems:                         true;
+$breakpoints:                               '6 columns' 30em,
+                                            '8 columns' 40em,
+                                            '12 columns' 50em;
+
+/**
+ * Singularity Settings
+ */
+$output:                                    "float";
+$container:                                 100%;
+$container-to-ems:                          true;
+
+$background-grid-color: lighten(purple, 50%);
+
+$grids: 4;
+$grids: add-grid(6 at 30em);
+$grids: add-grid(8 at 40em);
+$grids: add-grid(12 at 50em);
+
+$gutters: 1/3;
+$gutters: add-gutter(.25 at 50em);
+
+
+/**
+ * Layout
+ * 
+ */
+
+.grid-link { 
+}
+
+
+.container {
+  margin: 0 auto;
+  min-height: 100%;
+  @include pie-clearfix;
+  &.active-grid { @include background-grid(); }
+}
+
+
+/**
+ * Header
+ */
+.header {
+  @include grid-span(4, 1);
+  @include respond-to('6 columns') {
+    @include grid-span(6, 1); 
+  }
+  @include respond-to('8 columns') {
+    @include grid-span(8, 1); 
+  }
+  @include respond-to('12 columns') {
+    @include grid-span(12, 1); 
+  }
+}
+
+.main-nav {
+  //width: 100%; 
+  background: #666666;
+}
+
+/**
+ * Body
+ */
+.container {
+}
+
+/** 
+ * Navigation
+ */
+/* nav object */
+/*
+.nav {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  @include pie-clearfix;
+    & > li > a { 
+      display: inline-block; 
+    }        
+}
+*/
+
+.nav--slide {
+  margin-left: -100%;
+  float: left;
+  width: 10px;
+}
+
+.nav--slide.is-active {
+  margin-left: 0;
+  background: #E5E5E5;
+
+  @include grid-span(2, 1);
+  @include respond-to('6 columns') {
+    @include grid-span(2, 1); 
+  }
+  @include respond-to('8 columns') {
+    @include grid-span(3, 1); 
+  }
+  @include respond-to('12 columns') {
+    @include grid-span(4, 1); 
+  }
+}
+
+/**
+ * Main Section
+ */
+.page {
+  //@extend %grid-unit;
+  //@extend %size1of1;
+  @include grid-span(4, 1);
+  @include respond-to('6 columns') {
+    @include grid-span(6, 1); 
+  }
+  @include respond-to('8 columns') {
+    @include grid-span(8, 1); 
+  }
+  @include respond-to(')2 coluns') {
+    @include grid-span(12, 1); 
+  }
+}
+
+.page.is-slide {
+  @include grid-span(2, 3);
+  @include respond-to('6 columns') {
+    @include grid-span(4, 3); 
+  }
+  @include respond-to('8 columns') {
+    @include grid-span(5, 4); 
+  }
+  @include respond-to('12 columns') {
+    @include grid-span(8, 5); 
+  }
+}
+
+
+.menu-link {color: yellow;}
+.menu-link.is-active {color: red;}
+

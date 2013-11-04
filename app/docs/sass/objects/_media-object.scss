@@ -1,0 +1,47 @@
+/*** @export "media-object" css */
+/**
+ * Media Object
+ *
+ * place images beside text block
+ * https://github.com/stubbornella/oocss/blob/master/core/media/media.css
+ * 
+ * 1. contain floats
+ * 2. image location (right/left)
+ */
+
+
+/**
+ * Container
+ */
+.media {                              /* 1 */
+  display: block;
+  @extend %cf;
+}
+
+/**
+ * Images
+ */
+.media__img--left {                   /* 2 */
+  float: left;
+  margin-right: $spacer-unit--media;
+}
+
+.media__img--right {                  /* 2 */
+  float: right;
+  margin-left: $spacer-unit--media;
+}
+
+.media__img--left img,
+.media__img--right img {
+  display: block;
+}
+
+.media__body {
+  overflow: hidden;
+}
+
+.media__body,
+.media__body > :last-child {
+  margin-bottom: 0;
+}
+

@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <title>Typography Pallet</title>
+    
+    <link rel="stylesheet" href="../css/screen.css" media="screen">
+</head>
+<body class="container">
+  
+  <header class="header">
+    <section class="main-nav">
+      <a href="#" class="menu-link"><span class="icon-th-list-1"></span>menu</a>
+      <a href="/index.html">Home</a>
+      <a href="#" class="grid-link">Grid</a>
+    </section>
+  </header>
+  
+  <nav class="nav--slide">
+ 
+    <a href="/base.html">Base</a>
+    <ul>
+      <li><a href="/base/breakpoints.html">Breakpoints</a></li>
+      <li><a href="/base/color-pallet.html">Color-Pallet</a></li>
+      <li><a href="/base/typography-pallet.html">Typography-Pallet</a></li>
+      <li><a href="/base/settings.html">Settings</a></li>
+      <li><a href="/base/structure-units.html">Structure-Units</a></li>
+      <li><a href="/base/skin-units.html">Skin-Units</a></li>
+    </ul>
+       
+    <a href="/objects.html">Objects</a>
+    <ul>
+      <li><a href="/objects/nav-object.html">Nav-Object</a></li>
+      <li><a href="/objects/media-object.html">Media-Object</a></li>
+      <li><a href="/objects/close-object.html">Close-Object</a></li>
+      <li><a href="/objects/alert-object.html">Alert-Object</a></li>
+      <li><a href="/objects/label-object.html">Label-Object</a></li>
+      <li><a href="/objects/partition-object.html">Partition-Object</a></li>
+      <li><a href="/objects/button-object.html">Button-Object</a></li>
+    </ul>
+
+    <a href="/components.html">Components</a>
+    <ul>
+      <li><a href="/components/typography.html">Typography</a></li>
+      <li><a href="/components/page.html">Page</a></li>
+      <li><a href="/components/quotes.html">Quotes</a></li>
+      <li><a href="/components/tables.html">Tables</a></li>
+      <li><a href="/components/rules.html">Rules</a></li>
+      <li><a href="/components/lists.html">Lists</a></li>
+      <li><a href="/components/links.html">Links</a></li>
+      <li><a href="/components/figures.html">Figures</a></li>
+      <li><a href="/components/code.html">Code</a></li>
+      <li><a href="/components/media.html">Media</a></li>
+      <li><a href="/components/forms.html">Forms</a></li>
+      <li><a href="/components/buttons.html">Buttons</a></li>
+      <li><a href="/components/close.html">Close</a></li>
+      <li><a href="/components/alerts.html">Alerts</a></li>
+      <li><a href="/components/spacers.html">Spacers</a></li>
+      <li><a href="/components/tabs.html">Tabs</a></li>
+      <li><a href="/components/partitions.html">Partitions</a></li>
+      <li><a href="/components/labels.html">Labels</a></li>
+      <li><a href="/components/icons.html">Icons</a></li>
+    </ul>
+ 
+    <a href="/layout.html">Layout</a>
+
+  </nav>   
+
+  <div class="page">
+    <section class="copy">
+
+<h1 id="typography-pallet">Typography Pallet</h1>
+<p>The typography-pallet partial contains all variables related to type.</p>
+<div class="highlight"><pre><a name="sass--base--_typography-pallet.scss-idio.html-2"></a><span class="cm">/**</span>
+<a name="sass--base--_typography-pallet.scss-idio.html-3"></a><span class="cm"> * Typography Pallet</span>
+<a name="sass--base--_typography-pallet.scss-idio.html-4"></a><span class="cm"> *</span>
+<a name="sass--base--_typography-pallet.scss-idio.html-5"></a><span class="cm"> * 1. Text selection highlight color</span>
+<a name="sass--base--_typography-pallet.scss-idio.html-6"></a><span class="cm"> * 2. Text selection text color</span>
+<a name="sass--base--_typography-pallet.scss-idio.html-7"></a><span class="cm"> */</span>
+<a name="sass--base--_typography-pallet.scss-idio.html-8"></a>
+<a name="sass--base--_typography-pallet.scss-idio.html-9"></a>
+<a name="sass--base--_typography-pallet.scss-idio.html-10"></a><span class="cm">/**</span>
+<a name="sass--base--_typography-pallet.scss-idio.html-11"></a><span class="cm"> * Typography Variables</span>
+<a name="sass--base--_typography-pallet.scss-idio.html-12"></a><span class="cm"> * </span>
+<a name="sass--base--_typography-pallet.scss-idio.html-13"></a><span class="cm"> * 1. typography styles and variables are scoped. see comment in modules/core/_typography.scss</span>
+<a name="sass--base--_typography-pallet.scss-idio.html-14"></a><span class="cm"> * 2. path to web font or icon font used in font-face mixin</span>
+<a name="sass--base--_typography-pallet.scss-idio.html-15"></a><span class="cm"> */</span>
+<a name="sass--base--_typography-pallet.scss-idio.html-16"></a>
+<a name="sass--base--_typography-pallet.scss-idio.html-17"></a><span class="cm">/** </span>
+<a name="sass--base--_typography-pallet.scss-idio.html-18"></a><span class="cm"> * Type Scope Namespace: </span>
+<a name="sass--base--_typography-pallet.scss-idio.html-19"></a><span class="cm"> */</span>
+<a name="sass--base--_typography-pallet.scss-idio.html-20"></a><span class="nv">$main-type-scope</span><span class="o">:</span>                     <span class="n">copy</span><span class="p">;</span>         <span class="cm">/* 1 */</span>
+<a name="sass--base--_typography-pallet.scss-idio.html-21"></a><span class="c1">// $file-path:;                       path_to_font  /* 2 */</span>
+<a name="sass--base--_typography-pallet.scss-idio.html-22"></a>
+<a name="sass--base--_typography-pallet.scss-idio.html-23"></a><span class="cm">/**</span>
+<a name="sass--base--_typography-pallet.scss-idio.html-24"></a><span class="cm"> * Font Stack Variables</span>
+<a name="sass--base--_typography-pallet.scss-idio.html-25"></a><span class="cm"> */</span>
+<a name="sass--base--_typography-pallet.scss-idio.html-26"></a><span class="nv">$georgia</span><span class="o">:</span>       <span class="n">Georgia</span><span class="o">,</span> <span class="n">Cambria</span><span class="o">,</span> <span class="s2">&quot;Times New Roman&quot;</span><span class="o">,</span> <span class="n">Times</span><span class="o">,</span> <span class="no">serif</span> <span class="nv">!default</span><span class="p">;</span>
+<a name="sass--base--_typography-pallet.scss-idio.html-27"></a><span class="nv">$helvetica</span><span class="o">:</span>     <span class="s2">&quot;Helvetica Neue&quot;</span><span class="o">,</span> <span class="n">Helvetica</span><span class="o">,</span> <span class="n">Arial</span><span class="o">,</span> <span class="no">sans-serif</span> <span class="nv">!default</span><span class="p">;</span>
+<a name="sass--base--_typography-pallet.scss-idio.html-28"></a><span class="nv">$lucida-grande</span><span class="o">:</span> <span class="s2">&quot;Lucida Grande&quot;</span><span class="o">,</span> <span class="n">Tahoma</span><span class="o">,</span> <span class="n">Verdana</span><span class="o">,</span> <span class="n">Arial</span><span class="o">,</span> <span class="no">sans-serif</span> <span class="nv">!default</span><span class="p">;</span>
+<a name="sass--base--_typography-pallet.scss-idio.html-29"></a><span class="nv">$verdana</span><span class="o">:</span>       <span class="n">Verdana</span><span class="o">,</span> <span class="n">Geneva</span><span class="o">,</span> <span class="no">sans-serif</span> <span class="nv">!default</span><span class="p">;</span>
+<a name="sass--base--_typography-pallet.scss-idio.html-30"></a><span class="nv">$monospace</span><span class="o">:</span>     <span class="s2">&quot;Bitstream Vera Sans Mono&quot;</span><span class="o">,</span> <span class="n">Consolas</span><span class="o">,</span> <span class="n">Courier</span><span class="o">,</span> <span class="no">monospace</span><span class="o">,</span> <span class="no">serif</span> <span class="nv">!default</span><span class="p">;</span>
+<a name="sass--base--_typography-pallet.scss-idio.html-31"></a>
+<a name="sass--base--_typography-pallet.scss-idio.html-32"></a><span class="cm">/**</span>
+<a name="sass--base--_typography-pallet.scss-idio.html-33"></a><span class="cm"> * Modular Scale</span>
+<a name="sass--base--_typography-pallet.scss-idio.html-34"></a><span class="cm"> * </span>
+<a name="sass--base--_typography-pallet.scss-idio.html-35"></a><span class="cm"> * https://github.com/scottkellum/modular-scale</span>
+<a name="sass--base--_typography-pallet.scss-idio.html-36"></a><span class="cm"> * http://thesassway.com/projects/modular-scale</span>
+<a name="sass--base--_typography-pallet.scss-idio.html-37"></a><span class="cm"> * http://modularscales.com</span>
+<a name="sass--base--_typography-pallet.scss-idio.html-38"></a><span class="cm"> *</span>
+<a name="sass--base--_typography-pallet.scss-idio.html-39"></a><span class="cm"> * To set multiple $base-size and/or $ratio values use a space separated list. If</span>
+<a name="sass--base--_typography-pallet.scss-idio.html-40"></a><span class="cm"> * you use multiple $base-size values, the starting point of the scale will always</span>
+<a name="sass--base--_typography-pallet.scss-idio.html-41"></a><span class="cm"> * be the lowest value in this list.</span>
+<a name="sass--base--_typography-pallet.scss-idio.html-42"></a><span class="cm"> *</span>
+<a name="sass--base--_typography-pallet.scss-idio.html-43"></a><span class="cm"> * golden 1:1.618 (default)</span>
+<a name="sass--base--_typography-pallet.scss-idio.html-44"></a><span class="cm"> * double-octave 1:4 </span>
+<a name="sass--base--_typography-pallet.scss-idio.html-45"></a><span class="cm"> * major-twelfth 1:3</span>
+<a name="sass--base--_typography-pallet.scss-idio.html-46"></a><span class="cm"> * major-eleventh 3:8 </span>
+<a name="sass--base--_typography-pallet.scss-idio.html-47"></a><span class="cm"> * major-tenth 2:5</span>
+<a name="sass--base--_typography-pallet.scss-idio.html-48"></a><span class="cm"> * octave 1:2</span>
+<a name="sass--base--_typography-pallet.scss-idio.html-49"></a><span class="cm"> * major-seventh 8:15</span>
+<a name="sass--base--_typography-pallet.scss-idio.html-50"></a><span class="cm"> * minor-seventh 9:16</span>
+<a name="sass--base--_typography-pallet.scss-idio.html-51"></a><span class="cm"> * major-sixth</span>
+<a name="sass--base--_typography-pallet.scss-idio.html-52"></a><span class="cm"> * minor-sixth 5:8</span>
+<a name="sass--base--_typography-pallet.scss-idio.html-53"></a><span class="cm"> * fifth 2:3</span>
+<a name="sass--base--_typography-pallet.scss-idio.html-54"></a><span class="cm"> * augfourth 1:√2</span>
+<a name="sass--base--_typography-pallet.scss-idio.html-55"></a><span class="cm"> * fourth 3:4</span>
+<a name="sass--base--_typography-pallet.scss-idio.html-56"></a><span class="cm"> * major-third 4:5</span>
+<a name="sass--base--_typography-pallet.scss-idio.html-57"></a><span class="cm"> * minor-third 5:6</span>
+<a name="sass--base--_typography-pallet.scss-idio.html-58"></a><span class="cm"> * major-second 8:9</span>
+<a name="sass--base--_typography-pallet.scss-idio.html-59"></a><span class="cm"> * minor-second 15:16</span>
+<a name="sass--base--_typography-pallet.scss-idio.html-60"></a><span class="cm"> *</span>
+<a name="sass--base--_typography-pallet.scss-idio.html-61"></a><span class="cm"> * 1. Default to $base-font-size </span>
+<a name="sass--base--_typography-pallet.scss-idio.html-62"></a><span class="cm"> */</span>
+<a name="sass--base--_typography-pallet.scss-idio.html-63"></a>
+<a name="sass--base--_typography-pallet.scss-idio.html-64"></a><span class="k">@import</span> <span class="s2">&quot;modular-scale&quot;</span><span class="p">;</span>
+<a name="sass--base--_typography-pallet.scss-idio.html-65"></a>
+<a name="sass--base--_typography-pallet.scss-idio.html-66"></a><span class="nv">$base-size</span><span class="o">:</span> <span class="mi">16</span><span class="kt">px</span><span class="p">;</span>                                     <span class="cm">/* 1 */</span>
+<a name="sass--base--_typography-pallet.scss-idio.html-67"></a><span class="nv">$ratio</span><span class="o">:</span> <span class="nf">fourth</span><span class="p">();</span>
+<a name="sass--base--_typography-pallet.scss-idio.html-68"></a>
+<a name="sass--base--_typography-pallet.scss-idio.html-69"></a>
+<a name="sass--base--_typography-pallet.scss-idio.html-70"></a><span class="nv">$selection--color-bg</span><span class="o">:</span>                 <span class="mh">#fe57a1</span><span class="p">;</span>        <span class="cm">/* 1 */</span>
+<a name="sass--base--_typography-pallet.scss-idio.html-71"></a><span class="nv">$tap--color-bg</span><span class="o">:</span>                       <span class="nf">black</span><span class="p">(</span><span class="mi">75</span><span class="p">);</span>
+<a name="sass--base--_typography-pallet.scss-idio.html-72"></a><span class="nv">$selection--color-txt</span><span class="o">:</span>                <span class="nv">$white</span><span class="p">;</span>         <span class="cm">/* 2 */</span>
+<a name="sass--base--_typography-pallet.scss-idio.html-73"></a>
+<a name="sass--base--_typography-pallet.scss-idio.html-74"></a>
+<a name="sass--base--_typography-pallet.scss-idio.html-75"></a><span class="cm">/**</span>
+<a name="sass--base--_typography-pallet.scss-idio.html-76"></a><span class="cm"> * Main Type Scope</span>
+<a name="sass--base--_typography-pallet.scss-idio.html-77"></a><span class="cm"> * </span>
+<a name="sass--base--_typography-pallet.scss-idio.html-78"></a><span class="cm"> * Abstracting typographic element variables to allow for easily adding additional type scopes if needed.</span>
+<a name="sass--base--_typography-pallet.scss-idio.html-79"></a><span class="cm"> * Add the additional typography scope styles and variables next to the main type scope styles and variables.</span>
+<a name="sass--base--_typography-pallet.scss-idio.html-80"></a><span class="cm"> */</span>
+<a name="sass--base--_typography-pallet.scss-idio.html-81"></a>
+<a name="sass--base--_typography-pallet.scss-idio.html-82"></a><span class="nv">$copy--body-font</span><span class="o">:</span>                     <span class="nv">$georgia</span><span class="p">;</span>
+<a name="sass--base--_typography-pallet.scss-idio.html-83"></a>
+<a name="sass--base--_typography-pallet.scss-idio.html-84"></a><span class="cm">/**</span>
+<a name="sass--base--_typography-pallet.scss-idio.html-85"></a><span class="cm"> * Headers</span>
+<a name="sass--base--_typography-pallet.scss-idio.html-86"></a><span class="cm"> */</span>
+<a name="sass--base--_typography-pallet.scss-idio.html-87"></a>
+<a name="sass--base--_typography-pallet.scss-idio.html-88"></a><span class="cm">/**</span>
+<a name="sass--base--_typography-pallet.scss-idio.html-89"></a><span class="cm"> * Header Text</span>
+<a name="sass--base--_typography-pallet.scss-idio.html-90"></a><span class="cm"> */</span>
+<a name="sass--base--_typography-pallet.scss-idio.html-91"></a><span class="nv">$copy--header-color-txt</span><span class="o">:</span>              <span class="nf">black</span><span class="p">(</span><span class="mi">40</span><span class="p">);</span>
+<a name="sass--base--_typography-pallet.scss-idio.html-92"></a><span class="nv">$copy--header-txt</span><span class="o">:</span>                    <span class="nv">$helvetica</span><span class="p">;</span>
+<a name="sass--base--_typography-pallet.scss-idio.html-93"></a>
+<a name="sass--base--_typography-pallet.scss-idio.html-94"></a><span class="cm">/**</span>
+<a name="sass--base--_typography-pallet.scss-idio.html-95"></a><span class="cm"> * Header Sizes</span>
+<a name="sass--base--_typography-pallet.scss-idio.html-96"></a><span class="cm"> */</span>
+<a name="sass--base--_typography-pallet.scss-idio.html-97"></a><span class="nv">$copy--h1-size</span><span class="o">:</span>                       <span class="nf">ms</span><span class="p">(</span><span class="mi">5</span><span class="p">);</span> 
+<a name="sass--base--_typography-pallet.scss-idio.html-98"></a><span class="nv">$copy--h2-size</span><span class="o">:</span>                       <span class="nf">ms</span><span class="p">(</span><span class="mi">4</span><span class="p">);</span> 
+<a name="sass--base--_typography-pallet.scss-idio.html-99"></a><span class="nv">$copy--h3-size</span><span class="o">:</span>                       <span class="nf">ms</span><span class="p">(</span><span class="mi">3</span><span class="p">);</span> 
+<a name="sass--base--_typography-pallet.scss-idio.html-100"></a><span class="nv">$copy--h4-size</span><span class="o">:</span>                       <span class="nf">ms</span><span class="p">(</span><span class="mi">2</span><span class="p">);</span> 
+<a name="sass--base--_typography-pallet.scss-idio.html-101"></a><span class="nv">$copy--h5-size</span><span class="o">:</span>                       <span class="nf">ms</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span> 
+<a name="sass--base--_typography-pallet.scss-idio.html-102"></a><span class="nv">$copy--h6-size</span><span class="o">:</span>                       <span class="nf">ms</span><span class="p">(</span><span class="mi">0</span><span class="p">);</span>
+<a name="sass--base--_typography-pallet.scss-idio.html-103"></a>
+<a name="sass--base--_typography-pallet.scss-idio.html-104"></a><span class="cm">/**</span>
+<a name="sass--base--_typography-pallet.scss-idio.html-105"></a><span class="cm"> * Hero Unity</span>
+<a name="sass--base--_typography-pallet.scss-idio.html-106"></a><span class="cm"> */</span>
+<a name="sass--base--_typography-pallet.scss-idio.html-107"></a><span class="c1">// hero unit color</span>
+<a name="sass--base--_typography-pallet.scss-idio.html-108"></a><span class="c1">// $hero-text-color:;</span>
+<a name="sass--base--_typography-pallet.scss-idio.html-109"></a>
+<a name="sass--base--_typography-pallet.scss-idio.html-110"></a><span class="cm">/**</span>
+<a name="sass--base--_typography-pallet.scss-idio.html-111"></a><span class="cm"> * Sub Header </span>
+<a name="sass--base--_typography-pallet.scss-idio.html-112"></a><span class="cm"> */</span>
+<a name="sass--base--_typography-pallet.scss-idio.html-113"></a><span class="nv">$copy--subheader-color-txt</span><span class="o">:</span>           <span class="nv">$subtle-color--txt</span><span class="p">;</span>
+<a name="sass--base--_typography-pallet.scss-idio.html-114"></a><span class="nv">$copy--subheader-size</span><span class="o">:</span>                <span class="nf">ms</span><span class="p">(</span><span class="mi">3</span><span class="p">);</span>  <span class="c1">// one larger than the paragraph lead size on the ms scale</span>
+<a name="sass--base--_typography-pallet.scss-idio.html-115"></a>
+<a name="sass--base--_typography-pallet.scss-idio.html-116"></a><span class="cm">/**</span>
+<a name="sass--base--_typography-pallet.scss-idio.html-117"></a><span class="cm"> * Main Body Text</span>
+<a name="sass--base--_typography-pallet.scss-idio.html-118"></a><span class="cm"> */</span>
+<a name="sass--base--_typography-pallet.scss-idio.html-119"></a><span class="nv">$copy--body-color-bg</span><span class="o">:</span>                 <span class="nv">$white</span> <span class="nv">!default</span><span class="p">;</span>
+<a name="sass--base--_typography-pallet.scss-idio.html-120"></a><span class="nv">$copy--body-color-txt</span><span class="o">:</span>                <span class="nf">black</span><span class="p">(</span><span class="mi">30</span><span class="p">)</span> <span class="nv">!default</span><span class="p">;</span>
+<a name="sass--base--_typography-pallet.scss-idio.html-121"></a><span class="nv">$copy--accent-color-txt</span><span class="o">:</span>              <span class="nv">$accent-color--txt</span><span class="p">;</span>
+<a name="sass--base--_typography-pallet.scss-idio.html-122"></a><span class="nv">$copy--body-txt</span><span class="o">:</span>                      <span class="nv">$georgia</span><span class="p">;</span>
+<a name="sass--base--_typography-pallet.scss-idio.html-123"></a><span class="nv">$copy--accent-txt</span><span class="o">:</span>                    <span class="nv">$helvetica</span><span class="p">;</span>
+<a name="sass--base--_typography-pallet.scss-idio.html-124"></a>
+<a name="sass--base--_typography-pallet.scss-idio.html-125"></a><span class="cm">/**</span>
+<a name="sass--base--_typography-pallet.scss-idio.html-126"></a><span class="cm"> * Paragraph Lead</span>
+<a name="sass--base--_typography-pallet.scss-idio.html-127"></a><span class="cm"> */</span>
+<a name="sass--base--_typography-pallet.scss-idio.html-128"></a><span class="nv">$copy--lead-color-txt</span><span class="o">:</span>                <span class="nv">$subtle-color--txt</span><span class="p">;</span>
+<a name="sass--base--_typography-pallet.scss-idio.html-129"></a><span class="nv">$copy--lead-size</span><span class="o">:</span>                     <span class="nf">ms</span><span class="p">(</span><span class="mi">2</span><span class="p">);</span>
+<a name="sass--base--_typography-pallet.scss-idio.html-130"></a>
+<a name="sass--base--_typography-pallet.scss-idio.html-131"></a><span class="cm">/**</span>
+<a name="sass--base--_typography-pallet.scss-idio.html-132"></a><span class="cm"> * Meta Text </span>
+<a name="sass--base--_typography-pallet.scss-idio.html-133"></a><span class="cm"> */</span>
+<a name="sass--base--_typography-pallet.scss-idio.html-134"></a><span class="nv">$copy--meta-size</span><span class="o">:</span>                     <span class="nf">ms</span><span class="p">(</span><span class="mi">-1</span><span class="p">);</span>
+<a name="sass--base--_typography-pallet.scss-idio.html-135"></a><span class="nv">$copy--meta-line-height</span><span class="o">:</span>              <span class="mi">2</span><span class="o">/</span><span class="mi">3</span><span class="p">;</span>  <span class="c1">// every third meta line will line up with every seoncond baseline</span>
+<a name="sass--base--_typography-pallet.scss-idio.html-136"></a>
+<a name="sass--base--_typography-pallet.scss-idio.html-137"></a><span class="cm">/**</span>
+<a name="sass--base--_typography-pallet.scss-idio.html-138"></a><span class="cm"> * Footnote</span>
+<a name="sass--base--_typography-pallet.scss-idio.html-139"></a><span class="cm"> */</span>
+<a name="sass--base--_typography-pallet.scss-idio.html-140"></a><span class="nv">$copy--footnote-size</span><span class="o">:</span>                 <span class="nf">ms</span><span class="p">(</span><span class="mi">-2</span><span class="p">);</span>
+<a name="sass--base--_typography-pallet.scss-idio.html-141"></a><span class="nv">$copy--footnote-line-height</span><span class="o">:</span>          <span class="mi">2</span><span class="o">/</span><span class="mi">3</span><span class="p">;</span> <span class="c1">// every third meta line will line up with every seoncond baseline</span>
+<a name="sass--base--_typography-pallet.scss-idio.html-142"></a>
+<a name="sass--base--_typography-pallet.scss-idio.html-143"></a><span class="cm">/**</span>
+<a name="sass--base--_typography-pallet.scss-idio.html-144"></a><span class="cm"> * Small Element</span>
+<a name="sass--base--_typography-pallet.scss-idio.html-145"></a><span class="cm"> */</span>
+<a name="sass--base--_typography-pallet.scss-idio.html-146"></a><span class="nv">$copy--small-size</span><span class="o">:</span>                    <span class="nf">ms</span><span class="p">(</span><span class="mi">-1</span><span class="p">);</span>    <span class="c1">// .80 or about 13px        </span>
+<a name="sass--base--_typography-pallet.scss-idio.html-147"></a><span class="nv">$copy--sub-sup-size</span><span class="o">:</span>                  <span class="nf">ms</span><span class="p">(</span><span class="mi">-2</span><span class="p">);</span>  <span class="c1">// .75 or about 12px</span>
+<a name="sass--base--_typography-pallet.scss-idio.html-148"></a>
+<a name="sass--base--_typography-pallet.scss-idio.html-149"></a><span class="cm">/**</span>
+<a name="sass--base--_typography-pallet.scss-idio.html-150"></a><span class="cm"> * Horizontal Rule</span>
+<a name="sass--base--_typography-pallet.scss-idio.html-151"></a><span class="cm"> */</span>
+<a name="sass--base--_typography-pallet.scss-idio.html-152"></a><span class="nv">$copy--hr-width</span><span class="o">:</span>                      <span class="mi">1</span><span class="kt">px</span><span class="p">;</span>
+<a name="sass--base--_typography-pallet.scss-idio.html-153"></a><span class="nv">$copy--hr-color</span><span class="o">:</span>                      <span class="nf">black</span><span class="p">(</span><span class="mi">80</span><span class="p">);</span>
+<a name="sass--base--_typography-pallet.scss-idio.html-154"></a>
+<a name="sass--base--_typography-pallet.scss-idio.html-155"></a><span class="cm">/**</span>
+<a name="sass--base--_typography-pallet.scss-idio.html-156"></a><span class="cm"> * Del</span>
+<a name="sass--base--_typography-pallet.scss-idio.html-157"></a><span class="cm"> */</span>
+<a name="sass--base--_typography-pallet.scss-idio.html-158"></a><span class="nv">$copy--deleted-color</span><span class="o">:</span>                 <span class="nv">$subtle-color--txt</span><span class="p">;</span>
+<a name="sass--base--_typography-pallet.scss-idio.html-159"></a>
+<a name="sass--base--_typography-pallet.scss-idio.html-160"></a><span class="cm">/**</span>
+<a name="sass--base--_typography-pallet.scss-idio.html-161"></a><span class="cm"> * Ins</span>
+<a name="sass--base--_typography-pallet.scss-idio.html-162"></a><span class="cm"> */</span>
+<a name="sass--base--_typography-pallet.scss-idio.html-163"></a><span class="nv">$copy--ins-color-bg</span><span class="o">:</span>                  <span class="mh">#ff9</span><span class="p">;</span>
+<a name="sass--base--_typography-pallet.scss-idio.html-164"></a><span class="nv">$copy--ins-color-txt</span><span class="o">:</span>                 <span class="nv">$black</span><span class="p">;</span>
+<a name="sass--base--_typography-pallet.scss-idio.html-165"></a>
+<a name="sass--base--_typography-pallet.scss-idio.html-166"></a><span class="cm">/**</span>
+<a name="sass--base--_typography-pallet.scss-idio.html-167"></a><span class="cm"> * Mark</span>
+<a name="sass--base--_typography-pallet.scss-idio.html-168"></a><span class="cm"> */</span>
+<a name="sass--base--_typography-pallet.scss-idio.html-169"></a><span class="nv">$copy--mark-color-bg</span><span class="o">:</span>                 <span class="nb">yellow</span><span class="p">;</span>
+<a name="sass--base--_typography-pallet.scss-idio.html-170"></a><span class="nv">$copy--mark-color-txt</span><span class="o">:</span>                <span class="nv">$white</span><span class="p">;</span>
+</pre></div>
+
+
+</section>
+
+
+  </div>
+  
+  <footer>
+    <p>Footer goes here</p>
+</footer>
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+<script>window.jQuery || document.write('<script src="/js/vendor/jquery/jquery.min.js"><\/script>')</script>
+<script src="/js/main.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,11 @@
+/*** @export "close-object" css */
+/**
+ * Close Object
+ * 
+ */
+
+.close {
+  position: absolute; 
+  &:hover { cursor: pointer; }
+}
+

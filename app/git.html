@@ -1,0 +1,11 @@
+---
+layout: default
+title: Testing
+---
+
+<section class="home posts">
+
+{% capture git %}{% include markdown/git.md %}{% endcapture %}
+{{ git | markdownify }}
+
+</section>

@@ -1,0 +1,63 @@
+/*** @export "settings" css */
+/**
+ * Archetype Settings 
+ *
+ */
+
+
+/**
+ * Imports
+ *
+ * 1. https://github.com/chriseppstein/compass
+ * 2. https://github.com/kwaledesign/Archetype
+ */
+
+@import "compass";                                        /* 1 */
+@import "archetype";                                      /* 2 */
+
+/**
+ * Compass
+ * 
+ * 1. Enable Compass to use HTML hacks to support IE 6 and 7
+ *    Note: Archetype supports IE9+ (IE6-8 are served a linear layout)
+ */
+$legacy-support-for-ie6 : false;                          /* 1 */
+$legacy-support-for-ie7 : false;                          /* 1 */
+$legacy-support-for-ie8 : true;                           /* 1 */
+
+
+/**
+ * Normalize Mixin
+ *
+ * https://github.com/kwaledesign/Archetype/blob/master/stylesheets/archetype/_normalize.scss
+ * 
+ * comment out any unneeded components
+ */
+@mixin normalize() {
+	@include normalize-display;
+	@include normalize-page;
+	@include normalize-links;
+	@include normalize-typography;
+	@include normalize-embeds;
+	@include normalize-figures;
+	@include normalize-forms;
+	@include normalize-tables;
+}
+/* call normalize mixin */
+@include normalize;
+
+
+/*** @export "vertical-rhythm" css */
+/**
+ * Compass Vertical Rhythm 
+ * 
+ * 1. Set this false for px's
+ * 2. This is automaticly converted to 100% by compass
+ * 3. Establishes a baseline for $base-font-size
+ */
+$relative-font-sizing : true;                         /* 2 */
+$base-font-size: $base-size;                          /* 2 */ 
+$base-line-height: 24px;
+@include establish-baseline($base-font-size);         /* 3 */
+
+

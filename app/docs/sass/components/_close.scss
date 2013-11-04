@@ -1,0 +1,71 @@
+/**
+ * Close
+ * 
+ */
+
+
+/*** @export "close-variables" css */
+/**
+ * Close Variables
+ * 
+ * 1. optionally rename close skin styles
+ */
+
+/* Close Structure Namespace: */
+$small-close:                         small;    /* 1 */
+$large-close:                         large;    /* 1 */
+
+/* Close Skin Namespace: */
+$positive-close:                      light;    /* 1 */
+$negative-close:                      dark;     /* 1 */
+
+
+/*** @export "close-structure" css */
+/**
+ * Close Structure
+ *
+ * Extends close object
+ */
+.close--#{$small-close} {
+  font-size: ms(1); 
+  padding: $spacer-unit--quarter;
+  right: 2px; 
+  top: 2px;  
+}
+
+.close--#{$large-close} {
+  font-size: ms(2); 
+  padding: $spacer-unit--half;
+  right: 4px; 
+  top: 4px;  
+}
+
+
+/*** @export "close-skin" css */
+/**
+ * Close Skin
+ */
+.close--#{$positive-close} {
+  color: $white;
+  font-weight: bold;
+  text-decoration: none;
+  opacity: .2;
+  &:hover,
+  &:focus {
+    opacity: .8;
+    text-decoration: none;
+  }
+}
+
+.close--#{$negative-close} {
+  color: $black;
+  font-weight: bold;
+  text-decoration: none;
+  opacity: .2;
+  &:hover,
+  &:focus {
+    opacity: .8;
+    text-decoration: none;
+  }
+}
+

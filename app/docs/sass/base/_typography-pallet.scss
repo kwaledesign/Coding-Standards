@@ -1,0 +1,171 @@
+/*** @export "typography-pallet" css */
+/**
+ * Typography Pallet
+ *
+ * 1. Text selection highlight color
+ * 2. Text selection text color
+ */
+
+
+/**
+ * Typography Variables
+ * 
+ * 1. typography styles and variables are scoped. see comment in modules/core/_typography.scss
+ * 2. path to web font or icon font used in font-face mixin
+ */
+
+/** 
+ * Type Scope Namespace: 
+ */
+$main-type-scope:                     copy;         /* 1 */
+// $file-path:;                       path_to_font  /* 2 */
+
+/**
+ * Font Stack Variables
+ */
+$georgia:       Georgia, Cambria, "Times New Roman", Times, serif !default;
+$helvetica:     "Helvetica Neue", Helvetica, Arial, sans-serif !default;
+$lucida-grande: "Lucida Grande", Tahoma, Verdana, Arial, sans-serif !default;
+$verdana:       Verdana, Geneva, sans-serif !default;
+$monospace:     "Bitstream Vera Sans Mono", Consolas, Courier, monospace, serif !default;
+
+/**
+ * Modular Scale
+ * 
+ * https://github.com/scottkellum/modular-scale
+ * http://thesassway.com/projects/modular-scale
+ * http://modularscales.com
+ *
+ * To set multiple $base-size and/or $ratio values use a space separated list. If
+ * you use multiple $base-size values, the starting point of the scale will always
+ * be the lowest value in this list.
+ *
+ * golden 1:1.618 (default)
+ * double-octave 1:4 
+ * major-twelfth 1:3
+ * major-eleventh 3:8 
+ * major-tenth 2:5
+ * octave 1:2
+ * major-seventh 8:15
+ * minor-seventh 9:16
+ * major-sixth
+ * minor-sixth 5:8
+ * fifth 2:3
+ * augfourth 1:√2
+ * fourth 3:4
+ * major-third 4:5
+ * minor-third 5:6
+ * major-second 8:9
+ * minor-second 15:16
+ *
+ * 1. Default to $base-font-size 
+ */
+
+@import "modular-scale";
+
+$base-size: 16px;                                     /* 1 */
+$ratio: fourth();
+
+
+$selection--color-bg:                 #fe57a1;        /* 1 */
+$tap--color-bg:                       black(75);
+$selection--color-txt:                $white;         /* 2 */
+
+
+/**
+ * Main Type Scope
+ * 
+ * Abstracting typographic element variables to allow for easily adding additional type scopes if needed.
+ * Add the additional typography scope styles and variables next to the main type scope styles and variables.
+ */
+
+$copy--body-font:                     $georgia;
+
+/**
+ * Headers
+ */
+
+/**
+ * Header Text
+ */
+$copy--header-color-txt:              black(40);
+$copy--header-txt:                    $helvetica;
+
+/**
+ * Header Sizes
+ */
+$copy--h1-size:                       ms(5); 
+$copy--h2-size:                       ms(4); 
+$copy--h3-size:                       ms(3); 
+$copy--h4-size:                       ms(2); 
+$copy--h5-size:                       ms(1); 
+$copy--h6-size:                       ms(0);
+
+/**
+ * Hero Unity
+ */
+// hero unit color
+// $hero-text-color:;
+
+/**
+ * Sub Header 
+ */
+$copy--subheader-color-txt:           $subtle-color--txt;
+$copy--subheader-size:                ms(3);  // one larger than the paragraph lead size on the ms scale
+
+/**
+ * Main Body Text
+ */
+$copy--body-color-bg:                 $white !default;
+$copy--body-color-txt:                black(30) !default;
+$copy--accent-color-txt:              $accent-color--txt;
+$copy--body-txt:                      $georgia;
+$copy--accent-txt:                    $helvetica;
+
+/**
+ * Paragraph Lead
+ */
+$copy--lead-color-txt:                $subtle-color--txt;
+$copy--lead-size:                     ms(2);
+
+/**
+ * Meta Text 
+ */
+$copy--meta-size:                     ms(-1);
+$copy--meta-line-height:              2/3;  // every third meta line will line up with every seoncond baseline
+
+/**
+ * Footnote
+ */
+$copy--footnote-size:                 ms(-2);
+$copy--footnote-line-height:          2/3; // every third meta line will line up with every seoncond baseline
+
+/**
+ * Small Element
+ */
+$copy--small-size:                    ms(-1);    // .80 or about 13px        
+$copy--sub-sup-size:                  ms(-2);  // .75 or about 12px
+
+/**
+ * Horizontal Rule
+ */
+$copy--hr-width:                      1px;
+$copy--hr-color:                      black(80);
+
+/**
+ * Del
+ */
+$copy--deleted-color:                 $subtle-color--txt;
+
+/**
+ * Ins
+ */
+$copy--ins-color-bg:                  #ff9;
+$copy--ins-color-txt:                 $black;
+
+/**
+ * Mark
+ */
+$copy--mark-color-bg:                 yellow;
+$copy--mark-color-txt:                $white;
+

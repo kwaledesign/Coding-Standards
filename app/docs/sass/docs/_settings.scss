@@ -1,0 +1,121 @@
+/**
+ * Settings
+ *
+ */
+
+/**
+ * Imports
+ */
+@import "compass";
+
+
+
+
+
+
+/**
+ * Syntax Highlighting 
+ */
+
+/*Pygment variables*/
+//?.hll?
+$comment--txt-color: red;
+$error--txt-color: #a61717;
+$error--bg-color: #e3d2d2; 
+$keyword--txt-color: #008800; 
+$keyword--font-weight: bold;
+$multiline-comment--txt-color: #888888;
+$comment-preproc--txt-color: #cc0000;
+$comment-preproc--font-weight: bold;
+$comment-single--txt-color: #888888;
+$comment-special--txt-color: #cc0000; 
+$comment-special--font-weight: bold;
+$comment-special--bg-color: #fff0f0; 
+$generic-deleted--txt-color: #000000;
+$generic-deleted--bg-color: #ffdddd; 
+$generic-emphasis--font-style: italic; 
+$generic-emphasis--font-weight: normal;
+$generic-error--txt-color: #aa0000; 
+$generic-heading--txt-color: #333333;
+$generic-inserted--txt-color: #000000;
+$generic-inserted--bg-color: #ddffdd;
+$generic-output--txt-color: #888888;
+$generic-prompt--txt-color: #555555;
+$generic-strong--font-weight: bold;
+$generic-subheading--txt-color: #666666;
+$generic-trackback--txt-color: #aa0000;
+$keyword-constant--txt-color: #008800;
+$keyword-constant--font-weight: bold;
+$keyword-declaration--txt-color: #008800;
+$keyword-declaration--font-weight: bold;
+$keyword-namespace--txt-color: #008800; 
+$keyword-namespace--font-weight: bold;
+$keyword-pseudo--txt-color: #008800;
+$keyword-reserved--txt-color: #008800; 
+$keyword-reserved--font-weight: bold;
+$keyword-type--txt-color: #888888; 
+$keyword-type--font-weight: bold;
+$literal-number--txt-color: #0000DD;
+$literal-number--font-weight: bold;
+$literal-string--txt-color: #dd2200;
+$literal-string--bg-color: #fff0f0;
+$name-attribute--txt-color: #336699;
+$name-builtin--txt-color: #003388;
+$name-class--txt-color: #bb0066;
+$name-class--font-weight: bold;
+$name-constant--txt-color: #003366;
+$name-constant--font-weight: bold;
+$name-decorator--txt-color: #555555;
+$name-exception--txt-color: #bb0066;
+$name-exception--font-weight: bold;
+$name-function--txt-color: #0066bb;
+$name-function--font-weight: bold;
+$name-label--txt-color: #336699;
+$name-label--font-style: italic;
+$name-namespace--txt-color: #bb0066;
+$name-namespace--font-weight: bold;
+$name-property--txt-color: #336699;
+$name-property--font-weight:  bold;
+$name-tag--txt-color: #bb0066;
+$name-tag--font-weight: bold;
+$name-variable--txt-color: #336699;
+$operator-word--txt-color: #008800;
+$text-whitespace--txt-color: #bbbbbb;
+$literal-number-float--txt-color: #0000DD;
+$literal-number-float--font-weight: bold; 
+$literal-number-hex--txt-color: #0000DD;
+$literal-number-hex--font-weight: bold;
+$literal-number-integer--txt-color: #0000DD;
+$literal-number-integer--font-weight: bold;
+$literal-number-oct--txt-color: #0000DD;
+$literal-number-oct--font-weight: bold;
+$literal-string-backtick--txt-color: #dd2200;
+$literal-string-backtick--font-weight: bold;
+$literal-string-char--txt-color: #dd2200;
+$literal-string-char--bg-color: #fff0f0;
+$literal-string-doc--txt-color: #dd2200;
+$literal-string-doc--bg-color: #fff0f0;
+$literal-string-double--txt-color: #dd2200;
+$literal-string-double--bg-color: #fff0f0;
+$literal-string-escape--txt-color: #0044dd;
+$literal-string-escape--bg-color: #fff0f0;
+$literal-string-heredoc--txt-color: #dd2200;
+$literal-string-heredoc--bg-color: #fff0f0;
+$literal-string-interpol--txt-color: #3333bb;
+$literal-string-interpol--bg-color: #fff0f0; 
+$literal-string-other--txt-color: #22bb22;
+$literal-string-other--bg-color: #f0fff0;
+$literal-string-regex--txt-color: #008800;
+$literal-string-regex--bg-color: #fff0ff;
+$literal-string-single--txt-color: #dd2200; 
+$literal-string-single--bg-color: #fff0f0;
+$literal-string-symbol--txt-color: #aa6600;
+$literal-string-symbol--bg-color: #fff0f0;
+$name-builtin-pseudo--txt-color: #003388;
+$name-variable-class--txt-color: #336699;
+$name-variable-global--txt-color: #dd7700;
+$name-variable-instance--txt-color: #3333bb;
+$literal-number-integer-long--txt-color: #0000DD;
+$literal-number-integer-long--font-weight: bold;
+
+

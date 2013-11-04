@@ -1,0 +1,12 @@
+site:
+  - .md|jinja|pandoc:
+    - pandoc: { args: '-t html5' }
+    - .html|htmlsections
+    - .scss|idio
+
+assets:
+  - .css
+  - .js
+  - .png
+  - .jpg
+

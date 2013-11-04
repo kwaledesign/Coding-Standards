@@ -1,0 +1,431 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <title>Buttons</title>
+    
+    <link rel="stylesheet" href="../css/screen.css" media="screen">
+</head>
+<body class="container">
+  
+  <header class="header">
+    <section class="main-nav">
+      <a href="#" class="menu-link"><span class="icon-th-list-1"></span>menu</a>
+      <a href="/index.html">Home</a>
+      <a href="#" class="grid-link">Grid</a>
+    </section>
+  </header>
+  
+  <nav class="nav--slide">
+ 
+    <a href="/base.html">Base</a>
+    <ul>
+      <li><a href="/base/breakpoints.html">Breakpoints</a></li>
+      <li><a href="/base/color-pallet.html">Color-Pallet</a></li>
+      <li><a href="/base/typography-pallet.html">Typography-Pallet</a></li>
+      <li><a href="/base/settings.html">Settings</a></li>
+      <li><a href="/base/structure-units.html">Structure-Units</a></li>
+      <li><a href="/base/skin-units.html">Skin-Units</a></li>
+    </ul>
+       
+    <a href="/objects.html">Objects</a>
+    <ul>
+      <li><a href="/objects/nav-object.html">Nav-Object</a></li>
+      <li><a href="/objects/media-object.html">Media-Object</a></li>
+      <li><a href="/objects/close-object.html">Close-Object</a></li>
+      <li><a href="/objects/alert-object.html">Alert-Object</a></li>
+      <li><a href="/objects/label-object.html">Label-Object</a></li>
+      <li><a href="/objects/partition-object.html">Partition-Object</a></li>
+      <li><a href="/objects/button-object.html">Button-Object</a></li>
+    </ul>
+
+    <a href="/components.html">Components</a>
+    <ul>
+      <li><a href="/components/typography.html">Typography</a></li>
+      <li><a href="/components/page.html">Page</a></li>
+      <li><a href="/components/quotes.html">Quotes</a></li>
+      <li><a href="/components/tables.html">Tables</a></li>
+      <li><a href="/components/rules.html">Rules</a></li>
+      <li><a href="/components/lists.html">Lists</a></li>
+      <li><a href="/components/links.html">Links</a></li>
+      <li><a href="/components/figures.html">Figures</a></li>
+      <li><a href="/components/code.html">Code</a></li>
+      <li><a href="/components/media.html">Media</a></li>
+      <li><a href="/components/forms.html">Forms</a></li>
+      <li><a href="/components/buttons.html">Buttons</a></li>
+      <li><a href="/components/close.html">Close</a></li>
+      <li><a href="/components/alerts.html">Alerts</a></li>
+      <li><a href="/components/spacers.html">Spacers</a></li>
+      <li><a href="/components/tabs.html">Tabs</a></li>
+      <li><a href="/components/partitions.html">Partitions</a></li>
+      <li><a href="/components/labels.html">Labels</a></li>
+      <li><a href="/components/icons.html">Icons</a></li>
+    </ul>
+ 
+    <a href="/layout.html">Layout</a>
+
+  </nav>   
+
+  <div class="page">
+    <section class="copy">
+
+<h1 id="buttons">Buttons</h1>
+<p class="lead">
+Buttons extend the <a href="/objects/button-object.html">Button-Object</a> and are extended with a structure and a skin class.
+</p>
+
+<h2 id="button-classes">Button Classes</h2>
+<div class="highlight"><pre><a name="l-1"></a><span class="nt">&lt;button</span> <span class="na">type=</span><span class="s">&quot;submit&quot;</span> <span class="na">class=</span><span class="s">&quot;btn btn__small btn--default&quot;</span><span class="nt">&gt;</span>Small Default btn<span class="nt">&lt;/button&gt;</span> 
+</pre></div>
+
+
+<h2 id="button-variables">Button Variables</h2>
+<div class="highlight"><pre><a name="sass--components--_buttons.scss-idio.html-8"></a><span class="cm">/**</span>
+<a name="sass--components--_buttons.scss-idio.html-9"></a><span class="cm"> * Button Variables</span>
+<a name="sass--components--_buttons.scss-idio.html-10"></a><span class="cm"> *</span>
+<a name="sass--components--_buttons.scss-idio.html-11"></a><span class="cm"> * 1. optionally rename button skin styles</span>
+<a name="sass--components--_buttons.scss-idio.html-12"></a><span class="cm"> */</span>
+<a name="sass--components--_buttons.scss-idio.html-13"></a>
+<a name="sass--components--_buttons.scss-idio.html-14"></a><span class="cm">/* button Structure Namespace: */</span>
+<a name="sass--components--_buttons.scss-idio.html-15"></a><span class="nv">$small</span><span class="o">:</span>                               <span class="n">small</span><span class="p">;</span>      <span class="cm">/* 1 */</span>
+<a name="sass--components--_buttons.scss-idio.html-16"></a><span class="nv">$medium</span><span class="o">:</span>                              <span class="no">medium</span><span class="p">;</span>     <span class="cm">/* 1 */</span>
+<a name="sass--components--_buttons.scss-idio.html-17"></a><span class="nv">$large</span><span class="o">:</span>                               <span class="no">large</span><span class="p">;</span>      <span class="cm">/* 1 */</span>
+<a name="sass--components--_buttons.scss-idio.html-18"></a><span class="nv">$touch</span><span class="o">:</span>                               <span class="n">full</span><span class="p">;</span>       <span class="cm">/* 1 */</span>
+<a name="sass--components--_buttons.scss-idio.html-19"></a><span class="cm">/* button Skin Namespace: */</span>
+<a name="sass--components--_buttons.scss-idio.html-20"></a><span class="nv">$default</span><span class="o">:</span>                             <span class="no">default</span><span class="p">;</span>    <span class="cm">/* 1 */</span>
+<a name="sass--components--_buttons.scss-idio.html-21"></a><span class="nv">$positive</span><span class="o">:</span>                            <span class="n">primary</span><span class="p">;</span>    <span class="cm">/* 1 */</span>
+<a name="sass--components--_buttons.scss-idio.html-22"></a><span class="nv">$secondary</span><span class="o">:</span>                           <span class="n">secondary</span><span class="p">;</span>  <span class="cm">/* 1 */</span>
+<a name="sass--components--_buttons.scss-idio.html-23"></a><span class="nv">$negative</span><span class="o">:</span>                            <span class="n">danger</span><span class="p">;</span>     <span class="cm">/* 1 */</span>
+<a name="sass--components--_buttons.scss-idio.html-24"></a>
+<a name="sass--components--_buttons.scss-idio.html-25"></a><span class="cm">/**</span>
+<a name="sass--components--_buttons.scss-idio.html-26"></a><span class="cm"> * Button Skin Variables: </span>
+<a name="sass--components--_buttons.scss-idio.html-27"></a><span class="cm"> */</span>
+<a name="sass--components--_buttons.scss-idio.html-28"></a>
+<a name="sass--components--_buttons.scss-idio.html-29"></a><span class="cm">/* Default Button Skin */</span>
+<a name="sass--components--_buttons.scss-idio.html-30"></a><span class="nv">$btn__default--color1</span><span class="o">:</span>                <span class="mh">#B3B3B3</span><span class="p">;</span>
+<a name="sass--components--_buttons.scss-idio.html-31"></a><span class="nv">$btn__default--color2</span><span class="o">:</span>                <span class="nf">darken</span><span class="p">(</span><span class="nv">$btn__default--color1</span><span class="o">,</span> <span class="mi">10</span><span class="kt">%</span><span class="p">);</span>
+<a name="sass--components--_buttons.scss-idio.html-32"></a>
+<a name="sass--components--_buttons.scss-idio.html-33"></a><span class="cm">/* Positive Button Skin */</span>
+<a name="sass--components--_buttons.scss-idio.html-34"></a><span class="nv">$btn__positive--color1</span><span class="o">:</span>               <span class="mh">#5B8737</span><span class="p">;</span>
+<a name="sass--components--_buttons.scss-idio.html-35"></a><span class="nv">$btn__positive--color2</span><span class="o">:</span>               <span class="nf">darken</span><span class="p">(</span><span class="nv">$btn__positive--color1</span><span class="o">,</span> <span class="mi">10</span><span class="kt">%</span><span class="p">);</span>
+<a name="sass--components--_buttons.scss-idio.html-36"></a>
+<a name="sass--components--_buttons.scss-idio.html-37"></a><span class="cm">/* Negative Button Skin */</span>
+<a name="sass--components--_buttons.scss-idio.html-38"></a><span class="nv">$btn__negative--color1</span><span class="o">:</span>               <span class="mh">#E91C21</span><span class="p">;</span>
+<a name="sass--components--_buttons.scss-idio.html-39"></a><span class="nv">$btn__negative--color2</span><span class="o">:</span>               <span class="nf">darken</span><span class="p">(</span><span class="nv">$btn__negative--color1</span><span class="o">,</span> <span class="mi">10</span><span class="kt">%</span><span class="p">);</span>
+<a name="sass--components--_buttons.scss-idio.html-40"></a>
+<a name="sass--components--_buttons.scss-idio.html-41"></a><span class="cm">/* Secondary Button Skin */</span>
+<a name="sass--components--_buttons.scss-idio.html-42"></a><span class="nv">$btn__secondary--color1</span><span class="o">:</span>              <span class="nf">white</span><span class="p">(</span><span class="mi">10</span><span class="kt">%</span><span class="p">);</span>
+<a name="sass--components--_buttons.scss-idio.html-43"></a><span class="nv">$btn__secondary--color2</span><span class="o">:</span>              <span class="nf">darken</span><span class="p">(</span><span class="nv">$btn__secondary--color1</span><span class="o">,</span> <span class="mi">10</span><span class="kt">%</span><span class="p">);</span>
+</pre></div>
+
+
+<h2 id="default-buttons">Default Buttons</h2>
+<button type="submit" class="btn btn__small btn--default">
+Small Default btn
+</button> 
+<button type="submit" class="btn btn__medium btn--default">
+Medium Default btn
+</button>
+<button type="submit" class="btn btn__large btn--default">
+Large Default btn
+</button>
+
+
+<h2 id="primary-buttons">Primary Buttons</h2>
+<button type="submit" class="btn btn__small btn--primary">
+Small Primary btn
+</button>
+<button type="submit" class="btn btn__medium btn--primary">
+Medium Primary btn
+</button>
+<button type="submit" class="btn btn__large btn--primary">
+Large Primary btn
+</button>
+
+
+<h2 id="secondary-buttons">Secondary Buttons</h2>
+<button type="submit" class="btn btn__small btn--secondary">
+Small Secondary btn
+</button>
+<button type="submit" class="btn btn__medium btn--secondary">
+Medium Secondary btn
+</button>
+<button type="submit" class="btn btn__large btn--secondary">
+Large Secondary btn
+</button>
+
+
+<h2 id="positive-buttons">Positive Buttons</h2>
+<button type="submit" class="btn btn__small btn--positive">
+Small Success btn
+</button> 
+<button type="submit" class="btn btn__medium btn--positive">
+Medium Success btn
+</button> 
+<button type="submit" class="btn btn__large btn--positive">
+Large Success btn
+</button> 
+
+
+<h2 id="negative-buttons">Negative Buttons</h2>
+<button type="submit" class="btn btn__small btn--danger">
+Small Danger btn
+</button> 
+<button type="submit" class="btn btn__medium btn--danger">
+Medium Danger btn
+</button> 
+<button type="submit" class="btn btn__large btn--danger">
+Large Danger btn
+</button> 
+
+
+<h2 id="disabled-button-state">Disabled Button State</h2>
+<button type="submit" class="btn btn__medium btn--default btn--disabled">
+Disabled btn State
+</button> 
+<button type="submit" class="btn btn__medium btn--primary btn--disabled">
+Disabled btn State
+</button> 
+<button type="submit" class="btn btn__medium btn--secondary btn--disabled">
+Disabled btn State
+</button> 
+<button type="submit" class="btn btn__medium btn--success btn--disabled">
+Disabled btn State
+</button>
+<button type="submit" class="btn btn__medium btn--danger btn--disabled">
+Disabled btn State
+</button> 
+<!-- section "end" --> 
+
+<!--
+
+<h2>btn-group</h2>
+<script src="https://gist.github.com/3161392.js?file=Archetype btn-Group"></script>
+    <ul class="btn-group">
+      <li><button href="#" title="btn-Group" class="btn primary medium">btn 1</button></li>
+      <li><button href="#" title="btn-Group" class="btn primary medium">btn 2</button></li>
+      <li><button href="#" title="btn-Group" class="btn primary medium">btn 3</button></li>
+      <li><button href="#" title="btn-Group" class="btn primary medium">btn 4</button></li>
+    </ul>
+
+    <ul class="btn-group">
+      <li><button href="#" title="btn-Group" class="btn secondary medium">btn 1</button></li>
+      <li><button href="#" title="btn-Group" class="btn secondary medium">btn 2</button></li>
+      <li><button href="#" title="btn-Group" class="btn secondary medium">btn 3</button></li>
+      <li><button href="#" title="btn-Group" class="btn secondary medium">btn 4</button></li>
+    </ul>
+
+<h3>Vertical btn Group</h3>
+<p>In the event that a btn group's width exceeds its containing element (on small screens) you can easily set a breakpoint and ad the 'vertical' argument to the btn-group mixin within your media query. This way, your btn group will degrade to the full-btn style without having to change any markup.</p>
+    <ul class="vertical-btn-group">
+      <li><button href="#" title="btn-Group" class="btn secondary medium">btn 1</button></li>
+      <li><button href="#" title="btn-Group" class="btn secondary medium">btn 2</button></li>
+      <li><button href="#" title="btn-Group" class="btn secondary medium">btn 3</button></li>
+      <li><button href="#" title="btn-Group" class="btn secondary medium">btn 4</button></li>
+    </ul>
+
+
+<h1>Round btn</h1>
+<button href="#" class="btn btn-round"><span class="icon-twitter-bird"></span></button>
+<button href="#" class="btn btn-round"><span class="icon-github"></span></button>
+<button href="#" class="btn btn-round"><span class="icon-th"></span></button>
+
+-->
+
+
+<h2 id="link-button">Link Button</h2>
+<p>
+Deemphasised btn option that looks like a link, but behaves like a btn.
+</p>
+<button type="submit" class="btn btn__small btn--default">
+Small Default btn
+</button>
+<button type="submit" class="btn btn--link btn--small">
+Link btn
+</button>
+<button type="submit" class="btn btn--link btn--small btn--disabled">
+Disabled Link btn
+</button>
+
+
+<h2 id="full-button">Full Button</h2>
+<p>
+Full screen, block level btn style for small screens. Defaults to the large btn structure style to accomodate bigger touch surface.
+</p>
+<button type="submit" class="btn btn__full btn--danger">
+Initiate Self-Destruct Sequence
+</button> 
+<button type="submit" class="btn btn__full btn--secondary">
+Abort
+</button>
+
+
+<h2 id="button-structure">Button Structure</h2>
+<div class="highlight"><pre><a name="sass--components--_buttons.scss-idio.html-47"></a><span class="cm">/**</span>
+<a name="sass--components--_buttons.scss-idio.html-48"></a><span class="cm"> * Button Structure</span>
+<a name="sass--components--_buttons.scss-idio.html-49"></a><span class="cm"> *</span>
+<a name="sass--components--_buttons.scss-idio.html-50"></a><span class="cm"> * Extends button object</span>
+<a name="sass--components--_buttons.scss-idio.html-51"></a><span class="cm"> *</span>
+<a name="sass--components--_buttons.scss-idio.html-52"></a><span class="cm"> * 6. Normalise box model styles.</span>
+<a name="sass--components--_buttons.scss-idio.html-53"></a><span class="cm"> * 7. If the button’s text is 1em, and the button is (3 * font-size) tall, then</span>
+<a name="sass--components--_buttons.scss-idio.html-54"></a><span class="cm"> *    there is 1em of space above and below that text. We therefore apply 1em</span>
+<a name="sass--components--_buttons.scss-idio.html-55"></a><span class="cm"> *    of space to the left and right, as padding, to keep consistent spacing.</span>
+<a name="sass--components--_buttons.scss-idio.html-56"></a><span class="cm"> * 8. Basic cosmetics for default buttons. Change or override at will.</span>
+<a name="sass--components--_buttons.scss-idio.html-57"></a><span class="cm"> */</span>
+<a name="sass--components--_buttons.scss-idio.html-58"></a>
+<a name="sass--components--_buttons.scss-idio.html-59"></a><span class="cm">/**</span>
+<a name="sass--components--_buttons.scss-idio.html-60"></a><span class="cm"> * Small Button </span>
+<a name="sass--components--_buttons.scss-idio.html-61"></a><span class="cm"> */</span>
+<a name="sass--components--_buttons.scss-idio.html-62"></a><span class="nc">.btn__</span><span class="si">#{</span><span class="nv">$small</span><span class="si">}</span> <span class="p">{</span>
+<a name="sass--components--_buttons.scss-idio.html-63"></a>  <span class="na">font-size</span><span class="o">:</span> <span class="p">(</span><span class="nv">$base-font-size</span> <span class="o">-</span> <span class="mi">4</span><span class="kt">px</span><span class="p">);</span>
+<a name="sass--components--_buttons.scss-idio.html-64"></a>  <span class="na">padding</span><span class="o">:</span> <span class="mi">2</span><span class="kt">px</span> <span class="mi">6</span><span class="kt">px</span><span class="p">;</span> <span class="c1">//6</span>
+<a name="sass--components--_buttons.scss-idio.html-65"></a>  <span class="na">line-height</span><span class="o">:</span> <span class="nv">$base-line-height</span><span class="p">;</span><span class="c1">//7</span>
+<a name="sass--components--_buttons.scss-idio.html-66"></a>  <span class="na">margin</span><span class="o">:</span> <span class="mi">0</span><span class="p">;</span><span class="c1">//6</span>
+<a name="sass--components--_buttons.scss-idio.html-67"></a>  <span class="na">border-radius</span><span class="o">:</span> <span class="mi">3</span><span class="kt">px</span><span class="p">;</span><span class="c1">//8</span>
+<a name="sass--components--_buttons.scss-idio.html-68"></a><span class="p">}</span>
+<a name="sass--components--_buttons.scss-idio.html-69"></a>
+<a name="sass--components--_buttons.scss-idio.html-70"></a><span class="cm">/**</span>
+<a name="sass--components--_buttons.scss-idio.html-71"></a><span class="cm"> * Medium Button </span>
+<a name="sass--components--_buttons.scss-idio.html-72"></a><span class="cm"> */</span>
+<a name="sass--components--_buttons.scss-idio.html-73"></a><span class="nc">.btn__</span><span class="si">#{</span><span class="nv">$medium</span><span class="si">}</span> <span class="p">{</span>
+<a name="sass--components--_buttons.scss-idio.html-74"></a>  <span class="na">font-size</span><span class="o">:</span> <span class="p">(</span><span class="nv">$base-font-size</span> <span class="o">-</span> <span class="mi">2</span><span class="kt">px</span><span class="p">);</span>
+<a name="sass--components--_buttons.scss-idio.html-75"></a>  <span class="na">padding</span><span class="o">:</span> <span class="mi">5</span><span class="kt">px</span> <span class="mi">9</span><span class="kt">px</span><span class="p">;</span> <span class="c1">//6</span>
+<a name="sass--components--_buttons.scss-idio.html-76"></a>  <span class="na">line-height</span><span class="o">:</span> <span class="nv">$base-line-height</span><span class="p">;</span><span class="c1">//7</span>
+<a name="sass--components--_buttons.scss-idio.html-77"></a>  <span class="na">margin</span><span class="o">:</span> <span class="mi">5</span><span class="kt">px</span><span class="p">;</span><span class="c1">//6</span>
+<a name="sass--components--_buttons.scss-idio.html-78"></a>  <span class="na">border-radius</span><span class="o">:</span> <span class="mi">5</span><span class="kt">px</span><span class="p">;</span><span class="c1">//8</span>
+<a name="sass--components--_buttons.scss-idio.html-79"></a><span class="p">}</span>
+<a name="sass--components--_buttons.scss-idio.html-80"></a>
+<a name="sass--components--_buttons.scss-idio.html-81"></a><span class="cm">/**</span>
+<a name="sass--components--_buttons.scss-idio.html-82"></a><span class="cm"> * Large Button </span>
+<a name="sass--components--_buttons.scss-idio.html-83"></a><span class="cm"> */</span>
+<a name="sass--components--_buttons.scss-idio.html-84"></a><span class="nc">.btn__</span><span class="si">#{</span><span class="nv">$large</span><span class="si">}</span> <span class="p">{</span>
+<a name="sass--components--_buttons.scss-idio.html-85"></a>  <span class="na">font-size</span><span class="o">:</span> <span class="p">(</span><span class="nv">$base-font-size</span> <span class="o">+</span> <span class="mi">2</span><span class="kt">px</span><span class="p">);</span>
+<a name="sass--components--_buttons.scss-idio.html-86"></a>  <span class="na">padding</span><span class="o">:</span> <span class="mi">9</span><span class="kt">px</span> <span class="mi">14</span><span class="kt">px</span><span class="p">;</span> <span class="c1">//6</span>
+<a name="sass--components--_buttons.scss-idio.html-87"></a>  <span class="na">line-height</span><span class="o">:</span> <span class="nv">$base-line-height</span><span class="p">;</span><span class="c1">//7</span>
+<a name="sass--components--_buttons.scss-idio.html-88"></a>  <span class="na">margin</span><span class="o">:</span> <span class="mi">5</span><span class="kt">px</span><span class="p">;</span><span class="c1">//6</span>
+<a name="sass--components--_buttons.scss-idio.html-89"></a>  <span class="na">border-radius</span><span class="o">:</span> <span class="mi">7</span><span class="kt">px</span><span class="p">;</span><span class="c1">//8</span>
+<a name="sass--components--_buttons.scss-idio.html-90"></a><span class="p">}</span>
+<a name="sass--components--_buttons.scss-idio.html-91"></a>
+<a name="sass--components--_buttons.scss-idio.html-92"></a><span class="cm">/**</span>
+<a name="sass--components--_buttons.scss-idio.html-93"></a><span class="cm"> * Full Button</span>
+<a name="sass--components--_buttons.scss-idio.html-94"></a><span class="cm"> *</span>
+<a name="sass--components--_buttons.scss-idio.html-95"></a><span class="cm"> * full screen, block level button style for small screens </span>
+<a name="sass--components--_buttons.scss-idio.html-96"></a><span class="cm"> */</span>
+<a name="sass--components--_buttons.scss-idio.html-97"></a><span class="nc">.btn__</span><span class="si">#{</span><span class="nv">$touch</span><span class="si">}</span> <span class="p">{</span>
+<a name="sass--components--_buttons.scss-idio.html-98"></a>  <span class="k">@extend</span> <span class="nc">.btn__</span><span class="si">#{</span><span class="no">large</span><span class="si">}</span><span class="o">;</span>
+<a name="sass--components--_buttons.scss-idio.html-99"></a>  <span class="nt">display</span><span class="nd">:</span> <span class="nt">block</span><span class="o">;</span>
+<a name="sass--components--_buttons.scss-idio.html-100"></a>  <span class="nt">width</span><span class="nd">:</span> <span class="nt">100</span><span class="err">%</span><span class="o">;</span>
+<a name="sass--components--_buttons.scss-idio.html-101"></a>  <span class="nt">padding-left</span><span class="nd">:</span> <span class="nt">0</span><span class="o">;</span>
+<a name="sass--components--_buttons.scss-idio.html-102"></a>  <span class="nt">padding-right</span><span class="nd">:</span> <span class="nt">0</span><span class="o">;</span>
+<a name="sass--components--_buttons.scss-idio.html-103"></a><span class="p">}</span>
+</pre></div>
+
+
+<h2 id="button-skin">Button Skin</h2>
+<div class="highlight"><pre><a name="sass--components--_buttons.scss-idio.html-107"></a><span class="cm">/**</span>
+<a name="sass--components--_buttons.scss-idio.html-108"></a><span class="cm"> * Button Skin</span>
+<a name="sass--components--_buttons.scss-idio.html-109"></a><span class="cm"> *</span>
+<a name="sass--components--_buttons.scss-idio.html-110"></a><span class="cm"> */</span>
+<a name="sass--components--_buttons.scss-idio.html-111"></a>
+<a name="sass--components--_buttons.scss-idio.html-112"></a><span class="cm">/**</span>
+<a name="sass--components--_buttons.scss-idio.html-113"></a><span class="cm"> * Default Button Skin</span>
+<a name="sass--components--_buttons.scss-idio.html-114"></a><span class="cm"> */</span>
+<a name="sass--components--_buttons.scss-idio.html-115"></a><span class="nc">.btn--</span><span class="si">#{</span><span class="nv">$default</span><span class="si">}</span> <span class="p">{</span>
+<a name="sass--components--_buttons.scss-idio.html-116"></a>  <span class="na">background-color</span><span class="o">:</span> <span class="nv">$btn__default--color1</span><span class="p">;</span>
+<a name="sass--components--_buttons.scss-idio.html-117"></a>  <span class="na">color</span><span class="o">:</span> <span class="nv">$white</span><span class="p">;</span>
+<a name="sass--components--_buttons.scss-idio.html-118"></a>  <span class="na">border</span><span class="o">:</span> <span class="mi">1</span><span class="kt">px</span> <span class="no">solid</span> <span class="nv">$strong</span><span class="p">;</span>
+<a name="sass--components--_buttons.scss-idio.html-119"></a>  <span class="k">&amp;</span><span class="nd">:hover</span> <span class="p">{</span>
+<a name="sass--components--_buttons.scss-idio.html-120"></a>  <span class="na">background-color</span><span class="o">:</span> <span class="nv">$btn__default--color2</span><span class="p">;</span>
+<a name="sass--components--_buttons.scss-idio.html-121"></a>  <span class="p">}</span>
+<a name="sass--components--_buttons.scss-idio.html-122"></a>  <span class="k">&amp;</span><span class="nd">:active</span><span class="o">,</span>
+<a name="sass--components--_buttons.scss-idio.html-123"></a>  <span class="k">&amp;</span><span class="nc">.active</span> <span class="p">{</span>
+<a name="sass--components--_buttons.scss-idio.html-124"></a>  <span class="na">background-color</span><span class="o">:</span> <span class="nf">tint</span><span class="p">(</span><span class="nv">$btn__default--color2</span><span class="o">,</span> <span class="mi">10</span><span class="kt">%</span><span class="p">);</span>
+<a name="sass--components--_buttons.scss-idio.html-125"></a>  <span class="p">}</span>
+<a name="sass--components--_buttons.scss-idio.html-126"></a>  <span class="k">&amp;</span><span class="nc">.disabled</span><span class="o">,</span>
+<a name="sass--components--_buttons.scss-idio.html-127"></a>  <span class="k">&amp;</span><span class="o">[</span><span class="nt">disabled</span><span class="o">]</span> <span class="p">{</span>
+<a name="sass--components--_buttons.scss-idio.html-128"></a>  <span class="na">opacity</span><span class="o">:</span> <span class="mi">0</span><span class="mf">.6</span><span class="p">;</span>
+<a name="sass--components--_buttons.scss-idio.html-129"></a>  <span class="na">cursor</span><span class="o">:</span> <span class="no">default</span><span class="p">;</span>
+<a name="sass--components--_buttons.scss-idio.html-130"></a>  <span class="p">}</span>
+<a name="sass--components--_buttons.scss-idio.html-131"></a><span class="p">}</span>
+<a name="sass--components--_buttons.scss-idio.html-132"></a>
+<a name="sass--components--_buttons.scss-idio.html-133"></a><span class="cm">/**</span>
+<a name="sass--components--_buttons.scss-idio.html-134"></a><span class="cm"> * Positive Button Skin</span>
+<a name="sass--components--_buttons.scss-idio.html-135"></a><span class="cm"> */</span>
+<a name="sass--components--_buttons.scss-idio.html-136"></a><span class="nc">.btn--</span><span class="si">#{</span><span class="nv">$positive</span><span class="si">}</span> <span class="p">{</span>
+<a name="sass--components--_buttons.scss-idio.html-137"></a>  <span class="na">background-color</span><span class="o">:</span> <span class="nv">$btn__positive--color1</span><span class="p">;</span>
+<a name="sass--components--_buttons.scss-idio.html-138"></a>  <span class="na">color</span><span class="o">:</span> <span class="nv">$white</span><span class="p">;</span>
+<a name="sass--components--_buttons.scss-idio.html-139"></a>  <span class="na">border</span><span class="o">:</span> <span class="mi">1</span><span class="kt">px</span> <span class="no">solid</span> <span class="nv">$strong</span><span class="p">;</span>
+<a name="sass--components--_buttons.scss-idio.html-140"></a>  <span class="k">&amp;</span><span class="nd">:hover</span> <span class="p">{</span>
+<a name="sass--components--_buttons.scss-idio.html-141"></a>  <span class="na">background-color</span><span class="o">:</span> <span class="nv">$btn__positive--color2</span><span class="p">;</span> 
+<a name="sass--components--_buttons.scss-idio.html-142"></a>  <span class="p">}</span>
+<a name="sass--components--_buttons.scss-idio.html-143"></a>  <span class="k">&amp;</span><span class="nd">:active</span><span class="o">,</span>
+<a name="sass--components--_buttons.scss-idio.html-144"></a>  <span class="k">&amp;</span><span class="nc">.active</span> <span class="p">{</span>
+<a name="sass--components--_buttons.scss-idio.html-145"></a>  <span class="na">background-color</span><span class="o">:</span> <span class="nf">tint</span><span class="p">(</span><span class="nv">$btn__positive--color2</span><span class="o">,</span> <span class="mi">10</span><span class="kt">%</span><span class="p">);</span>
+<a name="sass--components--_buttons.scss-idio.html-146"></a>  <span class="p">}</span>
+<a name="sass--components--_buttons.scss-idio.html-147"></a>  <span class="k">&amp;</span><span class="nc">.disabled</span><span class="o">,</span>
+<a name="sass--components--_buttons.scss-idio.html-148"></a>  <span class="k">&amp;</span><span class="o">[</span><span class="nt">disabled</span><span class="o">]</span> <span class="p">{</span>
+<a name="sass--components--_buttons.scss-idio.html-149"></a>  <span class="na">opacity</span><span class="o">:</span> <span class="mi">0</span><span class="mf">.6</span><span class="p">;</span>
+<a name="sass--components--_buttons.scss-idio.html-150"></a>  <span class="na">cursor</span><span class="o">:</span> <span class="no">default</span><span class="p">;</span>
+<a name="sass--components--_buttons.scss-idio.html-151"></a>  <span class="p">}</span>
+<a name="sass--components--_buttons.scss-idio.html-152"></a><span class="p">}</span>
+<a name="sass--components--_buttons.scss-idio.html-153"></a>
+<a name="sass--components--_buttons.scss-idio.html-154"></a><span class="cm">/**</span>
+<a name="sass--components--_buttons.scss-idio.html-155"></a><span class="cm"> * Negative Button Skin</span>
+<a name="sass--components--_buttons.scss-idio.html-156"></a><span class="cm"> */</span>
+<a name="sass--components--_buttons.scss-idio.html-157"></a><span class="nc">.btn--</span><span class="si">#{</span><span class="nv">$negative</span><span class="si">}</span> <span class="p">{</span>
+<a name="sass--components--_buttons.scss-idio.html-158"></a>  <span class="na">background-color</span><span class="o">:</span> <span class="nv">$btn__negative--color1</span><span class="p">;</span>
+<a name="sass--components--_buttons.scss-idio.html-159"></a>  <span class="na">color</span><span class="o">:</span> <span class="nv">$white</span><span class="p">;</span>
+<a name="sass--components--_buttons.scss-idio.html-160"></a>  <span class="na">border</span><span class="o">:</span> <span class="mi">1</span><span class="kt">px</span> <span class="no">solid</span> <span class="nv">$strong</span><span class="p">;</span>
+<a name="sass--components--_buttons.scss-idio.html-161"></a>  <span class="k">&amp;</span><span class="nd">:hover</span> <span class="p">{</span>
+<a name="sass--components--_buttons.scss-idio.html-162"></a>  <span class="na">background-color</span><span class="o">:</span> <span class="nv">$btn__negative--color2</span><span class="p">;</span> 
+<a name="sass--components--_buttons.scss-idio.html-163"></a>  <span class="p">}</span>
+<a name="sass--components--_buttons.scss-idio.html-164"></a>  <span class="k">&amp;</span><span class="nd">:active</span><span class="o">,</span>
+<a name="sass--components--_buttons.scss-idio.html-165"></a>  <span class="k">&amp;</span><span class="nc">.active</span> <span class="p">{</span>
+<a name="sass--components--_buttons.scss-idio.html-166"></a>  <span class="na">background-color</span><span class="o">:</span> <span class="nf">tint</span><span class="p">(</span><span class="nv">$btn__negative--color2</span><span class="o">,</span> <span class="mi">10</span><span class="kt">%</span><span class="p">);</span>
+<a name="sass--components--_buttons.scss-idio.html-167"></a>  <span class="p">}</span>
+<a name="sass--components--_buttons.scss-idio.html-168"></a>  <span class="k">&amp;</span><span class="nc">.disabled</span><span class="o">,</span>
+<a name="sass--components--_buttons.scss-idio.html-169"></a>  <span class="k">&amp;</span><span class="o">[</span><span class="nt">disabled</span><span class="o">]</span> <span class="p">{</span>
+<a name="sass--components--_buttons.scss-idio.html-170"></a>  <span class="na">opacity</span><span class="o">:</span> <span class="mi">0</span><span class="mf">.6</span><span class="p">;</span>
+<a name="sass--components--_buttons.scss-idio.html-171"></a>  <span class="na">cursor</span><span class="o">:</span> <span class="no">default</span><span class="p">;</span>
+<a name="sass--components--_buttons.scss-idio.html-172"></a>  <span class="p">}</span>
+<a name="sass--components--_buttons.scss-idio.html-173"></a><span class="p">}</span>
+<a name="sass--components--_buttons.scss-idio.html-174"></a>
+<a name="sass--components--_buttons.scss-idio.html-175"></a><span class="cm">/**</span>
+<a name="sass--components--_buttons.scss-idio.html-176"></a><span class="cm"> * Secondary Button Skin</span>
+<a name="sass--components--_buttons.scss-idio.html-177"></a><span class="cm"> */</span>
+<a name="sass--components--_buttons.scss-idio.html-178"></a><span class="nc">.btn--</span><span class="si">#{</span><span class="nv">$secondary</span><span class="si">}</span> <span class="p">{</span>
+<a name="sass--components--_buttons.scss-idio.html-179"></a>  <span class="na">background-color</span><span class="o">:</span> <span class="nv">$btn__secondary--color1</span><span class="p">;</span>
+<a name="sass--components--_buttons.scss-idio.html-180"></a>  <span class="na">color</span><span class="o">:</span> <span class="nv">$white</span><span class="p">;</span>
+<a name="sass--components--_buttons.scss-idio.html-181"></a>  <span class="na">border</span><span class="o">:</span> <span class="mi">1</span><span class="kt">px</span> <span class="no">solid</span> <span class="nv">$strong</span><span class="p">;</span>
+<a name="sass--components--_buttons.scss-idio.html-182"></a>  <span class="k">&amp;</span><span class="nd">:hover</span> <span class="p">{</span>
+<a name="sass--components--_buttons.scss-idio.html-183"></a>  <span class="na">background-color</span><span class="o">:</span> <span class="nv">$btn__secondary--color2</span><span class="p">;</span> 
+<a name="sass--components--_buttons.scss-idio.html-184"></a>  <span class="p">}</span>
+<a name="sass--components--_buttons.scss-idio.html-185"></a>  <span class="k">&amp;</span><span class="nd">:active</span><span class="o">,</span>
+<a name="sass--components--_buttons.scss-idio.html-186"></a>  <span class="k">&amp;</span><span class="nc">.active</span> <span class="p">{</span>
+<a name="sass--components--_buttons.scss-idio.html-187"></a>  <span class="na">background-color</span><span class="o">:</span> <span class="nf">tint</span><span class="p">(</span><span class="nv">$btn__secondary--color2</span><span class="o">,</span> <span class="mi">10</span><span class="kt">%</span><span class="p">);</span>
+<a name="sass--components--_buttons.scss-idio.html-188"></a>  <span class="p">}</span>
+<a name="sass--components--_buttons.scss-idio.html-189"></a>  <span class="k">&amp;</span><span class="nc">.disabled</span><span class="o">,</span>
+<a name="sass--components--_buttons.scss-idio.html-190"></a>  <span class="k">&amp;</span><span class="o">[</span><span class="nt">disabled</span><span class="o">]</span> <span class="p">{</span>
+<a name="sass--components--_buttons.scss-idio.html-191"></a>  <span class="na">opacity</span><span class="o">:</span> <span class="mi">0</span><span class="mf">.6</span><span class="p">;</span>
+<a name="sass--components--_buttons.scss-idio.html-192"></a>  <span class="na">cursor</span><span class="o">:</span> <span class="no">default</span><span class="p">;</span>
+<a name="sass--components--_buttons.scss-idio.html-193"></a>  <span class="p">}</span>
+<a name="sass--components--_buttons.scss-idio.html-194"></a><span class="p">}</span>
+</pre></div>
+
+
+</section>
+
+
+  </div>
+  
+  <footer>
+    <p>Footer goes here</p>
+</footer>
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+<script>window.jQuery || document.write('<script src="/js/vendor/jquery/jquery.min.js"><\/script>')</script>
+<script src="/js/main.js"></script>
+
+</body>
+</html>

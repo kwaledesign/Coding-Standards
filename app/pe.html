@@ -1,0 +1,11 @@
+---
+layout: default
+title: Testing
+---
+
+<section class="home posts">
+
+{% capture pe %}{% include markdown/pe.md %}{% endcapture %}
+{{ pe | markdownify }}
+
+</section>

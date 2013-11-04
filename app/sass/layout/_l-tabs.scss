@@ -1,0 +1,48 @@
+/**
+ * Tabs Layout
+ *
+ * Extends sass/archetype/modules/_tabs.scss
+ *
+ * tab mixin and arguments:
+ * @include tab($alignment, $style);
+ * $alignment: left (default) | right
+ * $style: top (default) | vertical | bottom | side-left | side-right
+ *
+ * to omit the skin styles use: 
+ * @include tab-structure($alignment, $style);
+ *
+ * heads up: remember to keep @extend rules out of media queries - they're not supported.
+ *
+ * markup pattern:
+ * <div class="tab-container">
+ *   <ul class="top-left-tabs">
+ *     <li><a href="tab-1-div">Tab One</a></li>
+ *     <li><a href="tab-2-div">Tab Two</a></li>
+ *   </ul>
+ * </div>
+ * <div class="tab-1-div">
+ *   content
+ * </div>
+ * <div class="tab-2-div">
+ *  content
+ * </div>
+ *
+ */
+
+
+/* Example:
+// Layout styles for .m-tab__sub-nav 
+@media screen (max 300px) {
+  .l-tabs__sub-nav {
+    @include tab(left, vertical);
+  }
+}
+
+@media screen (min 300px) {
+  .l-tabs__sub-nav {
+    @include tab(left, top);
+  }
+}
+*/
+
+
