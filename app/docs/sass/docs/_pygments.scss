@@ -1,0 +1,137 @@
+/**
+ * Pygments
+ * 
+ * syntax highlight colors
+ */
+
+/**
+ * @TODO: create variables for each setting for easy customization
+ * @TODO: customize colors, currently using dexy pastie filter colors
+ */
+
+/**
+ * Pygments 
+ */
+@mixin pygments {
+  .hll { background-color: #ffffcc }
+  /* Comment */
+  .c { color:$comment--txt-color; } 
+  /* Error */
+  .err { color: $error--txt-color; background-color: $error--bg-color; }
+  /* Keyword */
+  .k { color: $keyword--txt-color; font-weight: bold }  
+  /* Comment.Multiline */
+  .cm { color: $multiline-comment--txt-color; } 
+  /* Comment.Preproc */
+  .cp { color: $comment-preproc--txt-color; font-weight: $comment-preproc--font-weight; } 
+  /* Comment.Single */
+  .c1 { color: $comment-single--txt-color; }
+  /* Comment.Special */
+  .cs { color: $comment-special--txt-color; font-weight: bold; background-color: $comment-special--bg-color; }
+  /* Generic.Deleted */
+  .gd { color: $generic-deleted--txt-color; background-color: $generic-deleted--bg-color; }  
+  /* Generic.Emph */
+  .ge { font-style: $generic-emphasis--font-style; font-weight: $generic-emphasis--font-weight; }
+  /* Generic.Error */
+  .gr { color: $generic-error--txt-color; }
+  /* Generic.Heading */
+  .gh { color: $generic-heading--txt-color; }
+  /* Generic.Inserted */
+  .gi { color: $generic-inserted--txt-color; background-color: $generic-inserted--bg-color; }
+  /* Generic.Output */
+  .go { color: $generic-output--txt-color;}
+  /* Generic.Prompt */
+  .gp { color: $generic-prompt--txt-color; }
+  /* Generic.Strong */
+  .gs { font-weight: $generic-strong--font-weight; }
+  /* Generic.Subheading */
+  .gu { color: $generic-subheading--txt-color; }
+  /* Generic.Traceback */
+  .gt { color: $generic-trackback--txt-color; }
+  /* Keyword.Constant */
+  .kc { color: $keyword-constant--txt-color; font-weight: $keyword-constant--font-weight; }
+  /* Keyword.Declaration */
+  .kd { color: $keyword-declaration--txt-color; font-weight: $keyword-declaration--font-weight; }
+  /* Keyword.Namespace */
+  .kn { color: $keyword-namespace--txt-color; font-weight: $keyword-namespace--font-weight; }
+  /* Keyword.Pseudo */
+  .kp { color: $keyword-pseudo--txt-color; }
+  /* Keyword.Reserved */
+  .kr { color: $keyword-reserved--txt-color; font-weight: $keyword-reserved--font-weight; }
+  /* Keyword.Type */
+  .kt { color: $keyword-type--txt-color; font-weight: $keyword-type--font-weight; }
+  /* Literal.Number */
+  .m { color: $literal-number--txt-color; font-weight: $literal-number--font-weight; }
+  /* Literal.String */
+  .s { color: $literal-string--txt-color; background-color: $literal-string--bg-color; }
+  /* Name.Attribute */
+  .na { color: $name-attribute--txt-color; }
+  /* Name.Builtin */
+  .nb { color: $name-builtin--txt-color; }
+  /* Name.Class */
+  .nc { color: $name-class--txt-color; font-weight: $name-class--font-weight; }
+  /* Name.Constant */
+  .no { color: $name-constant--txt-color; font-weight: $name-constant--font-weight; }
+  /* Name.Decorator */
+  .nd { color: $name-decorator--txt-color; }
+  /* Name.Exception */
+  .ne { color: $name-exception--txt-color; font-weight: $name-exception--txt-color; }
+  /* Name.Function */
+  .nf { color: $name-function--txt-color; font-weight: $name-function--font-weight; }
+  /* Name.Label */
+  .nl { color: $name-label--txt-color; font-style: $name-label--font-style; }
+  /* Name.Namespace */
+  .nn { color: $name-namespace--txt-color; font-weight: $name-namespace--font-weight; }
+  /* Name.Property */
+  .py { color: $name-property--txt-color; font-weight: $name-property--font-weight; }
+  /* Name.Tag */
+  .nt { color: $name-tag--txt-color; font-weight: $name-tag--font-weight; }
+  /* Name.Variable */
+  .nv { color: $name-variable--txt-color; }
+  /* Operator.Word */
+  .ow { color: $operator-word--txt-color; }
+  /* Text.Whitespace */
+  .w { color: $text-whitespace--txt-color; }
+  /* Literal.Number.Float */
+  .mf { color: $literal-number-float--txt-color; font-weight: $literal-number-float--font-weight; }
+  /* Literal.Number.Hex */
+  .mh { color: $literal-number-hex--txt-color; font-weight: $literal-number-hex--font-weight; }
+  /* Literal.Number.Integer */
+  .mi { color: $literal-number-integer--txt-color; font-weight: $literal-number-integer--font-weight; }
+  /* Literal.Number.Oct */
+  .mo { color: $literal-number-oct--txt-color; font-weight: $literal-number-oct--font-weight; }
+  /* Literal.String.Backtick */
+  .sb { color: $literal-string-backtick--txt-color; background-color: $literal-string-backtick--font-weight; }
+  /* Literal.String.Char */
+  .sc { color: $literal-string-char--txt-color; background-color: $literal-string-char--bg-color; }
+  /* Literal.String.Doc */
+  .sd { color: $literal-string-doc--txt-color; background-color: $literal-string-doc--bg-color; }
+  /* Literal.String.Double */
+  .s2 { color: $literal-string-double--txt-color; background-color: $literal-string-double--bg-color; }
+  /* Literal.String.Escape */
+  .se { color: $literal-string-escape--txt-color; background-color: $literal-string-escape--bg-color; }
+  /* Literal.String.Heredoc */
+  .sh { color: $literal-string-heredoc--txt-color; background-color: $literal-string-heredoc--bg-color; }
+  /* Literal.String.Interpol */
+  .si { color: $literal-string-interpol--txt-color; background-color: $literal-string-interpol--bg-color; }
+  /* Literal.String.Other */
+  .sx { color: $literal-string-other--txt-color; background-color: $literal-string-other--bg-color; }
+  /* Literal.String.Regex */
+  .sr { color: $literal-string-regex--txt-color; background-color: $literal-string-regex--bg-color; }
+  /* Literal.String.Single */
+  .s1 { color: $literal-string-single--txt-color; background-color: $literal-string-single--bg-color; }
+  /* Literal.String.Symbol */
+  .ss { color: $literal-string-symbol--txt-color; background-color: $literal-string-symbol--bg-color;}
+  /* Name.Builtin.Pseudo */
+  .bp { color: $name-builtin-pseudo--txt-color; }
+  /* Name.Variable.Class */
+  .vc { color: $name-variable-class--txt-color; }
+  /* Name.Variable.Global */
+  .vg { color: $name-variable-global--txt-color; }
+  /* Name.Variable.Instance */
+  .vi { color: $name-variable-instance--txt-color; }
+  /* Literal.Number.Integer.Long */
+  .il { color: $literal-number-integer-long--txt-color; font-weight: $literal-number-integer-long--font-weight;}
+} 
+
+@include pygments();

@@ -1,0 +1,38 @@
+/*** @export "links" css */
+/**
+ * Links
+ *
+ * Links are scoped with $main-type-scope which is set in the base/_typography.scss partial
+ */
+
+.#{$main-type-scope} {
+  a {
+    color: blue;
+    font-weight: normal;                   
+    text-decoration: none;
+    &:visited { 
+      color: blue; 
+    }
+    &:hover { 
+      color: blue; 
+    } 
+    &:focus { 
+      color: blue; 
+    }
+  }
+}
+
+/*** @export "external-links" css */
+/**
+ * Identify External Links
+ */
+
+/**
+//$site-domain: kwaledesign;
+
+  a[href ^= 'http']:not([href *= '#{$site-domain}.']) { 
+    background: transparent url(arrow.png) no-repeat center right; 
+    padding-right: 16px; 
+  }
+*/
+

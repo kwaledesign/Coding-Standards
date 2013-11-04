@@ -1,0 +1,34 @@
+/**
+ * Code
+ *
+ * Inline code and code block styles
+ * Scoped with $main-type-scope which is set in the base/_typography.scss partial
+ */
+
+
+/**
+ * Inline Code
+ */
+.#{$main-type-scope} {
+  code {
+    display: inline-block;
+    background: white(10);
+    border: 1px solid white(20);
+    color: lighten(red, 10%);
+    padding: 0 3px;
+    font-family: $monospace;
+  }
+}
+
+/**
+ * Code Blocks
+ * 
+ * 1. maintain vertical ryhthm after code blocks
+ */
+.#{$main-type-scope} {
+  pre {
+    margin: 0 auto rhythm(1);                       /* 1 */
+    font-family: $monospace;
+  }
+}
+

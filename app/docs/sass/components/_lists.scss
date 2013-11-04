@@ -1,0 +1,50 @@
+/**
+ * Lists
+ *
+ */
+
+
+/**
+ * List Variables
+ */
+$list--padding: 0 0 0 $base-line-height *2;
+$list--margin: 0 auto rhythm(1);
+$list--ul-style: disc;
+$list--ol-style: decimal;
+
+/**
+ * List Styles
+ * 
+ */
+li ul,
+li ol {
+  margin: $list--margin;
+}
+
+ul,
+ol {
+  margin: 0 auto rhythm(1);
+  padding: $list--padding;                   
+}
+
+ul {
+  list-style-type: $list--ul-style;
+}
+
+ol {
+  list-style-type: $list--ol-style;
+}
+
+dl {
+  margin: $list--margin;
+}
+
+dl dt {
+  font-weight: bold;
+}
+
+dd {
+  margin: $list--margin;
+  margin-left: $base-line-height * 2;
+}
+

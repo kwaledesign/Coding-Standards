@@ -1,0 +1,129 @@
+/**
+ * Typography
+ * 
+ * typography styles are scoped. only 'default' type values are those provided by the normalize reset
+ * this is done to avoid repeatidly overridding
+ * see: http://css-tricks.com/opt-in-typography/  &  http://anthonyshort.me/2012/05/global-typographic-styles-suck
+ */
+
+
+/**
+ * Main Copy Scope 
+ */
+.#{$main-type-scope} {
+
+/**
+ * Font-face & Icon Fonts
+ */
+//@include font-face();
+
+/**
+ * Headers 
+ */
+  h1, h2, h3, h4, h5, h6 {
+    font-weight: bold;
+    color: $copy--header-color-txt;                 
+    font-family: $copy--header-txt;
+    // Fix the character spacing for headings
+    text-rendering: optimizelegibility;  
+  }
+
+  h1 {
+    @include adjust-font-size-to($copy--h1-size);
+    margin: 0 auto rhythm(1, $copy--h1-size);
+  }
+
+  h2 {
+    @include adjust-font-size-to($copy--h2-size);
+    margin: 0 auto rhythm(1, $copy--h2-size);
+  }
+
+  h3 {
+    @include adjust-font-size-to($copy--h3-size);
+    margin: 0 auto rhythm(1, $copy--h3-size);
+  }
+
+  h4 {
+    @include adjust-font-size-to($copy--h4-size);
+    margin: 0 auto rhythm(1, $copy--h4-size);
+  }
+
+  h5 {
+    @include adjust-font-size-to($copy--h5-size);
+    margin: 0 auto rhythm(1, $copy--h5-size);
+  }
+
+  h6 {
+    @include adjust-font-size-to($copy--h6-size);
+    margin: 0 auto rhythm(1, $copy--h6-size);
+  }
+
+  .subheader { 
+    color: $copy--subheader-color-txt; 
+    font-weight: normal; 
+  }
+
+  p {
+    //margin-bottom: $base-line-height;
+    //font-family: $body-text;                           ////////does this not inherit from above??
+    margin: 0 auto rhythm(1);
+  }
+
+// use indentation rather than spacing with consequitive paragraphs. csswizardry.com/2010/12/mo-robust-paragraph-indenting/
+// p+p { text-indent: 2em; margin-top: -1.5em; }
+
+  .lead {  
+    @include adjust-font-size-to($copy--lead-size);
+    margin: 0 auto rhythm(1, $copy--lead-size);
+    color: $copy--lead-color-txt;
+  }
+
+  .meta {
+    @include adjust-font-size-to($copy--meta-size, $copy--meta-line-height);
+  }
+
+  .footnote {
+    @include adjust-font-size-to($copy--footnote-size, $copy--footnote-line-height);
+  }
+
+  .muted {
+    color: $muted-color--txt;
+  }
+
+  address {
+    display: block;
+    margin-bottom: $base-line-height;
+    line-height: $base-line-height;
+    font-style: normal;
+  }
+  del {
+    color: $copy--deleted-color;
+    text-decoration: line-through;
+  }
+ 
+  cite {
+    font-style: normal;
+  }
+
+  em, 
+  dfn {
+    font-style: italic;
+  }
+  
+  dfn {
+    font-weight: bold;
+  }
+
+  ins { 
+    background: $copy--ins-color-bg; 
+    color: $copy--ins-color-txt; 
+    text-decoration: none; 
+  }
+
+  /*h5bp*/
+  mark {
+  font-style: italic;
+  font-weight: bold;
+  }
+}
+

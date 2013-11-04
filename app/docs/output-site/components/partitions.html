@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <title>Partitions</title>
+    
+    <link rel="stylesheet" href="../css/screen.css" media="screen">
+</head>
+<body class="container">
+  
+  <header class="header">
+    <section class="main-nav">
+      <a href="#" class="menu-link"><span class="icon-th-list-1"></span>menu</a>
+      <a href="/index.html">Home</a>
+      <a href="#" class="grid-link">Grid</a>
+    </section>
+  </header>
+  
+  <nav class="nav--slide">
+ 
+    <a href="/base.html">Base</a>
+    <ul>
+      <li><a href="/base/breakpoints.html">Breakpoints</a></li>
+      <li><a href="/base/color-pallet.html">Color-Pallet</a></li>
+      <li><a href="/base/typography-pallet.html">Typography-Pallet</a></li>
+      <li><a href="/base/settings.html">Settings</a></li>
+      <li><a href="/base/structure-units.html">Structure-Units</a></li>
+      <li><a href="/base/skin-units.html">Skin-Units</a></li>
+    </ul>
+       
+    <a href="/objects.html">Objects</a>
+    <ul>
+      <li><a href="/objects/nav-object.html">Nav-Object</a></li>
+      <li><a href="/objects/media-object.html">Media-Object</a></li>
+      <li><a href="/objects/close-object.html">Close-Object</a></li>
+      <li><a href="/objects/alert-object.html">Alert-Object</a></li>
+      <li><a href="/objects/label-object.html">Label-Object</a></li>
+      <li><a href="/objects/partition-object.html">Partition-Object</a></li>
+      <li><a href="/objects/button-object.html">Button-Object</a></li>
+    </ul>
+
+    <a href="/components.html">Components</a>
+    <ul>
+      <li><a href="/components/typography.html">Typography</a></li>
+      <li><a href="/components/page.html">Page</a></li>
+      <li><a href="/components/quotes.html">Quotes</a></li>
+      <li><a href="/components/tables.html">Tables</a></li>
+      <li><a href="/components/rules.html">Rules</a></li>
+      <li><a href="/components/lists.html">Lists</a></li>
+      <li><a href="/components/links.html">Links</a></li>
+      <li><a href="/components/figures.html">Figures</a></li>
+      <li><a href="/components/code.html">Code</a></li>
+      <li><a href="/components/media.html">Media</a></li>
+      <li><a href="/components/forms.html">Forms</a></li>
+      <li><a href="/components/buttons.html">Buttons</a></li>
+      <li><a href="/components/close.html">Close</a></li>
+      <li><a href="/components/alerts.html">Alerts</a></li>
+      <li><a href="/components/spacers.html">Spacers</a></li>
+      <li><a href="/components/tabs.html">Tabs</a></li>
+      <li><a href="/components/partitions.html">Partitions</a></li>
+      <li><a href="/components/labels.html">Labels</a></li>
+      <li><a href="/components/icons.html">Icons</a></li>
+    </ul>
+ 
+    <a href="/layout.html">Layout</a>
+
+  </nav>   
+
+  <div class="page">
+    <section class="copy">
+<h1 id="partitions">Partitions</h1>
+<p class="lead">
+Partitions are simply a means of sectioning off a content block. They can be extended to take both a structure and a skin.
+</p>
+
+<h2 id="markup">Markup</h2>
+<div class="highlight"><pre><a name="l-1"></a><span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">&quot;partition partition--large partition--primary&quot;</span><span class="nt">&gt;</span>...<span class="nt">&lt;/div&gt;</span>
+</pre></div>
+
+
+<h2 id="small-partitions">Small Partitions</h2>
+<div class="partition partition--small partition--primary">
+  
+Here is a secondary, small partition
+</div>
+
+
+<div class="partition partition--small partition--secondary">
+  
+Here is a secondary, small partition
+</div>
+
+
+<h2 id="large-partitions">Large Partitions</h2>
+<div class="partition partition--large partition--primary">
+  
+Here is a primary, large partition
+</div>
+
+
+<div class="partition partition--large partition--secondary">
+  
+Here is a primary, large partition
+</div>
+
+
+<h2 id="partition-variables">Partition Variables</h2>
+<div class="highlight"><pre><a name="sass--components--_partitions.scss-idio.html-9"></a><span class="cm">/**</span>
+<a name="sass--components--_partitions.scss-idio.html-10"></a><span class="cm"> * Partition Variables</span>
+<a name="sass--components--_partitions.scss-idio.html-11"></a><span class="cm"> * </span>
+<a name="sass--components--_partitions.scss-idio.html-12"></a><span class="cm"> * 1. optionally rename structure and skin classes</span>
+<a name="sass--components--_partitions.scss-idio.html-13"></a><span class="cm"> */</span>
+<a name="sass--components--_partitions.scss-idio.html-14"></a>
+<a name="sass--components--_partitions.scss-idio.html-15"></a><span class="cm">/* partition Structure Namespace: */</span>
+<a name="sass--components--_partitions.scss-idio.html-16"></a><span class="nv">$small-partition</span><span class="o">:</span>                     <span class="n">small</span><span class="p">;</span>      <span class="cm">/* 1 */</span>
+<a name="sass--components--_partitions.scss-idio.html-17"></a><span class="nv">$large-partition</span><span class="o">:</span>                     <span class="no">large</span><span class="p">;</span>      <span class="cm">/* 1 */</span>
+<a name="sass--components--_partitions.scss-idio.html-18"></a>
+<a name="sass--components--_partitions.scss-idio.html-19"></a><span class="cm">/* partition Skin Namespace: */</span>
+<a name="sass--components--_partitions.scss-idio.html-20"></a><span class="nv">$primary-partition</span><span class="o">:</span>                   <span class="n">primary</span><span class="p">;</span>    <span class="cm">/* 1 */</span>
+<a name="sass--components--_partitions.scss-idio.html-21"></a><span class="nv">$secondary-partition</span><span class="o">:</span>                 <span class="n">secondary</span><span class="p">;</span>  <span class="cm">/* 1 */</span>
+</pre></div>
+
+
+<h2 id="partition-structure">Partition Structure</h2>
+<div class="highlight"><pre><a name="sass--components--_partitions.scss-idio.html-25"></a><span class="cm">/**</span>
+<a name="sass--components--_partitions.scss-idio.html-26"></a><span class="cm"> * Partition Structure</span>
+<a name="sass--components--_partitions.scss-idio.html-27"></a><span class="cm"> *</span>
+<a name="sass--components--_partitions.scss-idio.html-28"></a><span class="cm"> * 1. remove bottom padding from last child to avoid redunddant spacing,</span>
+<a name="sass--components--_partitions.scss-idio.html-29"></a><span class="cm"> *    allow child element to define its vertical-spacing within the partition</span>
+<a name="sass--components--_partitions.scss-idio.html-30"></a><span class="cm"> */</span>
+<a name="sass--components--_partitions.scss-idio.html-31"></a><span class="nc">.partition--</span><span class="si">#{</span><span class="nv">$small-partition</span><span class="si">}</span> <span class="p">{</span>
+<a name="sass--components--_partitions.scss-idio.html-32"></a>  <span class="k">@extend</span> <span class="err">%</span><span class="nt">padded-container</span><span class="o">;</span>
+<a name="sass--components--_partitions.scss-idio.html-33"></a>  <span class="o">@</span><span class="nt">extend</span> <span class="err">%</span><span class="nt">margined-container</span><span class="o">;</span>
+<a name="sass--components--_partitions.scss-idio.html-34"></a>  <span class="o">//</span><span class="nt">padding</span><span class="nd">:</span> <span class="err">$</span><span class="nt">spacing-unit--vertical</span> <span class="err">$</span><span class="nt">spacing-unit--horizontal</span><span class="o">;</span>
+<a name="sass--components--_partitions.scss-idio.html-35"></a>  <span class="o">//</span><span class="nt">margin</span><span class="nd">:</span> <span class="nc">.5em</span><span class="o">;</span>
+<a name="sass--components--_partitions.scss-idio.html-36"></a>  <span class="nt">border-radius</span><span class="nd">:</span> <span class="err">$</span><span class="nt">radius-unit--small</span><span class="o">;</span>
+<a name="sass--components--_partitions.scss-idio.html-37"></a>  <span class="k">&amp;</span><span class="nd">:last-child</span> <span class="p">{</span>
+<a name="sass--components--_partitions.scss-idio.html-38"></a>    <span class="na">margin-bottom</span><span class="o">:</span> <span class="mi">0</span><span class="p">;</span>       <span class="cm">/* 1 */</span>
+<a name="sass--components--_partitions.scss-idio.html-39"></a>  <span class="p">}</span>
+<a name="sass--components--_partitions.scss-idio.html-40"></a><span class="p">}</span>
+<a name="sass--components--_partitions.scss-idio.html-41"></a>
+<a name="sass--components--_partitions.scss-idio.html-42"></a><span class="nc">.partition--</span><span class="si">#{</span><span class="nv">$large-partition</span><span class="si">}</span> <span class="p">{</span>
+<a name="sass--components--_partitions.scss-idio.html-43"></a>  <span class="k">@extend</span> <span class="err">%</span><span class="nt">extra-padded-container</span><span class="o">;</span> 
+<a name="sass--components--_partitions.scss-idio.html-44"></a>  <span class="o">@</span><span class="nt">extend</span> <span class="err">%</span><span class="nt">margined-container</span><span class="o">;</span>
+<a name="sass--components--_partitions.scss-idio.html-45"></a>  <span class="o">//</span><span class="nt">padding</span><span class="nd">:</span> <span class="err">$</span><span class="nt">spacing-unit--vertical</span> <span class="err">$</span><span class="nt">spacing-unit--horizontal</span><span class="o">;</span>
+<a name="sass--components--_partitions.scss-idio.html-46"></a>  <span class="o">//</span><span class="nt">margin</span><span class="nd">:</span> <span class="nc">.5em</span><span class="o">;</span>
+<a name="sass--components--_partitions.scss-idio.html-47"></a>  <span class="nt">border-radius</span><span class="nd">:</span> <span class="err">$</span><span class="nt">radius-unit--large</span><span class="o">;</span>
+<a name="sass--components--_partitions.scss-idio.html-48"></a>  <span class="k">&amp;</span><span class="nd">:last-child</span> <span class="p">{</span>            <span class="cm">/* 1 */</span>
+<a name="sass--components--_partitions.scss-idio.html-49"></a>    <span class="na">margin-bottom</span><span class="o">:</span> <span class="mi">0</span><span class="p">;</span>
+<a name="sass--components--_partitions.scss-idio.html-50"></a>  <span class="p">}</span>
+<a name="sass--components--_partitions.scss-idio.html-51"></a><span class="p">}</span>
+</pre></div>
+
+
+<h2 id="partition-skin">Partition Skin</h2>
+<div class="highlight"><pre><a name="sass--components--_partitions.scss-idio.html-55"></a><span class="cm">/**</span>
+<a name="sass--components--_partitions.scss-idio.html-56"></a><span class="cm"> * Partition Skin</span>
+<a name="sass--components--_partitions.scss-idio.html-57"></a><span class="cm"> */</span>
+<a name="sass--components--_partitions.scss-idio.html-58"></a><span class="nc">.partition--</span><span class="si">#{</span><span class="nv">$primary-partition</span><span class="si">}</span> <span class="p">{</span>
+<a name="sass--components--_partitions.scss-idio.html-59"></a>  <span class="na">border</span><span class="o">:</span> <span class="mi">1</span><span class="kt">px</span> <span class="no">solid</span> <span class="nv">$subtle</span><span class="p">;</span>
+<a name="sass--components--_partitions.scss-idio.html-60"></a>  <span class="na">background-color</span><span class="o">:</span> <span class="nv">$muted</span><span class="p">;</span>
+<a name="sass--components--_partitions.scss-idio.html-61"></a><span class="p">}</span>
+<a name="sass--components--_partitions.scss-idio.html-62"></a>
+<a name="sass--components--_partitions.scss-idio.html-63"></a><span class="nc">.partition--</span><span class="si">#{</span><span class="nv">$secondary-partition</span><span class="si">}</span> <span class="p">{</span>
+<a name="sass--components--_partitions.scss-idio.html-64"></a>  <span class="na">border</span><span class="o">:</span> <span class="mi">1</span><span class="kt">px</span> <span class="no">solid</span> <span class="nv">$black</span><span class="p">;</span>
+<a name="sass--components--_partitions.scss-idio.html-65"></a>  <span class="na">background-color</span><span class="o">:</span> <span class="nv">$strong</span><span class="p">;</span>
+<a name="sass--components--_partitions.scss-idio.html-66"></a>  <span class="na">color</span><span class="o">:</span> <span class="nv">$muted</span><span class="p">;</span>
+<a name="sass--components--_partitions.scss-idio.html-67"></a><span class="p">}</span>
+</pre></div>
+
+</section>
+
+
+  </div>
+  
+  <footer>
+    <p>Footer goes here</p>
+</footer>
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+<script>window.jQuery || document.write('<script src="/js/vendor/jquery/jquery.min.js"><\/script>')</script>
+<script src="/js/main.js"></script>
+
+</body>
+</html>

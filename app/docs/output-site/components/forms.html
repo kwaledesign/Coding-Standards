@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <title>Forms</title>
+    
+    <link rel="stylesheet" href="../css/screen.css" media="screen">
+</head>
+<body class="container">
+  
+  <header class="header">
+    <section class="main-nav">
+      <a href="#" class="menu-link"><span class="icon-th-list-1"></span>menu</a>
+      <a href="/index.html">Home</a>
+      <a href="#" class="grid-link">Grid</a>
+    </section>
+  </header>
+  
+  <nav class="nav--slide">
+ 
+    <a href="/base.html">Base</a>
+    <ul>
+      <li><a href="/base/breakpoints.html">Breakpoints</a></li>
+      <li><a href="/base/color-pallet.html">Color-Pallet</a></li>
+      <li><a href="/base/typography-pallet.html">Typography-Pallet</a></li>
+      <li><a href="/base/settings.html">Settings</a></li>
+      <li><a href="/base/structure-units.html">Structure-Units</a></li>
+      <li><a href="/base/skin-units.html">Skin-Units</a></li>
+    </ul>
+       
+    <a href="/objects.html">Objects</a>
+    <ul>
+      <li><a href="/objects/nav-object.html">Nav-Object</a></li>
+      <li><a href="/objects/media-object.html">Media-Object</a></li>
+      <li><a href="/objects/close-object.html">Close-Object</a></li>
+      <li><a href="/objects/alert-object.html">Alert-Object</a></li>
+      <li><a href="/objects/label-object.html">Label-Object</a></li>
+      <li><a href="/objects/partition-object.html">Partition-Object</a></li>
+      <li><a href="/objects/button-object.html">Button-Object</a></li>
+    </ul>
+
+    <a href="/components.html">Components</a>
+    <ul>
+      <li><a href="/components/typography.html">Typography</a></li>
+      <li><a href="/components/page.html">Page</a></li>
+      <li><a href="/components/quotes.html">Quotes</a></li>
+      <li><a href="/components/tables.html">Tables</a></li>
+      <li><a href="/components/rules.html">Rules</a></li>
+      <li><a href="/components/lists.html">Lists</a></li>
+      <li><a href="/components/links.html">Links</a></li>
+      <li><a href="/components/figures.html">Figures</a></li>
+      <li><a href="/components/code.html">Code</a></li>
+      <li><a href="/components/media.html">Media</a></li>
+      <li><a href="/components/forms.html">Forms</a></li>
+      <li><a href="/components/buttons.html">Buttons</a></li>
+      <li><a href="/components/close.html">Close</a></li>
+      <li><a href="/components/alerts.html">Alerts</a></li>
+      <li><a href="/components/spacers.html">Spacers</a></li>
+      <li><a href="/components/tabs.html">Tabs</a></li>
+      <li><a href="/components/partitions.html">Partitions</a></li>
+      <li><a href="/components/labels.html">Labels</a></li>
+      <li><a href="/components/icons.html">Icons</a></li>
+    </ul>
+ 
+    <a href="/layout.html">Layout</a>
+
+  </nav>   
+
+  <div class="page">
+    <section class="copy">
+<h1 id="forms">Forms</h1>
+<form class="form">
+  <fieldset>
+
+<pre><code>&lt;h3&gt;Text Inputs&lt;/h3&gt;</code></pre>
+<legend>Vertical Style Form</legend>
+<p>
+Default mobile-first (vertical) form styles.
+</p>
+    <div class="control-group">
+      
+<label class="control-label">Text input</label> <input type="text" value="default value">
+</div>
+    <div class="control-group">
+      
+<label class="control-label">Email input</label> <input type="email">
+</div>
+    <div class="control-group">
+      
+<label class="control-label">Search input</label> <input type="search">
+</div>
+    <div class="control-group">
+      
+<label class="control-label">Tel input</label> <input type="tel">
+</div>
+    <div class="control-group">
+      
+<label class="control-label">URL input</label> <input type="url" placeholder="http://">
+</div>
+    <div class="control-group">
+      
+<label class="control-label">Password input</label> <input type="password" value="password">
+</div>
+    
+<pre><code>&lt;h3&gt;File Input&lt;/h3&gt;
+&lt;div class=&quot;control-group&quot;&gt;
+  &lt;label&gt;File input &lt;input type=&quot;file&quot;&gt;&lt;/label&gt;
+&lt;/div&gt;
+&lt;h3&gt;Radios and Checkboxes&lt;/h3&gt;
+&lt;div class=&quot;control-group&quot;&gt;
+  &lt;label class=&quot;radio&quot;&gt;&lt;input type=&quot;radio&quot; name=&quot;radio&quot;&gt; Radio input&lt;/label&gt;
+  &lt;label class=&quot;radio&quot;&gt;&lt;input type=&quot;radio&quot; name=&quot;radio&quot;&gt; Radio input&lt;/label&gt;
+  &lt;label class=&quot;radio&quot;&gt;&lt;input type=&quot;radio&quot; name=&quot;radio&quot;&gt; Radio input&lt;/label&gt;
+&lt;/div&gt;
+&lt;div class=&quot;control-group&quot;&gt;
+  &lt;label class=&quot;checkbox&quot;&gt;&lt;input type=&quot;checkbox&quot;&gt; Checkbox input&lt;/label&gt;
+  &lt;label class=&quot;checkbox&quot;&gt;&lt;input type=&quot;checkbox&quot;&gt; Checkbox input&lt;/label&gt;
+  &lt;label class=&quot;checkbox&quot;&gt;&lt;input type=&quot;checkbox&quot;&gt; Checkbox input&lt;/label&gt;
+&lt;/div&gt; 
+&lt;h3&gt;Inline Form Controls&lt;/h3&gt;
+&lt;div class=&quot;control-group&quot;&gt;
+  &lt;label class=&quot;radio inline-controls&quot;&gt;
+    &lt;input type=&quot;radio&quot; value=&quot;option1&quot;&gt; Option One
+  &lt;/label&gt;
+  &lt;label class=&quot;radio inline-controls&quot;&gt;
+    &lt;input type=&quot;radio&quot; value=&quot;option2&quot;&gt; Option Two
+  &lt;/label&gt;
+  &lt;label class=&quot;radio inline-controls&quot;&gt;
+    &lt;input type=&quot;radio&quot; value=&quot;option3&quot;&gt; Option Three
+  &lt;/label&gt;
+&lt;/div&gt;
+    
+&lt;div class=&quot;control-group&quot;&gt;
+  &lt;label class=&quot;checkbox inline-controls&quot;&gt;
+    &lt;input type=&quot;checkbox&quot; value=&quot;option1&quot;&gt; Option One
+  &lt;/label&gt;
+  &lt;label class=&quot;checkbox inline-controls&quot;&gt;
+    &lt;input type=&quot;checkbox&quot; value=&quot;option2&quot;&gt; Option Two
+  &lt;/label&gt;
+  &lt;label class=&quot;checkbox inline-controls&quot;&gt;
+    &lt;input type=&quot;checkbox&quot; value=&quot;option3&quot;&gt; Option Three
+  &lt;/label&gt;
+&lt;/div&gt;
+
+&lt;h3&gt;Select Field&lt;/h3&gt;
+&lt;div class=&quot;control-group&quot;&gt;
+  &lt;label&gt;Select field &lt;select&gt;&lt;option&gt;Option 01&lt;/option&gt;&lt;option&gt;Option 02&lt;/option&gt;&lt;/select&gt;&lt;/label&gt;
+&lt;/div&gt;
+&lt;h3&gt;Text Area&lt;/h3&gt;
+&lt;label&gt;Textarea &lt;textarea cols=&quot;30&quot; rows=&quot;5&quot; &gt;Textarea text&lt;/textarea&gt;&lt;/label&gt;
+  
+&lt;p&gt;Form field validation states:&lt;/p&gt;
+&lt;div class=&quot;control-group&quot;&gt;
+  &lt;label class=&quot;control-label&quot;&gt;Disabled State&lt;/label&gt;
+  &lt;input type=&quot;text&quot; value=&quot;default value&quot; disabled&gt;
+&lt;/div&gt;  
+&lt;div class=&quot;control-group is-field-warning&quot;&gt;
+  &lt;label class=&quot;control-label&quot;&gt;Warning State&lt;/label&gt;
+  &lt;input type=&quot;text&quot; value=&quot;default value&quot;&gt;
+&lt;/div&gt;
+&lt;div class=&quot;control-group is-field-error&quot;&gt;
+  &lt;label class=&quot;control-label&quot;&gt;Error State&lt;/label&gt;
+  &lt;input type=&quot;text&quot; value=&quot;default value&quot;&gt;
+&lt;/div&gt;  
+  
+&lt;h3&gt;Help Text&lt;/h3&gt;
+&lt;p&gt;Form help text on focus:&lt;/p&gt;
+&lt;div class=&quot;control-group&quot;&gt;
+  &lt;label class=&quot;control-label&quot;&gt;Text input&lt;/label&gt;
+  &lt;input type=&quot;text&quot;&gt;&lt;span class=&quot;form-help-inline&quot;&gt;inline help text&lt;/span&gt;
+&lt;/div&gt;
+&lt;div class=&quot;control-group&quot;&gt;
+  &lt;label class=&quot;control-label&quot;&gt;Text input&lt;/label&gt;
+  &lt;input type=&quot;text&quot;&gt;&lt;span class=&quot;form-help-block&quot;&gt;block help text&lt;/span&gt;
+&lt;/div&gt;</code></pre>
+</fieldset>
+</form>
+      
+<form class="form form-horizontal">
+  <fieldset>
+  
+<legend>Responsive Horizontal Form Styles</legend>
+<p>
+Horizontal form for wider screens, defaults to vertical style for screens less than 600px wide.
+</p>
+  <div class="control-group">
+    
+<label class="control-label" for="inputEmail">Email</label>
+<div class="controls">
+      
+<input type="text" id="inputEmail" placeholder="Email">
+</div>
+  </div>
+  <div class="control-group">
+    
+<label class="control-label" for="inputPassword">Password</label>
+<div class="controls">
+      
+<input type="password" id="inputPassword" placeholder="Password">
+</div>
+  </div>
+  <div class="control-group">
+    <div class="controls">
+      
+<label class="checkbox"><input type="checkbox"> Remember me</label>
+</div>
+  </div>
+  <div class="control-group">
+    <div class="controls">
+      <button type="submit" class="btn">
+Sign in
+</button>
+    </div>
+  </div>
+  </fieldset>
+</form>
+      
+<form class="form inline-form">
+  <fieldset>
+  
+<legend>Inline Form Style</legend>
+<div class="control-group">
+      
+<input type="search" class="search-input">
+</div>
+    <div class="controls">
+      <button type="submit">
+Search
+</button>
+    </div>
+  </fieldset>
+</form>
+
+
+</section>
+
+
+  </div>
+  
+  <footer>
+    <p>Footer goes here</p>
+</footer>
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+<script>window.jQuery || document.write('<script src="/js/vendor/jquery/jquery.min.js"><\/script>')</script>
+<script src="/js/main.js"></script>
+
+</body>
+</html>

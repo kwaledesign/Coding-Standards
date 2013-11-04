@@ -1,0 +1,68 @@
+/**
+ * Partitions
+ * 
+ * Extends the partition object
+ */
+
+
+/*** @export "partition-variables" css */
+/**
+ * Partition Variables
+ * 
+ * 1. optionally rename structure and skin classes
+ */
+
+/* partition Structure Namespace: */
+$small-partition:                     small;      /* 1 */
+$large-partition:                     large;      /* 1 */
+
+/* partition Skin Namespace: */
+$primary-partition:                   primary;    /* 1 */
+$secondary-partition:                 secondary;  /* 1 */
+
+
+/*** @export "partition-structure" css */
+/**
+ * Partition Structure
+ *
+ * 1. remove bottom padding from last child to avoid redunddant spacing,
+ *    allow child element to define its vertical-spacing within the partition
+ */
+.partition--#{$small-partition} {
+  @extend %padded-container;
+  @extend %margined-container;
+  //padding: $spacing-unit--vertical $spacing-unit--horizontal;
+  //margin: .5em;
+  border-radius: $radius-unit--small;
+  &:last-child {
+    margin-bottom: 0;       /* 1 */
+  }
+}
+
+.partition--#{$large-partition} {
+  @extend %extra-padded-container; 
+  @extend %margined-container;
+  //padding: $spacing-unit--vertical $spacing-unit--horizontal;
+  //margin: .5em;
+  border-radius: $radius-unit--large;
+  &:last-child {            /* 1 */
+    margin-bottom: 0;
+  }
+}
+
+
+/*** @export "partition-skin" css */
+/**
+ * Partition Skin
+ */
+.partition--#{$primary-partition} {
+  border: 1px solid $subtle;
+  background-color: $muted;
+}
+
+.partition--#{$secondary-partition} {
+  border: 1px solid $black;
+  background-color: $strong;
+  color: $muted;
+}
+
