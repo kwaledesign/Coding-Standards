@@ -11,5 +11,6 @@ Coding Standards
 
 Example:
 
+{% highlight bash %}
   git commit -m "fix issue 99"
-
+{% endhighlight %}

@@ -13,6 +13,8 @@ The key to portable code is in carefully documenting each component's purpose,
 
 Example:
 
+
+{% highlight sass %}
   /* ==========================================================================
      Section comment block
      ==========================================================================
@@ -41,19 +43,21 @@ Example:
 
 
   /* Basic comment */
-
+{% endhighlight %}
 
 ### Object-Extension Pointer
 When extending an object within a separate partial, leave a comment pointing to the original base object in order to establish a concrete link between the object and its extension [[13]](README.md#works-cited).
 
 Example:
 
+{% highlight sass %}
   /**
    * Foo-Bar
    *
    * Extends the .foo object within _foo-object.scss
    */
    .foo--bar {...}
+{% endhighlight %}
 
 ## Formating
 * Use one selector per line in multi-selector rulesets and separate each ruleset with a blank line.
@@ -73,9 +77,11 @@ before the closing brace.
 
 Example:
 
+{% highlight sass %}
   .selector-1 { width: 10%; }
   .selector-2 { width: 20%; }
   .selector-3 { width: 30%; }
+{% endhighlight %}
 
 Long comma-separated property values, such as collections of gradients or
 shadows, can be arranged across multiple lines in an effort to improve
@@ -83,6 +89,7 @@ readability and produce more useful diffs [[3]](README.md#works-cited).
 
 Example:
 
+{% highlight sass %}
   .selector {
     background-image:
       linear-gradient(#FFFCCC),
@@ -91,7 +98,7 @@ Example:
       1px 1px 1px #000,
       2px 2px 1px 1px #CCCCCC inset;
   }
-
+{% endhighlight %}
 
 ### Units
 * When building a responsive design system always try to use relative units to allow system components and font-size to scale to the user's viewport. Use pixels only when you have a really good reason NOT to use `em`'s or `rem`s.
@@ -211,18 +218,20 @@ An element is a context-dependant descendent of an object that performs a certai
 
 Example:
 
+{% highlight sass %}
   .object__element {...}                          /* element class */
 
   .object {
     & > li {...}                                  /* descendent selector */
     }
+{% endhighlight %}
 
 
-
+{% highlight html %}
   <ul class="object">
     <li class="object__element">home</li>
   </ul>
-
+{% endhighlight %}
 
 #### Sub-Object
 A sub-object is a context-dependant sibling of an object that performs a certain function and is represented by an additional class for a component. Sub-objects are similar to elements in syntax and in relation to an object, but they differ significantly in the way that a sub-object extends or provides minor overrides to the object and is applied to the _same_ HTML element. Sub-objects are denoted by the use of `__` (double underscores) i.e. `.component-name__sub-component-name`. 
@@ -237,23 +246,26 @@ A sub-object is a context-dependant sibling of an object that performs a certain
 
 Example:
 
+{% highlight sass %}
   .nav__pager {...}         /* Sub-Component */
+{% endhighlight %}
 
 
-
+{% highlight html %}
   <ul class="nav nav__pager">
     ...
   </ul>
-
+{% endhighlight %}
 
 ### Object Extension
 A significant variant of a component applied as an additional class on the component. Object extensions extend an object by applying additional styles related to either structure or skin. Extension classes are prefixed with the object's name followed by `--` (double dashes) and the extension name i.e. `.object--skin` or `.object--structure`.
 
 Example:
 
+{% highlight sass %}
   .btn--primary {...}
   .btn--large {..}
-
+{% endhighlight %}
 
 #### State
 A state is a variant of a component that is triggered by an action or behavior.  State styles are applied dynamically as an additional class on the component's root or child HTML element.
@@ -264,15 +276,17 @@ A state is a variant of a component that is triggered by an action or behavior. 
 
 Example:
 
+{% highlight html %}
   <button type="submit" class="btn btn--large btn--primary is-disabled">Submit</button>
-
+{% endhighlight %}
 
 Example:
 
+{% highlight html %}
   <ul class="nav nav__vertical nav--large nav--primary">
     <li class="nav__element is-active">...</li>
   </ul>
-
+{% endhighlight %}
 
 ### Layout
 * All components are fluid by nature and should never be given explicit width or height restraints. A component's width is determined by its parent container or grid system.
@@ -307,6 +321,7 @@ Admittedly, there is an element of added complexity, but the sacrifice of simple
 This naming pattern is inspired by the BEM Methodology [[2]](README.md#works-cited) as well as several interpretations by other developers [[3]](README.md#works-cited), [[26]](README.md#works-cited).
 
 
+{% highlight sass %}
   // component name
   .object {}                        /* represents the higher-level abstraction of a component */
   .object__element {}               /* represents a descendent of .object */
@@ -314,17 +329,19 @@ This naming pattern is inspired by the BEM Methodology [[2]](README.md#works-cit
   .object--extension {}             /* extends an object with a skin or structure */
   &.is-active {}                    /* represents a change in the component's state (state-modifier) */
   .prefix-component-name {}         /* targets all component entities i.e. for layout */
-
+{% endhighlight %}
 
 #### Example HTML
 
+{% highlight html %}
   <ul class="object object__modifier object--extension is-object-state">
     <li class="object__element is-active">...</li>
   </ul>
-
+{% endhighlight %}
 
 #### Example Use Case
 
+{% highlight sass %}
   // large primary button (call to action button)
   .btn {}                           /* button object */
   .btn__full {}                     /* full width button (object modifier) */
@@ -332,7 +349,7 @@ This naming pattern is inspired by the BEM Methodology [[2]](README.md#works-cit
   .btn--primary {}                  /* primary button skin (object extension skin) */
   &.is-disabled {}                  /* object state */
   .l-btn--call-to-action            /* layout styles for call-to-action */
-
+{% endhighlight %}
 
 ### CSS Class Semantics
 
@@ -378,12 +395,14 @@ its semantic value from its classes.
 
 Example: 
 
+{% highlight sass %}
   .btn--skin {
     // skin styles here...
     &.is-disabled {
       // disabled styles here...   
     }
   }
+{% endhighlight %}
 
 * Avoid the use of element selectors in order to keep them free from context and un-coupled to the HTML. Scope HTML element selectors with a class on the root element or a parent element so that these styles are opt-in rather than opt-out. This will avoid redundant overrides of un-needed styles and keep specificity minimal. [[1]](README.md#works-cited) [[27]](README.md#works-cited) [[28]](README.md#works-cited)
 * !important should be avoided as much as possible. State classes are an example of an acceptable use of important [[1]](README.md#works-cited).
@@ -394,6 +413,7 @@ Example:
 
 #### Object
 
+{% highlight sass %}
   /**
    * Nav Object
    *
@@ -401,10 +421,11 @@ Example:
   .nav {
     &.nav__item {...}  
   }
-
+{% endhighlight %}
 
 #### Component
 
+{% highlight sass %}
   /**
    * Articles Pager
    *
@@ -436,24 +457,26 @@ Example:
   .nav__pager--secondary {
     &.is-active {...}
   }
-
+{% endhighlight %}
 
 #### Layout
 
 
+{% highlight sass %}
   /**
    * Pager Layout
    *
    * Extends the articles pager component in /components/_pager.scss partial
    */
   .l-articles-pager {...}
-
+{% endhighlight %}
 
 #### HTML
 
+{% highlight html %}
   <ul class="nav nav__pager nav__pager--large nav__pager--subtle l-articles-pager">
     <li class="nav__pager__item is-active">1</li>
     <li class="nav__pager__item">2</li>
   </ul>
-
+{% endhighlight %}
 

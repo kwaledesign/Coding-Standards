@@ -14,6 +14,7 @@ Coding Standards
 
 Example:
 
+{% highlight html %}
   <!DOCTYPE html>
   <html>
     <head>
@@ -24,6 +25,7 @@ Example:
       <h1 class="intro">Hello, world!</h1>
     </body>
   </html>
+{% endhighlight %}
 
 * Use the simplest markup pattern possible for a component while still maintaining HTML standards and proper semantics. 
 * Do not write markup in javascript files to avoid detrimental effects on performance and maintainability.
@@ -38,17 +40,21 @@ Apply HTML Attributes to an element in the following order:
 
 Example:
 
+{% highlight html %}
   <a class="" id="" data-name="" href="">...</a>
+{% endhighlight %}
 
 ### Exceptions
 Elements with multiple attributes can be split into multiple lines to improve readability and produce more meaningful diffs.
 
 Example: 
 
+{% highlight html %}
   <a class=""
    data-action=""
    data-id=""
    href="">
       <span>...</span>
   </a>
+{% endhighlight %}
 

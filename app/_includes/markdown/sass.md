@@ -28,7 +28,9 @@ SCSS supports both invisible and visible comments.
 * Only use nesting when you intend for nested CSS selectors.
 * Never emulate HTML structure of a module with SCSS nesting. Mapping Sass selectors directly to your DOM structure creates a brittle architecture that is tightly coupled to the current HTML markup.
 * Nested parent selectors should be listed directly under the class selector and then indent child selectors [[17]](README.md#works-cited).
-  
+
+
+{% highlight sass %}
   .module {
       background: $module--color-bg; 
       p {
@@ -36,6 +38,7 @@ SCSS supports both invisible and visible comments.
           line-height: 1.5em;     
       }
   }
+{% endhighlight %}
 
 ## Variables
 
@@ -46,6 +49,7 @@ SCSS supports both invisible and visible comments.
 
 Example:
 
+{% highlight sass %}
   /**
    * Variables
    */
@@ -55,6 +59,7 @@ Example:
 
   $nav-color-primary: $brand-gray;
   $nav-color-secondary: $brand-gray-light;
+{% endhighlight %}
 
 * When defining variables, they should appear first at the top of their component's partial file and be grouped by skin and structure.
 * 'Global' variables, those used by many components within multiple different partial files, should be given their own partial file inside the `base/` directory [for example](https://github.com/kwaledesign/Archetype/tree/master/sass/base): `_color-pallet.scss`, `_typography-pallet.scss`.
@@ -65,6 +70,7 @@ Use the [same BEM-style](css.md#selector-construct) syntax used for CSS selector
 
 Example:
 
+{% highlight sass %}
   /**
    * Button Skin Variables
    */
@@ -73,6 +79,7 @@ Example:
   /* State Variables */
   $btn--color-bg-hover:                         darken($btn--color-bg, 10%);
   $btn--color-bg-disabled:                      lighten($btn--color-bg, 25%);
+{% endhighlight %}
 
 ## @mixin
 * Use a `@mixin` when you wish to apply arguments to its code block, when you want that chunk of styles to apply to the selector, or when you don't want an additional class in the HTML.
@@ -83,6 +90,7 @@ Example:
 
 Example:
 
+{% highlight sass %}
   @mixin mixin-name(
   $mixin-arg1,
   $mixin-arg2,
@@ -93,7 +101,7 @@ Example:
     property: $mixin-arg3;
     property: $mixin-arg4;
   }
-
+{% endhighlight %}
 
 ## @extend
 * @extend when you want to extend
@@ -106,12 +114,15 @@ Example:
 
 Example misuse of `@extend`:
 
+
+{% highlight sass %}
   .btn-signup {
     @extend btn;
     @extend btn--full;
     @extend btn--large;
     @extend btn--primary;
   }
+{% endhighlight %}
 
 ## %Place-holder Selectors
 * Use `%` (the silent selector) when defining a utility class that may not be used - this will keep its code block out of the output until it is extended.
@@ -127,6 +138,8 @@ Consistent ordering of `@`-rules and properties leads to increased readability a
 
 Example:
 
+
+{% highlight sass %}
   .selector {
     @extend %utility-class;
     @include mixin-name(mixin-arguments);
@@ -140,6 +153,7 @@ Example:
       property: value;
     }
   }
+{% endhighlight %}
 
 ## Sass Packages and Modules
 
