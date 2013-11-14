@@ -1,6 +1,3 @@
-Coding Standards
-================
-
 The following coding standards outline a collection of best practices and
 methodologies for writing predictable, reusable, maintainable, and scalable
 front-ends.

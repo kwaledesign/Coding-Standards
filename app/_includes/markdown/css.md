@@ -1,6 +1,3 @@
-Coding Standards
-================
-
 # CSS Guidelines
 
 The purpose of this document is to outline a collection of opinionated best-practices and methodologies for building object-oriented CSS architectures that are both highly scalable and easily maintained. Encapsulation is the key to achieving these objectives of modularity which is why all entities within a design system are defined as components, even ones that are non-visual.

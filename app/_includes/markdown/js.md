@@ -1,6 +1,3 @@
-Coding Standards
-================
-
 # JavaScript Guidelines
 
 * Write JavaScript, not CoffeeScript. 

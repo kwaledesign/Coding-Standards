@@ -1,6 +1,3 @@
-Coding Standards
-================
-
 # Git Guidelines
 
 * Commit early and often keeping commits granular and logical.

@@ -1,6 +1,3 @@
-Coding Standards
-================
-
 # HTML Guidelines
 
 ## Syntax and General Guidelines

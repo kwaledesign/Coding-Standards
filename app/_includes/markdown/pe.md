@@ -1,6 +1,3 @@
-Coding Standards
-================
-
 # Progressive Enhancement Guidelines
 
 * The absence of media queries is the first media query.
