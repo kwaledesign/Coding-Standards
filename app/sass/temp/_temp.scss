@@ -53,6 +53,17 @@ pre code {
   text-align: center;
 }
 
+.header__title {
+  font-weight: bold;
+  color: $copy--header-color-txt;                 
+  font-family: $copy--header-txt;
+  // Fix the character spacing for headings
+  text-rendering: optimizelegibility;  
+  @include adjust-font-size-to($copy--h1-size);
+  margin: 0 auto rhythm(1, $copy--h1-size);
+}
+
+
 /**
  * Links
  */

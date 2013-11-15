@@ -15,23 +15,23 @@ Example:
   /* ==========================================================================
      Section comment block
      ==========================================================================
-  */
+   */
 
   /* Sub-section comment block
      ========================================================================== */
 
 
   /**
-  * Major Comment Block
-  *
-  * The first sentence of the long description starts here and continues on this
-  * line for a while finally concluding here at the end of this paragraph.
-  *
-  * The long description is ideal for more detailed explanations and
-  * documentation. It can include example HTML, URLs, or any other information
-  * that is deemed necessary or useful.
-  *
-  */
+   * Major Comment Block
+   *
+   * The first sentence of the long description starts here and continues on this
+   * line for a while finally concluding here at the end of this paragraph.
+   *
+   * The long description is ideal for more detailed explanations and
+   * documentation. It can include example HTML, URLs, or any other information
+   * that is deemed necessary or useful.
+   *
+   */
 
 
   /**
@@ -137,22 +137,23 @@ By categorizing CSS rules we begin to see patterns and can define best practices
 ### Base
 The base directory contains styles and settings that apply to the entire project. These include the `_color-pallet.scss` and `_typography-pallet.scss` partials as well as settings for compass and compass plugins. [Example Base Styles](https://github.com/kwaledesign/Archetype/tree/master/sass/base).
 
-
-### Component
-Components are the equivalent to Modules within the [SMACSS](smacss.com) methodology renamed here to avoid confusion with Drupal's terminology. Components are modular and reusable entities of a design system. Example components include buttons, call to actions, navigation elements, etc. Each component is defined within its own partial inside the component directory. [Example Component Styles](https://github.com/kwaledesign/Archetype/tree/master/sass/components). 
-
-
-### Layout
-Layout styles provide structure to (mobile-first) linear content. These styles are used to progressively enhance the basic layout when device capability, viewport and/or connection speed allow. Because layout is treated as an enhancement, these styles are kept separate from the components they enhance and are applied with their own class. Each component's layout is defined in its own partial inside the layout directory. Layout stylesheets are named by prefixing the component's name with `l-` in order to explicitly define the relationship between layout and component. [Example Layout Styles](https://github.com/kwaledesign/Archetype/tree/master/sass/layout).
-
 ### Object
 Object styles are generic abstractions that can be extended to build a component. The classic OOCSS example is the media-object [[16]](README.md#works-cited). Each object is defined within its own partial inside the object directory. [Example Object Styles](https://github.com/kwaledesign/Archetype/tree/master/sass/objects).
 
-### Utilities
-Utilities are code snippets abstracted into classes, functions, and mixins that provide specific functionality. Utilities include normalize, clearfix, css-triangles, etc. Utilities can be given their own directory within the project's root, or they can be abstracted into a Compass plugin or Bower component. Example: [Archetype-Utilities](https://github.com/kwaledesign/Archetype-Utilities).
+### Component
+Components are the equivalent to Modules within the [SMACSS](smacss.com) methodology. Components are modular and reusable entities of a design system. Example components include buttons, navigation elements, etc. Each component is defined within its own partial inside the component directory. [Example Component Styles](https://github.com/kwaledesign/Archetype/tree/master/sass/components).
 
-### Temp
-The temporary directory contains any styles that haven't yet been properly defined and organized within the project's architecture. This where any hacks or quick fixes belong.  Each 'fix' placed within this directory should be given its own partial and should be accompanied by a corresponding issue properly tagged and filed in the project's repository so that it can be properly incorporated into the code base at a later date. Preventing sub-standard code from being committed into the code base helps to prevent un-necessary depreciation as well as unintentionally introducing bugs by keeping these 'fixes' quarantined within the temp directory. [[25]](README.md#works-cited)
+### Layout
+Layout styles provide structure to (mobile-first) linear content. These styles are used to progressively enhance the basic layout when device capability and/or viewport allow. Because layout is treated as an enhancement, these styles are kept separate from the components they enhance and are applied with their own class. Each component's layout is defined in its own partial inside the layout directory. Layout stylesheets are named by prefixing the component's name with `l-` in order to explicitly define the relationship between layout and component. [Example Layout Styles](https://github.com/kwaledesign/Archetype/tree/master/sass/layout).
+
+### Utilities
+Utilities are code snippets abstracted into classes, functions, and mixins that provide specific functionality. Utilities include normalize, clearfix, css-triangles, etc. Utilities can be given their own directory within the project's root, or they can be abstracted into a Compass plugin. Example: [Archetype-Utilities](https://github.com/kwaledesign/Archetype-Utilities).
+
+### App
+The app directory contains non-framework related styles and customizations.  Anything that needs to be overridden within the framework is disabled in the framework's `screen.scss` file, then copied into the appropriate directory within the app folder. The directory structure of the framework is mirrored in the app directory. This methodology (along with a consistient coding standard) allows for the easy upgrade path of the framework without overriding application specific visual styles.
+
+#### Temp
+The temporary directory contains any styles that haven't yet been properly defined and organized within the project's architecture. The temporary directory resides within the app folder. This where any hacks or quick fixes belong.  Each 'fix' placed within this directory should be given its own partial and should be accompanied by a corresponding issue properly tagged and filed in the project's repository so that it can be properly incorporated into the code base at a later date. Preventing sub-standard code from being committed into the code base helps to prevent un-necessary depreciation as well as unintentionally introducing bugs by keeping these 'fixes' quarantined within the temp directory. [[25]](README.md#works-cited)
 
 ## Object Oriented CSS (OOCSS)
 >"[A] CSS “object” is a repeating visual pattern which can be abstracted into an
@@ -170,7 +171,7 @@ The temporary directory contains any styles that haven't yet been properly defin
 
 
 #### Object Oriented Classes
-Building complex components with smaller, more discrete code blocks leads to more reusable code, easier debugging, and a DRYer code base by cutting down on repetition. A component is comprised of object, structure, and skin. Class naming and [selector construct](#selector-construct) is very important. This syntax and naming convention illustrates the intention of a class and its relationship to others. 
+Building complex components with smaller, more discrete code blocks leads to more reusable code, easier debugging, and a DRYer code base by cutting down on repetition. It also allows for easier prototyping within the browser when skin and structure styles can be applied to a component seperately. A component is comprised of object, structure, and skin. Class naming and [selector construct](#selector-construct) is very important. This syntax and naming convention illustrates the intention of a class and its relationship to others. 
 
 Components use a multi-class pattern in order to allow for easier contextual based adjustments when necessary, and to help simplify class and variable names [[3]](README.md#works-cited). For example, structure, skin, and state styles are extended via their own class, rather than attaching a suffix to an existing component class.
 
@@ -231,7 +232,7 @@ Example:
 {% endhighlight %}
 
 #### Sub-Object
-A sub-object is a context-dependant sibling of an object that performs a certain function and is represented by an additional class for a component. Sub-objects are similar to elements in syntax and in relation to an object, but they differ significantly in the way that a sub-object extends or provides minor overrides to the object and is applied to the _same_ HTML element. Sub-objects are denoted by the use of `__` (double underscores) i.e. `.component-name__sub-component-name`. 
+A sub-object is a context-dependant sibling of an object that performs a certain function and is represented by an additional class for a component. Sub-objects are similar to elements in syntax and in relation to an object, but they differ significantly in the way that a sub-object extends or provides minor overrides to the object and is applied to the _same_ HTML element. Sub-objects are denoted by the use of `__` (double underscores) i.e. `.object-name__sub-object-name`. 
 
 * A variant of a component that inherits all the styles of its object, but differs by adding additional object styles, or providing minor overrides of its object.  When object overrides become significant, the creation of an additional object should be considered.
 * A component's sub-object are siblings of the object and are prefixed
@@ -244,7 +245,7 @@ A sub-object is a context-dependant sibling of an object that performs a certain
 Example:
 
 {% highlight sass %}
-  .nav__pager {...}         /* Sub-Component */
+  .nav__pager {...}         /* Sub-Object */
 {% endhighlight %}
 
 
@@ -298,7 +299,7 @@ Example:
 ### Icons
 * Icons should be styled as independent entities to allow their use in _any_ component without the need for duplication of code.
 * Icon components are prefixed with `ico-`.
-* Icon styles should be split into structure and skin (`.ico-small` & `.ico-profile classes`) in order to allow for maximum flexibility and minimal code repetition [[1]](README.md#works-cited).
+* Icon styles should be split into structure and skin (`.ico-small` & `.ico-profile` classes) in order to allow for maximum flexibility and minimal code repetition [[1]](README.md#works-cited).
 * Use Compass to manage sprits easily.
 * Sprited Icons should be added to empty elements that have their text hidden off canvas.
 * Use Compass to manage image directories easily
@@ -388,7 +389,7 @@ its semantic value from its classes.
 
 * Do not use CSS ID selectors.
 * Do not use location based selectors to change a component's appearance based on its page position or region - i.e. (main-content, side-bar, footer, etc) [[17]](README.md#works-cited).  When a component has different appearances create a new component by changing out its structure or skin class.
-* Always name-space state class names e.g. `.is-disabled`, `.is-collapsed` - never explicitly style a state.
+* Always name-space state class names e.g. `.is-disabled`, `.is-collapsed`. 
 
 Example: 
 
