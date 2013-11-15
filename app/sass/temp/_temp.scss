@@ -1,8 +1,78 @@
 
-
-
+/**
+ * Code Blocks
+ */
 pre code {
   width: 100%;
   overflow-x: scroll;
   word-break: keep-all;
 }
+
+
+/**
+ * Navigation
+ *
+ */
+
+/**
+ * Navigation Structure
+ */
+.nav--large {
+  & li {
+    margin-right: 10px; 
+  }
+}
+
+/**
+ * Navigation Skin
+ */
+.nav--primary {
+  a {
+    color: $blue-green--tone-2 !important;
+    font-weight: normal;                   
+    text-decoration: none;
+    &:visited { 
+      color: $blue-green--tone-2; 
+    }
+    &:hover { 
+      color: $blue-green--tint-2 !important;//$blue-green--tint-2; 
+    } 
+    &:focus { 
+      color: $blue-green--tint-2; 
+    }
+  }
+}
+
+/**
+ * Header
+ */
+.header {
+  background: black(20);
+  padding: 10px;
+  margin-bottom: 1em;
+  text-align: center;
+}
+
+/**
+ * Links
+ */
+.#{$main-type-scope} {
+  a {
+    color: $blue-green--tone-2;
+    font-weight: normal;                   
+    text-decoration: none;
+    &:visited { 
+      color: $blue-green--tone-2; 
+    }
+    &:hover { 
+      color: $blue-green--tint-2; 
+    } 
+    &:focus { 
+      color: $blue-green--tint-2; 
+    }
+  }
+}
+
+
+
+
