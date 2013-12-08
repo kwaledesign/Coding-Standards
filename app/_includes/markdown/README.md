@@ -117,7 +117,6 @@ for modularity.
 28. [Global Typographic Styles Suck](http://anthonyshort.me/2012/05/global-typographic-styles-suck)
 29. [Help My Stylesheets are a Mess!](https://speakerdeck.com/chriseppstein/help-my-stylesheets-are-a-mess)
 
-### License:
+### License
+© Kwale Design - Original source code dual licensed under [MIT license](http://www.opensource.org/licenses/mit-license.php) / [GPL2 license](http://www.gnu.org/licenses/gpl-2.0.html). Open-sourced projects used within this project retain their original licenses.
 
-CSS-style guide is licensed under the terms of the MIT
-[license](https://github.com/kwaledesign/CSS-style guide/blob/master/LICENSE).
