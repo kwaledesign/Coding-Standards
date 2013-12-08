@@ -1,0 +1,55 @@
+/**
+ * Susy Grid
+ * 
+ * http://susy.oddbird.net/
+ * https://github.com/ericam/susy
+ */
+
+@import "susy";
+
+
+/**
+ * Grid Variables
+ * 
+ * 1. Class name for Susy container include
+ * 2. $container-style: static/magic/fluid 
+ */
+$susy-container:                                          page;                   /* 1 */
+$total-cols:                                              12;
+$col-width:                                               4em;
+$gutter-width:                                            1em;
+$side-gutter-width:                                       $gutter-width;  
+$container-style:                                         fluid;                  /* 2 */
+
+
+/**
+ * Grid Background
+ *
+ * Visually debug grid layouts
+ *
+ * Note: Some browsers have trouble with sub-pixel rounding on background images.
+ *       Use this for checking general spacingnot pixel-exact alignment.
+ *       Susy columns tend to be more accurate than gradient grid-backgrounds
+ */
+$grid-background-baseline-color:                          rgba(255, 0, 0, 0.20);
+$grid-background-column-color:                            rgba(100, 100, 225, 0.15);
+$grid-background-gutter-color:                            rgba(0, 0, 0, 0);
+
+@mixin susy-grid-background {
+  @include grid-background();
+}
+
+/**
+ * Grid Objects
+ * 
+ * 1. Display grid overlay (disable for production)
+ * 2. Include the susy container
+ */
+.grid {
+  @include susy-grid-background;   
+}
+
+.#{$susy-container} {
+  @include container;   
+}
+

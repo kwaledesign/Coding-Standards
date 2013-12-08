@@ -1,0 +1,12 @@
+/*** @export "partition-object" css */
+/**
+ * Partition Object
+ * 
+ */
+
+.partition {
+  display: block;
+  position: relative;
+  @extend %cf;
+}
+

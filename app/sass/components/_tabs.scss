@@ -1,0 +1,256 @@
+/**
+ * Tabs
+ * 
+ */
+ 
+
+/**
+ * Tab Variables
+ *
+ * 1. Optionally rename alert skin styles
+ * 2. The breakpoint(s) at which this component 'breaks' - unrelated to any other component bp
+ *    specific only to this particular component. These types of bp's are also unrelated to higher
+ *    level layout bp's - they are tightly coupled to the component and are, therefore, best kept
+ *    together within the same stylesheet.
+ */
+ 
+/* Tab Class Namespace: */
+$primary:                             primary;                    /* 1 */
+$secondary:                           vertical;                   /* 1 */
+ 
+/* Tab Skin */
+$tab--border-radius:                  4px;
+
+/* Tab Breakpoints */
+$tab--breakpoint:                     20em;                       /* 2 */
+ 
+/**
+ * Tab Container
+ */
+.tab-container { 
+  @include pie-clearfix;    //@extend %cf; 
+}
+
+/**
+ * Tab Content
+ *
+ * 1. Prevent content from running below tabs
+ */
+ .tab-content { 
+   overflow: auto;                                                 /* 1 */
+   padding: 10px;
+} 
+
+
+/**
+ * Tab Structure
+ *
+ * Extends the nav-object
+ */
+
+
+/**
+ * Top Tab Structure
+ *
+ * 1. Horizontal tab line - visually seperates tab content from tabs
+ * 2. Overlay the bottom border for horizontal tabs
+ * 3. Remove bottom border of active tab
+ */
+.tabs--top {
+  border-bottom: 1px solid;                                         /* 1 */
+  & > li {
+    margin: 0 0 -1px 0;                                             /* 2 */
+  }
+  & > li > a {
+    padding: 8px 12px 8px 12px;
+    margin-right: 2px;
+    line-height: $base-line-height;
+    min-width: 80px;
+    border-radius: $tab--border-radius $tab--border-radius 0 0;
+  }
+  & > .active > a,
+  & > .active > a:hover {
+    border-bottom-color: transparent !important;                    /* 3 */
+    cursor: default;
+  }
+}
+
+/**
+ * Bottom Tab Structure 
+ *
+ * 1. Horizontal tab line - visually seperates tab content from tabs
+ * 2. Overlay the top border for horizontal tabs
+ * 3. Remove top border of active tab - using !important here because we have split up border
+ *    style declarations into structure / skin and we want to ensure border-color we assign overrides
+ *    the browser's default
+ */
+.tabs--bottom {
+  border-top: 1px solid;                                            /* 1 */
+  & > li {
+    margin: -1px 0 0 0;                                             /* 2 */
+  }
+  & > li > a {
+    padding: 8px 12px 8px 12px;
+    margin-right: 2px;
+    line-height: $base-line-height;
+    min-width: 80px;
+    border-radius: 0 0 $tab--border-radius $tab--border-radius;
+  }
+  & > .active > a,
+  & > .active > a:hover {
+    border-top-color: transparent !important;                       /* 3 */
+    cursor: default;
+  }
+}
+
+
+/**
+ * Side-Left Tab Structure 
+ *
+ * 1. Vertical tab line - visually seperates tab content from tabs
+ * 2. Overlay the right border for horizontal tabs
+ * 3. Remove right border of active tab - using !important here because we have split up border
+ *    style declarations into structure / skin and we want to ensure border-color we assign overrides
+ *    the browser's default
+ */
+.tabs--side-left {
+  border-right: 1px solid;                                          /* 1 */
+  float: left;
+  margin-right: ms(1);
+  & > li {
+    margin: 0 -1px 0 0;                                             /* 2 */
+    float: none;
+  }
+  & > li > a {
+    padding: 8px 12px 8px 12px;
+    margin-bottom: 3px;
+    line-height: $base-line-height;
+    min-width: 80px;
+    border-radius: $tab--border-radius 0 0 $tab--border-radius;
+  }
+  & .active > a,
+  & .active > a:hover {
+    border-right-color: transparent !important;                     /* 3 */
+    cursor: default;
+  } 
+}
+
+
+/**
+ * Side-Right Tab Structure 
+ *
+ * 1. Vertical tab line - visually seperates tab content from tabs
+ * 2. Overlay the left border for horizontal tabs
+ * 3. Remove left border of active tab - using !important here because we have split up border
+ *    style declarations into structure / skin and we want to ensure border-color we assign overrides
+ *    the browser's default
+ */
+.tabs--side-right {
+  border-left: 1px solid;                                          /* 1 */
+  float: right;
+  margin-left: ms(1);
+  & > li {
+    margin: 0 0 0 -1px;                                            /* 2 */
+    float: none;
+  }
+  & > li > a {
+    padding: 8px 12px 8px 12px;
+    margin-bottom: 3px;
+    line-height: $base-line-height;
+    min-width: 80px;
+    border-radius: 0 $tab--border-radius $tab--border-radius 0;
+  }
+  & .active > a,
+  & .active > a:hover {
+    border-left-color: transparent !important;                     /* 3 */
+    cursor: default;
+  }
+}
+
+
+/**
+ * Vertical Tab Structure 
+ *
+ * Extends the nav-object and the vertical nav-object modifier
+ *
+ * 1. Round the top corners of the first tab
+ * 2. Round the bottom corners of the last tab
+ */
+.tabs--vertical {
+  & > li {
+  }
+  & > li > a {
+    padding: 12px;
+    line-height: $base-line-height;
+    border: 1px solid;
+    border-bottom: none;
+  }
+  & > li:first-child > a {
+    @include border-top-radius($tab--border-radius);                 /* 1 */
+  }
+  & > li:last-child > a {
+    @include border-bottom-radius($tab--border-radius);
+    border-bottom: 1px solid;                                        /* 2 */
+  }
+  & > .active > a,
+  & > .active > a:hover {
+    cursor: default;
+  }
+}
+
+
+/**
+ * Right Align Tabs
+ *
+ */
+.tabs--right {
+  & > li {
+    float: right;
+  }
+}
+
+
+/**
+ * Tab Skin 
+ *
+ * 1. Using !important here because we have split up border
+ *    style declarations into structure / skin and we want to ensure border-color we assign overrides
+ *    the browser's default
+ * 2. Inactive tab bg-color
+ * 3. Active tab bg-color (can't be transparant because we're pulling this down 1px
+ *    to hide the tab border on active tabs
+ */
+.tabs--#{$primary} {
+  border-color: darken(white, 30%) !important;                        /* 1 */
+  & > li > a {
+    border-color: darken(white, 30%);
+    background-color: transparent;                                    /* 2 */
+    &:hover {
+      //
+    }
+  }
+  & > .active > a,
+  & > .active > a:hover {
+    color: darken(white, 40%);
+    background-color: white;                                          /* 3 */
+    border: 1px solid;
+  } 
+}
+
+.tabs--#{$secondary} {
+  border-color: darken(white, 30%) !important;                        /* 1 */
+  & > li > a {     
+    background-color: darken(white, 5%);                              /* 2 */
+    border-color: darken(white, 30%) !important;                      /* 1 */
+    &:hover {
+      background-color: darken(white, 10%);
+    }
+  }
+  & > .active > a,
+  & > .active > a:hover {
+    color: #333; //white;
+    background-color: darken(white, 20%);                             /* 3 */
+    cursor: default;
+  }
+}
+ 

@@ -1,0 +1,74 @@
+/*** @export "nav-object" css */
+/**
+ * Nav Object
+ *
+ * csswizardry.com/2011/09/the-nav-abstraction
+ */
+.nav {
+  list-style: none;
+  margin-left: 0;
+  padding-left: 0;
+  @extend %cf;
+  & > li{
+    &,
+    & > a{
+      display:inline-block;
+    }
+  }
+}
+
+/**
+ * Nav Sub-Objects
+ *
+ * Extend the Nav-Object
+ *
+ * https://github.com/csswizardry/inuit.css/blob/master/objects/_nav.scss 
+ */
+
+
+/**
+ * Vertical Navigation
+ */
+.nav__vertical {
+  & > li { 
+    display: list-item;
+    & > a { display: block; } 
+  }
+}
+
+
+/**
+ * Full Nav
+ */
+.nav__full {
+  display: table;
+  width: 100%;
+  & > li {
+    display: table-cell;
+    & > a {
+      display: block;
+    }
+  }
+}
+
+
+/**
+ * Block Nav
+ */
+.nav__block {
+  & > li {
+    display: block;
+    & > a {
+      display: block;
+    }
+  }
+}
+
+
+/**
+ * Center Nav
+ */
+.nav__center {
+  text-align: center;
+}
+

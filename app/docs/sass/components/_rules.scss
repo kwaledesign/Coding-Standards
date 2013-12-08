@@ -1,0 +1,16 @@
+/*** @export "rules" css */
+/**
+ * Rules
+ * 
+ * Horizontal rules are scoped with $main-type-scope which is set in the base/_typography.scss partial
+ */  
+
+.#{$main-type-scope} {
+  hr { 
+    display: block; 
+    border: 0;
+    @include leading-border($copy--hr-width, .5);
+    border-color: $copy--hr-color;
+  }
+}
+

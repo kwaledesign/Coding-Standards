@@ -1,0 +1,28 @@
+/*** @export "quotes" css */
+/**
+ * Blockquotes
+ *
+ * Blocksquotes are scoped with $main-type-scope which is set in the base/_typography.scss partial
+ *
+ * 1. right aligned blockquote
+ */
+
+.#{$main-type-scope} {
+  blockquote {
+    font-family: $copy--accent-txt;
+    margin: $base-line-height;
+    color: $subtle-color--txt;
+    font-style: italic; 
+    padding-left: 1em;
+    border-left: 5px solid $subtle;
+      &.right {                                   /* 1 */
+        float: right;
+        padding-right: 10px;
+        padding-left: 0;
+        border-right: 5px solid $subtle;
+        border-left: none;
+        text-align: right;
+      }                        
+  }
+}
+
