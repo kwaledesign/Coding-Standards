@@ -149,11 +149,8 @@ Layout styles provide structure to (mobile-first) linear content. These styles a
 ### Utilities
 Utilities are code snippets abstracted into classes, functions, and mixins that provide specific functionality. Utilities include normalize, clearfix, css-triangles, etc. Utilities can be given their own directory within the project's root, or they can be abstracted into a Compass plugin. Example: [Archetype-Utilities](https://github.com/kwaledesign/Archetype-Utilities).
 
-### App
-The app directory contains non-framework related styles and customizations.  Anything that needs to be overridden within the framework is disabled in the framework's `screen.scss` file, then copied into the appropriate directory within the app folder. The directory structure of the framework is mirrored in the app directory. This methodology (along with a consistient coding standard) allows for the easy upgrade path of the framework without overriding application specific visual styles.
-
 #### Temp
-The temporary directory contains any styles that haven't yet been properly defined and organized within the project's architecture. The temporary directory resides within the app folder. This where any hacks or quick fixes belong.  Each 'fix' placed within this directory should be given its own partial and should be accompanied by a corresponding issue properly tagged and filed in the project's repository so that it can be properly incorporated into the code base at a later date. Preventing sub-standard code from being committed into the code base helps to prevent un-necessary depreciation as well as unintentionally introducing bugs by keeping these 'fixes' quarantined within the temp directory. [[25]](README.md#works-cited)
+The temporary directory contains any styles that haven't yet been properly defined and organized within the project's architecture. This where any hacks or quick fixes belong.  Each 'fix' placed within this directory should be given its own partial and should be accompanied by a corresponding issue properly tagged and filed in the project's repository so that it can be properly incorporated into the code base at a later date. Preventing sub-standard code from being committed into the code base helps to prevent un-necessary depreciation as well as unintentionally introducing bugs by keeping these 'fixes' quarantined within the temp directory. [[25]](README.md#works-cited)
 
 ## Object Oriented CSS (OOCSS)
 >"[A] CSS “object” is a repeating visual pattern which can be abstracted into an
