@@ -34,6 +34,6 @@ Thumbs.db
 
 # Ignore for Yeoman-Jekyll projects #
 app/_bower_components
-dist
+# dist # commented out to allow checkout into gh-pages branch
 node_modules
 .tmp
