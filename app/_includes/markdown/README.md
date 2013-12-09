@@ -14,7 +14,7 @@ a site must not appear exactly the same on all browsers and devices.
 
 ### User Centric Objective
 1. Adhear to standards as they are defined by the language specification
-2. Apply [progressive enhancement](/pe.md) by serving core site content and
+2. Apply [progressive enhancement](/pe) by serving core site content and
   functionality to all user agents and serving an enhanced experience built
   on top of the basic experience. Apply JavaScript to enhance the site with
   a richer experience when it is supported and enabled, but do not require it in
@@ -40,25 +40,25 @@ for modularity.
 ### Object Oriented Principles
 * **Single Responsibility Principle** - an object should have only a single
   responsibility, and that responsibility should be entirely encapsulated by
-  the object [[7]](README.md#works-cited) [[8]](README.md#works-cited).
+  the object [[7]](/#works-cited) [[8]](/#works-cited).
 * **Open/Closed Principle** - entities (classes, modules, functions, etc.) are open
   for extension, but closed for modification. Base rules may be extended, but
   not directly modifiable. This is why directly styling HTML tags is not
   advisable - reduce the amount of global element styles in order to reduce the
-  chances of breaking the open/closed principle [[7]](README.md#works-cited)
-  [[9]](README.md#works-cited)
+  chances of breaking the open/closed principle [[7]](/#works-cited)
+  [[9]](/#works-cited)
 * **Liskov Substitution Principle** - objects should be replaceable with instances
   or their sub-components without breaking. Sub-components that extend a module should be interchangeable with the base module itself. To keep true
-  to this principle, a module's subcomponent(s) should never affect layout [[7]](README.md#works-cited).
+  to this principle, a module's subcomponent(s) should never affect layout [[7]](/#works-cited).
 * **Entity Segregation Principle** - If ever it becomes awkward to interchange
   a subcomponent with its base module, or if it becomes necessary to redefine
   too many properties, move the subcomponent into its own custom module. It is
   sometimes better to have multiple base modules opposed to a single generic
   module with multiple sub-components. Never make sacrifices in functionality
   in the name of utility  Taken too far, code abstraction becomes
-  [[7]](README.md#works-cited) detrimental. When writing modular CSS, it's not about maintaining modularity
+  [[7]](/#works-cited) detrimental. When writing modular CSS, it's not about maintaining modularity
   in the actual code, but rather modularity in the actual design
-  [[10]](README.md#works-cited).
+  [[10]](/#works-cited).
 * **DRY** - (don't repeat yourself) - aimed at reducing repetition of information of all kinds. Every piece of knowledge must have a single, unambiguous, and authoritative representation within the system.
 
 ## Whitespace and Comments
@@ -77,7 +77,8 @@ for modularity.
 
 <hr>
 
-## Works Cited:
+<h2 id="works-cited">Works Cited:</h2>
+
 1. [SMACSS](http://smacss.com/)
 2. [BEM](http://bem.info/)
 3. [About HTML Semantics and Front-End
