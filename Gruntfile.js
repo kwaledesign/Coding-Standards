@@ -123,7 +123,7 @@ module.exports = function (grunt) {
         require: ['archetype-utilities', 'colorkit', 'modular-scale', 'breakpoint', 'singularitygs', 'singularity-extras', 'susy'],
         bundleExec: true,
         sassDir: '<%= yeoman.app %>/sass',
-        cssDir: '.tmp/css',
+        cssDir: ['dist/css', '.tmp/css'],
 //        cssDir: '<%= yeoman.app %>/css',
         imagesDir: '<%= yeoman.app %>/images',
         javascriptsDir: '<%= yeoman.app %>/js',
