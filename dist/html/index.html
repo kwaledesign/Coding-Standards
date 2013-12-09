@@ -1,0 +1,25 @@
+<!DOCTYPE html><!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]--><!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]--><!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]--><!--[if gt IE 8]><!--><html class=no-js><!--<![endif]--><head><meta charset=utf-8><meta http-equiv=X-UA-Compatible content="IE=edge"><title>Testing</title><meta name=description content=""><meta name=viewport content="width=device-width, initial-scale=1"><!-- Place favicon.ico and apple-touch-icon.png in the root directory --><link rel=stylesheet href=/css/f8ce.screen.css><script src=/js/f7f2.head-scripts.js></script></head><body><!--[if lt IE 7]>
+        <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+    <![endif]--><header class=header><h1 class=header__title>Coding Standards</h1><nav><ul class="nav nav--large nav--primary"><li><a href=/Coding-Standards/>Home</a></li><li><a href=/Coding-Standards/html>HTML</a></li><li><a href=/Coding-Standards/css>CSS</a></li><li><a href=/Coding-Standards/sass>Sass</a></li><li><a href=/Coding-Standards/pe>PE</a></li><li><a href=/Coding-Standards/git>Git</a></li></ul></nav></header><section class=copy><h1>HTML Guidelines</h1><h2>Syntax and General Guidelines</h2><ul><li>Use lowercase tag and attribute names and write only one element per line</li><li>Use only one level of indentation for each nested element and eliminate end of line whitespace and unintended blank lines</li><li>Always use double quotes, never single quotes</li><li>Omit the <code>type</code> attributes from <code>link</code> stylesheet, <code>style</code> and <code>script</code> elements.</li><li>Always use closing tags</li><li>Use the HTML5 doctype to enforce standards mode in every browser with <code>&lt;!doctype HTML&gt;</code></li></ul><p>Example:</p><div class=highlight><pre><code class=html>  <span class=cp>&lt;!DOCTYPE html&gt;</span>
+  <span class=nt>&lt;html&gt;</span>
+    <span class=nt>&lt;head&gt;</span>
+      <span class=nt>&lt;title&gt;</span>Hello, world!<span class=nt>&lt;/title&gt;</span>
+    <span class=nt>&lt;/head&gt;</span>
+    <span class=nt>&lt;body&gt;</span>
+      <span class=nt>&lt;img</span> <span class=na>src=</span><span class=s>&#39;images/logo.png&#39;</span> <span class=na>alt=</span><span class=s>&#39;Company-Name&#39;</span> <span class=nt>/&gt;</span>
+      <span class=nt>&lt;h1</span> <span class=na>class=</span><span class=s>&quot;intro&quot;</span><span class=nt>&gt;</span>Hello, world!<span class=nt>&lt;/h1&gt;</span>
+    <span class=nt>&lt;/body&gt;</span>
+  <span class=nt>&lt;/html&gt;</span>
+</code></pre></div><ul><li>Use the simplest markup pattern possible for a component while still maintaining HTML standards and proper semantics.</li><li>Do not write markup in javascript files to avoid detrimental effects on performance and maintainability.</li></ul><h1>HTML Attributes</h1><p>Apply HTML Attributes to an element in the following order:* Class* ID* data-** everything else</p><p>Example:</p><div class=highlight><pre><code class=html>  <span class=nt>&lt;a</span> <span class=na>class=</span><span class=s>&quot;&quot;</span> <span class=na>id=</span><span class=s>&quot;&quot;</span> <span class=na>data-name=</span><span class=s>&quot;&quot;</span> <span class=na>href=</span><span class=s>&quot;&quot;</span><span class=nt>&gt;</span>...<span class=nt>&lt;/a&gt;</span>
+</code></pre></div><h3>Exceptions</h3><p>Elements with multiple attributes can be split into multiple lines to improve readability and produce more meaningful diffs.</p><p>Example:</p><div class=highlight><pre><code class=html>  <span class=nt>&lt;a</span> <span class=na>class=</span><span class=s>&quot;&quot;</span>
+   <span class=na>data-action=</span><span class=s>&quot;&quot;</span>
+   <span class=na>data-id=</span><span class=s>&quot;&quot;</span>
+   <span class=na>href=</span><span class=s>&quot;&quot;</span><span class=nt>&gt;</span>
+      <span class=nt>&lt;span&gt;</span>...<span class=nt>&lt;/span&gt;</span>
+  <span class=nt>&lt;/a&gt;</span>
+</code></pre></div></section><script src=//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js></script><script>window.jQuery || document.write('<script src="/bower_components/jquery/jquery.min.js"><\/script>')</script><script src=/js/d41d.script.js></script><!-- Google Analytics: change UA-XXXXX-X to be your site's ID. --><script>(function(b,o,i,l,e,r){b.GoogleAnalyticsObject=l;b[l]||(b[l]=
+  function(){(b[l].q=b[l].q||[]).push(arguments)});b[l].l=+new Date;
+  e=o.createElement(i);r=o.getElementsByTagName(i)[0];
+  e.src='//www.google-analytics.com/analytics.js';
+  r.parentNode.insertBefore(e,r)}(window,document,'script','ga'));
+  ga('create','UA-XXXXX-X');ga('send','pageview');</script></body></html>
